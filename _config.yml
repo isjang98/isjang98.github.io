@@ -1,21 +1,12 @@
-title: isjang98.github.io
-email: isjang98@gmail.com
-
+# Site settings
+title: Your awesome title
+email: isjang98@google.com
+description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+baseurl: ""
+url: "http://yourdomain.com"
 twitter_username: isjang98
 github_username:  isjang98
-facebook_username: word
 
-markdown: kramdown 
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "tables"]
-
-highlighter: rouge 
-
+# Build settings
+markdown: kramdown
 permalink: pretty
-
-safe: true
-lsi: true
-
-gems:
-  - jekyll-redirect-from
-  - jemoji
