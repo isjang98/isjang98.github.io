@@ -55,7 +55,7 @@ categories: jekyll update
 
 	deploy:
 	  provider: releases	
-	  api_key: 3781bd8612d67220ae09f249357a0804327ed7f8
+	  api_key: [GITHUB API KEY]
 	  file: app/build/outputs/apk/app-release.apk
 	  skip_cleanup: true
 	  
