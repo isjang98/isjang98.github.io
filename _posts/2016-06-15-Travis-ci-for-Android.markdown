@@ -34,10 +34,10 @@ categories: jekyll update
 	    
     	# Additional components
     	- extra
-	- extra-android-m2repository
-	- extra-google-google_play_services
-    	- extra-google-m2repository
-	- extra-android-m2repository
+		- extra-android-m2repository
+		- extra-google-google_play_services
+		- extra-google-m2repository
+		- extra-android-m2repository
 
 	before_install:
 	  - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
