@@ -6,7 +6,6 @@ categories: jekyll update
 ---
 
 # Travis CI
-> URL : <a href="https://travis-ci.com/socar-inc/socar-tablet/">https://travis-ci.com/socar-inc/socar-tablet/</a>
 
 > Docs : <a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a>
 
@@ -35,10 +34,10 @@ categories: jekyll update
 	    
     	# Additional components
     	- extra
-	    - extra-android-m2repository
-	    - extra-google-google_play_services
+	- extra-android-m2repository
+	- extra-google-google_play_services
     	- extra-google-m2repository
-		- extra-android-m2repository
+	- extra-android-m2repository
 
 	before_install:
 	  - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
