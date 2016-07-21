@@ -6,11 +6,10 @@ categories: jekyll update
 ---
 
 # Travis CI
-> URL : <a href="https://travis-ci.com/socar-inc/socar-tablet/">https://travis-ci.com/socar-inc/socar-tablet/</a>
+> URL : https://travis-ci.com/<em>[REPOSITORY NAME]<em>
 
 > Docs : <a href="https://docs.travis-ci.com/">https://docs.travis-ci.com/</a>
 
-## Socar-tablet
 1. [branch] coding & coding ...
 2. git tag 태그명
 3. git push github tag명
@@ -61,7 +60,7 @@ categories: jekyll update
 	  
 	  on:	  
 	    tags: true	  
-	    repo: socar-inc/socar-tablet	    
+	    repo: [REPOSITORY NAME] 
 	env:
 	  global:
 	    - NDK_VERSION=r11c
