@@ -21,49 +21,70 @@ categories: jekyll update
 > Travis WebLint : <a href="http://lint.travis-ci.org">http://lint.travis-ci.org/</a>
 	
 	# 어떤 언어를 사용할 지 정의 합니다.
-	language: android	
+	language: android
 	
 	android:
 	  components:
-	  	# The BuildTools version used by your project
-	    - build-tools-23.0.1	  
-	    
-	    # The SDK version used to compile your project
-	    - android-23	
-	    - add-on	
-	    
-    	# Additional components
-    	- extra
+	    - build-tools-23.0.1
+	    - android-23
+	    - android-22
+	    - add-on
+	    - extra
 	    - extra-android-m2repository
 	    - extra-google-google_play_services
-    	- extra-google-m2repository
-		- extra-android-m2repository
-
+	    - extra-google-m2repository
+	    - extra-android-m2repository
+	    - sys-img-armeabi-v7a-android-22
 	before_install:
 	  - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
 	  - export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
 	  - export JAVA_HOME=$JAVA8_HOME
+	
 	  # NDK 관련 Install & 환경변수 설정
 	  - git clone https://github.com/urho3d/android-ndk.git $HOME/android-ndk-root
-  	  - export ANDROID_NDK_HOME=$HOME/android-ndk-root
-	  - echo "ndk.dir=$ANDROID_NDK_HOME" > local.properties	
+	  - export ANDROID_NDK_HOME=$HOME/android-ndk-root
+	  - echo "ndk.dir=$ANDROID_NDK_HOME" > local.properties
 	
 	
-	# 빌드에 사용할 스크립트입니다.
-	script: ./gradlew build
-
+	before_script:
+	  # UI Test를 위해서 Launch Eumlator
+	  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+	  - emulator -avd test -no-skin -no-audio -no-window -gpu off &
+	  - android-wait-for-emulator
+	  - adb shell input keyevent 82 &
+	
+	
 	deploy:
-	  provider: releases	
-	  api_key: [GITHUB API KEY]
+	  api_key: $GITHUB_TOKEN
 	  file: app/build/outputs/apk/app-release.apk
+	  provider: releases
 	  skip_cleanup: true
-	  
-	  on:	  
-	    tags: true	  
+	
+	  on:
 	    repo: [REPOSITORY NAME] 
+	    tags: true
 	env:
 	  global:
 	    - NDK_VERSION=r11c
+	  matrix:
+	    - ANDROID_TARGET=android-22 ANDROID_ABI=armeabi-v7a GITHUB_TOKEN=[GITHUB API KEY]
+	
+	# 빌드에 사용할 스크립트입니다.
+	script:
+	  # Unit Test
+	  - ./gradlew cDAT
+	  # Build
+	  - ./gradlew build
+	
+	after_success:
+	    # travis_relese Branch Merge & Push
+	   - git remote -v
+	   - git branch
+	   - git checkout -b [BRANCH_NAME]
+	   - git merge "$TRAVIS_BRANCH"
+	   - git branch
+	   - git push https://socar-inc:$GITHUB_TOKEN@github.com/socar-inc/socar-tablet.git [BRANCH_NAME]
+	
 	sudo: false
 
 
