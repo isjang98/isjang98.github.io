@@ -77,13 +77,17 @@ categories: jekyll update
 	  - ./gradlew build
 	
 	after_success:
-	    # travis_relese Branch Merge & Push
+	    # Branch Merge & Push
+	    # 아래 예제 스크립트는 test, build가 성공적으로 되었을때 특정브랜치에
+	    # merge 후 push하는 예제입니다. 
 	   - git remote -v
 	   - git branch
 	   - git checkout -b [BRANCH_NAME]
 	   - git merge "$TRAVIS_BRANCH"
 	   - git branch
-	   - git push https://socar-inc:$GITHUB_TOKEN@github.com/socar-inc/socar-tablet.git [BRANCH_NAME]
+	   - git push [HTTPS_REPO_URL] [BRANCH_NAME] # 아래 예제 참조 
+
+	   # ex) git push https://socar-inc:$GITHUB_TOKEN@github.com/socar-inc/socar-tablet.git travis_release 
 	
 	sudo: false
 
