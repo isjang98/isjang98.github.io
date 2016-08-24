@@ -71,24 +71,55 @@ categories: jekyll update
 	
 	# 빌드에 사용할 스크립트입니다.
 	script:
-	  # Unit Test
-	  - ./gradlew cDAT
-	  # Build
-	  - ./gradlew build
-	
+	    - ./build.sh
+
 	after_success:
 	    # Branch Merge & Push
 	    # 아래 예제 스크립트는 test, build가 성공적으로 되었을때 특정브랜치에
 	    # merge 후 push하는 예제입니다. 
-	   - git remote -v
-	   - git branch
-	   - git checkout -b [BRANCH_NAME]
-	   - git merge "$TRAVIS_BRANCH"
-	   - git branch
-	   - git push [HTTPS_REPO_URL] [BRANCH_NAME] # 아래 예제 참조 
+	    # travis_relese Branch Merge & Push
+	    - ./deploy.sh "$TRAVIS_BRANCH"
 
-	   # ex) git push https://socar-inc:$GITHUB_TOKEN@github.com/socar-inc/socar-tablet.git travis_release 
-	
 	sudo: false
 
+> build.sh
 
+	
+	#! /bin/sh
+
+	echo "============= ./gradlew cDAT 시작 Unit Test =============";
+	./gradlew cDAT
+	if [ "$?" -eq "0" ]; then
+    	echo "============= ./gradlew build 시작 =============";
+    	./gradlew build;
+    	if [ "$?" -eq "0" ]; then
+        	exit 0;
+    	else
+        	exit 1;
+        	echo "=============  ./gradlew build 실패 =============";
+    	fi
+	else
+    	echo "=============  ./gradlew cDAT 실패 =============";
+    	exit 1;
+	fi
+
+현재 Build 작업 Branch가 Merge Branch와 같으면 github가 merge & push 를 않하도록 Shell Script처리 	
+
+> deploy.sh
+	
+	#!/bin/bash
+
+	BRANCH="$1"
+
+	if [ "$BRANCH" != "travis_release" ]; then
+	    git remote -v
+	    git branch
+	    git checkout -b travis_release
+	    git merge "$TRAVIS_BRANCH"
+	    git branch
+	    git push [HTTPS_REPO_URL] [BRANCH_NAME] # 아래 예제 참조  
+	   # ex) git push https://socar-inc:$GITHUB_TOKEN@github.com/socar-inc/socar-tablet.git travis_release 
+	else
+		echo "Noting with github"
+		exit 0
+	fi
