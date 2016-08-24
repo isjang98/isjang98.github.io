@@ -17,6 +17,10 @@ categories: jekyll update
 5. Build Success > APK release > Github release에서 apk & code 생성 (APK 파일 버전별로 관리 가능)
 
 
+# 단위테스트가 Success 이고 Build가 Success이면은 travis_release로 Merge & Push 하도록 작업하였습니다.
+
+
+
 ## Android Project Build 위한 .travis.yml 작성
 > Travis WebLint : <a href="http://lint.travis-ci.org">http://lint.travis-ci.org/</a>
 	
