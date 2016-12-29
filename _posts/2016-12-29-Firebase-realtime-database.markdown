@@ -260,9 +260,9 @@ myRef에 추가하여 줍니다.
 	  public void onDataChange(DataSnapshot dataSnapshot) {
     	// This method is called once with the initial value and again
     	// whenever data at this location is updated.
-  	}
+		}
 
-	@Override
+		@Override
   	public void onCancelled(DatabaseError error) {
     	// Failed to read value
     		Log.e(TAG, "onCancelled: " + error.getMessage());
