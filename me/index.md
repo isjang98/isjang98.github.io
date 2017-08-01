@@ -2,7 +2,7 @@
 layout: about
 ---
 
-Hello, my name is Word Jang. I am a mobile developer in SOCAR
+Hello, my name is Word Jang. I am a mobile developer in Hyundai Capital.
 
 # What do you do?
 I develop mobile application and stuff. All the code I write is on my [Github](https://github.com/isjang98).
