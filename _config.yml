@@ -12,6 +12,7 @@ google_verification: null
 include: [".htaccess"]
 exclude: ["README.md", "LICENSE"]
 
+url: https://isjang98.github.io
 
 # Sass
 sass:
