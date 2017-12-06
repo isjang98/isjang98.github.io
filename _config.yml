@@ -18,6 +18,9 @@ sass:
   style: :compressed
   sass_dir: _sass
 
+encoding: UTF-8
+future: true
+jailed: false
 
 # Markdown
 markdown: kramdown
