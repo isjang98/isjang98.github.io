@@ -729,11 +729,7 @@
 		"kakaoShareLink": "http://isjang98.github.io/assets/img/kakao_0151.png"
 	},
 
-	{
-		"bibleVerse": "(예레미아 29:11-13) 여호와의 말씀이니라 너희를 향한 나의 생각을 내가 아나니 평안이요 재앙이 아니니라 너희에게 미래와 희망을 주는 것이니라 너희가 내게 부르짖으며 내게와서 기도하면 내가 너희들의 기도를 들을 것이요 너희가 온 마음으로 나를 구하면 나를 찾을 것이요 나를 만나리라",
-		"imageLink": "http://isjang98.github.io/assets/img/152.png",
-		"kakaoShareLink": "http://isjang98.github.io/assets/img/kakao_0152.png"
-	},
+
 
 	{
 		"bibleVerse": "(요한복음 4:10) 예수께서 대답하여 이르시되 네가 만일 하나님의 선물과 또 내게 물 좀 달라 하는 이가 누구인 줄 알았더라면 네가 그에게 구하였을 것이요 그가 생수를 내게 주었으리라",
@@ -764,5 +760,9 @@
 		"imageLink": "http://isjang98.github.io/assets/img/157.png",
 		"kakaoShareLink": "http://isjang98.github.io/assets/img/kakao_0157.png"
 	}
+
+
+
+
 
 ]
