@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Camera Example</title>
+  </head>
+  <body>
+    <h1>Camera Example</h1>
+    <button id="takePicture">Take Picture</button>
+    <div id="imageContainer"></div>
+
+    <script>
+      var takePictureButton = document.getElementById("takePicture");
+      var imageContainer = document.getElementById("imageContainer");
+
+      takePictureButton.onclick = function () {
+        Android.openCamera();
+      };
+
+      function showImage(imagePath) {
+        var img = document.createElement("img");
+        img.src = "file://" + imagePath;
+        imageContainer.appendChild(img);
+      }
+    </script>
+  </body>
+</html>
