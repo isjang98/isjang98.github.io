@@ -1,28 +1,37 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8"/>
     <title>Camera Example</title>
-  </head>
-  <body>
-    <h1>Camera Example</h1>
-    <button id="takePicture">Take Picture</button>
-    <div id="imageContainer"></div>
+    <style>
+         #imageContainer {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Camera Example</h1>
+<button id="takePicture">Take Picture</button>
+<div id="imageContainer"></div>
+<script>
+    var takePictureButton = document.getElementById("takePicture");
+    var imageContainer = document.getElementById("imageContainer");
 
-    <script>
-      var takePictureButton = document.getElementById("takePicture");
-      var imageContainer = document.getElementById("imageContainer");
-
-      takePictureButton.onclick = function () {
+    takePictureButton.onclick = function () {
         Android.openCamera();
-      };
+    };
 
-      function showImage(imagePath) {
-        var img = document.createElement("img");
-        img.src = "file://" + imagePath;
-        imageContainer.appendChild(img);
-      }
-    </script>
-  </body>
+    function showImage(imagePath) {
+        alert(imagePath);
+        var img = new Image();
+        img.width = 200;
+        img.height = 200;
+        img.src = imagePath;
+        img.onload = function() {
+            imageContainer.appendChild(img);
+        }
+    }
+</script>
+<img src="content://com.example.myapplication.provider/external_files/image.jpg" />
+</body>
 </html>
