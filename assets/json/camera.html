@@ -12,13 +12,19 @@
 <body>
 <h1>Camera Example</h1>
 <button id="takePicture">Take Picture</button>
+<button id="openGallery">Open Gallery</button>
 <div id="imageContainer"></div>
 <script>
     var takePictureButton = document.getElementById("takePicture");
+    var openGalleryButton = document.getElementById("openGallery");
     var imageContainer = document.getElementById("imageContainer");
 
     takePictureButton.onclick = function () {
         Android.openCamera();
+    };
+
+    openGalleryButton.onclick = function () {
+        Android.openGallery();
     };
 
     function showImage(imagePath) {
