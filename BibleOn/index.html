@@ -1,98 +1,474 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
-    <title>말씀 온 (BibleOn)</title>
+    <title>말씀 온 - 말씀 묵상, 성경말씀, 기독교, 말씀큐티🕊️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            font-family: 'Do Hyeon', sans-serif;
+        /* CSS 변수 - 기존 색상 팔레트 유지 */
+        :root {
+            --color-primary-blue: #5d7d9d; /* 주 색상: 차분한 파랑 */
+            --color-light-blue: #a4bacc; /* 밝은 파랑 */
+            --color-gold-accent: #e0a800; /* 강조 색상: 골드 */
+            --color-background-calm: #f4f7f6; /* 배경: 차분한 회색 */
+            --color-background-white: #fff; /* 배경: 흰색 */
+            --color-text-dark: #333; /* 어두운 글자 */
+            --color-text-medium: #555; /* 중간 글자 */
+            --color-text-light: #eee; /* 밝은 글자 */
+            --color-border-subtle: #ddd; /* 은은한 테두리 */
         }
 
-        .icon {
-            width: 200px;
-            height: 200px;
-
-            background-image: url('http://isjang98.github.io/assets/img/bible_on.png');
-            background-size: cover;
-            background-position: center;
-
-            margin: 50px auto 0px auto;
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif; /* 기본 폰트는 Noto Sans KR로 설정 (fallback 및 일부 요소) */
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background-calm);
+            color: var(--color-text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+         h1, h2, h3 {
+             font-family: 'Noto Sans KR', sans-serif; /* 제목은 Noto Sans KR 굵은 글씨로 유지 */
+             font-weight: 700;
+         }
+        /* p 태그 폰트 변경 */
+        p {
+             font-family: 'Nanum Square', sans-serif; /* 본문 글자체를 나눔스퀘어로 변경 */
+             font-weight: 400; /* 나눔스퀘어 기본 굵기 */
+             word-break: keep-all;
+             line-height: 1.8; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
         }
 
-        .googleplay {
-            width: 250px;
-            height: 100px;
-
-            background-image: url('https://play.google.com/intl/en_us/badges/static/images/badges/ko_badge_web_generic.png');
-            background-size: cover;
-            background-position: center;
-
-            margin: 50px auto 0px auto;
-
-            cursor: pointer;
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-
-
-        .wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .messagebox {
-            background-color: ivory;
-            width: 400px;
-            margin: 50px auto auto auto;
-            color: brown;
-            padding: 30px;
-            font-size: 20px;
-            line-height: 30px;
-            box-shadow: 0px 0px 10px 0px white;
-        }
-
-        h1 {
-            color: black;
+        /* 헤더 (히어로) */
+        header {
+            background: linear-gradient(180deg, var(--color-background-calm) 0%, var(--color-background-white) 100%);
+            color: var(--color-text-dark);
+            padding: 100px 20px 50px;
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
+        }
+
+        /* 앱 아이콘 스타일 */
+        .app-icon {
+            display: block; /* 블록 요소로 만들어 중앙 정렬 */
+            margin: 0 auto 25px; /* 위아래 간격 및 중앙 정렬 */
+            width: 100px; /* 아이콘 크기 */
+            height: auto; /* 비율 유지 */
+            border-radius: 20%; /* 부드러운 모서리 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* 그림자 효과 */
+        }
+
+
+        header h1 {
+            font-size: 3em; /* 모바일에서 2em으로 줄어듦 */
+            margin-bottom: 15px;
+            color: var(--color-primary-blue);
+        }
+         /* 헤더 p 태그 스타일 유지 (폰트만 변경됨) */
+        header p {
+            font-size: 1.2em; /* 모바일에서 1em으로 줄어듦 */
+            margin-bottom: 20px; /* 아래 여백 조정 */
+            color: var(--color-text-medium);
+             line-height: 1.8; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
+        }
+         header p:last-of-type { /* 마지막 p 태그의 아래 여백을 버튼과 분리되도록 크게 설정 */
+             margin-bottom: 40px;
+         }
+
+         header h1 span {
+             color: var(--color-secondary);
+         }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-gold-accent);
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1em; /* 모바일에서 1em으로 줄어듦 */
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            background-color: #c89400;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 섹션 공통 스타일 */
+        section {
+            padding: 70px 20px; /* 모바일에서 50px로 줄어듦 */
+            text-align: center;
+        }
+        section:nth-of-type(odd) {
+            background-color: var(--color-background-white);
+        }
+         section:nth-of-type(even) {
+             background-color: var(--color-background-calm);
+         }
+
+
+        section h2 {
+            font-size: 2.2em; /* 모바일에서 1.8em로 줄어듦 */
+            margin-bottom: 40px; /* 모바일에서 30px로 줄어듦 */
+            color: var(--color-primary-blue);
+            position: relative;
+            padding-bottom: 15px;
+        }
+         section h2::after {
+             content: '';
+             display: block;
+             width: 80px; /* 모바일에서 50px로 줄어듦 */
+             height: 4px;
+             background-color: var(--color-gold-accent);
+             margin: 15px auto 0;
+             border-radius: 2px;
+         }
+
+        /* 문제점/소개 섹션 */
+         /* p 태그 스타일 유지 (폰트만 변경됨) */
+        .intro-text p {
+            font-size: 1.3em; /* 모바일에서 1.1em로 줄어듦 */
+            color: var(--color-text-medium);
+            max-width: 700px;
+            margin: 20px auto;
+            line-height: 1.8; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
+        }
+
+        /* 기능 목록 스타일 (심플한 카드형) */
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .feature-item {
+            background-color: var(--color-background-white);
+            padding: 30px; /* 모바일에서 25px로 줄어듦 */
+            border-radius: 10px; /* 모바일에서 8px로 줄어듦 */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--color-light-blue); /* 모바일에서 3px로 줄어듦 */
+        }
+         .feature-item:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+         }
+        .feature-item .icon {
+            font-size: 3.5em; /* 모바일에서 3em로 줄어듦 */
+            margin-bottom: 15px;
+            color: var(--color-primary-blue);
+        }
+         /* h3 태그 스타일 유지 (폰트만 변경됨) */
+        .feature-item h3 {
+            font-size: 1.4em; /* 모바일에서 1.3em로 줄어듦 */
+            margin-bottom: 10px;
+            color: var(--color-primary-blue);
+        }
+         /* p 태그 스타일 유지 (폰트만 변경됨) */
+        .feature-item p {
+            font-size: 1em;
+            color: var(--color-text-medium);
+             line-height: 1.7; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
+        }
+
+        /* 스크린샷 갤러리 스타일 (심플한 프레임) */
+        .screenshot-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-light-blue) var(--color-background-calm);
+            justify-content: flex-start;
+        }
+
+        .screenshot-gallery::-webkit-scrollbar {
+            height: 10px;
+        }
+        .screenshot-gallery::-webkit-scrollbar-track {
+            background: var(--color-background-calm);
+            border-radius: 10px;
+        }
+        .screenshot-gallery::-webkit-scrollbar-thumb {
+            background: var(--color-light-blue);
+            border-radius: 10px;
+        }
+        .screenshot-gallery::-webkit-scrollbar-thumb:hover {
+            background: var(--color-primary-blue);
+        }
+
+        .screenshot-gallery img {
+            width: auto;
+            height: 480px; /* 모바일에서 400px로 줄어듦 */
+            border-radius: 8px; /* 모바일에서 8px로 줄어듦 */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+            border: 6px solid var(--color-background-white); /* 모바일에서 4px로 줄어듦 */
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+         .screenshot-gallery img:hover {
+             transform: translateY(-8px);
+         }
+
+
+        /* 마무리 섹션 */
+         /* p 태그 스타일 유지 (폰트만 변경됨) */
+        .closing-text p {
+             font-size: 1.3em; /* 모바일에서 1.1em로 줄어듦 */
+             color: var(--color-text-medium);
+             max-width: 700px;
+             margin: 20px auto;
+             line-height: 1.8; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
+             /* font-style: italic; */
+             font-family: 'Nanum Square', sans-serif; /* 나눔스퀘어로 변경 */
+        }
+
+        /* 다운로드 섹션 */
+        #download {
+            background-color: var(--color-primary-blue);
+            color: var(--color-text-light);
+            padding: 60px 20px; /* 모바일에서 50px로 줄어듦 */
+        }
+         #download h2 {
+             color: var(--color-text-light);
+         }
+         #download h2::after {
+             background-color: var(--color-gold-accent);
+         }
+         /* p 태그 스타일 유지 (폰트만 변경됨) */
+         #download p {
+             font-size: 1.2em; /* 모바일에서 1.1em로 줄어듦 */
+             margin-bottom: 40px;
+             color: var(--color-text-light);
+             line-height: 1.7; /* 나눔스퀘어에 맞춰 줄 간격 조정 */
+         }
+          #download .cta-button {
+              background-color: var(--color-gold-accent);
+              color: white;
+          }
+          #download .cta-button:hover {
+              background-color: #c89400;
+          }
+
+
+        /* 푸터 스타일 */
+        footer {
+            background-color: var(--color-text-dark);
+            color: var(--color-text-light);
+            padding: 40px 20px; /* 모바일에서 30px로 줄어듦 */
+            text-align: center;
+            font-size: 0.9em; /* 모바일에서 0.8em로 줄어듦 */
+        }
+        footer a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin: 0 15px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        footer a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        /* 모바일 반응형 @media 쿼리 내에서도 p 태그 스타일은 위에서 정의한 나눔스퀘어를 따릅니다. */
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px 40px;
+            }
+            .app-icon { /* 모바일에서 아이콘 크기 조정 */
+                 width: 80px;
+                 margin-bottom: 20px;
+            }
+            header h1 {
+                font-size: 2em;
+            }
+             header p {
+                 font-size: 1em;
+                 line-height: 1.7; /* 모바일 p 태그 줄 간격 조정 */
+             }
+             header p:last-of-type { /* 마지막 p 태그의 아래 여백 조정 */
+                  margin-bottom: 30px;
+             }
+
+            .cta-button {
+                padding: 14px 25px;
+                font-size: 1em;
+            }
+            section {
+                padding: 50px 20px;
+            }
+            section h2 {
+                font-size: 1.8em;
+                margin-bottom: 30px;
+            }
+             section h2::after {
+                 width: 50px;
+             }
+             .intro-text p,
+             .closing-text p {
+                 font-size: 1.1em;
+                  line-height: 1.7; /* 모바일 p 태그 줄 간격 조정 */
+             }
+            .feature-item {
+                padding: 25px;
+                border-radius: 8px;
+                 border-top-width: 3px;
+            }
+             .feature-item .icon {
+                 font-size: 3em;
+             }
+             .feature-item h3 {
+                 font-size: 1.3em;
+             }
+             .feature-item p {
+                 line-height: 1.6; /* 모바일 feature-item p 태그 줄 간격 조정 */
+             }
+             .screenshot-gallery img {
+                 height: 400px;
+                 border-width: 4px;
+             }
+             #download {
+                 padding: 50px 20px;
+             }
+             #download p {
+                 font-size: 1.1em;
+                 line-height: 1.7; /* 모바일 download p 태그 줄 간격 조정 */
+             }
+             footer {
+                 padding: 30px 20px;
+                 font-size: 0.8em;
+             }
         }
 
     </style>
-    <script>
-        function go_playstore() {
-            window.location.href='https://play.google.com/store/apps/details?id=kr.bibleon&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-        }
-
-    </script>
 </head>
 <body>
-    <div>
-        <h1>말씀 온 (BibleOn)</h1>
-    </div>
-    <div class="icon"></div>
-    <div class="messagebox">
-        하루 하루의 삶 속에서 하나님의 말씀에 귀를 기울이고<br> 
-        집중해 보세요<br>
-        하루 하루 매일 매일 바쁜 일상 속에서<br> 
-        짧은 시간이나마 하나님의 말씀,<br>
-        "말씀 온" 이 여러분에게 매일 새로운 말씀을 배달해<br>
-        드리도록 하겠습니다.<br>
-        하루에 시작하는 시간, 하루를 마무리하는 시간,<br>
-        일과중에 말씀에 집중하고 싶은시간<br>
-        "말씀 온" 을 통해서 묵상해 보시는것은 어떤가요?
-        <br>
-        하나님의 말씀을 통해서 늘 하나님과 동행하는<br>
-        당신을 기대합니다. :)
-    </div>
 
-    <div class="googleplay" onclick="go_playstore()">
-        <a href='https://play.google.com/store/apps/details?id=kr.bibleon&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'></a>
-    </div>
+    <header>
+        <div class="container">
+            <img src="http://isjang98.github.io/assets/img/bible_on.png" alt="말씀 온 앱 아이콘" class="app-icon">
+
+            <h1>말씀 온- 말씀 묵상, 성경말씀, 기독교, 말씀큐티🕊️</h1>
+            <p>매일매일 영혼의 따뜻한 배달을 받으세요!</p>
+            <p>어깨가 천근만근, 마음은 텅 비어가는 하루...<br>뉴스 말고, SNS 말고, 내 영혼에 진짜 힘이 되는 이야기가 필요하지 않으신가요?</p>
+            <p>정신없이 바쁜 일상 속에서 하나님의 음성에 귀 기울일 시간이 없다고요?<br>괜찮아요! 이제 **'말씀온'**이 당신을 찾아갑니다!</p>
+            <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드 하기</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="intro-text">
+             <div class="container">
+                 <h2>말씀온, 당신의 삶에 작은 평화를 선물합니다</h2>
+                  <p>매일매일 당신의 문 앞에 살포시 놓일, 따끈따끈한 '오늘의 말씀' 한 조각! 💌</p>
+                  <p>지하철에서, 점심시간 틈새에, 잠들기 전 고요한 시간에... 언제 어디서든 '말씀온'을 켜세요.<br>마치 나만을 위한 영혼의 비타민처럼, 새로운 말씀이 당신의 마음을 두드릴 거예요.</p>
+             </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>✨ '말씀온' 주요 기능 ✨</h2>
+                <ul class="features-list">
+                    <li class="feature-item">
+                        <div class="icon">💌</div>
+                        <h3>오늘의 말씀 배달</h3>
+                        <p>매일 새롭게 도착하는 하나님 말씀으로 하루를 시작하고 마음에 새기세요. 영혼의 배달로 당신의 삶을 채워갑니다.</p>
+                    </li>
+                    <li class="feature-item">
+                         <div class="icon">✍️</div>
+                        <h3>깊이 있는 묵상 기록</h3>
+                        <p>말씀을 읽고 떠오른 생각과 감정을 자유롭게 기록하세요. 나만의 영적 일기장이 되어 당신의 묵상을 돕습니다.</p>
+                    </li>
+                     <li class="feature-item">
+                         <div class="icon">⏰</div>
+                        <h3>잊지 않는 알림</h3>
+                        <p>말씀 만날 시간을 설정해두면 잊지 않고 알림을 받을 수 있어요. 바쁜 일상 속에서도 꾸준히 말씀을 접할 수 있도록 도와줍니다.</p>
+                    </li>
+                     <li class="feature-item">
+                         <div class="icon">🗓️</div>
+                        <h3>성장 여정 확인</h3>
+                        <p>기록된 묵상과 말씀들을 달력으로 한눈에 확인하며 나의 영적 성장 여정을 돌아보고 하나님과의 동행을 기뻐하세요.</p>
+                    </li>
+                     <li class="feature-item">
+                         <div class="icon">❤️</div>
+                        <h3>따뜻한 나눔</h3>
+                        <p>마음에 와닿는 말씀이나 묵상을 가족, 친구들과 간편하게 공유하며 사랑을 나누고 서로 격려할 수 있습니다.</p>
+                    </li>
+                     <li class="feature-item">
+                         <div class="icon">📸</div>
+                        <h3>말씀 이미지 만들기</h3>
+                        <p>마음에 드는 말씀 구절을 예쁜 배경 이미지와 함께 저장하거나 직접 만들어 간직하고 공유하는 기능을 활용해 보세요.</p>
+                    </li>
+                     <li class="feature-item">
+                         <div class="icon">🌙</div>
+                        <h3>편안한 사용 환경</h3>
+                        <p>눈의 피로를 줄여주는 다크 모드 등 사용자 맞춤 설정을 통해 가장 편안한 환경에서 말씀에 집중할 수 있습니다.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="screenshots">
+             <div class="container">
+                  <h2>말씀온 미리보기</h2>
+                  <div class="screenshot-gallery">
+                       <img src="images/page_content.png" alt="오늘의 말씀 화면">
+                       <img src="images/page_noti.png" alt="말씀 알림 예시">
+                       <img src="images/the_first_page.png" alt="오늘의 말씀 뽑기 화면">
+                       <img src="images/page_write.png" alt="말씀 묵상 기록 화면">
+                       <img src="images/page_calendar.png" alt="영적 성장 일지 달력">
+                       <img src="images/page_alarm.png" alt="말씀 알림 설정">
+                       <img src="images/page_comment.png" alt="말씀 안에서 통하는 마음 (공유/댓글)">
+                       </div>
+             </div>
+        </section>
+
+         <section id="closing" class="closing-text">
+             <div class="container">
+                  <h2>말씀온, 당신의 영혼을 위한 가장 따뜻한 동반자</h2>
+                  <p>'말씀온'은 단순히 앱이 아닌, 매일매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요. 😊</p>
+                   <p>바쁜 당신의 하루, 말씀온과 함께 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
+             </div>
+         </section>
+
+
+         <section id="download">
+             <div class="container">
+                 <h2>지금 바로 말씀온과 함께 하세요!</h2>
+                 <p>오늘부터 당신의 영혼에 ON 하세요!</p>
+                 <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드</a>
+             </div>
+         </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 zidapapa(Word). All rights reserved.</p>
+            <p>
+                <a href="mailto:isjang98@gmail.com">문의하기</a>
+                |
+                <a href="https://isjang98.github.io/Bibleon/privacy/">개인정보 처리 방침</a>
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
