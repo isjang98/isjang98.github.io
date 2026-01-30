@@ -4,49 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>말씀 온 - 말씀 묵상, 성경말씀, 기독교, 말씀큐티</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* === CSS Variables - Glassmorphism Palette === */
+        /* === CSS Variables - Neo-Brutalism + Bento Grid === */
         :root {
-            /* Warm Spiritual Colors */
-            --color-cream: #FDF8F3;
-            --color-gold: #C9A227;
-            --color-gold-light: #E8D5A3;
-            --color-sage: #9CAF88;
-            --color-sage-light: #D4E4CB;
-            --color-deep-blue: #1E3A5F;
-            --color-soft-purple: #8B7CB3;
-            --color-peach: #FFCBA4;
+            /* Neo-Brutalism Core Colors */
+            --nb-primary: #FFBE98;
+            --nb-secondary: #FF8585;
+            --nb-accent: #88D4AB;
+            --nb-highlight: #FFE156;
+            --nb-purple: #C4A1FF;
+            --nb-blue: #7EC8E3;
+            --nb-orange: #FFB347;
             
-            /* Glassmorphism */
-            --glass-bg: rgba(255, 255, 255, 0.15);
-            --glass-bg-solid: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --glass-blur: 20px;
-            --glass-radius: 20px;
-            --glass-radius-sm: 12px;
+            /* Backgrounds */
+            --nb-background: #FFFBF0;
+            --nb-surface: #FFFFFF;
             
             /* Text */
-            --text-primary: #1a1a2e;
-            --text-secondary: #4a4a5a;
-            --text-light: #ffffff;
+            --nb-text: #000000;
+            --nb-text-muted: #333333;
             
-            /* Gradients */
-            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            --gradient-warm: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            --gradient-calm: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            --gradient-night: linear-gradient(135deg, #1a1a2e 0%, #2d3561 50%, #1a1a2e 100%);
+            /* Borders & Shadows */
+            --nb-border: #000000;
+            --nb-shadow: #000000;
             
-            /* Shadows */
-            --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.15);
-            --shadow-glow: 0 4px 30px rgba(201, 162, 39, 0.3);
-            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.1);
-            
-            /* Animation */
-            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            /* Neo-Brutalism Sizing */
+            --nb-border-width: 3px;
+            --nb-shadow-sm: 3px 3px 0px;
+            --nb-shadow-md: 5px 5px 0px;
+            --nb-shadow-lg: 8px 8px 0px;
+            --nb-radius: 0px;
         }
 
         /* === Reset & Base === */
@@ -57,23 +47,24 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.7;
-            color: var(--text-primary);
-            background-color: var(--color-cream);
+            background-color: var(--nb-background);
+            color: var(--nb-text);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         h1, h2, h3 {
-            font-family: 'Playfair Display', 'Noto Sans KR', serif;
-            font-weight: 600;
-            line-height: 1.3;
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         p {
             font-weight: 400;
             word-break: keep-all;
+            line-height: 1.8;
         }
 
         .container {
@@ -82,102 +73,40 @@
             padding: 0 24px;
         }
 
-        /* === Glassmorphism Utilities === */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--glass-radius);
-        }
-
-        .glass-solid {
-            background: var(--glass-bg-solid);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--glass-border);
-            border-radius: var(--glass-radius);
-        }
-
-        /* === Hero Section === */
+        /* === Header / Hero - Neo-Brutalism === */
         header {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 80px 20px;
-            background: var(--gradient-hero);
-            overflow: hidden;
-        }
-
-        /* Animated Background Blobs */
-        header::before,
-        header::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.6;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        header::before {
-            width: 400px;
-            height: 400px;
-            background: var(--color-peach);
-            top: -100px;
-            right: -100px;
-            animation-delay: -2s;
-        }
-
-        header::after {
-            width: 300px;
-            height: 300px;
-            background: var(--color-sage-light);
-            bottom: -50px;
-            left: -50px;
-            animation-delay: -4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
+            background-color: var(--nb-primary);
+            color: var(--nb-text);
+            padding: 100px 20px 80px;
             text-align: center;
-            max-width: 800px;
+            border-bottom: var(--nb-border-width) solid var(--nb-border);
         }
 
         .app-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            margin-bottom: 32px;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-smooth);
+            display: block;
+            margin: 0 auto 30px;
+            width: 120px;
+            height: auto;
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-lg) var(--nb-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .app-icon:hover {
-            transform: scale(1.05) rotate(-3deg);
-            box-shadow: var(--shadow-glow);
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--nb-shadow);
         }
 
         header h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            color: var(--text-light);
-            margin-bottom: 20px;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 0px var(--nb-surface);
         }
 
         header p {
             font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 16px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -186,60 +115,64 @@
             margin-bottom: 40px;
         }
 
-        /* === CTA Button === */
+        /* === CTA Button - Neo-Brutalism === */
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            display: inline-block;
+            background-color: var(--nb-highlight);
+            color: var(--nb-text);
             padding: 18px 36px;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            background: var(--glass-bg-solid);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
             text-decoration: none;
-            box-shadow: var(--shadow-soft);
-            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-md) var(--nb-shadow);
+            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
             cursor: pointer;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-glow);
-            background: white;
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--nb-shadow);
         }
 
         .cta-button:active {
-            transform: translateY(0);
+            transform: translate(5px, 5px);
+            box-shadow: 0px 0px 0px var(--nb-shadow);
         }
 
         /* === Section Common === */
         section {
             padding: 100px 20px;
-            position: relative;
+            border-bottom: var(--nb-border-width) solid var(--nb-border);
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--nb-surface);
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--nb-background);
         }
 
         section h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             text-align: center;
             margin-bottom: 60px;
-            color: var(--text-primary);
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--nb-accent);
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-md) var(--nb-shadow);
         }
 
-        section h2 span {
-            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-soft-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section-header {
+            text-align: center;
         }
 
         /* === Intro Section === */
-        #intro {
-            background: var(--gradient-warm);
-        }
-
         .intro-text {
             text-align: center;
             max-width: 700px;
@@ -248,123 +181,103 @@
 
         .intro-text p {
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: var(--nb-text-muted);
             margin-bottom: 16px;
-            line-height: 1.9;
         }
 
-        /* === Features Section with Bento Grid === */
-        #features {
-            background: var(--color-cream);
-        }
-
+        /* === BENTO GRID - Neo-Brutalism Style === */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, minmax(180px, auto));
+            grid-template-rows: repeat(3, minmax(200px, auto));
             gap: 20px;
             list-style: none;
         }
 
-        /* Bento Grid Layout */
+        /* Bento Grid Item Placements */
         .bento-grid .feature-item:nth-child(1) {
             grid-column: span 2;
             grid-row: span 1;
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background-color: var(--nb-primary);
         }
 
         .bento-grid .feature-item:nth-child(2) {
             grid-column: span 2;
             grid-row: span 2;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background-color: var(--nb-highlight);
         }
 
         .bento-grid .feature-item:nth-child(3) {
             grid-column: span 1;
             grid-row: span 1;
-            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            background-color: var(--nb-accent);
         }
 
         .bento-grid .feature-item:nth-child(4) {
             grid-column: span 1;
             grid-row: span 1;
-            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+            background-color: var(--nb-blue);
         }
 
         .bento-grid .feature-item:nth-child(5) {
             grid-column: span 2;
             grid-row: span 1;
-            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            background-color: var(--nb-secondary);
         }
 
         .bento-grid .feature-item:nth-child(6) {
             grid-column: span 1;
             grid-row: span 1;
-            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+            background-color: var(--nb-purple);
         }
 
         .bento-grid .feature-item:nth-child(7) {
             grid-column: span 1;
             grid-row: span 1;
-            background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
+            background-color: var(--nb-orange);
         }
 
+        /* Feature Item - Neo-Brutalism Card */
         .feature-item {
             padding: 28px;
-            border-radius: var(--glass-radius);
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-lg) var(--nb-shadow);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            transition: var(--transition-smooth);
-            box-shadow: var(--shadow-card);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            z-index: 0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .feature-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            transform: translate(-5px, -5px);
+            box-shadow: 13px 13px 0px var(--nb-shadow);
         }
 
         .feature-item .icon {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
+            display: inline-block;
+            width: fit-content;
+            background-color: var(--nb-surface);
+            padding: 10px 14px;
+            border: 2px solid var(--nb-border);
+            box-shadow: var(--nb-shadow-sm) var(--nb-shadow);
         }
 
         .feature-item h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--text-primary);
-            position: relative;
-            z-index: 1;
+            color: var(--nb-text);
         }
 
         .feature-item p {
             font-size: 0.95rem;
-            color: var(--text-secondary);
+            color: var(--nb-text);
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
 
         /* === Screenshots Section === */
         #screenshots {
-            background: var(--gradient-calm);
             overflow: hidden;
         }
 
@@ -373,35 +286,44 @@
             gap: 24px;
             padding: 20px 0 40px;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
+            scrollbar-width: thin;
+            scrollbar-color: var(--nb-text) var(--nb-background);
         }
 
         .screenshot-gallery::-webkit-scrollbar {
-            display: none;
+            height: 14px;
+        }
+
+        .screenshot-gallery::-webkit-scrollbar-track {
+            background: var(--nb-background);
+            border: 2px solid var(--nb-border);
+        }
+
+        .screenshot-gallery::-webkit-scrollbar-thumb {
+            background: var(--nb-highlight);
+            border: 2px solid var(--nb-border);
+        }
+
+        .screenshot-gallery::-webkit-scrollbar-thumb:hover {
+            background: var(--nb-primary);
         }
 
         .screenshot-gallery img {
             height: 480px;
             width: auto;
-            border-radius: var(--glass-radius);
-            box-shadow: var(--shadow-card);
             flex-shrink: 0;
-            scroll-snap-align: center;
-            transition: var(--transition-smooth);
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-lg) var(--nb-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .screenshot-gallery img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--nb-shadow);
         }
 
         /* === Closing Section === */
-        #closing {
-            background: var(--color-cream);
-        }
-
         .closing-text {
             text-align: center;
             max-width: 700px;
@@ -410,88 +332,68 @@
 
         .closing-text p {
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: var(--nb-text-muted);
             margin-bottom: 16px;
-            line-height: 1.9;
         }
 
         /* === Download Section === */
         #download {
-            background: var(--gradient-night);
+            background-color: var(--nb-text) !important;
+            color: var(--nb-surface);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #download::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+            border-bottom: none;
         }
 
         #download h2 {
-            color: var(--text-light);
-            position: relative;
-            z-index: 1;
+            color: var(--nb-text);
+            background-color: var(--nb-highlight);
         }
 
         #download p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--nb-surface);
             font-size: 1.2rem;
             margin-bottom: 40px;
-            position: relative;
-            z-index: 1;
         }
 
         #download .cta-button {
-            position: relative;
-            z-index: 1;
-            background: var(--color-gold);
-            color: white;
-            border: none;
+            background-color: var(--nb-primary);
+            color: var(--nb-text);
         }
 
         #download .cta-button:hover {
-            background: var(--color-gold-light);
-            color: var(--text-primary);
+            background-color: var(--nb-highlight);
         }
 
         /* === Footer === */
         footer {
-            background: var(--text-primary);
-            color: rgba(255, 255, 255, 0.7);
+            background-color: var(--nb-text);
+            color: var(--nb-surface);
             padding: 50px 20px;
             text-align: center;
+            border-top: var(--nb-border-width) solid var(--nb-highlight);
         }
 
         footer p {
+            color: var(--nb-surface);
             margin-bottom: 16px;
             font-size: 0.9rem;
         }
 
         footer a {
-            color: var(--color-gold-light);
+            color: var(--nb-highlight);
             text-decoration: none;
             margin: 0 12px;
-            transition: var(--transition-smooth);
+            padding: 4px 8px;
+            border-bottom: 2px solid var(--nb-highlight);
+            transition: all 0.2s ease;
         }
 
         footer a:hover {
-            color: var(--color-gold);
+            background-color: var(--nb-highlight);
+            color: var(--nb-text);
         }
 
-        /* === Responsive Design === */
+        /* === Responsive - Tablet === */
         @media (max-width: 1024px) {
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -515,23 +417,25 @@
             }
         }
 
+        /* === Responsive - Mobile === */
         @media (max-width: 768px) {
-            header {
-                min-height: auto;
-                padding: 100px 20px 80px;
+            :root {
+                --nb-shadow-sm: 2px 2px 0px;
+                --nb-shadow-md: 4px 4px 0px;
+                --nb-shadow-lg: 5px 5px 0px;
             }
 
-            header h1 {
-                font-size: 1.8rem;
+            header {
+                padding: 70px 16px 50px;
+            }
+
+            .app-icon {
+                width: 100px;
+                margin-bottom: 24px;
             }
 
             header p {
                 font-size: 1rem;
-            }
-
-            .app-icon {
-                width: 80px;
-                height: 80px;
             }
 
             section {
@@ -539,8 +443,9 @@
             }
 
             section h2 {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 margin-bottom: 40px;
+                padding: 12px 20px;
             }
 
             .bento-grid {
@@ -563,7 +468,12 @@
             }
 
             .feature-item .icon {
-                font-size: 2.4rem;
+                font-size: 2.5rem;
+                padding: 8px 12px;
+            }
+
+            .feature-item h3 {
+                font-size: 1.2rem;
             }
 
             .screenshot-gallery {
@@ -589,47 +499,37 @@
                 padding: 40px 16px;
             }
         }
-
-        /* === Accessibility === */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="hero-content">
+        <div class="container">
             <img src="http://isjang98.github.io/assets/img/bible_on.png" alt="말씀 온 앱 아이콘" class="app-icon">
-
-            <h1>말씀 온</h1>
-            <p>매일매일 영혼의 따뜻한 배달을 받으세요</p>
+            <h1>말씀 온 - 말씀 묵상, 성경말씀, 기독교, 말씀큐티</h1>
+            <p>매일매일 영혼의 따뜻한 배달을 받으세요!</p>
             <p>어깨가 천근만근, 마음은 텅 비어가는 하루...<br>뉴스 말고, SNS 말고, 내 영혼에 진짜 힘이 되는 이야기가 필요하지 않으신가요?</p>
-            <p>이제 '말씀온'이 당신을 찾아갑니다</p>
-            <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">
-                <span>무료 다운로드</span>
-            </a>
+            <p>정신없이 바쁜 일상 속에서 하나님의 음성에 귀 기울일 시간이 없다고요?<br>괜찮아요! 이제 '말씀온'이 당신을 찾아갑니다!</p>
+            <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드 하기</a>
         </div>
     </header>
 
     <main>
         <section id="intro">
             <div class="container intro-text">
-                <h2>당신의 삶에 <span>작은 평화</span>를 선물합니다</h2>
-                <p>매일매일 당신의 문 앞에 살포시 놓일, 따끈따끈한 '오늘의 말씀' 한 조각!</p>
+                <div class="section-header">
+                    <h2>말씀온, 당신의 삶에 작은 평화를 선물합니다</h2>
+                </div>
+                <p>매일매일 당신의 문 앞에 살포시 놓일, 따끈따끈한 '오늘의 말씀' 한 조각! 💌</p>
                 <p>지하철에서, 점심시간 틈새에, 잠들기 전 고요한 시간에... 언제 어디서든 '말씀온'을 켜세요. 마치 나만을 위한 영혼의 비타민처럼, 새로운 말씀이 당신의 마음을 두드릴 거예요.</p>
             </div>
         </section>
 
         <section id="features">
             <div class="container">
-                <h2>주요 <span>기능</span></h2>
+                <div class="section-header">
+                    <h2>✨ '말씀온' 주요 기능 ✨</h2>
+                </div>
                 <ul class="bento-grid">
                     <li class="feature-item">
                         <div class="icon">💌</div>
@@ -644,12 +544,12 @@
                     <li class="feature-item">
                         <div class="icon">⏰</div>
                         <h3>잊지 않는 알림</h3>
-                        <p>말씀 만날 시간을 설정해두면 잊지 않고 알림을 받을 수 있어요.</p>
+                        <p>말씀 만날 시간을 설정하면 알림을 받을 수 있어요.</p>
                     </li>
                     <li class="feature-item">
                         <div class="icon">🗓️</div>
                         <h3>성장 여정 확인</h3>
-                        <p>달력으로 나의 영적 성장 여정을 돌아보세요.</p>
+                        <p>달력으로 나의 영적 성장 여정을 확인하세요.</p>
                     </li>
                     <li class="feature-item">
                         <div class="icon">❤️</div>
@@ -672,7 +572,9 @@
 
         <section id="screenshots">
             <div class="container">
-                <h2>말씀온 <span>미리보기</span></h2>
+                <div class="section-header">
+                    <h2>말씀온 미리보기</h2>
+                </div>
                 <div class="screenshot-gallery">
                     <img src="images/page_content.png" alt="오늘의 말씀 화면">
                     <img src="images/page_noti.png" alt="말씀 알림 예시">
@@ -687,19 +589,21 @@
 
         <section id="closing">
             <div class="container closing-text">
-                <h2>당신의 <span>가장 따뜻한 동반자</span></h2>
-                <p>'말씀온'은 단순히 앱이 아닌, 매일매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요.</p>
+                <div class="section-header">
+                    <h2>말씀온, 당신의 영혼을 위한 가장 따뜻한 동반자</h2>
+                </div>
+                <p>'말씀온'은 단순히 앱이 아닌, 매일매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요. 😊</p>
                 <p>바쁜 당신의 하루, 말씀온과 함께 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
             </div>
         </section>
 
         <section id="download">
             <div class="container">
-                <h2>지금 바로 시작하세요</h2>
+                <div class="section-header">
+                    <h2>지금 바로 말씀온과 함께 하세요!</h2>
+                </div>
                 <p>오늘부터 당신의 영혼에 ON 하세요!</p>
-                <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">
-                    <span>말씀온 무료 다운로드</span>
-                </a>
+                <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드</a>
             </div>
         </section>
     </main>
