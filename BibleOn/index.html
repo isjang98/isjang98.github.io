@@ -3,586 +3,705 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>말씀 온 - 말씀 묵상, 성경말씀, 기독교, 말씀큐티🕊️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <title>말씀 온 - 말씀 묵상, 성경말씀, 기독교, 말씀큐티</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS 변수 - Neo-Brutalism 팔레트 */
+        /* === CSS Variables - Glassmorphism Palette === */
         :root {
-            /* Neo-Brutalism Core Colors */
-            --nb-primary: #FFBE98;        /* 따뜻한 피치 - 메인 액센트 */
-            --nb-secondary: #FF8585;      /* 소프트 코랄 */
-            --nb-accent: #88D4AB;         /* 젠틀 민트 */
-            --nb-highlight: #FFE156;      /* 밝은 옐로우 */
-            --nb-purple: #C4A1FF;         /* 라벤더 퍼플 */
-            --nb-blue: #7EC8E3;           /* 스카이 블루 */
+            /* Warm Spiritual Colors */
+            --color-cream: #FDF8F3;
+            --color-gold: #C9A227;
+            --color-gold-light: #E8D5A3;
+            --color-sage: #9CAF88;
+            --color-sage-light: #D4E4CB;
+            --color-deep-blue: #1E3A5F;
+            --color-soft-purple: #8B7CB3;
+            --color-peach: #FFCBA4;
             
-            /* Backgrounds */
-            --nb-background: #FFFBF0;     /* 크림 배경 */
-            --nb-surface: #FFFFFF;        /* 흰색 서피스 */
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-bg-solid: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-blur: 20px;
+            --glass-radius: 20px;
+            --glass-radius-sm: 12px;
             
             /* Text */
-            --nb-text: #000000;           /* 검은 글자 */
-            --nb-text-muted: #333333;     /* 약간 연한 글자 */
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --text-light: #ffffff;
             
-            /* Borders & Shadows */
-            --nb-border: #000000;         /* 검은 테두리 */
-            --nb-shadow: #000000;         /* 검은 그림자 */
+            /* Gradients */
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-warm: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --gradient-calm: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --gradient-night: linear-gradient(135deg, #1a1a2e 0%, #2d3561 50%, #1a1a2e 100%);
             
-            /* Sizing */
-            --nb-border-width: 3px;
-            --nb-shadow-offset: 4px;
-            --nb-shadow-offset-lg: 6px;
-            --nb-radius: 0px;             /* 네오브루탈리즘은 날카로운 모서리 */
+            /* Shadows */
+            --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.15);
+            --shadow-glow: 0 4px 30px rgba(201, 162, 39, 0.3);
+            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.1);
+            
+            /* Animation */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        /* 기본 스타일 - Neo-Brutalism */
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.7;
+        /* === Reset & Base === */
+        * {
             margin: 0;
             padding: 0;
-            background-color: var(--nb-background);
-            color: var(--nb-text);
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--color-cream);
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-        
+
         h1, h2, h3 {
-            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-family: 'Playfair Display', 'Noto Sans KR', serif;
+            font-weight: 600;
+            line-height: 1.3;
         }
-        
-        h1 {
-            font-weight: 700;
-            text-transform: none;
-        }
-        
-        /* p 태그 폰트 */
+
         p {
-            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 400;
             word-break: keep-all;
-            line-height: 1.8;
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* 헤더 (히어로) - Neo-Brutalism */
+        /* === Glassmorphism Utilities === */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--glass-radius);
+        }
+
+        .glass-solid {
+            background: var(--glass-bg-solid);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--glass-radius);
+        }
+
+        /* === Hero Section === */
         header {
-            background-color: var(--nb-primary);
-            color: var(--nb-text);
-            padding: 100px 20px 60px;
-            text-align: center;
-            border-bottom: var(--nb-border-width) solid var(--nb-border);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 20px;
+            background: var(--gradient-hero);
+            overflow: hidden;
         }
 
-        /* 앱 아이콘 스타일 - Neo-Brutalism */
-        .app-icon {
-            display: block;
-            margin: 0 auto 30px;
-            width: 120px;
-            height: auto;
-            border-radius: 0;
-            border: var(--nb-border-width) solid var(--nb-border);
-            box-shadow: var(--nb-shadow-offset-lg) var(--nb-shadow-offset-lg) 0px var(--nb-shadow);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        /* Animated Background Blobs */
+        header::before,
+        header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
         }
-        
+
+        header::before {
+            width: 400px;
+            height: 400px;
+            background: var(--color-peach);
+            top: -100px;
+            right: -100px;
+            animation-delay: -2s;
+        }
+
+        header::after {
+            width: 300px;
+            height: 300px;
+            background: var(--color-sage-light);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
+        }
+
         .app-icon:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 9px 9px 0px var(--nb-shadow);
+            transform: scale(1.05) rotate(-3deg);
+            box-shadow: var(--shadow-glow);
         }
 
         header h1 {
-            font-size: 2.8em;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--text-light);
             margin-bottom: 20px;
-            color: var(--nb-text);
-            text-shadow: 2px 2px 0px var(--nb-surface);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
-        
-        /* 헤더 p 태그 스타일 */
+
         header p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            color: var(--nb-text);
-            line-height: 1.8;
-            max-width: 700px;
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         header p:last-of-type {
             margin-bottom: 40px;
         }
 
-        header h1 span {
-            color: var(--nb-secondary);
-        }
-        /* CTA Button - Neo-Brutalism */
+        /* === CTA Button === */
         .cta-button {
-            display: inline-block;
-            background-color: var(--nb-highlight);
-            color: var(--nb-text);
-            padding: 16px 32px;
-            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
-            font-size: 1.1em;
-            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--glass-bg-solid);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
             text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-            border: var(--nb-border-width) solid var(--nb-border);
-            border-radius: var(--nb-radius);
-            box-shadow: var(--nb-shadow-offset) var(--nb-shadow-offset) 0px var(--nb-shadow);
-            transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition-smooth);
             cursor: pointer;
         }
-        
+
         .cta-button:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: var(--nb-shadow-offset-lg) var(--nb-shadow-offset-lg) 0px var(--nb-shadow);
-        }
-        
-        .cta-button:active {
-            transform: translate(var(--nb-shadow-offset), var(--nb-shadow-offset));
-            box-shadow: 0px 0px 0px var(--nb-shadow);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+            background: white;
         }
 
-        /* 섹션 공통 스타일 - Neo-Brutalism */
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* === Section Common === */
         section {
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: var(--nb-border-width) solid var(--nb-border);
-        }
-        
-        section:nth-of-type(odd) {
-            background-color: var(--nb-surface);
-        }
-        
-        section:nth-of-type(even) {
-            background-color: var(--nb-background);
+            padding: 100px 20px;
+            position: relative;
         }
 
         section h2 {
-            font-size: 2.2em;
-            margin-bottom: 50px;
-            color: var(--nb-text);
-            position: relative;
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--nb-accent);
-            border: var(--nb-border-width) solid var(--nb-border);
-            box-shadow: var(--nb-shadow-offset) var(--nb-shadow-offset) 0px var(--nb-shadow);
-        }
-        
-        /* 섹션 h2 밑줄 제거 (박스 스타일로 대체) */
-        section h2::after {
-            display: none;
-        }
-
-        /* 소개 섹션 */
-        .intro-text p {
-            font-size: 1.3em;
-            color: var(--nb-text-muted);
-            max-width: 700px;
-            margin: 20px auto;
-            line-height: 1.8;
-        }
-
-        /* 기능 목록 스타일 - Neo-Brutalism Cards */
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .feature-item {
-            background-color: var(--nb-surface);
-            padding: 32px;
-            border-radius: var(--nb-radius);
-            border: var(--nb-border-width) solid var(--nb-border);
-            box-shadow: var(--nb-shadow-offset-lg) var(--nb-shadow-offset-lg) 0px var(--nb-shadow);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .feature-item:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 10px 10px 0px var(--nb-shadow);
-        }
-        
-        /* 각 카드별 다른 배경색 - Neo-Brutalism 컬러풀 */
-        .feature-item:nth-child(1) { background-color: var(--nb-primary); }
-        .feature-item:nth-child(2) { background-color: var(--nb-highlight); }
-        .feature-item:nth-child(3) { background-color: var(--nb-accent); }
-        .feature-item:nth-child(4) { background-color: var(--nb-blue); }
-        .feature-item:nth-child(5) { background-color: var(--nb-secondary); }
-        .feature-item:nth-child(6) { background-color: var(--nb-purple); }
-        .feature-item:nth-child(7) { background-color: var(--nb-primary); }
-        
-        .feature-item .icon {
-            font-size: 3.5em;
-            margin-bottom: 16px;
-            display: inline-block;
-            background-color: var(--nb-surface);
-            padding: 12px 16px;
-            border: 2px solid var(--nb-border);
-            box-shadow: 3px 3px 0px var(--nb-shadow);
-        }
-        
-        .feature-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 12px;
-            color: var(--nb-text);
-        }
-        
-        .feature-item p {
-            font-size: 1em;
-            color: var(--nb-text);
-            line-height: 1.7;
+            margin-bottom: 60px;
+            color: var(--text-primary);
         }
 
-        /* 스크린샷 갤러리 - Neo-Brutalism */
+        section h2 span {
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-soft-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* === Intro Section === */
+        #intro {
+            background: var(--gradient-warm);
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.9;
+        }
+
+        /* === Features Section with Bento Grid === */
+        #features {
+            background: var(--color-cream);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, minmax(180px, auto));
+            gap: 20px;
+            list-style: none;
+        }
+
+        /* Bento Grid Layout */
+        .bento-grid .feature-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(2) {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(3) {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(4) {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(5) {
+            grid-column: span 2;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(6) {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        }
+
+        .bento-grid .feature-item:nth-child(7) {
+            grid-column: span 1;
+            grid-row: span 1;
+            background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);
+        }
+
+        .feature-item {
+            padding: 28px;
+            border-radius: var(--glass-radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 0;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item .icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === Screenshots Section === */
+        #screenshots {
+            background: var(--gradient-calm);
+            overflow: hidden;
+        }
+
         .screenshot-gallery {
             display: flex;
-            overflow-x: auto;
             gap: 24px;
-            padding: 20px 10px 30px;
+            padding: 20px 0 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            scrollbar-color: var(--nb-text) var(--nb-background);
-            justify-content: flex-start;
+            scrollbar-width: none;
         }
 
         .screenshot-gallery::-webkit-scrollbar {
-            height: 12px;
-        }
-        
-        .screenshot-gallery::-webkit-scrollbar-track {
-            background: var(--nb-background);
-            border: 2px solid var(--nb-border);
-        }
-        
-        .screenshot-gallery::-webkit-scrollbar-thumb {
-            background: var(--nb-highlight);
-            border: 2px solid var(--nb-border);
-        }
-        
-        .screenshot-gallery::-webkit-scrollbar-thumb:hover {
-            background: var(--nb-primary);
+            display: none;
         }
 
         .screenshot-gallery img {
-            width: auto;
             height: 480px;
-            border-radius: var(--nb-radius);
-            border: var(--nb-border-width) solid var(--nb-border);
-            box-shadow: 8px 8px 0px var(--nb-shadow);
+            width: auto;
+            border-radius: var(--glass-radius);
+            box-shadow: var(--shadow-card);
             flex-shrink: 0;
-            box-sizing: border-box;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background-color: var(--nb-surface);
+            scroll-snap-align: center;
+            transition: var(--transition-smooth);
         }
-        
+
         .screenshot-gallery img:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px var(--nb-shadow);
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
-
-        /* 마무리 섹션 - Neo-Brutalism */
-        .closing-text p {
-            font-size: 1.3em;
-            color: var(--nb-text-muted);
-            max-width: 700px;
-            margin: 20px auto;
-            line-height: 1.8;
-            font-family: 'Noto Sans KR', sans-serif;
+        /* === Closing Section === */
+        #closing {
+            background: var(--color-cream);
         }
 
-        /* 다운로드 섹션 - Neo-Brutalism */
-        #download {
-            background-color: var(--nb-text);
-            color: var(--nb-surface);
-            padding: 80px 20px;
-            border-bottom: none;
-        }
-        
-        #download h2 {
-            color: var(--nb-text);
-            background-color: var(--nb-highlight);
-        }
-        
-        #download p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: var(--nb-surface);
-            line-height: 1.7;
-        }
-        
-        #download .cta-button {
-            background-color: var(--nb-primary);
-            color: var(--nb-text);
-        }
-        
-        #download .cta-button:hover {
-            background-color: var(--nb-highlight);
-        }
-
-        /* 푸터 스타일 - Neo-Brutalism */
-        footer {
-            background-color: var(--nb-text);
-            color: var(--nb-surface);
-            padding: 40px 20px;
+        .closing-text {
             text-align: center;
-            font-size: 0.9em;
-            border-top: var(--nb-border-width) solid var(--nb-highlight);
+            max-width: 700px;
+            margin: 0 auto;
         }
-        
+
+        .closing-text p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.9;
+        }
+
+        /* === Download Section === */
+        #download {
+            background: var(--gradient-night);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #download::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 162, 39, 0.2) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+
+        #download h2 {
+            color: var(--text-light);
+            position: relative;
+            z-index: 1;
+        }
+
+        #download p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        #download .cta-button {
+            position: relative;
+            z-index: 1;
+            background: var(--color-gold);
+            color: white;
+            border: none;
+        }
+
+        #download .cta-button:hover {
+            background: var(--color-gold-light);
+            color: var(--text-primary);
+        }
+
+        /* === Footer === */
+        footer {
+            background: var(--text-primary);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
         footer p {
-            color: var(--nb-surface);
+            margin-bottom: 16px;
+            font-size: 0.9rem;
         }
-        
+
         footer a {
-            color: var(--nb-highlight);
+            color: var(--color-gold-light);
             text-decoration: none;
-            margin: 0 15px;
-            padding: 4px 8px;
-            border-bottom: 2px solid var(--nb-highlight);
-            transition: all 0.2s ease;
+            margin: 0 12px;
+            transition: var(--transition-smooth);
         }
-        
+
         footer a:hover {
-            background-color: var(--nb-highlight);
-            color: var(--nb-text);
+            color: var(--color-gold);
         }
 
-        /* 모바일 반응형 - Neo-Brutalism */
-        @media (max-width: 768px) {
-            :root {
-                --nb-shadow-offset: 3px;
-                --nb-shadow-offset-lg: 4px;
-            }
-            
-            header {
-                padding: 60px 16px 40px;
-            }
-            
-            .app-icon {
-                width: 90px;
-                margin-bottom: 20px;
-                box-shadow: 4px 4px 0px var(--nb-shadow);
-            }
-            
-            header h1 {
-                font-size: 1.8em;
-                text-shadow: 1px 1px 0px var(--nb-surface);
-            }
-            
-            header p {
-                font-size: 1em;
-                line-height: 1.7;
-            }
-            
-            header p:last-of-type {
-                margin-bottom: 30px;
+        /* === Responsive Design === */
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
             }
 
-            .cta-button {
-                padding: 14px 24px;
-                font-size: 0.95em;
-                box-shadow: 3px 3px 0px var(--nb-shadow);
+            .bento-grid .feature-item:nth-child(1),
+            .bento-grid .feature-item:nth-child(2),
+            .bento-grid .feature-item:nth-child(3),
+            .bento-grid .feature-item:nth-child(4),
+            .bento-grid .feature-item:nth-child(5),
+            .bento-grid .feature-item:nth-child(6),
+            .bento-grid .feature-item:nth-child(7) {
+                grid-column: span 1;
+                grid-row: span 1;
             }
-            
+
+            .bento-grid .feature-item:nth-child(1),
+            .bento-grid .feature-item:nth-child(5) {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                min-height: auto;
+                padding: 100px 20px 80px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .app-icon {
+                width: 80px;
+                height: 80px;
+            }
+
             section {
-                padding: 50px 16px;
+                padding: 70px 16px;
             }
-            
+
             section h2 {
-                font-size: 1.5em;
-                margin-bottom: 35px;
-                padding: 10px 16px;
-                box-shadow: 3px 3px 0px var(--nb-shadow);
+                font-size: 1.6rem;
+                margin-bottom: 40px;
             }
-            
-            .intro-text p,
-            .closing-text p {
-                font-size: 1.05em;
-                line-height: 1.7;
-            }
-            
-            .features-list {
+
+            .bento-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
-            
+
+            .bento-grid .feature-item:nth-child(1),
+            .bento-grid .feature-item:nth-child(2),
+            .bento-grid .feature-item:nth-child(3),
+            .bento-grid .feature-item:nth-child(4),
+            .bento-grid .feature-item:nth-child(5),
+            .bento-grid .feature-item:nth-child(6),
+            .bento-grid .feature-item:nth-child(7) {
+                grid-column: span 1;
+            }
+
             .feature-item {
                 padding: 24px;
-                box-shadow: 4px 4px 0px var(--nb-shadow);
             }
-            
-            .feature-item:hover {
-                transform: translate(-2px, -2px);
-                box-shadow: 6px 6px 0px var(--nb-shadow);
-            }
-            
+
             .feature-item .icon {
-                font-size: 2.5em;
-                padding: 8px 12px;
-                box-shadow: 2px 2px 0px var(--nb-shadow);
+                font-size: 2.4rem;
             }
-            
-            .feature-item h3 {
-                font-size: 1.2em;
-            }
-            
-            .feature-item p {
-                line-height: 1.6;
-            }
-            
+
             .screenshot-gallery {
                 gap: 16px;
-                padding: 16px 8px 24px;
+                padding: 16px 0 30px;
             }
-            
+
             .screenshot-gallery img {
-                height: 380px;
-                box-shadow: 4px 4px 0px var(--nb-shadow);
+                height: 400px;
             }
-            
-            .screenshot-gallery img:hover {
-                transform: translate(-2px, -2px);
-                box-shadow: 6px 6px 0px var(--nb-shadow);
+
+            .intro-text p,
+            .closing-text p {
+                font-size: 1.05rem;
             }
-            
-            #download {
-                padding: 50px 16px;
+
+            .cta-button {
+                padding: 16px 28px;
+                font-size: 1rem;
             }
-            
-            #download p {
-                font-size: 1.05em;
-                line-height: 1.7;
-            }
-            
+
             footer {
-                padding: 30px 16px;
-                font-size: 0.85em;
-            }
-            
-            footer a {
-                margin: 0 8px;
-                padding: 2px 6px;
+                padding: 40px 16px;
             }
         }
 
+        /* === Accessibility === */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
+        <div class="hero-content">
             <img src="http://isjang98.github.io/assets/img/bible_on.png" alt="말씀 온 앱 아이콘" class="app-icon">
 
-            <h1>말씀 온- 말씀 묵상, 성경말씀, 기독교, 말씀큐티🕊️</h1>
-            <p>매일매일 영혼의 따뜻한 배달을 받으세요!</p>
+            <h1>말씀 온</h1>
+            <p>매일매일 영혼의 따뜻한 배달을 받으세요</p>
             <p>어깨가 천근만근, 마음은 텅 비어가는 하루...<br>뉴스 말고, SNS 말고, 내 영혼에 진짜 힘이 되는 이야기가 필요하지 않으신가요?</p>
-            <p>정신없이 바쁜 일상 속에서 하나님의 음성에 귀 기울일 시간이 없다고요?<br>괜찮아요! 이제 **'말씀온'**이 당신을 찾아갑니다!</p>
-            <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드 하기</a>
+            <p>이제 '말씀온'이 당신을 찾아갑니다</p>
+            <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">
+                <span>무료 다운로드</span>
+            </a>
         </div>
     </header>
 
     <main>
-        <section id="intro" class="intro-text">
-             <div class="container">
-                 <h2>말씀온, 당신의 삶에 작은 평화를 선물합니다</h2>
-                  <p>매일매일 당신의 문 앞에 살포시 놓일, 따끈따끈한 '오늘의 말씀' 한 조각! 💌</p>
-                  <p>지하철에서, 점심시간 틈새에, 잠들기 전 고요한 시간에... 언제 어디서든 '말씀온'을 켜세요.<br>마치 나만을 위한 영혼의 비타민처럼, 새로운 말씀이 당신의 마음을 두드릴 거예요.</p>
-             </div>
+        <section id="intro">
+            <div class="container intro-text">
+                <h2>당신의 삶에 <span>작은 평화</span>를 선물합니다</h2>
+                <p>매일매일 당신의 문 앞에 살포시 놓일, 따끈따끈한 '오늘의 말씀' 한 조각!</p>
+                <p>지하철에서, 점심시간 틈새에, 잠들기 전 고요한 시간에... 언제 어디서든 '말씀온'을 켜세요. 마치 나만을 위한 영혼의 비타민처럼, 새로운 말씀이 당신의 마음을 두드릴 거예요.</p>
+            </div>
         </section>
 
         <section id="features">
             <div class="container">
-                <h2>✨ '말씀온' 주요 기능 ✨</h2>
-                <ul class="features-list">
+                <h2>주요 <span>기능</span></h2>
+                <ul class="bento-grid">
                     <li class="feature-item">
                         <div class="icon">💌</div>
                         <h3>오늘의 말씀 배달</h3>
                         <p>매일 새롭게 도착하는 하나님 말씀으로 하루를 시작하고 마음에 새기세요. 영혼의 배달로 당신의 삶을 채워갑니다.</p>
                     </li>
                     <li class="feature-item">
-                         <div class="icon">✍️</div>
+                        <div class="icon">✍️</div>
                         <h3>깊이 있는 묵상 기록</h3>
                         <p>말씀을 읽고 떠오른 생각과 감정을 자유롭게 기록하세요. 나만의 영적 일기장이 되어 당신의 묵상을 돕습니다.</p>
                     </li>
-                     <li class="feature-item">
-                         <div class="icon">⏰</div>
+                    <li class="feature-item">
+                        <div class="icon">⏰</div>
                         <h3>잊지 않는 알림</h3>
-                        <p>말씀 만날 시간을 설정해두면 잊지 않고 알림을 받을 수 있어요. 바쁜 일상 속에서도 꾸준히 말씀을 접할 수 있도록 도와줍니다.</p>
+                        <p>말씀 만날 시간을 설정해두면 잊지 않고 알림을 받을 수 있어요.</p>
                     </li>
-                     <li class="feature-item">
-                         <div class="icon">🗓️</div>
+                    <li class="feature-item">
+                        <div class="icon">🗓️</div>
                         <h3>성장 여정 확인</h3>
-                        <p>기록된 묵상과 말씀들을 달력으로 한눈에 확인하며 나의 영적 성장 여정을 돌아보고 하나님과의 동행을 기뻐하세요.</p>
+                        <p>달력으로 나의 영적 성장 여정을 돌아보세요.</p>
                     </li>
-                     <li class="feature-item">
-                         <div class="icon">❤️</div>
+                    <li class="feature-item">
+                        <div class="icon">❤️</div>
                         <h3>따뜻한 나눔</h3>
                         <p>마음에 와닿는 말씀이나 묵상을 가족, 친구들과 간편하게 공유하며 사랑을 나누고 서로 격려할 수 있습니다.</p>
                     </li>
-                     <li class="feature-item">
-                         <div class="icon">📸</div>
-                        <h3>말씀 이미지 만들기</h3>
-                        <p>마음에 드는 말씀 구절을 예쁜 배경 이미지와 함께 저장하거나 직접 만들어 간직하고 공유하는 기능을 활용해 보세요.</p>
+                    <li class="feature-item">
+                        <div class="icon">📸</div>
+                        <h3>말씀 이미지</h3>
+                        <p>예쁜 배경과 함께 말씀을 저장하세요.</p>
                     </li>
-                     <li class="feature-item">
-                         <div class="icon">🌙</div>
-                        <h3>편안한 사용 환경</h3>
-                        <p>눈의 피로를 줄여주는 다크 모드 등 사용자 맞춤 설정을 통해 가장 편안한 환경에서 말씀에 집중할 수 있습니다.</p>
+                    <li class="feature-item">
+                        <div class="icon">🌙</div>
+                        <h3>다크 모드</h3>
+                        <p>눈의 피로를 줄여주는 편안한 환경.</p>
                     </li>
                 </ul>
             </div>
         </section>
 
         <section id="screenshots">
-             <div class="container">
-                  <h2>말씀온 미리보기</h2>
-                  <div class="screenshot-gallery">
-                       <img src="images/page_content.png" alt="오늘의 말씀 화면">
-                       <img src="images/page_noti.png" alt="말씀 알림 예시">
-                       <img src="images/the_first_page.png" alt="오늘의 말씀 뽑기 화면">
-                       <img src="images/page_write.png" alt="말씀 묵상 기록 화면">
-                       <img src="images/page_calendar.png" alt="영적 성장 일지 달력">
-                       <img src="images/page_alarm.png" alt="말씀 알림 설정">
-                       <img src="images/page_comment.png" alt="말씀 안에서 통하는 마음 (공유/댓글)">
-                       </div>
-             </div>
+            <div class="container">
+                <h2>말씀온 <span>미리보기</span></h2>
+                <div class="screenshot-gallery">
+                    <img src="images/page_content.png" alt="오늘의 말씀 화면">
+                    <img src="images/page_noti.png" alt="말씀 알림 예시">
+                    <img src="images/the_first_page.png" alt="오늘의 말씀 뽑기 화면">
+                    <img src="images/page_write.png" alt="말씀 묵상 기록 화면">
+                    <img src="images/page_calendar.png" alt="영적 성장 일지 달력">
+                    <img src="images/page_alarm.png" alt="말씀 알림 설정">
+                    <img src="images/page_comment.png" alt="말씀 안에서 통하는 마음 (공유/댓글)">
+                </div>
+            </div>
         </section>
 
-         <section id="closing" class="closing-text">
-             <div class="container">
-                  <h2>말씀온, 당신의 영혼을 위한 가장 따뜻한 동반자</h2>
-                  <p>'말씀온'은 단순히 앱이 아닌, 매일매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요. 😊</p>
-                   <p>바쁜 당신의 하루, 말씀온과 함께 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
-             </div>
-         </section>
+        <section id="closing">
+            <div class="container closing-text">
+                <h2>당신의 <span>가장 따뜻한 동반자</span></h2>
+                <p>'말씀온'은 단순히 앱이 아닌, 매일매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요.</p>
+                <p>바쁜 당신의 하루, 말씀온과 함께 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
+            </div>
+        </section>
 
-
-         <section id="download">
-             <div class="container">
-                 <h2>지금 바로 말씀온과 함께 하세요!</h2>
-                 <p>오늘부터 당신의 영혼에 ON 하세요!</p>
-                 <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">말씀온 무료 다운로드</a>
-             </div>
-         </section>
+        <section id="download">
+            <div class="container">
+                <h2>지금 바로 시작하세요</h2>
+                <p>오늘부터 당신의 영혼에 ON 하세요!</p>
+                <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button" target="_blank">
+                    <span>말씀온 무료 다운로드</span>
+                </a>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -591,7 +710,7 @@
             <p>
                 <a href="mailto:isjang98@gmail.com">문의하기</a>
                 |
-                <a href="https://isjang98.github.io/Bibleon/privacy/">개인정보 처리 방침</a>
+                <a href="https://isjang98.github.io/BibleOn/privacy/">개인정보 처리 방침</a>
             </p>
         </div>
     </footer>
