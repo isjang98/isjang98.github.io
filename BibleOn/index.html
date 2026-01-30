@@ -499,6 +499,88 @@
                 padding: 40px 16px;
             }
         }
+
+        /* === Reviews Section === */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background-color: var(--nb-surface);
+            padding: 28px;
+            border: var(--nb-border-width) solid var(--nb-border);
+            box-shadow: var(--nb-shadow-lg) var(--nb-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .review-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--nb-shadow);
+        }
+
+        .review-card:nth-child(1) { background-color: #FFF5E6; }
+        .review-card:nth-child(2) { background-color: #E6F7FF; }
+        .review-card:nth-child(3) { background-color: #F0FFE6; }
+        .review-card:nth-child(4) { background-color: #FFE6F0; }
+        .review-card:nth-child(5) { background-color: #F5E6FF; }
+        .review-card:nth-child(6) { background-color: #FFFDE6; }
+        .review-card:nth-child(7) { background-color: #E6FFF5; }
+        .review-card:nth-child(8) { background-color: #FFE6E6; }
+        .review-card:nth-child(9) { background-color: #E6E6FF; }
+        .review-card:nth-child(10) { background-color: #FFF0E6; }
+        .review-card:nth-child(11) { background-color: #E6FFFA; }
+        .review-card:nth-child(12) { background-color: #F5FFE6; }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .review-author {
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--nb-text);
+        }
+
+        .review-rating {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--nb-text-muted);
+            margin-bottom: 12px;
+        }
+
+        .review-source {
+            font-size: 0.8rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .review-source::before {
+            content: "📱";
+        }
+
+        @media (max-width: 768px) {
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .review-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -583,6 +665,112 @@
                     <img src="images/page_calendar.png" alt="영적 성장 일지 달력">
                     <img src="images/page_alarm.png" alt="말씀 알림 설정">
                     <img src="images/page_comment.png" alt="말씀 안에서 통하는 마음 (공유/댓글)">
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews">
+            <div class="container">
+                <div class="section-header">
+                    <h2>사용자 후기</h2>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">박은광</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"마음이 힘들고 지칠때, 마치 성경조차 펴기가 힘겨울때 말씀온의 말씀과 그림으로 위로 받습니다. 말씀과 그림이 날실과 씨실처럼 엮어져있는 것 같아 늘 특별한 경험이 됩니다."</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">Dketr Fg</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"하나님께 기도했어요. '꼭 이런 앱을 찾게해 주세요.' 그리고 우연히 깔게 됐는데 정말 찾던 앱이예요. 할렐루야!!! 하나님 감사합니다."</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">박명숙</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"5년째 말씀온으로 하루를 시작합니다. 그날그날 주시는 말씀과 일러스트를 보며 성령님께서 이 앱을 만드시는 분을 인도하시는걸 느꼈습니다."</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">찌니찌니</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"매일매일 말씀을 선물 받은것처럼 묵상할수 있어서 좋고 생각을 글로 남기고 달력에 저장할수 있어 좋아요!! 최고의 앱이에요!!!"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">양신석</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"중등부 교사인데 아이들에게 텍스트의 말씀도 좋지만 예쁜 이미지까지 함께 보내주니 정말 좋은것 같아요!!"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">H a</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"너무 그림도 예쁘고 은혜가 되는 말씀, 그리고 그 말씀을 쉽게 이해할 수 있는... 그저 내 마음에 딱입니다. 예쁜 말씀 앱 만들어 주셔서 감사합니다."</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">하하호호</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"리뷰를 잘 작성하지 않는데.. 말씀과 그림이 읽고 보기에 이해도 쉬우며 귀엽습니다^^ 알림기능도 있어서 참 편하고 좋습니다"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">신소영</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"요즘 말씀보기가 소홀했는데 그림체도 너무 예쁘고 접근성도 좋아서 자주 이용합니다. 앞으로도 기대할게요!"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">ioilioi ko</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"인스타의 나눔이 너무너무 좋아서 늘 저의 삶을 되돌아 보았는데 이렇게 어플로 나오다니 감격이에요~ 너무 사랑스러운 그림때문에 행복해집니다♡"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">이오리오리</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"그림이 너무 귀여워서 하루 한컷씩 힐링하고 있어요. 이전에 봤었던 그림을 다시 볼 수 있어서 좋아요!"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">sungwook kim</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"매일 하루에 말씀 한구절 이쁘고 귀여운 그림과 함께 제공되니 넘 감사합니다~ 매일 카드로 다운받아 퍼나르고 있어요"</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-author">이의진</span>
+                            <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="review-text">"너무좋아요! 앞으로도 변하지 않고 예쁜 배경으로 말씀 쭉 올려주시면 감사하겠습니다! 현재 최애 말씀구절 어플입니다."</p>
+                        <span class="review-source">Google Play 리뷰</span>
+                    </div>
                 </div>
             </div>
         </section>
