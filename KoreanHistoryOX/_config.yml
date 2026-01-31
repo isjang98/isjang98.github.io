@@ -1,0 +1,19 @@
+title: 한국사 능력 검정시험 OX 퀴즈 앱
+subtitle: 한능검 완벽 대비! 재밍게 풀면서 실력을 높여보세요
+description: 정확하고 신뢰한 한국사 문제를 통해 능력을 검정시험 대비하세요. OX 퀴즈 형식으로 재밍고도 즐겁게 학습할 수 있습니다.
+baseurl: ""
+url: ""
+google_analytics: UA-XXXXXXXXXX-XX
+
+# Navigation
+nav:
+  - title: 앱 기능
+    url: /
+  - title: 업데이트
+    url: /updates/
+
+# Collections
+collections:
+  - name: posts
+    output: true
+    permalink: /:title/

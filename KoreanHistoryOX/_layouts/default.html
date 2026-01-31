@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% include head.html %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>{{ site.title }}</h1>
+            <p class="subtitle">{{ site.subtitle }}</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {{ content }}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 한국사 능력 검정시험 OX 퀴즈 앱. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.7/dist/js/splide.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/app.js"></script>
+</body>
+</html>

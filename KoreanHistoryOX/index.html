@@ -3,60 +3,832 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>한국사 능력 검정시험 OX 퀴즈 앱</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>한국사 능력 검정시험 OX 퀴즈 - 한능검 완벽 대비</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="한국사 능력 검정시험(한능검) 완벽 대비! OX 퀴즈로 재밌게 공부하고, AI 오답 분석으로 취약점을 파악하세요. 복습 모드, 스트릭 시스템, 랭킹까지!">
+    <meta name="keywords" content="한국사, 한능검, 한국사능력검정시험, OX퀴즈, 역사공부, 한국사앱, 기출문제">
+    <meta name="author" content="Korean History Quiz">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="한국사 능력 검정시험 OX 퀴즈">
+    <meta property="og:description" content="한능검 완벽 대비! OX 퀴즈로 재밌게 공부하고 AI 오답 분석으로 실력을 키우세요.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://isjang98.github.io/KoreanHistoryOX/">
+    <meta property="og:locale" content="ko_KR">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --yellow: #FFE500;
+            --pink: #FF6B9D;
+            --blue: #4ECDC4;
+            --purple: #A855F7;
+            --orange: #FF9F1C;
+            --green: #2ECC71;
+            --black: #000000;
+            --white: #FFFFFF;
+            --bg: #FFF9E6;
+            --border-width: 4px;
+            --shadow-offset: 6px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Neo-Brutalism Card Style */
+        .neo-card {
+            background: var(--white);
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .neo-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 var(--black);
+        }
+        
+        /* Neo-Brutalism Button */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--black);
+            background: var(--yellow);
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        
+        .neo-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: calc(var(--shadow-offset) + 2px) calc(var(--shadow-offset) + 2px) 0 var(--black);
+        }
+        
+        .neo-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--black);
+        }
+        
+        .neo-btn.pink { background: var(--pink); }
+        .neo-btn.blue { background: var(--blue); }
+        .neo-btn.green { background: var(--green); }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: var(--yellow);
+            border-bottom: var(--border-width) solid var(--black);
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .logo {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.8rem;
+            color: var(--black);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            background: var(--black);
+            color: var(--yellow);
+            padding: 4px 8px;
+            margin-left: 8px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--bg) 0%, #FFF5CC 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--pink);
+            border: var(--border-width) solid var(--black);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background: var(--blue);
+            border: var(--border-width) solid var(--black);
+            z-index: 0;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+        
+        .hero-text h1 .highlight {
+            background: var(--pink);
+            padding: 0 12px;
+            display: inline-block;
+            transform: rotate(-1deg);
+            border: 3px solid var(--black);
+        }
+        
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--black);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 12px 12px 0 var(--purple);
+            position: relative;
+        }
+        
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, var(--yellow) 0%, var(--orange) 100%);
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .phone-screen .app-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 3px solid var(--black);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        .phone-screen h3 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        
+        .phone-screen .quiz-preview {
+            background: var(--white);
+            border: 3px solid var(--black);
+            padding: 16px;
+            margin-top: 16px;
+            width: 100%;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        .phone-screen .quiz-preview p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .phone-screen .ox-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        
+        .phone-screen .ox-btn {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--black);
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .phone-screen .ox-btn.o { background: var(--blue); }
+        .phone-screen .ox-btn.x { background: var(--pink); }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: var(--white);
+            border-top: var(--border-width) solid var(--black);
+            border-bottom: var(--border-width) solid var(--black);
+        }
+        
+        .section-title {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 6px;
+            background: var(--yellow);
+            border: 2px solid var(--black);
+            margin: 16px auto 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .feature-card .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: var(--border-width) solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        .feature-card:nth-child(1) .icon { background: var(--pink); }
+        .feature-card:nth-child(2) .icon { background: var(--blue); }
+        .feature-card:nth-child(3) .icon { background: var(--yellow); }
+        .feature-card:nth-child(4) .icon { background: var(--purple); color: var(--white); }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: var(--purple);
+            border-bottom: var(--border-width) solid var(--black);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            background: var(--white);
+            padding: 32px 24px;
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
+        }
+        
+        .stat-item .number {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 3rem;
+            color: var(--black);
+            display: block;
+        }
+        
+        .stat-item .label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--yellow);
+            border: var(--border-width) solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: #333;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--yellow);
+            border-top: var(--border-width) solid var(--black);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            background: var(--pink);
+            border: 3px solid var(--black);
+            transform: rotate(15deg);
+        }
+        
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            right: 10%;
+            width: 60px;
+            height: 60px;
+            background: var(--blue);
+            border: 3px solid var(--black);
+            border-radius: 50%;
+        }
+        
+        .cta h2 {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta .neo-btn {
+            background: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .copyright {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .phone-mockup {
+                width: 240px;
+                height: 480px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .neo-btn {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+            
+            .features, .how-it-works, .cta {
+                padding: 60px 0;
+            }
+            
+            .stat-item .number {
+                font-size: 2.2rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .phone-mockup {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Screenshots Gallery */
+        .screenshots {
+            padding: 100px 0;
+            background: var(--bg);
+            border-bottom: var(--border-width) solid var(--black);
+            overflow: hidden;
+        }
+        
+        .screenshots-wrapper {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .screenshots-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .screenshot-item {
+            flex: 0 0 auto;
+            width: 220px;
+            scroll-snap-align: center;
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
+            border-radius: 16px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .screenshot-item img:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--black);
+        }
+        
+        .screenshot-item:nth-child(1) img { box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--pink); }
+        .screenshot-item:nth-child(2) img { box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--blue); }
+        .screenshot-item:nth-child(3) img { box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--yellow); }
+        .screenshot-item:nth-child(4) img { box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--purple); }
+        .screenshot-item:nth-child(5) img { box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--orange); }
+        
+        .screenshot-item:nth-child(1) img:hover { box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--pink); }
+        .screenshot-item:nth-child(2) img:hover { box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--blue); }
+        .screenshot-item:nth-child(3) img:hover { box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--yellow); }
+        .screenshot-item:nth-child(4) img:hover { box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--purple); }
+        .screenshot-item:nth-child(5) img:hover { box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--orange); }
+        
+        @media (max-width: 600px) {
+            .screenshot-item {
+                width: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
         <div class="container">
-            <h1>한국사 능력 검정시험 OX 퀴즈</h1>
-            <p class="subtitle">한능검 완벽 대비! 재밌게 풀면서 실력을 높여봐요</p>
+            <div class="header-content">
+                <a href="#" class="logo">한국사OX<span>퀴즈</span></a>
+                <a href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" class="neo-btn pink" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    다운로드
+                </a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h2>언제 어디서든 간편하게 한국사 학습!</h2>
-                    <p>정확하고 엄선된 문제로 한국사 지식을 확실하게 다져보세요. 자투리 시간에도 효과적으로 학습할 수 있습니다.</p>
-                    <a href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" class="cta-button" target="_blank">
-                        <i class="fab fa-google-play"></i> Google Play에서 다운로드
-                    </a>
-                </div>
-                </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h2>앱 주요 특징</h2>
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>핵심 OX 문제</h3>
-                        <p>한능검 기출 경향을 반영한 핵심 OX 문제로 효율적인 학습이 가능합니다.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>
+                        한능검 완벽 대비!<br>
+                        <span class="highlight">OX 퀴즈</span>로<br>
+                        재밌게 공부하자
+                    </h1>
+                    <p>
+                        지루한 암기는 그만! 빠르게 풀고 바로 확인하는 OX 퀴즈로 
+                        한국사 실력을 확실하게 키워보세요. AI가 당신의 취약점을 분석해드립니다.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" class="neo-btn" target="_blank">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                            </svg>
+                            Google Play에서 다운로드
+                        </a>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-book-open"></i>
-                        <h3>정확한 해설</h3>
-                        <p>문제와 함께 제공되는 상세한 해설로 배경지식까지 완벽하게 이해합니다.</p>
-                    </div>
-                    <div class="feature-item">
-                         <i class="fas fa-history"></i>
-                        <h3>시대별/주제별 학습</h3>
-                        <p>원하는 시대나 주제를 선택하여 맞춤형 학습을 진행할 수 있습니다.</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div class="app-icon">📜</div>
+                            <h3>한국사 OX 퀴즈</h3>
+                            <div class="quiz-preview">
+                                <p>"고조선은 기원전 2333년에 건국되었다"</p>
+                                <div class="ox-buttons">
+                                    <div class="ox-btn o">O</div>
+                                    <div class="ox-btn x">X</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">왜 이 앱이어야 할까요?</h2>
+            <div class="features-grid">
+                <div class="feature-card neo-card">
+                    <div class="icon">🔄</div>
+                    <h3>스마트 복습 모드</h3>
+                    <p>틀린 문제만 따로 모아서 복습! 완벽히 익힐 때까지 반복 학습하세요. 마스터한 문제는 자동으로 제외됩니다.</p>
+                </div>
+                <div class="feature-card neo-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI 오답 분석</h3>
+                    <p>AI가 당신의 오답 패턴을 분석해 취약한 시대와 주제를 알려드립니다. 효율적인 학습 방향을 제시합니다.</p>
+                </div>
+                <div class="feature-card neo-card">
+                    <div class="icon">🔥</div>
+                    <h3>스트릭 시스템</h3>
+                    <p>매일 꾸준히 학습하면 스트릭이 쌓여요! 연속 학습 기록을 세우고 학습 습관을 만들어보세요.</p>
+                </div>
+                <div class="feature-card neo-card">
+                    <div class="icon">🏆</div>
+                    <h3>전국 랭킹</h3>
+                    <p>전국의 한능검 수험생들과 실력을 겨뤄보세요. XP를 모아 레벨업하고 랭킹 상위권에 도전하세요!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title">앱 미리보기</h2>
+            <div class="screenshots-wrapper">
+                <div class="screenshot-item">
+                    <img src="images/screen-1.png" alt="한국사 OX 퀴즈 앱 화면 1" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screen-2.png" alt="한국사 OX 퀴즈 앱 화면 2" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screen-3.png" alt="한국사 OX 퀴즈 앱 화면 3" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screen-4.png" alt="한국사 OX 퀴즈 앱 화면 4" loading="lazy">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/screen-5.png" alt="한국사 OX 퀴즈 앱 화면 5" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="number">1000+</span>
+                    <span class="label">엄선된 문제</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">71회</span>
+                    <span class="label">기출 회차 반영</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">100%</span>
+                    <span class="label">무료 이용</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">실시간</span>
+                    <span class="label">랭킹 업데이트</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">이렇게 공부하세요</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>회차 선택</h3>
+                    <p>원하는 기출 회차를 선택하세요. 최신 회차부터 과거 회차까지 모두 준비되어 있습니다.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>OX 퀴즈 풀기</h3>
+                    <p>간단한 OX 선택으로 빠르게 문제를 풀어보세요. 바로바로 정답과 해설을 확인할 수 있습니다.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>복습하기</h3>
+                    <p>틀린 문제는 복습 모드에서 다시 풀어보세요. 완벽히 이해할 때까지 반복학습!</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>AI 분석 확인</h3>
+                    <p>AI가 분석한 취약점을 확인하고 부족한 부분을 집중 공략하세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>지금 바로 시작하세요!</h2>
+            <p>한능검 합격을 향한 첫 걸음, 무료로 다운로드하세요.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" class="neo-btn" target="_blank">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                </svg>
+                Google Play 다운로드
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 한국사OX 퀴즈</p>
+            <div class="footer-links">
+                <a href="privacy/">개인정보처리방침</a>
+                <a href="mailto:contact@koreanhistoryquiz.app">문의하기</a>
+            </div>
+            <p class="copyright">&copy; 2025 한국사 OX 퀴즈. All rights reserved.</p>
         </div>
     </footer>
 
