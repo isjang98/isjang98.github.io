@@ -1,58 +1,157 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>야구일기 - 개인정보처리방침</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
-        h1 { color: #1a1a1a; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #2a2a2a; margin-top: 30px; }
-        .date { color: #666; font-size: 0.9em; }
-    </style>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./assets/ballog.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="나만의 KBO 직관 기록장, 야구일기. 스코어방, 좌석, 사진, 감동의 순간까지 간편하게 담으세요." />
+  <title>야구일기 (Ballog) - 직관의 감동을 기록하다</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<body>
-    <h1>⚾ 야구일기 개인정보처리방침</h1>
-    <p class="date">시행일: 2026년 4월 5일</p>
+<body class="antialiased">
+  <nav class="navbar glass">
+    <div class="nav-content mx-auto row align-center justify-between">
+      <div class="logo row align-center gap-sm">
+        <img src="./assets/ballog.png" alt="야구일기 로고" class="logo-img">
+        <span class="logo-text">야구일기</span>
+      </div>
+      <a href="https://play.google.com/store/apps/details?id=com.insu.ballog" class="btn btn-primary btn-nav ripple" target="_blank" rel="noopener noreferrer">앱 다운로드</a>
+    </div>
+  </nav>
 
-    <h2>1. 수집하는 개인정보</h2>
-    <p>야구일기는 <strong>개인정보를 수집하지 않습니다.</strong></p>
-    <p>앱에서 입력하는 모든 데이터(직관 기록, 사진, 메모 등)는 사용자의 기기에만 저장되며, 외부 서버로 전송되지 않습니다.</p>
+  <main>
+    <section class="hero row wrap align-center justify-between mx-auto pt-mega pb-xxl px-lg" id="home">
+      <div class="hero-text col gap-md reveal">
+        <div class="badge inline-flex align-center glass px-md py-xs mb-sm">✨ 스마트한 KBO 직관 라이프</div>
+        <h1 class="hero-title">직관의 감동을<br><span class="text-gradient">기록하다</span></h1>
+        <p class="hero-subtitle text-muted mt-sm">나만의 KBO 직관 기록장, 야구일기.<br>스코어, 좌석, 그리고 그 날의 특별한 감동까지 간편하게 남기세요.</p>
+        <div class="hero-actions row gap-md pt-lg relative z-10">
+          <a href="https://play.google.com/store/apps/details?id=com.insu.ballog" class="btn btn-lg btn-gradient row align-center gap-sm ripple" target="_blank" rel="noopener noreferrer">
+            <!-- Google Play Icon -->
+            <svg class="icon-md" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5.5 2.5v19l15-9.5-15-9.5zm2 3.8l9 5.7-9 5.7v-11.4z"/>
+            </svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual reveal reveal-right relative mt-xl-mobile">
+        <div class="glow-orb"></div>
+        <div class="glow-orb orb-alt"></div>
+        <img src="./assets/screenshot-1.png" alt="앱 스크린샷" class="hero-mockup floating">
+      </div>
+    </section>
 
-    <h2>2. 데이터 저장</h2>
-    <p>모든 데이터는 기기 내부 데이터베이스(Room)에 저장됩니다.</p>
-    <ul>
-        <li>직관 기록 (날짜, 팀, 구장, 결과, 스코어, 좌석, 메모)</li>
-        <li>사진 URI (기기 갤러리 참조)</li>
-        <li>앱 설정 (응원팀, 온보딩 완료 여부)</li>
-    </ul>
-    <p>앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+    <!-- Logo Ticker / Support -->
+    <section class="stadiums py-md mx-auto text-center border-t border-b border-light reveal">
+       <p class="text-xs text-muted mb-sm tracking-wide">지원 구장</p>
+       <div class="stadium-list row wrap gap-md justify-center text-sm font-medium">
+         <span>잠실종합운동장</span> ·
+         <span>수원KT위즈파크</span> ·
+         <span>인천SSG랜더스필드</span> ·
+         <span>창원NC파크</span> ·
+         <span>광주기아챔피언스필드</span> ·
+         <span>사직야구장</span> ·
+         <span>대구삼성라이온즈파크</span> ·
+         <span>한화생명이글스파크</span> ·
+         <span>고척스카이돔</span>
+       </div>
+    </section>
 
-    <h2>3. 분석 도구</h2>
-    <p>야구일기는 앱 사용 패턴을 이해하기 위해 Firebase Analytics를 사용합니다.</p>
-    <p>수집되는 정보:</p>
-    <ul>
-        <li>화면 조회 이벤트</li>
-        <li>버튼 클릭 이벤트</li>
-        <li>앱 사용 빈도</li>
-    </ul>
-    <p>이 데이터는 익명으로 수집되며, 개인을 식별할 수 없습니다. Google의 <a href="https://policies.google.com/privacy">개인정보처리방침</a>이 적용됩니다.</p>
+    <section class="features mx-auto py-mega px-lg" id="features">
+      <div class="section-header text-center reveal">
+        <h2 class="section-title">단 하나뿐인 기록</h2>
+        <p class="section-subtitle mt-sm text-muted">야구일기가 선사하는 직관 최적화 기능들</p>
+      </div>
 
-    <h2>4. 제3자 제공</h2>
-    <p>야구일기는 사용자의 데이터를 제3자에게 제공하지 않습니다.</p>
+      <div class="feature-grid grid mt-xxl">
+        <!-- Feature 1 -->
+        <div class="feature-card glass hover-lift reveal">
+          <div class="feature-icon-wrapper flex align-center justify-center mb-md">
+             <span class="feature-emoji">📝</span>
+          </div>
+          <h3 class="feature-title">초간편 직관 기록</h3>
+          <p class="feature-desc mt-sm text-muted">날짜, 응원팀, 상대팀, 구장을 선택하고 경기 결과와 스코어를 몇 번의 터치로 입력할 수 있습니다.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card glass hover-lift reveal" style="transition-delay: 100ms;">
+          <div class="feature-icon-wrapper flex align-center justify-center mb-md">
+             <span class="feature-emoji">📅</span>
+          </div>
+          <h3 class="feature-title">한눈에 보는 달력</h3>
+          <p class="feature-desc mt-sm text-muted">월별 캘린더를 통해 내가 언제 직관을 갔는지, 어떤 결과를 얻었는지 직관적으로 확인하세요.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card glass hover-lift reveal" style="transition-delay: 200ms;">
+          <div class="feature-icon-wrapper flex align-center justify-center mb-md">
+             <span class="feature-emoji">🏆</span>
+          </div>
+          <h3 class="feature-title">나만의 승률 통계</h3>
+          <p class="feature-desc mt-sm text-muted">승률, 월별 트렌드, 구장별 방문 횟수를 확인하고 '승요/패요' 카드를 친구와 쉽고 재밌게 공유하세요.</p>
+        </div>
+        <!-- Feature 4 -->
+        <div class="feature-card glass hover-lift reveal" style="transition-delay: 300ms;">
+          <div class="feature-icon-wrapper flex align-center justify-center mb-md">
+             <span class="feature-emoji">📸</span>
+          </div>
+          <h3 class="feature-title">생생한 사진 첨부</h3>
+          <p class="feature-desc mt-sm text-muted">눈부셨던 그 날의 감동이 담긴 직관 사진을 여러 장 첨부하여 더욱 생생한 추억으로 영원히 간직하세요.</p>
+        </div>
+      </div>
+    </section>
 
-    <h2>5. 아동 개인정보</h2>
-    <p>야구일기는 13세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+    <!-- screenshot gallery -->
+    <section class="gallery mx-auto py-mega overflow-hidden relative">
+       <div class="section-header text-center px-lg reveal">
+        <h2 class="section-title">한눈에 보는 야구일기</h2>
+        <p class="section-subtitle mt-sm text-muted">깔끔하고 사용하기 쉬운 인터페이스를 경험하세요.</p>
+      </div>
+      <div class="gallery-wrapper mt-xl pb-lg flex gap-lg px-lg drag-scroll reveal">
+        <img src="./assets/screenshot-2.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-3.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-4.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-5.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-6.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-7.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+        <img src="./assets/screenshot-8.png" alt="갤러리 화면" class="gallery-img rounded glass border-light">
+      </div>
+      <!-- gradient fades for gallery edges -->
+      <div class="fade-edge edge-left"></div>
+      <div class="fade-edge edge-right"></div>
+    </section>
 
-    <h2>6. 변경 사항</h2>
-    <p>본 개인정보처리방침은 변경될 수 있으며, 변경 시 앱 내 또는 본 페이지를 통해 공지합니다.</p>
+    <section class="cta row align-center justify-center py-mega px-lg relative reveal">
+       <div class="glow-orb orb-center"></div>
+       <div class="col glass cta-inner px-xxl py-xxl rounded shadow-neon text-center z-10 border-light relative overflow-hidden">
+          <div class="bg-pulse"></div>
+          <h2 class="cta-title">지금 바로 시작하세요</h2>
+          <p class="cta-subtitle mt-md text-muted max-w-sm mx-auto">모든 데이터는 기기에만 안전하게 저장됩니다. 서버 전송 걱정 없이 나의 기록을 남겨보세요.</p>
+          <div class="mt-xl">
+            <a href="https://play.google.com/store/apps/details?id=com.insu.ballog" class="btn btn-xl btn-primary inline-flex align-center gap-sm ripple" target="_blank" rel="noopener noreferrer">
+                무료로 시작하기
+            </a>
+          </div>
+       </div>
+    </section>
+  </main>
 
-    <h2>7. 문의</h2>
-    <p>개인정보처리방침에 대한 문의는 아래로 연락해주세요.</p>
-    <p>이메일: <a href="mailto:[email]">isjang98@gmail.com</a></p>
-
-    <hr>
-    <p class="date">Ballog Privacy Policy — English version available upon request.</p>
+  <footer class="footer py-xl px-lg border-t border-light text-sm mt-mega relative">
+    <div class="footer-content mx-auto row justify-between wrap gap-md">
+      <div class="footer-left col gap-sm text-muted">
+        <div class="row align-center gap-sm mb-xs">
+           <img src="./assets/ballog.png" alt="로고" style="width: 28px;">
+           <span class="font-bold text-base text-body">야구일기</span>
+        </div>
+        <span>KBO 팬들을 위한 소중한 공간입니다.</span>
+        <span>Copyright © 2024 Ballog. All rights reserved.</span>
+      </div>
+      <div class="footer-links row gap-lg text-muted align-end">
+        <a href="https://play.google.com/store/apps/details?id=com.insu.ballog" class="hover-text">Google Play</a>
+        <a href="https://isjang98.github.io/Ballog/privacy/" class="hover-text" target="_blank" rel="noopener noreferrer">개인정보처리방침</a>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
-
