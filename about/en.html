@@ -3,69 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insu Jang | Senior Android Developer</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Senior Android Developer with 14+ years of experience. AI tools expert, Jetpack Compose, Multi-module Architecture. Baemin Food Android Development.">
-    <meta name="keywords" content="Android Developer, Kotlin, Jetpack Compose, Senior Developer, AI Tools, Baemin, Woowa Brothers">
+    <title>Insu Jang | Lead Mobile Developer</title>
+    <meta name="description" content="Lead Mobile Developer connecting technology, data, and organization to drive service growth. Jetpack Compose, Multi-module Architecture, AI Tools Expert.">
+    <meta name="keywords" content="Android Developer, Kotlin, Jetpack Compose, Lead Developer, AI Tools, Baemin, Woowa Brothers, Curation">
     <meta name="author" content="Insu Jang">
     <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Insu Jang | Senior Android Developer">
-    <meta property="og:description" content="Maximizing productivity with AI tools and expertise in modern Android architecture based on Jetpack Compose">
+    <meta property="og:title" content="Insu Jang | Lead Mobile Developer">
+    <meta property="og:description" content="Lead Mobile Developer connecting technology, data, and organization to drive service growth">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isjang98.github.io/about/en.html">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Insu Jang Portfolio">
-    
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Insu Jang | Senior Android Developer">
-    <meta name="twitter:description" content="Senior Android Developer with 14+ years of experience. AI tools expert, Jetpack Compose, Multi-module Architecture.">
-    
-    <!-- Canonical URL -->
+    <meta name="twitter:title" content="Insu Jang | Lead Mobile Developer">
+    <meta name="twitter:description" content="Lead Mobile Developer connecting technology, data, and organization to drive service growth">
     <link rel="canonical" href="https://isjang98.github.io/about/en.html">
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
-    
-    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Insu Jang",
         "alternateName": "장인수",
-        "jobTitle": "Senior Android Developer",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "Woowa Brothers (Baemin)"
-        },
-        "url": "https://isjang98.github.io/about/en.html",
-        "sameAs": [
-            "https://www.linkedin.com/in/jang-insu-9360462a/",
-            "https://github.com/isjang98",
-            "https://www.slideshare.net/isjang98"
-        ],
-        "knowsAbout": ["Android", "Kotlin", "Jetpack Compose", "AI Development Tools", "Mobile Architecture"],
-        "description": "Senior Android Developer with 14+ years of experience. AI tools expert, Jetpack Compose, Multi-module Architecture specialist."
+        "jobTitle": "Lead Mobile Developer",
+        "worksFor": {"@type": "Organization", "name": "우아한형제들"},
+        "url": "https://isjang98.github.io/about/",
+        "sameAs": ["https://www.linkedin.com/in/jang-insu-9360462a/", "https://www.slideshare.net/isjang98"],
+        "knowsAbout": ["Android", "Kotlin", "Jetpack Compose", "AI Development Tools", "Mobile Architecture", "Data-driven Curation"],
+        "description": "Lead Mobile Developer connecting technology, data, and organization to drive service growth"
     }
     </script>
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-        /* CSS Reset & Variables */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --neon-cyan: #00F5FF;
             --neon-pink: #FF6B9D;
@@ -79,562 +51,230 @@
             --border-color: rgba(255, 255, 255, 0.08);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-        }
-        
-        /* Background Effects */
-        .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .noise {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.015;
-            z-index: -1;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-        
-        /* Container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 20px 0;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: var(--border-color);
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .nav-links a:hover {
-            color: var(--neon-cyan);
-        }
-        
-        .lang-switch {
-            padding: 6px 12px;
-            background: rgba(255, 107, 157, 0.1);
-            border: 1px solid rgba(255, 107, 157, 0.3);
-            border-radius: 6px;
-            color: var(--neon-pink) !important;
-            font-size: 0.85rem !important;
-        }
-        
-        .lang-switch:hover {
-            background: rgba(255, 107, 157, 0.2);
-            color: var(--neon-pink) !important;
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 160px 0 100px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: rgba(0, 245, 255, 0.1);
-            border: 1px solid rgba(0, 245, 255, 0.3);
-            border-radius: 100px;
-            color: var(--neon-cyan);
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-        }
-        
-        .hero h1 .gradient-text {
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            max-width: 600px;
-        }
-        
-        .hero-keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 40px;
-        }
-        
-        .keyword-tag {
-            padding: 8px 16px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            padding: 14px 28px;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            color: var(--dark-bg);
-            border-radius: 100px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 0.95rem;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
-        }
-        
-        .btn-secondary {
-            padding: 14px 28px;
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 100px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .btn-secondary:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 100px 0;
-        }
-        
-        .section-header {
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .section-header h2::before {
-            content: '';
-            width: 4px;
-            height: 32px;
-            background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple));
-            border-radius: 2px;
-        }
-        
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
-        
-        /* About Section */
-        .about-content {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 24px;
-            padding: 48px;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 32px;
-        }
-        
-        .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-        
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .achievement-card {
-            padding: 24px;
-            background: rgba(0, 245, 255, 0.03);
-            border: 1px solid rgba(0, 245, 255, 0.1);
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-        
-        .achievement-card:hover {
-            border-color: rgba(0, 245, 255, 0.3);
-            transform: translateY(-2px);
-        }
-        
-        .achievement-card h4 {
-            font-size: 0.9rem;
-            color: var(--neon-cyan);
-            margin-bottom: 8px;
-        }
-        
-        .achievement-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Experience Section */
-        .experience-list {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
-        
-        .experience-item {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 24px;
-            padding: 32px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-        
-        .experience-item:hover {
-            border-color: rgba(184, 41, 221, 0.3);
-        }
-        
-        .exp-period {
-            font-size: 0.85rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
-        
-        .exp-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-        
-        .exp-content .company {
-            color: var(--neon-purple);
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-        
-        .exp-content p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        
-        .skill-category {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-        }
-        
-        .skill-category h3 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: var(--neon-cyan);
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .skill-tag {
-            padding: 6px 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Speaking Section */
-        .speaking-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .speaking-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 24px 32px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: var(--transition);
-        }
-        
-        .speaking-item:hover {
-            border-color: rgba(255, 107, 157, 0.3);
-        }
-        
-        .speaking-year {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--neon-pink);
-            min-width: 80px;
-        }
-        
-        .speaking-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        
-        .speaking-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            padding: 120px 0;
-        }
-        
-        .contact-section h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 16px;
-        }
-        
-        .contact-section > p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-        }
-        
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 24px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 100px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .contact-link:hover {
-            border-color: var(--neon-cyan);
-            color: var(--neon-cyan);
-            transform: translateY(-2px);
-        }
-        
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark-bg); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+        .bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: -1; }
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.015; z-index: -1; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-color); }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .lang-switch { padding: 6px 12px; background: rgba(255,107,157,0.1); border: 1px solid rgba(255,107,157,0.3); border-radius: 6px; color: var(--neon-pink) !important; font-size: 0.85rem !important; }
+        .lang-switch:hover { background: rgba(255,107,157,0.2); }
+
+        /* Hamburger */
+        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1001; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-primary); transition: var(--transition); }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,10,15,0.95); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; justify-content: center; align-items: center; gap: 32px; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { color: var(--text-primary); text-decoration: none; font-size: 1.3rem; font-family: 'Space Grotesk', sans-serif; font-weight: 600; transition: var(--transition); }
+        .mobile-menu a:hover { color: var(--neon-cyan); }
+
+        /* Scroll Animation */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Hero */
+        .hero { padding: 160px 0 100px; min-height: 100vh; display: flex; align-items: center; }
+        .hero-content { max-width: 800px; }
+        .hero-badge { display: inline-block; padding: 8px 16px; background: rgba(0,245,255,0.1); border: 1px solid rgba(0,245,255,0.3); border-radius: 100px; color: var(--neon-cyan); font-size: 0.85rem; font-weight: 500; margin-bottom: 24px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 24px; letter-spacing: -2px; }
+        .hero h1 .gradient-text { background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 650px; line-height: 1.8; }
+        .hero-keywords { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+        .keyword-tag { padding: 8px 16px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; font-size: 0.85rem; color: var(--text-secondary); }
+        .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary { padding: 14px 28px; background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple)); color: var(--dark-bg); border-radius: 100px; font-weight: 600; text-decoration: none; transition: var(--transition); border: none; cursor: pointer; font-size: 0.95rem; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,245,255,0.3); }
+        .btn-secondary { padding: 14px 28px; background: transparent; color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 100px; font-weight: 500; text-decoration: none; transition: var(--transition); }
+        .btn-secondary:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+        /* Section */
+        section { padding: 100px 0; }
+        .section-header { margin-bottom: 60px; }
+        .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+        .section-header h2::before { content: ''; width: 4px; height: 32px; background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); border-radius: 2px; }
+        .section-header p { color: var(--text-secondary); font-size: 1.1rem; }
+
+        /* Core Impact */
+        .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .impact-card { padding: 32px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; transition: var(--transition); position: relative; overflow: hidden; }
+        .impact-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple)); opacity: 0; transition: var(--transition); }
+        .impact-card:hover { border-color: rgba(0,245,255,0.3); transform: translateY(-4px); }
+        .impact-card:hover::before { opacity: 1; }
+        .impact-icon { font-size: 2rem; margin-bottom: 16px; }
+        .impact-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .impact-result { color: var(--neon-cyan); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
+        .impact-card p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Featured Projects */
+        .project-list { display: flex; flex-direction: column; gap: 20px; }
+        .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: var(--transition); }
+        .project-card:hover { border-color: rgba(184,41,221,0.3); }
+        .project-header { padding: 28px 32px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .project-header-left { flex: 1; }
+        .project-header h3 { font-size: 1.2rem; margin-bottom: 6px; }
+        .project-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .project-period { color: var(--neon-purple); font-size: 0.85rem; font-weight: 500; }
+        .project-team { color: var(--text-tertiary); font-size: 0.85rem; }
+        .project-toggle { color: var(--text-tertiary); font-size: 1.5rem; transition: var(--transition); flex-shrink: 0; margin-left: 16px; }
+        .project-card.open .project-toggle { transform: rotate(180deg); color: var(--neon-cyan); }
+        .project-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .project-card.open .project-detail { max-height: 600px; }
+        .project-detail-inner { padding: 0 32px 28px; }
+        .project-detail-inner ul { list-style: none; margin-bottom: 16px; }
+        .project-detail-inner li { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; padding-left: 20px; position: relative; }
+        .project-detail-inner li::before { content: '→'; position: absolute; left: 0; color: var(--neon-cyan); }
+        .project-result { padding: 12px 16px; background: rgba(0,245,255,0.05); border: 1px solid rgba(0,245,255,0.15); border-radius: 10px; margin-bottom: 16px; }
+        .project-result p { color: var(--neon-cyan); font-size: 0.9rem; font-weight: 500; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .project-tag { padding: 4px 10px; background: rgba(255,255,255,0.05); border-radius: 6px; font-size: 0.8rem; color: var(--text-tertiary); }
+
+        /* Leadership */
+        .leadership-grid { display: flex; flex-direction: column; gap: 16px; }
+        .leadership-item { padding: 24px 28px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; transition: var(--transition); }
+        .leadership-item:hover { border-color: rgba(255,107,157,0.3); }
+        .leadership-item h4 { font-size: 1.05rem; margin-bottom: 4px; }
+        .leadership-item .lead-year { color: var(--neon-pink); font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; }
+        .leadership-item p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+        .leadership-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+        /* Timeline */
+        .timeline { position: relative; max-width: 980px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple), var(--neon-pink)); }
+        .timeline-item { position: relative; width: 100%; margin-bottom: 28px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item:nth-child(odd) { padding-right: calc(50% + 28px); }
+        .timeline-item:nth-child(even) { padding-left: calc(50% + 28px); }
+        .timeline-card { position: relative; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 18px; padding: 20px 22px; transition: var(--transition); }
+        .timeline-card:hover { transform: translateY(-3px); border-color: rgba(0,245,255,0.28); box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
+        .timeline-item:nth-child(even) .timeline-card:hover { border-color: rgba(184,41,221,0.28); }
+        .timeline-item.is-featured .timeline-card { border-color: rgba(255,107,157,0.28); background: linear-gradient(180deg, rgba(255,107,157,0.07), rgba(17,17,24,1)); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+        .timeline-item.is-featured:nth-child(even) .timeline-card { border-color: rgba(0,245,255,0.28); background: linear-gradient(180deg, rgba(0,245,255,0.06), rgba(17,17,24,1)); }
+        .timeline-card::after { content: ''; position: absolute; top: 28px; width: 28px; height: 1px; background: linear-gradient(90deg, var(--neon-cyan), rgba(255,255,255,0.12)); }
+        .timeline-item:nth-child(odd) .timeline-card::after { right: -28px; }
+        .timeline-item:nth-child(even) .timeline-card::after { left: -28px; background: linear-gradient(90deg, rgba(255,255,255,0.12), var(--neon-purple)); }
+        .timeline-dot { position: absolute; left: 50%; top: 24px; width: 14px; height: 14px; transform: translateX(-50%); border-radius: 50%; background: var(--neon-cyan); border: 3px solid var(--dark-bg); box-shadow: 0 0 12px rgba(0,245,255,0.5); z-index: 2; }
+        .timeline-item:nth-child(even) .timeline-dot { background: var(--neon-purple); box-shadow: 0 0 12px rgba(184,41,221,0.5); }
+        .timeline-year { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--neon-cyan); margin-bottom: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+        .timeline-item:nth-child(even) .timeline-year { color: var(--neon-purple); }
+        .timeline-badge { display: inline-block; margin-bottom: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(255,107,157,0.12); border: 1px solid rgba(255,107,157,0.22); color: var(--neon-pink); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+        .timeline-item:nth-child(even) .timeline-badge { background: rgba(0,245,255,0.10); border-color: rgba(0,245,255,0.22); color: var(--neon-cyan); }
+        .timeline-text { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; }
+        .timeline-text strong { color: var(--text-primary); }
+        .timeline-text a { color: var(--neon-cyan); text-decoration: none; font-weight: 500; }
+        .timeline-text a:hover { color: var(--neon-pink); }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .skill-category { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; }
+        .skill-category h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--neon-cyan); }
+        .skill-category p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin: -6px 0 16px; }
+        .skill-category.is-ai { border-color: rgba(0,245,255,0.22); background: linear-gradient(180deg, rgba(0,245,255,0.06), rgba(17,17,24,1)); }
+        .skill-category.is-ai h3 { color: var(--text-primary); }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag { padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; font-size: 0.85rem; color: var(--text-secondary); }
+
+        /* Speaking */
+        .speaking-list { display: flex; flex-direction: column; gap: 16px; }
+        .speaking-item { display: flex; align-items: center; gap: 20px; padding: 24px 32px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; transition: var(--transition); text-decoration: none; color: inherit; }
+        .speaking-item:hover { border-color: rgba(255,107,157,0.3); }
+        .speaking-year { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--neon-pink); min-width: 80px; }
+        .speaking-content h4 { font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary); }
+        .speaking-content p { color: var(--text-secondary); font-size: 0.9rem; }
+
+        /* Contact */
+        .contact-section { text-align: center; padding: 120px 0; }
+        .contact-section h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 16px; }
+        .contact-section > p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 40px; }
+        .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+        .contact-link { display: flex; align-items: center; gap: 8px; padding: 14px 24px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 100px; color: var(--text-primary); text-decoration: none; font-weight: 500; transition: var(--transition); }
+        .contact-link:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); transform: translateY(-2px); }
+
         /* Footer */
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        footer p {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-        }
-        
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color); }
+        footer p { color: var(--text-tertiary); font-size: 0.9rem; }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 120px 0 80px;
-            }
-            
-            .hero-keywords {
-                justify-content: center;
-            }
-            
-            .hero-cta {
-                justify-content: center;
-            }
-            
-            .about-content {
-                padding: 32px 24px;
-            }
-            
-            .experience-item {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
-            .exp-period {
-                font-size: 0.8rem;
-            }
-            
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .speaking-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .speaking-year {
-                min-width: auto;
-            }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 120px 0 80px; }
+            .hero-keywords { justify-content: center; }
+            .hero-cta { justify-content: center; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .project-header { padding: 20px 24px; }
+            .project-detail-inner { padding: 0 24px 20px; }
+            .speaking-item { flex-direction: column; text-align: center; }
+            .speaking-year { min-width: auto; }
+            .timeline { padding-left: 28px; }
+            .timeline::before { left: 6px; transform: none; }
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) { padding-left: 26px; padding-right: 0; }
+            .timeline-card::after { left: -22px !important; right: auto !important; width: 22px; background: linear-gradient(90deg, rgba(255,255,255,0.12), var(--neon-cyan)) !important; }
+            .timeline-dot { left: 6px; transform: translateX(-50%); }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <div class="bg-grid"></div>
     <div class="noise"></div>
-    
+
     <!-- Navigation -->
     <nav>
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="nav-logo">JIS</a>
                 <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#leadership">Leadership</a>
+                    <a href="#timeline">Career</a>
                     <a href="#skills">Skills</a>
-                    <a href="#dx">DX</a>
                     <a href="#speaking">Speaking</a>
                     <a href="#contact">Contact</a>
-                    <a href="index.html" class="lang-switch">🌐 KO</a>
+                    <a href="index.html" class="lang-switch">KO</a>
                 </div>
+                <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#impact" onclick="closeMenu()">Impact</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#leadership" onclick="closeMenu()">Leadership</a>
+        <a href="#timeline" onclick="closeMenu()">Career</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#speaking" onclick="closeMenu()">Speaking</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+        <a href="index.html" class="lang-switch">KO</a>
+    </div>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">Open to Opportunities</div>
-                <h1>
-                    Hi, I'm<br>
-                    <span class="gradient-text">Insu Jang</span>
-                </h1>
-                <p class="hero-description">
-                    Senior Android Developer with 14+ years of experience. Specialized in maximizing productivity with AI tools and modern architecture based on Jetpack Compose.
-                </p>
+                <h1><span class="gradient-text">Tech, Data, Organization</span><br>Connecting them to drive growth</h1>
+                <p class="hero-description">I'm <strong style="color:var(--text-primary)">Insu Jang</strong>, a Lead Mobile Developer.<br>From Samsung Galaxy platform to Baemin Food with millions of MAU, 17 years of driving data-driven UX improvements and team productivity across diverse service scales.</p>
                 <div class="hero-keywords">
-                    <span class="keyword-tag">🤖 AI-Powered Development</span>
+                    <span class="keyword-tag">🤖 AI-Powered Dev</span>
                     <span class="keyword-tag">📱 Jetpack Compose</span>
-                    <span class="keyword-tag">🏗️ Multi-Module Architecture</span>
-                    <span class="keyword-tag">⚡ Performance Optimization</span>
+                    <span class="keyword-tag">🎯 Data-driven Curation</span>
+                    <span class="keyword-tag">🏗️ Multi-Module Arch</span>
                 </div>
                 <div class="hero-cta">
                     <a href="mailto:isjang98@gmail.com" class="btn-primary">Contact Me</a>
@@ -644,353 +284,209 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
+    <!-- Core Impact -->
+    <section id="impact">
         <div class="container">
-            <div class="section-header">
-                <h2>About Me</h2>
-                <p>Android Developer Leading Development Culture in the AI Era</p>
-            </div>
-            <div class="about-content">
-                <p class="about-text">
-                    From <strong>Samsung Galaxy Platform → Canadian Startup → Mobility (SOCAR) → FoodTech (Baemin)</strong>,
-                    I'm an Android developer with 14 years of experience ranging from early-stage startups to large-scale services with millions of MAU.
-                    <br><br>
-                    Currently at <strong>Woowa Brothers (Baemin)</strong> for 7+ years, leading Baemin Food Android development.
-                    Led Jetpack Compose migration and multi-module architecture design, achieving measurable results:
-                    30% faster build time, 40% faster UI development, 25% crash rate reduction.
-                    <br><br>
-                    As an <strong>early adopter of AI development tools</strong>, actively using Cursor, Claude Code, GitHub Copilot in production,
-                    while leading team education and best practice sharing for AI tools.
-                </p>
-                
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <h4>🚀 AI-Powered Development</h4>
-                        <p>Practical use of Cursor, Claude, Copilot and sharing best practices within the team</p>
-                    </div>
-                    <div class="achievement-card">
-                        <h4>⚡ Performance Optimization</h4>
-                        <p>25% crash reduction, 15% ANR improvement, 30% build time reduction</p>
-                    </div>
-                    <div class="achievement-card">
-                        <h4>🏗️ Architecture</h4>
-                        <p>Multi-module design, Gradle Convention Plugin, Jetpack Compose Design System</p>
-                    </div>
-                    <div class="achievement-card">
-                        <h4>🎤 Tech Leadership</h4>
-                        <p>DroidKnights 2018, 2019 Speaker, Leading AI tools education in team</p>
-                    </div>
+            <div class="section-header fade-in"><h2>Core Impact</h2><p>Measurable results from services with millions of MAU</p></div>
+            <div class="impact-grid">
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🔍</div>
+                    <h3>Search Home Revamp</h3>
+                    <div class="impact-result">User churn reduced · Browse efficiency improved</div>
+                    <p>Fundamentally improved browsing experience by separating food/commerce and introducing personalized recommendations</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">🎯</div>
+                    <h3>Personalized Curation</h3>
+                    <div class="impact-result">Conversion rate up · Order share growing</div>
+                    <p>Improved business metrics through segment-targeted curation including top reviews and restaurant rankings</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">📊</div>
+                    <h3>Log Integration</h3>
+                    <div class="impact-result">Analytics accuracy improved · Ops cost reduced</div>
+                    <p>Built data-driven decision environment through AOS/iOS log unification and Kotlin refactoring</p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-icon">⚡</div>
+                    <h3>Compose Migration</h3>
+                    <div class="impact-result">Build · Dev speed · Stability all improved</div>
+                    <p>Dramatically improved dev productivity through full Jetpack Compose migration and multi-module architecture</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
+    <!-- Featured Projects -->
+    <section id="projects">
         <div class="container">
-            <div class="section-header">
-                <h2>Experience</h2>
-                <p>Platform → Mobility → FoodTech, 14 years of diverse scale and domain experience</p>
-            </div>
-            <div class="experience-list">
-                <div class="experience-item">
-                    <div class="exp-period">Oct 2017<br>~ Present</div>
-                    <div class="exp-content">
-                        <h3>Senior Android Developer</h3>
-                        <div class="company">Woowa Brothers (Baemin) · Millions of MAU</div>
-                        <p>7+ years on Baemin Food Android. Solo development and launch of Baemin Market (now B-Mart) Android. Led full Jetpack Compose migration, multi-module architecture design, and AI tools team education. <a href="https://www.etnews.com/20200702000064" target="_blank" style="color: var(--neon-cyan);">📰 B-Mart Growth</a></p>
+            <div class="section-header fade-in"><h2>Featured Projects</h2><p>Key projects led over the past 3 years</p></div>
+            <div class="project-list">
+                <div class="project-card fade-in">
+                    <div class="project-header" onclick="toggleProject(this)">
+                        <div class="project-header-left"><h3>검색홈 개편</h3><div class="project-meta"><span class="project-period">2023 - 2024</span><span class="project-team">Baemin Food</span></div></div>
+                        <span class="project-toggle">▾</span>
                     </div>
+                    <div class="project-detail"><div class="project-detail-inner">
+                        <ul><li>GPT-based store discovery UI and search home</li><li>Dynamic category UI experiment framework</li><li>Food/commerce separation + personalized recommendations</li><li>A/B test-based data validation process</li></ul>
+                        <div class="project-result"><p>✓ User churn reduced and browse efficiency improved</p></div>
+                        <div class="project-tags"><span class="project-tag">Jetpack Compose</span><span class="project-tag">MVVM</span><span class="project-tag">A/B Test</span><span class="project-tag">Personalization</span></div>
+                    </div></div>
                 </div>
-                <div class="experience-item">
-                    <div class="exp-period">Jun 2017<br>~ Sep 2017</div>
-                    <div class="exp-content">
-                        <h3>Mobile Developer</h3>
-                        <div class="company">Hyundai Card (DeliCar) · New Business</div>
-                        <p>Connected Car service Android app development. Integrated vehicle control, location-based delivery/return system implementation.</p>
+                <div class="project-card fade-in">
+                    <div class="project-header" onclick="toggleProject(this)">
+                        <div class="project-header-left"><h3>Curation System</h3><div class="project-meta"><span class="project-period">2025 - 2026</span><span class="project-team">Baemin Food → Curation Team</span></div></div>
+                        <span class="project-toggle">▾</span>
                     </div>
+                    <div class="project-detail"><div class="project-detail-inner">
+                        <ul><li>Action-based curation and personalized recommendation</li><li>Top review curation system</li><li>Restaurant ranking curation</li><li>Conversion improvement through segment targeting</li></ul>
+                        <div class="project-result"><p>✓ Conversion rate up and order share continuously growing</p></div>
+                        <div class="project-tags"><span class="project-tag">Jetpack Compose</span><span class="project-tag">Segment Targeting</span><span class="project-tag">Personalization</span><span class="project-tag">Curation</span></div>
+                    </div></div>
                 </div>
-                <div class="experience-item">
-                    <div class="exp-period">Mar 2016<br>~ Jun 2017</div>
-                    <div class="exp-content">
-                        <h3>Android Developer</h3>
-                        <div class="company">SOCAR · Series B Startup</div>
-                        <p>Complete renewal of car-sharing Android app. WebApp → Native migration, SOCAR Connected Device development.</p>
+                <div class="project-card fade-in">
+                    <div class="project-header" onclick="toggleProject(this)">
+                        <div class="project-header-left"><h3>Architecture &amp; Quality</h3><div class="project-meta"><span class="project-period">2023 - 2025</span><span class="project-team">배민푸드</span></div></div>
+                        <span class="project-toggle">▾</span>
                     </div>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-period">Jan 2015<br>~ Mar 2016</div>
-                    <div class="exp-content">
-                        <h3>Mobile Developer</h3>
-                        <div class="company">Dreamplus (Hanwha S&C) · Internal Venture</div>
-                        <p>Leisure information curation service development. Selected as Apple App Store "Best Apps of 2015". <a href="https://www.ezyeconomy.com/news/articleView.html?idxno=61307" target="_blank" style="color: var(--neon-cyan);">📰 Article</a> <a href="javascript:void(0)" onclick="openImageModal('zumo.jpeg')" style="color: var(--neon-pink); cursor: pointer;">🏆 Award</a></p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-period">Jan 2014<br>~ Jan 2015</div>
-                    <div class="exp-content">
-                        <h3>Mobile Developer</h3>
-                        <div class="company">Lassoh · Canadian Startup</div>
-                        <p>Location-based social network app development. Map-based content posting, real-time news discovery features. <a href="https://www.youtube.com/watch?v=BvdFEwhKqqc" target="_blank" style="color: var(--neon-cyan);">📹 Demo Video</a> <a href="javascript:void(0)" onclick="openPdfModal('lassoh.pdf')" style="color: var(--neon-pink); cursor: pointer;">📄 App Intro</a></p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-period">Jul 2010<br>~ Dec 2013</div>
-                    <div class="exp-content">
-                        <h3>Mobile Developer</h3>
-                        <div class="company">OpenTide Korea (Samsung SDS) · Samsung Projects</div>
-                        <p>Samsung Galaxy series default app development. Galaxy Tab, Galaxy S3 Drive Link, Samsung Books Service. Deployed on tens of millions of devices. <a href="https://news.samsung.com/global/samsung-electronics-introduces-drive-link-the-smartphone-app-for-drivers" target="_blank" style="color: var(--neon-cyan);">📰 Drive Link</a></p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-period">Jul 2009<br>~ Jun 2010</div>
-                    <div class="exp-content">
-                        <h3>Mobile Developer</h3>
-                        <div class="company">Innophilia · Google Korea Partner</div>
-                        <p>Pantech Sirius phone Android UI Component development. Collaborated with Japan's HI Corporation on 3D UI Component "Smarty3D". Adopted as base platform for all derivative models. <a href="https://www.ktv.go.kr/content/view?content_id=329899" target="_blank" style="color: var(--neon-cyan);">📺 KTV Broadcast</a> <a href="javascript:void(0)" onclick="openPdfModal('innophilia-news.html')" style="color: var(--neon-pink); cursor: pointer;">📰 3D UI Partnership</a></p>
-                    </div>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-period">Oct 2003<br>~ Oct 2004</div>
-                    <div class="exp-content">
-                        <h3>Software Developer</h3>
-                        <div class="company">NNI System (LG CNS) · Enterprise SI</div>
-                        <p>LG Group HR system development. LG Electronics travel/training system, LG GlobalNet Oracle ERP integration (PL/SQL, Pro*C), LG Hi-Logistics HR system launch. <a href="https://www.slideserve.com/tariq/java-trend-java-development-framework" target="_blank" style="color: var(--neon-cyan);">📄 JDF Framework</a></p>
-                    </div>
+                    <div class="project-detail"><div class="project-detail-inner">
+                        <ul><li>ShopImp log AOS/iOS unification</li><li>App log library Kotlin refactoring</li><li>Full Compose migration and UI enhancement</li><li>Review modularization and Compose migration</li><li>Multi-module architecture design</li></ul>
+                        <div class="project-result"><p>✓ Build time, dev speed, and app stability all improved</p></div>
+                        <div class="project-tags"><span class="project-tag">Multi-Module</span><span class="project-tag">Jetpack Compose</span><span class="project-tag">Clean Architecture</span><span class="project-tag">Kotlin</span></div>
+                    </div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Leadership & DX -->
+    <section id="leadership">
+        <div class="container">
+            <div class="section-header fade-in"><h2>Leadership &amp; DX</h2><p>Proactively driving tech leadership and team productivity</p></div>
+            <div class="leadership-grid">
+                <div class="leadership-item fade-in">
+                    <h4>AI MCP Adoption Guide</h4>
+                    <div class="lead-year">2025 · AI Tools Standardization</div>
+                    <p>Created Context7 MCP and Figma MCP adoption guides for mobile team after Cursor adoption. Standardized team environment with mcp.json.</p>
+                    <div class="leadership-tags"><span class="skill-tag">Context7 MCP</span><span class="skill-tag">Figma MCP</span><span class="skill-tag">Cursor</span></div>
+                </div>
+                <div class="leadership-item fade-in">
+                    <h4>CodeRabbit Adoption</h4>
+                    <div class="lead-year">2025 · AI Code Review</div>
+                    <p>Introduced CodeRabbit to the team and shared best practices, improving both review quality and speed.</p>
+                    <div class="leadership-tags"><span class="skill-tag">CodeRabbit</span><span class="skill-tag">AI Code Review</span></div>
+                </div>
+                <div class="leadership-item fade-in">
+                    <h4>Ktlint Custom Rule - IfBracesRule</h4>
+                    <div class="lead-year">2024 · Code Quality Automation</div>
+                    <p>Mandatory braces when condition and statement on different lines. autoCorrect support, RuleSetProviderV3-based JAR.</p>
+                    <div class="leadership-tags"><span class="skill-tag">Ktlint</span><span class="skill-tag">RuleSetProviderV3</span></div>
+                </div>
+                <div class="leadership-item fade-in">
+                    <h4>Android Lint Custom Rule - HtmlStringNaming</h4>
+                    <div class="lead-year">2024 · 코드 품질 자동화</div>
+                    <p>Rule checking unnecessary type info in variable names. UAST, PSI, LightClassGenerationSupport with Kotest testing.</p>
+                    <div class="leadership-tags"><span class="skill-tag">Android Lint</span><span class="skill-tag">UAST</span><span class="skill-tag">PSI</span></div>
+                </div>
+                <div class="leadership-item fade-in">
+                    <h4>Dev Productivity Tools</h4>
+                    <div class="lead-year">2024 · DevEx</div>
+                    <p>Improved team workflow with MR notification system and Flipper debugging tool.</p>
+                    <div class="leadership-tags"><span class="skill-tag">Flipper</span><span class="skill-tag">MR Notifications</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section id="timeline">
+        <div class="container">
+            <div class="section-header fade-in"><h2>Career Timeline</h2><p>Platform → Mobility → FoodTech → Curation, a 17-year journey</p></div>
+            <div class="timeline">
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2026</div><div class="timeline-text"><strong>Curation Team</strong> · Top review/restaurant ranking curation, segment targeting</div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2025</div><div class="timeline-text"><strong>Baemin Food</strong> · Review modularization, AI MCP, CodeRabbit, Lint automation</div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2024</div><div class="timeline-text"><strong>Baemin Food</strong> · Search home revamp, Compose migration, productivity tools</div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2023</div><div class="timeline-text"><strong>Baemin Food</strong> · GPT search home, log integration, UI experiment framework</div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2018</div><div class="timeline-text"><strong>Baemin Market (now B-Mart)</strong> · Early service build and launch, helping expand Beyond Food with delivery-commerce experience · <a href="https://www.etnews.com/20200702000064" target="_blank">📰 B-Mart story</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2017</div><div class="timeline-text"><strong>Woowa Brothers · Baemin Riders Team</strong> · Worked on a millions-of-MAU service · Rider meet-and-pay Native migration · RN BROS app platform unification (PL)</div></div></div>
+                <div class="timeline-item fade-in is-featured"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2017.06 — 2017.09</div><div class="timeline-badge">Connected Car</div><div class="timeline-text"><strong>Hyundai Capital (DealCar)</strong> · Built a new-business Connected Car Android app, integrating vehicle-control capabilities and the full location-based delivery/return flow into one mobile experience.</div></div></div>
+                <div class="timeline-item fade-in is-featured"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2016</div><div class="timeline-badge">Ownership</div><div class="timeline-text"><strong>SOCAR</strong> · Drove the full renewal of the car-sharing app and the WebApp → Native migration. In particular, <strong>led and built the Control Pad feature solo</strong>, making critical actions like extending a return fast and accessible in-app · <a href="https://www.facebook.com/photo.php?fbid=1115799341828509&id=210285382379914&set=a.210328672375585" target="_blank">🖼️ Control Pad image</a> · <a href="https://www.facebook.com/socar.kr/posts/%EC%95%84-%EB%B0%98%EB%82%A9-%EC%8B%9C%EA%B0%84-%EB%8B%A4-%EB%90%98%EC%96%B4%EA%B0%84%EB%8B%A4%EC%95%B1%EC%9D%84-%EC%BC%9C%EC%A7%80-%EC%95%8A%EA%B3%A0%EB%8F%84-%EB%B0%98%EB%82%A9-%EC%97%B0%EC%9E%A5%EC%9D%B4-%EA%B0%80%EB%8A%A5%ED%95%98%EB%8B%A4%EA%B3%A0%EC%8F%98%EC%B9%B4-%EC%BB%A8%ED%8A%B8%EB%A1%A4%ED%8C%A8%EB%93%9C-%EB%A1%9C-5%EC%B4%88%EB%A7%8C%EC%97%90-%EB%B0%98%EB%82%A9-%EC%97%B0%EC%9E%A5-%EB%81%9D%EC%8F%98%EC%B9%B4%EC%99%80%EC%9D%B4%ED%8C%8C%EC%9D%B4-%EA%B3%B5%EC%A7%9C/1698584723549965/" target="_blank">📰 Promo post</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2015</div><div class="timeline-text"><strong>Dreamplus (Hanwha)</strong> · Leisure information curation service, selected as Apple "Best Apps of 2015" · <a href="https://www.ezyeconomy.com/news/articleView.html?idxno=61307" target="_blank">📰 Article</a> · <a href="javascript:void(0)" onclick="openImageModal('zumo.jpeg')">🏆 Award</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2014</div><div class="timeline-text"><strong>Lassoh</strong> · Canadian startup, location-based social network app · <a href="https://www.youtube.com/watch?v=BvdFEwhKqqc" target="_blank">📹 Demo</a> · <a href="javascript:void(0)" onclick="openPdfModal('lassoh.pdf')">📄 App intro</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2010</div><div class="timeline-text"><strong>Sam*SDS(O*enTi*e)</strong> · Samsung Galaxy default apps, deployed to tens of millions of devices · <a href="https://news.samsung.com/global/samsung-electronics-introduces-drive-link-the-smartphone-app-for-drivers" target="_blank">📰 Drive Link</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2009</div><div class="timeline-text"><strong>Innophilia</strong> · Pantech Sirius Android UI Component and 3D UI development · <a href="https://www.ktv.go.kr/content/view?content_id=329899" target="_blank">📺 KTV</a> · <a href="javascript:void(0)" onclick="openPdfModal('innophilia-news.html')">📰 3D UI collaboration</a></div></div></div>
+                <div class="timeline-item fade-in"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-year">2003</div><div class="timeline-text"><strong>L*CNS(N**System)</strong> · LG group HR systems and Oracle ERP integration · <a href="https://www.slideserve.com/tariq/java-trend-java-development-framework" target="_blank">📄 JDF Framework</a></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
     <section id="skills">
         <div class="container">
-            <div class="section-header">
-                <h2>Skills</h2>
-                <p>Modern Android Development and AI Tools Utilization</p>
-            </div>
+            <div class="section-header fade-in"><h2>Skills</h2><p>Modern mobile engineering capability and AI-powered development workflows</p></div>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Language & Framework</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Jetpack Compose</span>
-                        <span class="skill-tag">Coroutines</span>
-                        <span class="skill-tag">Flow</span>
-                        <span class="skill-tag">Hilt</span>
-                        <span class="skill-tag">Retrofit</span>
-                        <span class="skill-tag">Room</span>
-                        <span class="skill-tag">RxJava</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Architecture</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MVVM</span>
-                        <span class="skill-tag">MVI</span>
-                        <span class="skill-tag">Clean Architecture</span>
-                        <span class="skill-tag">Multi-Module</span>
-                        <span class="skill-tag">Navigation Component</span>
-                        <span class="skill-tag">Paging 3</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>AI Development Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Cursor</span>
-                        <span class="skill-tag">Claude Code</span>
-                        <span class="skill-tag">GitHub Copilot</span>
-                        <span class="skill-tag">Gemini Code Assist</span>
-                        <span class="skill-tag">JetBrains AI</span>
-                        <span class="skill-tag">OpenCode</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>DevOps & Quality</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Travis CI</span>
-                        <span class="skill-tag">Firebase</span>
-                        <span class="skill-tag">Android Lint</span>
-                        <span class="skill-tag">Ktlint</span>
-                        <span class="skill-tag">JUnit</span>
-                        <span class="skill-tag">Espresso</span>
-                    </div>
-                </div>
+                <div class="skill-category fade-in"><h3>Language &amp; Framework</h3><div class="skill-tags"><span class="skill-tag">Kotlin</span><span class="skill-tag">Java</span><span class="skill-tag">Jetpack Compose</span><span class="skill-tag">Coroutines</span><span class="skill-tag">Flow</span><span class="skill-tag">Hilt</span><span class="skill-tag">Retrofit</span><span class="skill-tag">Room</span><span class="skill-tag">RxJava</span></div></div>
+                <div class="skill-category fade-in"><h3>Architecture</h3><div class="skill-tags"><span class="skill-tag">MVVM</span><span class="skill-tag">MVI</span><span class="skill-tag">Clean Architecture</span><span class="skill-tag">Multi-Module</span><span class="skill-tag">Navigation Component</span><span class="skill-tag">Paging 3</span></div></div>
+                <div class="skill-category fade-in is-ai"><h3>AI Workflow &amp; Tooling</h3><p>I use AI beyond tool familiarity — designing MCP-based environments, operationalizing AI code review, and connecting generative AI to day-to-day development throughput.</p><div class="skill-tags"><span class="skill-tag">Cursor</span><span class="skill-tag">Claude Code</span><span class="skill-tag">Gemini Code Assist</span><span class="skill-tag">OpenCode</span><span class="skill-tag">CodeRabbit</span><span class="skill-tag">Context7 MCP</span><span class="skill-tag">Figma MCP</span></div></div>
+                <div class="skill-category fade-in"><h3>DevOps &amp; Quality</h3><div class="skill-tags"><span class="skill-tag">Jenkins</span><span class="skill-tag">Travis CI</span><span class="skill-tag">Firebase</span><span class="skill-tag">Android Lint</span><span class="skill-tag">Ktlint</span><span class="skill-tag">JUnit</span><span class="skill-tag">Espresso</span></div></div>
             </div>
         </div>
     </section>
 
-    <!-- Developer Experience Section -->
-    <section id="dx">
-        <div class="container">
-            <div class="section-header">
-                <h2>Developer Experience</h2>
-                <p>Tools and guides for team productivity improvement</p>
-            </div>
-            <div class="experience-list">
-                <div class="experience-item" style="grid-template-columns: 1fr;">
-                    <div class="exp-content">
-                        <h3>MCP Adoption Guide</h3>
-                        <div class="company" style="color: var(--neon-cyan);">AI Tools Standardization · 2025</div>
-                        <p>After Cursor adoption, created Context7 MCP & Figma MCP integration guide for mobile team (Android/iOS). Standardized team environment with mcp.json configuration. Consolidated installation, setup, usage, troubleshooting, and FAQ into a single document shared as team standard.</p>
-                        <div class="skill-tags" style="margin-top: 12px;">
-                            <span class="skill-tag">Context7 MCP</span>
-                            <span class="skill-tag">Figma MCP</span>
-                            <span class="skill-tag">Cursor</span>
-                            <span class="skill-tag">mcp.json</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item" style="grid-template-columns: 1fr;">
-                    <div class="exp-content">
-                        <h3>Ktlint Custom Rule - IfBracesRule</h3>
-                        <div class="company" style="color: var(--neon-cyan);">Code Quality Automation · 2024</div>
-                        <p>Rule requiring braces when condition and statement are on different lines. Supports autoCorrect, RuleSetProviderV3-based JAR deployment, selective application to Food module via .editorconfig.</p>
-                        <div class="skill-tags" style="margin-top: 12px;">
-                            <span class="skill-tag">Ktlint</span>
-                            <span class="skill-tag">RuleSetProviderV3</span>
-                            <span class="skill-tag">autoCorrect</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-item" style="grid-template-columns: 1fr;">
-                    <div class="exp-content">
-                        <h3>Android Lint Custom Rule - HtmlStringNaming</h3>
-                        <div class="company" style="color: var(--neon-cyan);">Code Quality Automation · 2024</div>
-                        <p>Rule checking for unnecessary type information (html) in variable names. Inspects explicit types, type inference, and initializer expressions using UAST, PSI, and LightClassGenerationSupport. Tested with Kotest and TestLintTask.</p>
-                        <div class="skill-tags" style="margin-top: 12px;">
-                            <span class="skill-tag">Android Lint</span>
-                            <span class="skill-tag">UAST</span>
-                            <span class="skill-tag">PSI</span>
-                            <span class="skill-tag">Kotest</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Speaking Section -->
+    <!-- Speaking -->
     <section id="speaking">
         <div class="container">
-            <div class="section-header">
-                <h2>Speaking</h2>
-                <p>Sharing experiences in tech communities</p>
-            </div>
+            <div class="section-header fade-in"><h2>Speaking</h2><p>Sharing experiences in tech communities</p></div>
             <div class="speaking-list">
-                <a href="https://www.youtube.com/watch?v=6nPoN7HBy5M" class="speaking-item" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="speaking-year">2019</div>
-                    <div class="speaking-content">
-                        <h4>DroidKnights - Flutter and Native Module Communication</h4>
-                        <p>Track 3 - Communication between Flutter and Native modules baby step</p>
-                    </div>
-                </a>
-                <a href="https://www.slideshare.net/slideshow/flutter101/123501599" class="speaking-item" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="speaking-year">2018</div>
-                    <div class="speaking-content">
-                        <h4>GDG DevFest Seoul - Flutter 101</h4>
-                        <p>Basic concepts and getting started guide for Flutter beginners</p>
-                    </div>
-                </a>
-                <a href="https://www.youtube.com/watch?v=06WxwTLPX7Y" class="speaking-item" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="speaking-year">2018</div>
-                    <div class="speaking-content">
-                        <h4>DroidKnights - Android CI/CD with Travis CI and Docker-based Jenkins</h4>
-                        <p>500+ audience - Android CI/CD pipeline implementation adopted by multiple teams</p>
-                    </div>
-                </a>
-                <a href="https://www.slideshare.net/slideshow/subject-in-rxjava-63556830/63556830" class="speaking-item" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="speaking-year">2016</div>
-                    <div class="speaking-content">
-                        <h4>GDG Korea Android - Subject in RxJava</h4>
-                        <p>Types and usage of RxJava Subject (while at SOCAR)</p>
-                    </div>
-                </a>
-                <a href="https://www.slideshare.net/slideshow/drawable/9829634" class="speaking-item" target="_blank" style="text-decoration: none; color: inherit;">
-                    <div class="speaking-year">2011</div>
-                    <div class="speaking-content">
-                        <h4>Mastering Android Drawable</h4>
-                        <p>Deep dive into Android Drawable system</p>
-                    </div>
-                </a>
+                <a href="https://www.youtube.com/watch?v=6nPoN7HBy5M" class="speaking-item fade-in" target="_blank"><div class="speaking-year">2019</div><div class="speaking-content"><h4>DroidKnights - Flutter and Native Module Communication</h4><p>Track 3 - Communication between Flutter and Native modules baby step</p></div></a>
+                <a href="https://www.slideshare.net/slideshow/flutter101/123501599" class="speaking-item fade-in" target="_blank"><div class="speaking-year">2018</div><div class="speaking-content"><h4>GDG DevFest Seoul - Flutter 101</h4><p>Getting started guide for Flutter beginners</p></div></a>
+                <a href="https://www.youtube.com/watch?v=06WxwTLPX7Y" class="speaking-item fade-in" target="_blank"><div class="speaking-year">2018</div><div class="speaking-content"><h4>DroidKnights - Travis CI와 Docker 기반 Jenkins를 이용한 Android CI/CD</h4><p>500+ audience - Android CI/CD pipeline adopted by multiple teams</p></div></a>
+                <a href="https://www.slideshare.net/slideshow/subject-in-rxjava-63556830/63556830" class="speaking-item fade-in" target="_blank"><div class="speaking-year">2016</div><div class="speaking-content"><h4>GDG Korea Android - Subject in RxJava</h4><p>Types and usage of RxJava Subject</p></div></a>
+                <a href="https://www.slideshare.net/slideshow/drawable/9829634" class="speaking-item fade-in" target="_blank"><div class="speaking-year">2011</div><div class="speaking-content"><h4>Android Drawable 완전 정복</h4><p>Deep dive into Android Drawable system</p></div></a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Contact</h2>
             <p>Feel free to reach out if you have any questions.</p>
             <div class="contact-links">
-                <a href="mailto:isjang98@gmail.com" class="contact-link">
-                    <span>✉️</span> isjang98@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/jang-insu-9360462a/" class="contact-link" target="_blank">
-                    <span>💼</span> LinkedIn
-                </a>
-                <a href="https://github.com/isjang98" class="contact-link" target="_blank">
-                    <span>🐙</span> GitHub
-                </a>
+                <a href="mailto:isjang98@gmail.com" class="contact-link"><span>✉️</span> isjang98@gmail.com</a>
+                <a href="https://www.linkedin.com/in/jang-insu-9360462a/" class="contact-link" target="_blank"><span>💼</span> LinkedIn</a>
             </div>
-            <a href="mailto:isjang98@gmail.com" class="btn-primary" style="display: inline-block;">Send Email</a>
+            <a href="mailto:isjang98@gmail.com" class="btn-primary" style="display:inline-block;">Send Email</a>
         </div>
     </section>
 
-    <!-- PDF Modal -->
-    <div id="pdfModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
-        <div style="position: relative; width: 90%; height: 90%; max-width: 1000px;">
-            <button onclick="closePdfModal()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">✕</button>
-            <iframe id="pdfViewer" src="" style="width: 100%; height: 100%; border: none; border-radius: 12px;"></iframe>
+    <div id="pdfModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;">
+        <div style="position:relative;width:90%;height:90%;max-width:1000px;">
+            <button onclick="closePdfModal()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;">✕</button>
+            <iframe id="pdfViewer" src="" style="width:100%;height:100%;border:none;border-radius:12px;"></iframe>
+        </div>
+    </div>
+    <div id="imageModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;">
+        <div style="position:relative;max-width:90%;max-height:90%;">
+            <button onclick="closeImageModal()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;">✕</button>
+            <img id="imageViewer" src="" alt="Image" style="max-width:100%;max-height:85vh;border-radius:12px;box-shadow:0 0 40px rgba(0,245,255,0.3);">
         </div>
     </div>
 
-    <!-- Image Modal -->
-    <div id="imageModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center;">
-        <div style="position: relative; max-width: 90%; max-height: 90%;">
-            <button onclick="closeImageModal()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">✕</button>
-            <img id="imageViewer" src="" alt="Image" style="max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: 0 0 40px rgba(0, 245, 255, 0.3);">
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2025 Insu Jang. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer><div class="container"><p>&copy; 2025 Insu Jang. All rights reserved.</p></div></footer>
 
     <script>
-        function openPdfModal(pdfUrl) {
-            document.getElementById('pdfViewer').src = pdfUrl;
-            document.getElementById('pdfModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function closePdfModal() {
-            document.getElementById('pdfModal').style.display = 'none';
-            document.getElementById('pdfViewer').src = '';
-            document.body.style.overflow = 'auto';
-        }
-        document.getElementById('pdfModal').addEventListener('click', function(e) {
-            if (e.target === this) closePdfModal();
-        });
-
-        function openImageModal(imageUrl) {
-            document.getElementById('imageViewer').src = imageUrl;
-            document.getElementById('imageModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        function closeImageModal() {
-            document.getElementById('imageModal').style.display = 'none';
-            document.getElementById('imageViewer').src = '';
-            document.body.style.overflow = 'auto';
-        }
-        document.getElementById('imageModal').addEventListener('click', function(e) {
-            if (e.target === this) closeImageModal();
-        });
+    function toggleMenu(){document.querySelector('.hamburger').classList.toggle('active');document.getElementById('mobileMenu').classList.toggle('active');document.body.style.overflow=document.getElementById('mobileMenu').classList.contains('active')?'hidden':'auto';}
+    function closeMenu(){document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileMenu').classList.remove('active');document.body.style.overflow='auto';}
+    function toggleProject(h){h.closest('.project-card').classList.toggle('open');}
+    const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    function openPdfModal(u){document.getElementById('pdfViewer').src=u;document.getElementById('pdfModal').style.display='flex';document.body.style.overflow='hidden';}
+    function closePdfModal(){document.getElementById('pdfModal').style.display='none';document.getElementById('pdfViewer').src='';document.body.style.overflow='auto';}
+    document.getElementById('pdfModal').addEventListener('click',function(e){if(e.target===this)closePdfModal();});
+    function openImageModal(u){document.getElementById('imageViewer').src=u;document.getElementById('imageModal').style.display='flex';document.body.style.overflow='hidden';}
+    function closeImageModal(){document.getElementById('imageModal').style.display='none';document.getElementById('imageViewer').src='';document.body.style.overflow='auto';}
+    document.getElementById('imageModal').addEventListener('click',function(e){if(e.target===this)closeImageModal();});
     </script>
-
 </body>
 </html>
