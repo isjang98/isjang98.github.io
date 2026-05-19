@@ -1,58 +1,81 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>야구일기 - 개인정보처리방침</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
-        h1 { color: #1a1a1a; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #2a2a2a; margin-top: 30px; }
-        .date { color: #666; font-size: 0.9em; }
-    </style>
-</head>
-<body>
-    <h1>⚾ 야구일기 개인정보처리방침</h1>
-    <p class="date">시행일: 2026년 4월 5일</p>
+  <html lang="ko">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>야구일기 - 개인정보처리방침</title>
+      <style>
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+          h1 { color: #1a1a1a; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+          h2 { color: #2a2a2a; margin-top: 30px; }
+          .date { color: #666; font-size: 0.9em; }
+      </style>
+  </head>
+  <body>
+      <h1>⚾ 야구일기 (Ballog) 개인정보처리방침</h1>
+      <p class="date">시행일: 2026년 5월 19일 · 적용 플랫폼: Android · iOS</p>
 
-    <h2>1. 수집하는 개인정보</h2>
-    <p>야구일기는 <strong>개인정보를 수집하지 않습니다.</strong></p>
-    <p>앱에서 입력하는 모든 데이터(직관 기록, 사진, 메모 등)는 사용자의 기기에만 저장되며, 외부 서버로 전송되지 않습니다.</p>
+      <h2>1. 개요</h2>
+      <p>야구일기는 사용자의 <strong>이름, 이메일, 전화번호 등 개인 식별 정보를 수집하지 않습니다.</strong>
+         회원가입이 필요 없으며, 사용자가 앱에 입력하는 직관 기록·사진·메모는 모두 사용자의 기기에만 저장됩니다.</p>
 
-    <h2>2. 데이터 저장</h2>
-    <p>모든 데이터는 기기 내부 데이터베이스(Room)에 저장됩니다.</p>
-    <ul>
-        <li>직관 기록 (날짜, 팀, 구장, 결과, 스코어, 좌석, 메모)</li>
-        <li>사진 URI (기기 갤러리 참조)</li>
-        <li>앱 설정 (응원팀, 온보딩 완료 여부)</li>
-    </ul>
-    <p>앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+      <h2>2. 기기 내 저장 데이터</h2>
+      <p>아래 데이터는 사용자의 기기 내부 저장소(Android: Room, iOS: SwiftData)에만 저장되며,
+         외부 서버로 전송되지 않습니다.</p>
+      <ul>
+          <li>직관 기록 (날짜, 팀, 구장, 결과, 스코어, 좌석, 메모)</li>
+          <li>사진 참조 (기기 사진 라이브러리의 로컬 URI/식별자만 저장 — 사진 파일 자체는 업로드되지 않음)</li>
+          <li>앱 설정 (응원팀, 테마, 알림 토글, 온보딩 완료 여부)</li>
+      </ul>
+      <p>앱을 삭제하면 위 데이터는 모두 함께 삭제됩니다.</p>
 
-    <h2>3. 분석 도구</h2>
-    <p>야구일기는 앱 사용 패턴을 이해하기 위해 Firebase Analytics를 사용합니다.</p>
-    <p>수집되는 정보:</p>
-    <ul>
-        <li>화면 조회 이벤트</li>
-        <li>버튼 클릭 이벤트</li>
-        <li>앱 사용 빈도</li>
-    </ul>
-    <p>이 데이터는 익명으로 수집되며, 개인을 식별할 수 없습니다. Google의 <a href="https://policies.google.com/privacy">개인정보처리방침</a>이 적용됩니다.</p>
+      <h2>3. 외부에서 가져오는 데이터 (단방향 조회)</h2>
+      <p>야구일기는 KBO 경기 일정·결과·기록을 보여주기 위해 Google Firebase Firestore 의 공개 컬렉션을 조회합니다.
+         이 통신은 <strong>읽기 전용</strong>이며, 사용자의 개인 기록이 서버로 업로드되는 일은 없습니다.</p>
 
-    <h2>4. 제3자 제공</h2>
-    <p>야구일기는 사용자의 데이터를 제3자에게 제공하지 않습니다.</p>
+      <h2>4. 푸시 알림 (FCM / APNs)</h2>
+      <p>응원팀의 경기 시작 알림을 받기 위해 사용자가 설정에서 "경기 시작 알림" 을 켜는 경우,
+         앱은 Google Firebase Cloud Messaging (FCM) 및 Apple Push Notification service (APNs) 를 통해
+         익명 푸시 토큰을 발급받아 응원팀 토픽(예: <code>team_LG</code>)을 구독합니다.</p>
+      <ul>
+          <li>발급되는 토큰(FCM Registration Token, APNs Device Token)은 무작위 식별자이며 사용자 신원과 연결되지 않습니다.</li>
+          <li>알림 권한은 사용자가 명시적으로 허용한 경우에만 요청·사용됩니다.</li>
+          <li>설정에서 토글을 끄거나 OS 설정에서 알림 권한을 거부하면 즉시 구독이 해제됩니다.</li>
+      </ul>
 
-    <h2>5. 아동 개인정보</h2>
-    <p>야구일기는 13세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+      <h2>5. 분석 도구</h2>
+      <p>앱 사용 패턴을 이해하기 위해 Google Firebase Analytics 를 사용합니다.</p>
+      <ul>
+          <li>화면 조회 이벤트</li>
+          <li>주요 버튼 클릭 이벤트</li>
+          <li>앱 실행/이용 빈도</li>
+      </ul>
+      <p>이 데이터는 익명으로 수집되며 개인을 식별할 수 없습니다.
+         야구일기 iOS 버전은 광고 식별자(IDFA)를 사용하지 않으며,
+         <strong>다른 회사의 앱·웹사이트를 통해 사용자를 추적하지 않습니다</strong> (App Tracking Transparency 기준 "No Tracking").
+         Google 의 <a href="https://policies.google.com/privacy">개인정보처리방침</a> · Apple 의
+         <a href="https://www.apple.com/legal/privacy/">개인정보처리방침</a> 이 각 플랫폼에 적용됩니다.</p>
 
-    <h2>6. 변경 사항</h2>
-    <p>본 개인정보처리방침은 변경될 수 있으며, 변경 시 앱 내 또는 본 페이지를 통해 공지합니다.</p>
+      <h2>6. 권한 요청 (iOS / Android 공통)</h2>
+      <ul>
+          <li><strong>사진 라이브러리</strong>: 직관 기록에 사진을 첨부할 때만 사용. 사진은 기기 외부로 전송되지 않습니다.</li>
+          <li><strong>알림</strong>: 경기 시작 알림을 켤 때만 요청.</li>
+      </ul>
 
-    <h2>7. 문의</h2>
-    <p>개인정보처리방침에 대한 문의는 아래로 연락해주세요.</p>
-    <p>이메일: <a href="mailto:[email]">isjang98@gmail.com</a></p>
+      <h2>7. 제3자 제공</h2>
+      <p>야구일기는 사용자의 데이터를 제3자에게 판매·제공·교환하지 않습니다.</p>
 
-    <hr>
-    <p class="date">Ballog Privacy Policy — English version available upon request.</p>
-</body>
-</html>
+      <h2>8. 아동 개인정보</h2>
+      <p>야구일기는 13세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
 
+      <h2>9. 변경 사항</h2>
+      <p>본 개인정보처리방침은 변경될 수 있으며, 변경 시 앱 내 또는 본 페이지를 통해 공지합니다.</p>
+
+      <h2>10. 문의</h2>
+      <p>개인정보처리방침에 대한 문의:
+         <a href="mailto:isjang98@gmail.com">isjang98@gmail.com</a></p>
+
+      <hr>
+      <p class="date">Ballog Privacy Policy · An English translation is available on request.</p>
+  </body>
+  </html>
