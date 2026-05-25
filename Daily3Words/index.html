@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하루 3단어 (Daily 3 Words) - 하루 1분, 3단어로 끝내는 영어 습관</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="하루 3단어(Daily 3 Words)는 아침/점심/저녁 3번의 알림으로 매일 3개의 영어 단어를 익히는 습관 만들기 영어 학습 앱입니다. 회원가입 없이 무료로 시작하세요.">
+    <meta name="keywords" content="하루 3단어, Daily 3 Words, 영어 단어, 단어 암기, 영어 학습, 영어 루틴, 영어 습관, 기초 영어, 매일 영어, 영단어 앱, 단어 복습, English vocabulary, English habit, vocabulary app, daily vocabulary">
+    <meta name="author" content="Insu Corp.">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://isjang98.github.io/Daily3Words/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="하루 3단어 - 하루 1분, 3단어로 끝내는 영어 습관">
+    <meta property="og:description" content="아침/점심/저녁 3번의 알림으로 매일 3개의 영어 단어를 익히세요. 가장 가벼운 영어 학습 루틴.">
+    <meta property="og:image" content="https://isjang98.github.io/Daily3Words/assets/img/feature-graphic.png">
+    <meta property="og:url" content="https://isjang98.github.io/Daily3Words/">
+    <meta property="og:site_name" content="하루 3단어 Daily 3 Words">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="하루 3단어 - 하루 1분, 3단어로 끝내는 영어 습관">
+    <meta name="twitter:description" content="아침/점심/저녁 알림으로 매일 3개의 영어 단어를 익히세요. 무료 영어 학습 습관 앱.">
+    <meta name="twitter:image" content="https://isjang98.github.io/Daily3Words/assets/img/feature-graphic.png">
+
+    <!-- App & Theme -->
+    <meta name="application-name" content="하루 3단어">
+    <meta name="theme-color" content="#4A90D9">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="하루 3단어">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="assets/img/app-icon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon.png">
+    <link rel="shortcut icon" href="assets/img/app-icon.png">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "하루 3단어 (Daily 3 Words)",
+        "alternateName": "Daily 3 Words",
+        "description": "하루 3단어는 아침/점심/저녁 3번의 알림으로 매일 3개의 영어 단어를 익히는 가벼운 영어 학습 습관 앱입니다.",
+        "applicationCategory": "EducationalApplication",
+        "applicationSubCategory": "LanguageLearning",
+        "operatingSystem": "Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "KRW"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Insu Corp.",
+            "email": "isjang98@gmail.com"
+        },
+        "downloadUrl": "https://play.google.com/store/apps/details?id=com.insu.daily3words",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.insu.daily3words",
+        "screenshot": [
+            "https://isjang98.github.io/Daily3Words/assets/screenshots/mkt-01-home.png",
+            "https://isjang98.github.io/Daily3Words/assets/screenshots/mkt-02-learn.png",
+            "https://isjang98.github.io/Daily3Words/assets/screenshots/mkt-03-routine.png",
+            "https://isjang98.github.io/Daily3Words/assets/screenshots/app-real-home.png"
+        ],
+        "image": "https://isjang98.github.io/Daily3Words/assets/img/app-icon.png",
+        "url": "https://isjang98.github.io/Daily3Words/",
+        "inLanguage": ["ko", "en"],
+        "featureList": [
+            "하루 3단어 학습",
+            "아침/점심/저녁 3번 알림",
+            "TTS 발음 듣기",
+            "O/X 암기 체크",
+            "연속 학습일 스트릭",
+            "월간 학습 히트맵"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "하루 3단어 Daily 3 Words",
+        "url": "https://isjang98.github.io/Daily3Words/",
+        "inLanguage": "ko",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Insu Corp."
+        }
+    }
+    </script>
+
+    <style>
+        /* === Design Tokens === */
+        :root {
+            /* Brand Colors - Daily 3 Words */
+            --color-primary: #4A90D9;
+            --color-primary-dark: #2563A5;
+            --color-primary-light: #D6E4FF;
+            --color-primary-soft: #EFF5FF;
+
+            /* Time-of-day accents */
+            --color-morning: #FF8A65;       /* Tertiary / coral sunrise */
+            --color-morning-light: #FFDBCF;
+            --color-noon: #FFB300;          /* StreakGold */
+            --color-noon-light: #FFF3DC;
+            --color-evening: #7B68EE;       /* Purple twilight */
+            --color-evening-light: #E8E3FF;
+
+            --color-success: #56B870;       /* Secondary */
+            --color-success-light: #D4F5DC;
+
+            /* Neutrals */
+            --color-bg: #FAFAFA;
+            --color-bg-warm: #F9F9F6;
+            --color-surface: #FFFFFF;
+            --color-text: #1A1C1E;
+            --color-text-muted: #44474E;
+            --color-text-light: #94A3B8;
+            --color-border: #E2E8F0;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 4px 10px -6px rgba(15, 23, 42, 0.05);
+            --shadow-xl: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+            --shadow-glow: 0 20px 60px -15px rgba(74, 144, 217, 0.35);
+
+            --container: 1140px;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: all 0.3s var(--ease);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Pretendard', 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            word-break: keep-all;
+        }
+
+        p {
+            line-height: 1.7;
+            word-break: keep-all;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === Navigation === */
+        nav.topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(250, 250, 250, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+            transition: var(--transition);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.125rem;
+            color: var(--color-text);
+        }
+
+        .nav-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-cta {
+            background: var(--color-text);
+            color: var(--color-surface) !important;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--color-primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* === Hero === */
+        .hero {
+            position: relative;
+            padding: 160px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            left: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--color-morning-light) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-primary-light);
+            color: var(--color-primary-dark);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.25rem, 5vw, 3.75rem);
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .grad {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-evening) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero h1 .num {
+            background: linear-gradient(135deg, var(--color-morning) 0%, var(--color-noon) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            font-weight: 900;
+        }
+
+        .hero p.lead {
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            margin-bottom: 36px;
+            max-width: 540px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--color-text);
+            color: var(--color-surface);
+            padding: 14px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-store:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: var(--color-primary-dark);
+        }
+
+        .btn-store .ico {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .btn-store .label-sm {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 500;
+            opacity: 0.75;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-store .label-lg {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .btn-store--ghost {
+            background: var(--color-surface);
+            color: var(--color-text);
+            border: 1px solid var(--color-border);
+        }
+
+        .btn-store--ghost:hover {
+            background: var(--color-primary-soft);
+            border-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .trust-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--color-text);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .trust-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* === Hero Phone Visual === */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 540px;
+        }
+
+        .phone {
+            position: relative;
+            width: 290px;
+            border-radius: 42px;
+            overflow: hidden;
+            background: #000;
+            padding: 6px;
+            box-shadow: var(--shadow-xl);
+            --rot: 0deg;
+        }
+
+        .phone img {
+            width: 100%;
+            border-radius: 36px;
+            display: block;
+        }
+
+        .phone.main {
+            z-index: 2;
+            box-shadow: var(--shadow-glow), 0 30px 60px -15px rgba(15, 23, 42, 0.3);
+            animation: floatY 7s ease-in-out infinite;
+        }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+            50% { transform: translateY(-16px) rotate(var(--rot, 0deg)); }
+        }
+
+        /* Decorative blobs behind hero phone */
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 65%);
+            opacity: 0.18;
+            filter: blur(20px);
+            z-index: 0;
+        }
+
+        .hero-visual::after {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--color-morning) 0%, transparent 60%);
+            opacity: 0.2;
+            filter: blur(30px);
+            top: 40%;
+            right: 15%;
+            z-index: 0;
+        }
+
+        /* Time-of-day badges around phone */
+        .float-badge {
+            position: absolute;
+            background: var(--color-surface);
+            padding: 10px 14px;
+            border-radius: 14px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.82rem;
+            z-index: 3;
+            animation: floatY 5s ease-in-out infinite;
+            --rot: 0deg;
+        }
+
+        .float-badge .ic {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .float-badge.morning {
+            top: 60px;
+            left: -40px;
+            animation-delay: -1s;
+        }
+
+        .float-badge.morning .ic {
+            background: var(--color-morning-light);
+            color: var(--color-morning);
+        }
+
+        .float-badge.noon {
+            top: 50%;
+            right: -50px;
+            animation-delay: -2.5s;
+        }
+
+        .float-badge.noon .ic {
+            background: var(--color-noon-light);
+            color: var(--color-noon);
+        }
+
+        .float-badge.evening {
+            bottom: 40px;
+            left: -30px;
+            animation-delay: -4s;
+        }
+
+        .float-badge.evening .ic {
+            background: var(--color-evening-light);
+            color: var(--color-evening);
+        }
+
+        /* === Sections === */
+        section {
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 64px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.875rem, 4vw, 2.75rem);
+            margin-bottom: 16px;
+        }
+
+        .section-head p {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+        }
+
+        /* === Time of Day Section === */
+        .timeflow {
+            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .flow-card {
+            position: relative;
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 40px 32px;
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .flow-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .flow-card.morning::before { background: var(--color-morning); }
+        .flow-card.noon::before { background: var(--color-noon); }
+        .flow-card.evening::before { background: var(--color-evening); }
+
+        .flow-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .flow-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .flow-card.morning .flow-icon {
+            background: var(--color-morning-light);
+            color: var(--color-morning);
+        }
+
+        .flow-card.noon .flow-icon {
+            background: var(--color-noon-light);
+            color: var(--color-noon);
+        }
+
+        .flow-card.evening .flow-icon {
+            background: var(--color-evening-light);
+            color: var(--color-evening);
+        }
+
+        .flow-time {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .flow-card.morning .flow-time { color: var(--color-morning); }
+        .flow-card.noon .flow-time { color: var(--color-noon); }
+        .flow-card.evening .flow-time { color: var(--color-evening); }
+
+        .flow-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+        }
+
+        .flow-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* === Features Bento === */
+        .features {
+            background: var(--color-bg);
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: minmax(180px, auto);
+            gap: 20px;
+        }
+
+        .bento-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .bento-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .bento-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .bento-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        /* Bento Layout */
+        .bento-card.b-hero {
+            grid-column: span 4;
+            grid-row: span 2;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: var(--color-surface);
+            border: none;
+        }
+
+        .bento-card.b-hero h3 { color: var(--color-surface); font-size: 1.6rem; }
+        .bento-card.b-hero p { color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; }
+
+        .bento-card.b-hero .bento-icon {
+            background: rgba(255, 255, 255, 0.18);
+            color: var(--color-surface);
+        }
+
+        .bento-card.b-hero .bento-img {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bento-card.b-hero .bento-img img {
+            width: 45%;
+            max-width: 220px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .bento-card.b-stack {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .bento-card.b-streak {
+            grid-column: span 2;
+            grid-row: span 2;
+            background: var(--color-text);
+            color: var(--color-surface);
+            border: none;
+        }
+
+        .bento-card.b-streak h3 { color: var(--color-surface); }
+        .bento-card.b-streak p { color: rgba(255, 255, 255, 0.75); }
+
+        .bento-card.b-streak .bento-icon {
+            background: rgba(255, 179, 0, 0.15);
+            color: var(--color-noon);
+        }
+
+        .bento-card.b-streak .streak-grid {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .bento-card.b-streak .cell {
+            aspect-ratio: 1;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+        }
+
+        .bento-card.b-streak .cell.lv0 { background: rgba(255, 255, 255, 0.06); }
+        .bento-card.b-streak .cell.lv1 { background: rgba(86, 184, 112, 0.25); }
+        .bento-card.b-streak .cell.lv2 { background: rgba(86, 184, 112, 0.55); }
+        .bento-card.b-streak .cell.lv3 { background: var(--color-success); box-shadow: 0 0 10px rgba(86, 184, 112, 0.35); }
+
+        .bento-card.b-wide {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .bento-card.b-1 .bento-icon { background: var(--color-morning-light); color: var(--color-morning); }
+        .bento-card.b-2 .bento-icon { background: var(--color-success-light); color: var(--color-success); }
+        .bento-card.b-3 .bento-icon { background: var(--color-evening-light); color: var(--color-evening); }
+        .bento-card.b-4 .bento-icon { background: var(--color-primary-soft); color: var(--color-primary); }
+
+        /* === Why Section === */
+        .why {
+            background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-primary-soft) 100%);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 64px;
+            align-items: center;
+        }
+
+        .why-content h2 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            margin-bottom: 20px;
+        }
+
+        .why-content p.lead {
+            color: var(--color-text-muted);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .why-check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--color-success-light);
+            color: var(--color-success);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        .why-item div h4 {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .why-item div p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .why-visual {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .why-img {
+            width: 100%;
+            max-width: 460px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            background: var(--color-surface);
+            animation: floatY 7s ease-in-out infinite;
+            --rot: 0deg;
+        }
+
+        /* === App in Action Showcase === */
+        .showcase {
+            background: var(--color-bg-warm);
+            overflow: hidden;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .show-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .show-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+            border-color: transparent;
+        }
+
+        .show-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            background: var(--color-bg);
+        }
+
+        .show-body {
+            padding: 28px 28px 32px;
+        }
+
+        .show-tag {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primary-dark);
+            background: var(--color-primary-soft);
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
+        .show-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .show-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* === FAQ === */
+        .faq {
+            background: var(--color-bg);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        details.faq-item {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        details.faq-item[open] {
+            border-color: var(--color-primary-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        details.faq-item summary {
+            padding: 22px 28px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        details.faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--color-primary);
+            transition: var(--transition);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        details.faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details.faq-item .faq-body {
+            padding: 0 28px 22px;
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+
+        /* === Final CTA === */
+        .final-cta {
+            padding: 100px 0 120px;
+        }
+
+        .cta-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-evening) 100%);
+            border-radius: var(--radius-xl);
+            padding: 80px 48px;
+            text-align: center;
+            color: var(--color-surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -25%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -25%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 138, 101, 0.25) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-card h2 {
+            font-size: clamp(1.875rem, 4vw, 2.75rem);
+            color: var(--color-surface);
+            margin-bottom: 16px;
+        }
+
+        .cta-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-card .hero-cta {
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .cta-card .btn-store {
+            background: var(--color-surface);
+            color: var(--color-text);
+        }
+
+        .cta-card .btn-store:hover {
+            background: var(--color-text);
+            color: var(--color-surface);
+        }
+
+        /* === Footer === */
+        footer {
+            background: var(--color-text);
+            color: var(--color-text-light);
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .nav-logo {
+            color: var(--color-surface);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col h4 {
+            color: var(--color-surface);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col a {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* === Scroll Reveal === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === Responsive === */
+        @media (max-width: 968px) {
+            .nav-links li:not(:last-child) {
+                display: none;
+            }
+
+            .hero {
+                padding: 130px 0 60px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .hero p.lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-trust {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 540px;
+            }
+
+            .phone {
+                width: 240px;
+            }
+
+            .phone.side {
+                width: 170px;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .flow-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bento-card.b-hero,
+            .bento-card.b-streak,
+            .bento-card.b-stack,
+            .bento-card.b-wide {
+                grid-column: span 2;
+                grid-row: auto;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .why-visual {
+                order: -1;
+            }
+
+            .showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-card {
+                padding: 60px 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 110px 0 40px;
+            }
+
+            .phone.side {
+                display: none;
+            }
+
+            .float-badge {
+                font-size: 0.72rem;
+                padding: 8px 12px;
+            }
+
+            .float-badge.morning {
+                left: -16px;
+                top: 20px;
+            }
+
+            .float-badge.noon {
+                right: -16px;
+            }
+
+            .float-badge.evening {
+                left: -16px;
+            }
+
+            .hero-trust {
+                gap: 20px;
+            }
+
+            .trust-num {
+                font-size: 1.4rem;
+            }
+
+            .bento {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .bento-card.b-hero,
+            .bento-card.b-streak,
+            .bento-card.b-stack,
+            .bento-card.b-wide {
+                grid-column: span 1;
+            }
+
+            .bento-card {
+                padding: 24px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-store {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="topbar">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="assets/img/app-icon.png" alt="하루 3단어 앱 아이콘">
+                <span>하루 3단어</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#flow">학습 흐름</a></li>
+                <li><a href="#features">기능</a></li>
+                <li><a href="#why">왜 3단어인가</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.insu.daily3words" target="_blank" rel="noopener" class="nav-cta">다운로드</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content reveal">
+                    <span class="hero-badge">
+                        <span class="dot"></span>
+                        하루 1분, 영어 습관 만들기
+                    </span>
+                    <h1>
+                        매일 <span class="num">3개</span>의 단어로<br>
+                        <span class="grad">영어 습관</span>이 시작돼요
+                    </h1>
+                    <p class="lead">
+                        아침에 보고, 점심에 떠올리고, 저녁에 체크.<br>
+                        많이 외우기보다 매일 다시 보는, 가장 가벼운 영어 학습 루틴.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="https://play.google.com/store/apps/details?id=com.insu.daily3words" target="_blank" rel="noopener" class="btn-store" aria-label="Google Play에서 하루 3단어 다운로드">
+                            <span class="ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4A90D9"/>
+                                    <path d="M16.802 15.482L5.038 22.27c-.16.09-.331.144-.504.155L14.305 12.5l2.497 2.982z" fill="#FF8A65"/>
+                                    <path d="M14.305 11.5L4.534.575c.173.011.344.065.504.155l11.764 6.788-2.497 3.982z" fill="#56B870"/>
+                                    <path d="M20.16 10.819c.681.39.681 1.388 0 1.778l-3.357 1.885L14.305 12l2.497-2.482 3.357 1.301z" fill="#FFB300"/>
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="label-sm">GET IT ON</span>
+                                <span class="label-lg">Google Play</span>
+                            </span>
+                        </a>
+                        <a href="#flow" class="btn-store btn-store--ghost">
+                            <span>
+                                <span class="label-sm">학습 흐름 보기</span>
+                                <span class="label-lg">아침 · 점심 · 저녁 →</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="hero-trust">
+                        <div class="trust-item">
+                            <span class="trust-num">3개</span>
+                            <span class="trust-label">하루 학습 단어</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-num">1분</span>
+                            <span class="trust-label">평균 학습 시간</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="trust-num">0원</span>
+                            <span class="trust-label">완전 무료</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual reveal">
+                    <div class="phone main">
+                        <img src="assets/screenshots/app-real-home.png" alt="하루 3단어 앱 홈 화면 — 오늘의 학습 흐름" loading="eager">
+                    </div>
+
+                    <div class="float-badge morning">
+                        <span class="ic">☀️</span>
+                        <span>아침 — 단어 보기</span>
+                    </div>
+                    <div class="float-badge noon">
+                        <span class="ic">🌤️</span>
+                        <span>점심 — 뜻 회상</span>
+                    </div>
+                    <div class="float-badge evening">
+                        <span class="ic">🌙</span>
+                        <span>저녁 — O/X 체크</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Flow -->
+        <section id="flow" class="timeflow">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">Daily Flow</span>
+                    <h2>아침 · 점심 · 저녁<br>하루 3번의 짧은 만남</h2>
+                    <p>3번의 알림으로 같은 단어를 다른 방식으로 만나요. 반복이 곧 기억이 됩니다.</p>
+                </div>
+                <div class="flow-grid">
+                    <article class="flow-card morning reveal">
+                        <div class="flow-icon">☀️</div>
+                        <div class="flow-time">Morning</div>
+                        <h3>아침 — 단어를 먼저</h3>
+                        <p>오늘의 3단어를 영어로 먼저 만나요. 발음 듣기로 귀에 익히면서 가볍게 시작합니다.</p>
+                    </article>
+                    <article class="flow-card noon reveal">
+                        <div class="flow-icon">🌤️</div>
+                        <div class="flow-time">Noon</div>
+                        <h3>점심 — 뜻을 보고 회상</h3>
+                        <p>한국어 뜻을 보고 아침에 본 단어를 떠올려요. 능동적인 회상으로 기억이 단단해집니다.</p>
+                    </article>
+                    <article class="flow-card evening reveal">
+                        <div class="flow-icon">🌙</div>
+                        <div class="flow-time">Evening</div>
+                        <h3>저녁 — O/X로 체크</h3>
+                        <p>영어와 뜻을 함께 확인하고, 외운 단어는 O, 아직인 단어는 X로 마무리해요.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Bento -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">Features</span>
+                    <h2>가볍지만 충실한 학습 경험</h2>
+                    <p>꼭 필요한 것만, 매일 이어갈 수 있도록 설계했습니다.</p>
+                </div>
+                <div class="bento">
+                    <article class="bento-card b-hero reveal">
+                        <div>
+                            <div class="bento-icon">🔔</div>
+                            <h3>알림이 흐름을 만들어요</h3>
+                            <p>아침·점심·저녁 3번의 알림이 자연스럽게 학습 흐름이 됩니다. 잊을 틈 없이, 짧고 가볍게.</p>
+                        </div>
+                        <div class="bento-img">
+                            <img src="assets/screenshots/mkt-03-routine.png" alt="아침/점심/저녁 알림 설정 화면">
+                        </div>
+                    </article>
+
+                    <article class="bento-card b-stack b-1 reveal">
+                        <div>
+                            <div class="bento-icon">🔊</div>
+                            <h3>TTS 발음 듣기</h3>
+                            <p>탭 한 번이면 원어민 발음을 바로 들을 수 있어요.</p>
+                        </div>
+                    </article>
+
+                    <article class="bento-card b-stack b-2 reveal">
+                        <div>
+                            <div class="bento-icon">✓</div>
+                            <h3>O/X 암기 체크</h3>
+                            <p>오늘 외운 단어는 O, 아직인 단어는 X로 간단하게.</p>
+                        </div>
+                    </article>
+
+                    <article class="bento-card b-streak reveal">
+                        <div>
+                            <div class="bento-icon">🔥</div>
+                            <h3>연속 학습일 스트릭</h3>
+                            <p>이번 달 학습 흐름을 한눈에. 하루를 모두 끝낼수록 셀이 더 진해져요.</p>
+                        </div>
+                        <div class="streak-grid" aria-hidden="true">
+                            <span class="cell lv0"></span><span class="cell lv1"></span><span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv2"></span><span class="cell lv0"></span><span class="cell lv1"></span>
+                            <span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv3"></span><span class="cell lv1"></span><span class="cell lv0"></span><span class="cell lv2"></span><span class="cell lv3"></span>
+                            <span class="cell lv1"></span><span class="cell lv2"></span><span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv3"></span><span class="cell lv2"></span><span class="cell lv1"></span>
+                            <span class="cell lv0"></span><span class="cell lv1"></span><span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv2"></span><span class="cell lv3"></span><span class="cell lv2"></span>
+                        </div>
+                    </article>
+
+                    <article class="bento-card b-wide b-3 reveal">
+                        <div>
+                            <div class="bento-icon">📋</div>
+                            <h3>오늘의 복습 결과</h3>
+                            <p>외운 단어와 아직인 단어를 자동으로 분리해서 보여드려요. 부담 없이 다시 만나요.</p>
+                        </div>
+                    </article>
+
+                    <article class="bento-card b-wide b-4 reveal">
+                        <div>
+                            <div class="bento-icon">🎯</div>
+                            <h3>위젯으로 한눈에</h3>
+                            <p>홈 화면 위젯에서 오늘의 진행 상태를 바로 확인할 수 있어요.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why 3 Words -->
+        <section id="why" class="why">
+            <div class="container">
+                <div class="why-grid">
+                    <div class="why-content reveal">
+                        <span class="section-eyebrow">Why 3 Words?</span>
+                        <h2>많이 외우는 것보다<br>매일 다시 보는 것</h2>
+                        <p class="lead">하루 30단어로 시작했다 일주일 만에 멈춘 적 있나요?<br>하루 3단어는 그런 일을 막기 위해 설계됐어요.</p>
+                        <ul class="why-list">
+                            <li class="why-item">
+                                <span class="why-check">✓</span>
+                                <div>
+                                    <h4>부담 없는 양</h4>
+                                    <p>3개라는 작은 단위라 거부감이 없어요. "오늘은 못 하겠다" 가 잘 안 나옵니다.</p>
+                                </div>
+                            </li>
+                            <li class="why-item">
+                                <span class="why-check">✓</span>
+                                <div>
+                                    <h4>분산 학습 효과</h4>
+                                    <p>아침/점심/저녁으로 나눠 만나면 한 번에 외우는 것보다 더 오래 기억돼요.</p>
+                                </div>
+                            </li>
+                            <li class="why-item">
+                                <span class="why-check">✓</span>
+                                <div>
+                                    <h4>습관이 되는 구조</h4>
+                                    <p>알림과 짧은 루틴이 자연스럽게 매일의 일상으로 들어와요.</p>
+                                </div>
+                            </li>
+                            <li class="why-item">
+                                <span class="why-check">✓</span>
+                                <div>
+                                    <h4>스트릭이 동기를 만들어요</h4>
+                                    <p>며칠 이어왔는지가 보이면, 끊지 않으려는 힘이 생깁니다.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="why-visual reveal">
+                        <img src="assets/screenshots/mkt-02-learn.png" alt="아침에는 영어 단어를 가볍게 익혀요 — 단어 카드와 발음 듣기" class="why-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App in Action Showcase -->
+        <section id="screens" class="showcase">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">App in Action</span>
+                    <h2>한 장에 담긴 학습 경험</h2>
+                    <p>홈 화면, 단어 학습, 알림 루틴. 직관적인 인터페이스를 미리 만나보세요.</p>
+                </div>
+                <div class="showcase-grid">
+                    <div class="show-card reveal">
+                        <img src="assets/screenshots/mkt-01-home.png" alt="하루 3단어 — 영어 습관 만들기 홈 화면">
+                        <div class="show-body">
+                            <span class="show-tag">홈 화면</span>
+                            <h3>오늘의 흐름이 한눈에</h3>
+                            <p>연속 학습일과 지금 단계, 다음 학습까지 한 화면에서 확인하세요.</p>
+                        </div>
+                    </div>
+                    <div class="show-card reveal">
+                        <img src="assets/screenshots/mkt-02-learn.png" alt="영어 단어를 눈에 익혀보세요 — 단어 카드와 발음 듣기">
+                        <div class="show-body">
+                            <span class="show-tag">단어 학습</span>
+                            <h3>발음과 함께, 가볍게</h3>
+                            <p>크고 명확한 단어 카드와 발음 듣기 버튼. 부담 없이 눈에 익혀요.</p>
+                        </div>
+                    </div>
+                    <div class="show-card reveal">
+                        <img src="assets/screenshots/mkt-03-routine.png" alt="나의 시간에 맞는 영어 루틴 — 알림 시간 설정 화면">
+                        <div class="show-body">
+                            <span class="show-tag">알림 설정</span>
+                            <h3>나의 시간에 맞춰서</h3>
+                            <p>아침·점심·저녁 학습 시간을 자유롭게 설정. 생활 패턴 그대로.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-eyebrow">FAQ</span>
+                    <h2>자주 묻는 질문</h2>
+                    <p>하루 3단어에 대해 궁금한 점을 모았어요.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item reveal">
+                        <summary>왜 하루 3단어만 있나요? 더 외우고 싶은데요.</summary>
+                        <div class="faq-body">
+                            많이 시작했다 멈추는 패턴을 막기 위함이에요. 3개는 너무 적어 보이지만, 1년이면 1,000단어 이상입니다. 멈추지 않는 것이 가장 중요해요.
+                        </div>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>하루 3단어는 정말 무료인가요?</summary>
+                        <div class="faq-body">
+                            네, 완전 무료입니다. 회원가입도 없고, 광고도 결제도 없어요. 모든 기능을 자유롭게 사용하실 수 있습니다.
+                        </div>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>제 학습 기록은 어디에 저장되나요?</summary>
+                        <div class="faq-body">
+                            모든 학습 데이터는 사용자의 기기 내에만 저장됩니다. 외부 서버로 전송되거나 제3자에게 공유되지 않아요. 앱을 삭제하면 데이터도 함께 삭제됩니다.
+                        </div>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>알림 시간을 바꿀 수 있나요?</summary>
+                        <div class="faq-body">
+                            네, 설정에서 아침·점심·저녁 알림 시간을 자유롭게 조정할 수 있어요. 본인의 생활 패턴에 맞춰서 변경해보세요.
+                        </div>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>오프라인에서도 사용할 수 있나요?</summary>
+                        <div class="faq-body">
+                            네, 단어 학습은 오프라인에서도 가능합니다. TTS 발음 듣기 기능은 기기의 TTS 엔진을 사용하기 때문에 인터넷 없이도 작동해요.
+                        </div>
+                    </details>
+                    <details class="faq-item reveal">
+                        <summary>iOS 버전도 있나요?</summary>
+                        <div class="faq-body">
+                            현재 Android 버전을 제공하고 있으며, iOS 버전은 검토 중입니다. 출시 소식은 이 페이지를 통해 알려드릴게요.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <div class="cta-card reveal">
+                    <h2>오늘부터, 하루 3단어</h2>
+                    <p>가장 가벼운 영어 습관을 시작해보세요.<br>지금 무료로 다운로드하세요.</p>
+                    <div class="hero-cta">
+                        <a href="https://play.google.com/store/apps/details?id=com.insu.daily3words" target="_blank" rel="noopener" class="btn-store">
+                            <span class="ico" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="28" height="28">
+                                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4A90D9"/>
+                                    <path d="M16.802 15.482L5.038 22.27c-.16.09-.331.144-.504.155L14.305 12.5l2.497 2.982z" fill="#FF8A65"/>
+                                    <path d="M14.305 11.5L4.534.575c.173.011.344.065.504.155l11.764 6.788-2.497 3.982z" fill="#56B870"/>
+                                    <path d="M20.16 10.819c.681.39.681 1.388 0 1.778l-3.357 1.885L14.305 12l2.497-2.482 3.357 1.301z" fill="#FFB300"/>
+                                </svg>
+                            </span>
+                            <span>
+                                <span class="label-sm">GET IT ON</span>
+                                <span class="label-lg">Google Play</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <img src="assets/img/app-icon.png" alt="하루 3단어 아이콘">
+                        <span>하루 3단어 Daily 3 Words</span>
+                    </div>
+                    <p>하루 1분, 3단어로 끝내는 영어 습관. 많이 외우는 것보다 매일 다시 보는 학습 경험을 만들어드립니다.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="#flow">학습 흐름</a></li>
+                        <li><a href="#features">기능</a></li>
+                        <li><a href="#why">왜 3단어인가</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>다운로드</h4>
+                    <ul>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.insu.daily3words" target="_blank" rel="noopener">Google Play</a></li>
+                        <li><a href="#">App Store (검토 중)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>정보</h4>
+                    <ul>
+                        <li><a href="privacy/">개인정보 처리방침</a></li>
+                        <li><a href="mailto:isjang98@gmail.com">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Insu Corp. All rights reserved.</span>
+                <span>Made for daily English habits ☀️🌤️🌙</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+        // Nav background on scroll
+        const topbar = document.querySelector('.topbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                topbar.style.boxShadow = '0 2px 12px rgba(15, 23, 42, 0.06)';
+            } else {
+                topbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -292,6 +292,12 @@
   },
   "hotPaths": [
     {
+      "path": "Daily3Words/index.html",
+      "accessCount": 16,
+      "lastAccessed": 1779680659168,
+      "type": "file"
+    },
+    {
       "path": "BibleOn/index.html",
       "accessCount": 12,
       "lastAccessed": 1779674479583,
@@ -343,6 +349,30 @@
       "path": "prayNote/style.css",
       "accessCount": 1,
       "lastAccessed": 1779674480805,
+      "type": "file"
+    },
+    {
+      "path": "Daily3Words/assets/screenshots/01-home.png",
+      "accessCount": 1,
+      "lastAccessed": 1779680121976,
+      "type": "file"
+    },
+    {
+      "path": "Daily3Words/assets/screenshots/02-learn.png",
+      "accessCount": 1,
+      "lastAccessed": 1779680122251,
+      "type": "file"
+    },
+    {
+      "path": "Daily3Words/assets/screenshots/03-review.png",
+      "accessCount": 1,
+      "lastAccessed": 1779680123393,
+      "type": "file"
+    },
+    {
+      "path": "Daily3Words/assets/screenshots/04-streak.png",
+      "accessCount": 1,
+      "lastAccessed": 1779680123570,
       "type": "file"
     }
   ],
