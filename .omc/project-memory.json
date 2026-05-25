@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1778678550385,
+  "lastScanned": 1779674176534,
   "projectRoot": "/Users/isjang98/personal/isjang98.github.io",
   "techStack": {
     "languages": [
@@ -47,7 +47,7 @@
       "path": "Ballog",
       "purpose": null,
       "fileCount": 12,
-      "lastAccessed": 1778678550347,
+      "lastAccessed": 1779674176514,
       "keyFiles": [
         "app-ads.txt",
         "favicon.svg",
@@ -60,7 +60,7 @@
       "path": "BibleOn",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1778678550347,
+      "lastAccessed": 1779674176514,
       "keyFiles": [
         "app-ads.txt",
         "index.html"
@@ -70,14 +70,14 @@
       "path": "Daily3Words",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1778678550347,
+      "lastAccessed": 1779674176514,
       "keyFiles": []
     },
     "KoreanHistoryOX": {
       "path": "KoreanHistoryOX",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1778678550348,
+      "lastAccessed": 1779674176515,
       "keyFiles": [
         "_config.yml",
         "app-ads.txt",
@@ -89,7 +89,7 @@
       "path": "LessonChecker",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1778678550348,
+      "lastAccessed": 1779674176515,
       "keyFiles": [
         "app-ads.txt",
         "favicon.svg",
@@ -100,7 +100,7 @@
       "path": "ParkingCamera",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1778678550348,
+      "lastAccessed": 1779674176515,
       "keyFiles": [
         "app-ads.txt",
         "favicon.svg",
@@ -111,7 +111,7 @@
       "path": "_data",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1778678550348,
+      "lastAccessed": 1779674176515,
       "keyFiles": [
         "navigation.yml",
         "projects.yml",
@@ -123,7 +123,7 @@
       "path": "_includes",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1778678550349,
+      "lastAccessed": 1779674176516,
       "keyFiles": [
         "header.html"
       ]
@@ -132,7 +132,7 @@
       "path": "_layouts",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1778678550349,
+      "lastAccessed": 1779674176516,
       "keyFiles": [
         "about.html",
         "default.html",
@@ -144,7 +144,7 @@
       "path": "_posts",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1778678550349,
+      "lastAccessed": 1779674176516,
       "keyFiles": [
         "2016-06-15-Travis-ci-for-Android.markdown",
         "2016-07-17-gitignore.markdown",
@@ -157,7 +157,7 @@
       "path": "_sass",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1778678550349,
+      "lastAccessed": 1779674176516,
       "keyFiles": [
         "_config.scss",
         "_reset.scss"
@@ -167,7 +167,7 @@
       "path": "about",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1778678550349,
+      "lastAccessed": 1779674176517,
       "keyFiles": [
         "en.html",
         "index.html",
@@ -180,7 +180,7 @@
       "path": "assets",
       "purpose": "Static assets",
       "fileCount": 106,
-      "lastAccessed": 1778678550350,
+      "lastAccessed": 1779674176517,
       "keyFiles": [
         "0251_A_EN.png",
         "0251_B_EN.png",
@@ -193,23 +193,32 @@
       "path": "infoquizmaster",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1778678550350,
+      "lastAccessed": 1779674176517,
       "keyFiles": []
     },
     "me": {
       "path": "me",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1778678550350,
+      "lastAccessed": 1779674176517,
       "keyFiles": [
         "index.md"
+      ]
+    },
+    "meditrack": {
+      "path": "meditrack",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1779674176518,
+      "keyFiles": [
+        "index.html"
       ]
     },
     "prayNote": {
       "path": "prayNote",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1778678550350,
+      "lastAccessed": 1779674176518,
       "keyFiles": [
         "index.html",
         "style.css"
@@ -219,7 +228,7 @@
       "path": "tags",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1778678550351,
+      "lastAccessed": 1779674176518,
       "keyFiles": [
         "🍞.md",
         "🍭.md",
@@ -229,33 +238,51 @@
     "Ballog/assets": {
       "path": "Ballog/assets",
       "purpose": "Static assets",
-      "fileCount": 10,
-      "lastAccessed": 1778678550351,
+      "fileCount": 21,
+      "lastAccessed": 1779674176519,
       "keyFiles": [
         "ballog.png",
-        "ballog_image.jpg",
-        "screenshot-1.png"
+        "ballog_image-CdRCRPdZ.jpg",
+        "ballog_image.jpg"
+      ]
+    },
+    "Ballog/dist": {
+      "path": "Ballog/dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 4,
+      "lastAccessed": 1779674176519,
+      "keyFiles": [
+        "favicon.svg",
+        "icons.svg",
+        "index.html"
       ]
     },
     "Ballog/node_modules": {
       "path": "Ballog/node_modules",
       "purpose": "Dependencies",
       "fileCount": 1,
-      "lastAccessed": 1778678550351,
+      "lastAccessed": 1779674176520,
       "keyFiles": []
     },
     "BibleOn/docs": {
       "path": "BibleOn/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1778678550351,
+      "lastAccessed": 1779674176520,
+      "keyFiles": []
+    },
+    "meditrack/docs": {
+      "path": "meditrack/docs",
+      "purpose": "Documentation",
+      "fileCount": 2,
+      "lastAccessed": 1779674176522,
       "keyFiles": []
     },
     "prayNote/assets": {
       "path": "prayNote/assets",
       "purpose": "Static assets",
       "fileCount": 20,
-      "lastAccessed": 1778678550353,
+      "lastAccessed": 1779674176522,
       "keyFiles": [
         "beautiful-christian-worship-background-instrumental-piano-peaceful-joy.mp3",
         "christian-instrumental-piano-worship-calm-emotional-soaking-prayer.mp3",
@@ -266,8 +293,14 @@
   "hotPaths": [
     {
       "path": "BibleOn/index.html",
-      "accessCount": 11,
-      "lastAccessed": 1778679084548,
+      "accessCount": 12,
+      "lastAccessed": 1779674479583,
+      "type": "file"
+    },
+    {
+      "path": "meditrack/index.html",
+      "accessCount": 2,
+      "lastAccessed": 1779674853612,
       "type": "file"
     },
     {
@@ -298,6 +331,18 @@
       "path": "BibleOn/docs/.pdca-status.json",
       "accessCount": 1,
       "lastAccessed": 1778678616829,
+      "type": "file"
+    },
+    {
+      "path": "prayNote/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1779674479663,
+      "type": "file"
+    },
+    {
+      "path": "prayNote/style.css",
+      "accessCount": 1,
+      "lastAccessed": 1779674480805,
       "type": "file"
     }
   ],
