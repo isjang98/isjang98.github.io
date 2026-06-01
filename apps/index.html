@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>insu.vibe.coding — 혼자 만드는 앱 스튜디오</title>
+  <meta name="description" content="개발자 insu(isjang98)가 직접 만든 8개의 개인 앱. 말씀온, 약기록, 파킹카메라, 레슨체커, 한국사 OX, 기도흔적, 야구일기, 하루 3단어. 터미널에서 ls, open으로 둘러보세요." />
+  <meta name="author" content="isjang98" />
+  <meta name="theme-color" content="#1a1b26" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="insu.vibe.coding — 혼자 만드는 앱 스튜디오" />
+  <meta property="og:description" content="insu가 직접 만든 8개의 개인 앱. 터미널에서 ls, open으로 둘러보세요." />
+  <meta property="og:url" content="https://isjang98.github.io/apps/" />
+  <meta property="og:locale" content="ko_KR" />
+  <link rel="canonical" href="https://isjang98.github.io/apps/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0e0e14;
+      --term: #1a1b26;
+      --term-bar: #24283b;
+      --fg: #c0caf5;
+      --dim: #565f89;
+      --faint: #3b4261;
+      --green: #9ece6a;
+      --cyan: #7dcfff;
+      --blue: #7aa2f7;
+      --purple: #bb9af7;
+      --yellow: #e0af68;
+      --red: #f7768e;
+      --orange: #ff9e64;
+      --mono: "JetBrains Mono", "Nanum Gothic Coding", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(122,162,247,0.10), transparent 60%),
+        radial-gradient(1000px 500px at 100% 110%, rgba(187,154,247,0.10), transparent 60%),
+        var(--bg);
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 14.5px;
+      line-height: 1.65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      min-height: 100%;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: rgba(125,207,255,0.3); }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---- Terminal window ---- */
+    .terminal {
+      width: 100%;
+      max-width: 920px;
+      height: min(82vh, 760px);
+      background: rgba(26, 27, 38, 0.92);
+      border: 1px solid rgba(122,162,247,0.18);
+      border-radius: 14px;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.02) inset;
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    /* scanlines */
+    .terminal::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 5;
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px);
+      opacity: 0.35; mix-blend-mode: overlay;
+    }
+
+    .bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px; background: var(--term-bar);
+      border-bottom: 1px solid rgba(0,0,0,0.3); flex-shrink: 0; position: relative; z-index: 6;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+    .bar .title {
+      position: absolute; left: 0; right: 0; text-align: center;
+      font-size: 12.5px; color: var(--dim); pointer-events: none; font-weight: 500;
+    }
+
+    .screen {
+      flex: 1; overflow-y: auto; padding: 18px 20px 8px;
+      scroll-behavior: smooth; position: relative; z-index: 4;
+    }
+    .screen::-webkit-scrollbar { width: 10px; }
+    .screen::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 10px; }
+    .screen::-webkit-scrollbar-track { background: transparent; }
+
+    .line { white-space: pre-wrap; word-break: break-word; }
+    .line.banner { white-space: pre; overflow-x: auto; line-height: 1.15; }
+
+    /* colors */
+    .green { color: var(--green); } .cyan { color: var(--cyan); } .blue { color: var(--blue); }
+    .purple { color: var(--purple); } .yellow { color: var(--yellow); } .red { color: var(--red); }
+    .orange { color: var(--orange); } .dim { color: var(--dim); } .fg { color: var(--fg); }
+    .b { font-weight: 700; }
+
+    .banner .grad { color: var(--cyan); }
+
+    /* app entries */
+    .app { margin: 2px 0 10px; }
+    .app .head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+    .app .name {
+      font-weight: 700; cursor: pointer; border-bottom: 1px dashed transparent; transition: 0.15s;
+    }
+    .app .name:hover { border-bottom-color: currentColor; filter: brightness(1.15); }
+    .app .meta { color: var(--dim); font-size: 13px; }
+    .badge {
+      font-size: 11px; padding: 1px 7px; border-radius: 5px; font-weight: 700;
+      border: 1px solid currentColor; opacity: 0.9;
+    }
+    .badge.ios { color: var(--cyan); } .badge.aos { color: var(--green); } .badge.soon { color: var(--dim); }
+    .app .desc { color: var(--fg); opacity: 0.85; margin-left: 18px; }
+    .app .acts { margin-left: 18px; font-size: 13px; color: var(--dim); }
+    .app .acts a, .app .acts .cmd { cursor: pointer; }
+    .cmd { color: var(--cyan); cursor: pointer; }
+    .cmd:hover { text-decoration: underline; }
+
+    .ok { color: var(--green); } .arrow { color: var(--purple); }
+
+    /* prompt line */
+    .promptline { display: flex; align-items: center; gap: 8px; padding: 4px 20px 22px; position: relative; z-index: 4; flex-wrap: nowrap; }
+    .ps1 { white-space: nowrap; flex-shrink: 0; }
+    .ps1 .u { color: var(--green); font-weight: 700; }
+    .ps1 .at { color: var(--fg); }
+    .ps1 .path { color: var(--blue); font-weight: 700; }
+    .ps1 .sym { color: var(--fg); }
+    #cmd {
+      flex: 1; background: transparent; border: none; outline: none;
+      color: var(--fg); font-family: var(--mono); font-size: 14.5px; caret-color: var(--cyan);
+      min-width: 40px;
+    }
+    .hist { color: var(--dim); }
+    .hist .ps1 { opacity: 0.85; }
+
+    /* blinking cursor for boot */
+    .blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hint { color: var(--faint); font-size: 12px; text-align: center; margin-top: 14px; }
+
+    @media (max-width: 640px) {
+      body { padding: 10px; font-size: 13.5px; }
+      .terminal { height: 90vh; max-width: 100%; border-radius: 12px; }
+      .screen { padding: 14px 14px 8px; }
+      .promptline { padding: 4px 14px 18px; }
+      #cmd { font-size: 13.5px; }
+      .bar .title { font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .blink { animation: none; } .screen { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="terminal" id="terminal" aria-label="insu.vibe.coding 터미널">
+    <div class="bar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="title">insu@vibe-coding: ~/apps — zsh</span>
+    </div>
+    <div class="screen" id="screen"></div>
+    <div class="promptline" id="promptline" style="display:none">
+      <span class="ps1"><span class="u">insu</span><span class="at">@vibe</span><span class="sym">:</span><span class="path">~/apps</span><span class="sym">$</span></span>
+      <input id="cmd" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="명령어 입력" />
+    </div>
+  </main>
+
+  <script>
+    const screen = document.getElementById('screen');
+    const promptline = document.getElementById('promptline');
+    const input = document.getElementById('cmd');
+
+    // ---------- App data ----------
+    const apps = {
+      bibleon:       { ko:"말씀온",       en:"BibleOn",        cat:"신앙",      color:"purple", path:"../BibleOn/",
+                       desc:"매일 성경 말씀·묵상 알람, QT 노트, 기도 일기, 통독까지. 5천 명이 쓰는 영적 습관 앱.",
+                       ios:"https://apps.apple.com/kr/app/%EB%A7%90%EC%94%80%EC%98%A8-bibleon/id6768066065", aos:"https://play.google.com/store/apps/details?id=kr.bibleon" },
+      ballog:        { ko:"야구일기",     en:"Ballog",         cat:"스포츠",    color:"orange", path:"../Ballog/",
+                       desc:"나만의 KBO 직관 기록장. 스코어·좌석·사진·그날의 감동을 간편하게.",
+                       ios:"https://apps.apple.com/kr/app/%EC%95%BC%EA%B5%AC%EC%9D%BC%EA%B8%B0-ballog/id6770422979", aos:"https://play.google.com/store/apps/details?id=com.insu.ballog" },
+      meditrack:     { ko:"약기록",       en:"MediTrack",      cat:"건강",      color:"green",  path:"../meditrack/",
+                       desc:"복약 알림·빠른 복용 기록·위젯·복용률 통계. 회원가입 없이 무료.",
+                       ios:"https://apps.apple.com/kr/app/%EC%95%BD%EA%B8%B0%EB%A1%9D-%EB%B3%B5%EC%95%BD-%EA%B4%80%EB%A6%AC%EC%99%80-%EC%98%81%EC%96%91%EC%A0%9C-%EC%95%8C%EB%A6%BC/id6773587637", aos:"https://play.google.com/store/apps/details?id=com.insu.meditrack" },
+      daily3words:   { ko:"하루 3단어",   en:"Daily 3 Words",  cat:"교육",      color:"yellow", path:"../Daily3Words/",
+                       desc:"아침·점심·저녁 3번 알림으로 매일 영어 단어 3개. 하루 1분 영어 습관.",
+                       ios:"https://apps.apple.com/kr/app/%ED%95%98%EB%A3%A8-3%EB%8B%A8%EC%96%B4/id6772718571", aos:"https://play.google.com/store/apps/details?id=com.insu.daily3words" },
+      koreanhistory: { ko:"한국사 OX",    en:"KoreanHistory OX", cat:"교육",    color:"yellow", path:"../KoreanHistoryOX/",
+                       desc:"한능검 대비 OX 퀴즈 + AI 오답 분석. 복습 모드·스트릭·랭킹.",
+                       aos:"https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" },
+      lessonchecker: { ko:"레슨체커",     en:"LessonChecker",  cat:"생산성",    color:"cyan",   path:"../LessonChecker/",
+                       desc:"레슨 횟수·결제일을 한눈에. 통계 그래프, 남은 횟수, 결제 예정일 계산. PT·필라테스·과외.",
+                       ios:"https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116", aos:"https://play.google.com/store/apps/details?id=com.lessonchecker.app" },
+      parkingcamera: { ko:"파킹카메라",   en:"ParkingCamera",  cat:"유틸리티",  color:"blue",   path:"../ParkingCamera/",
+                       desc:"주차 위치를 사진으로 기록. 블루투스 자동 감지·주차 시간 알림·위젯.",
+                       aos:"https://play.google.com/store/apps/details?id=com.parkingcamera.parkingcamera" },
+      praynote:      { ko:"기도흔적",     en:"prayNote",       cat:"신앙",      color:"purple", path:"../prayNote/",
+                       desc:"매일의 기도를 기록하고 응답을 추억하는 심플한 기도 노트.",
+                       aos:"https://play.google.com/store/apps/details?id=kr.co.prayernote" },
+    };
+    const order = ["bibleon","ballog","meditrack","daily3words","koreanhistory","lessonchecker","parkingcamera","praynote"];
+
+    // ---------- Helpers ----------
+    const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    function print(html, cls) {
+      const d = document.createElement('div');
+      d.className = 'line' + (cls ? ' ' + cls : '');
+      d.innerHTML = html;
+      screen.appendChild(d);
+      screen.scrollTop = screen.scrollHeight;
+      return d;
+    }
+    function blank() { print('&nbsp;'); }
+
+    function badges(a) {
+      let b = '';
+      if (a.soon) return ' <span class="badge soon">출시예정</span>';
+      if (a.ios) b += ' <span class="badge ios">iOS</span>';
+      if (a.aos) b += ' <span class="badge aos">Android</span>';
+      return b;
+    }
+
+    function appBlock(key) {
+      const a = apps[key];
+      const acts = [];
+      acts.push(`<span class="cmd" data-cmd="open ${key}">› 열기</span>`);
+      if (a.ios) acts.push(`<a href="${a.ios}" target="_blank" rel="noopener">App Store</a>`);
+      if (a.aos) acts.push(`<a href="${a.aos}" target="_blank" rel="noopener">Play Store</a>`);
+      acts.push(`<span class="cmd" data-cmd="info ${key}">info</span>`);
+      return `<div class="app">
+        <div class="head">
+          <span class="name ${a.color}" data-cmd="open ${key}">● ${esc(a.ko)}</span>
+          <span class="meta">${esc(a.en)} · ${esc(a.cat)}</span>${badges(a)}
+        </div>
+        <div class="desc">${esc(a.desc)}</div>
+        <div class="acts">${acts.join('&nbsp;&nbsp;·&nbsp;&nbsp;')}</div>
+      </div>`;
+    }
+
+    // ---------- Commands ----------
+    const commands = {
+      help() {
+        print('<span class="b cyan">사용 가능한 명령어</span>');
+        const rows = [
+          ['ls', '만든 앱 전체 목록 보기'],
+          ['open &lt;앱&gt;', '해당 앱 페이지 열기   (예: open bibleon)'],
+          ['info &lt;앱&gt;', '앱 상세 정보 보기'],
+          ['about', '만든 사람(insu) 소개'],
+          ['links', 'GitHub · 연락처'],
+          ['banner', '로고 다시 보기'],
+          ['clear', '화면 지우기'],
+          ['help', '이 도움말 보기'],
+        ];
+        rows.forEach(([c, d]) => print(`  <span class="green b">${c.padEnd(14,' ')}</span><span class="dim">${d}</span>`));
+        blank();
+        print('<span class="dim">팁: 앱 이름을 <span class="cyan">클릭</span>해도 열려요. <span class="cyan">↑/↓</span> 이전 명령어, <span class="cyan">Tab</span> 자동완성.</span>');
+      },
+      ls() {
+        print(`<span class="dim">total ${order.length} apps · </span><span class="green">5 App Store</span><span class="dim"> · </span><span class="green">8 Play Store</span>`);
+        blank();
+        order.forEach(k => print(appBlock(k)));
+        print('<span class="dim">→ 자세히: <span class="cmd" data-cmd="info bibleon">info &lt;앱&gt;</span> · 열기: <span class="cmd" data-cmd="open bibleon">open &lt;앱&gt;</span></span>');
+      },
+      la() { this.ls(); },
+      dir() { this.ls(); },
+      open(arg) {
+        const a = resolve(arg);
+        if (!a) return notfound(arg, 'open');
+        print(`<span class="ok">[opening]</span> ${esc(apps[a].ko)} → <span class="dim">${apps[a].path}</span>`);
+        window.open(apps[a].path, '_blank');
+      },
+      run(arg) { this.open(arg); },
+      cd(arg) { this.open(arg); },
+      info(arg) {
+        const k = resolve(arg);
+        if (!k) return notfound(arg, 'info');
+        const a = apps[k];
+        print(`<span class="${a.color} b">● ${esc(a.ko)}</span> <span class="dim">(${esc(a.en)})</span>${badges(a)}`);
+        print(`  <span class="dim">카테고리 :</span> ${esc(a.cat)}`);
+        print(`  <span class="dim">설명     :</span> ${esc(a.desc)}`);
+        print(`  <span class="dim">페이지   :</span> <span class="cmd" data-cmd="open ${k}">${a.path}</span>`);
+        if (a.ios) print(`  <span class="dim">App Store:</span> <a href="${a.ios}" target="_blank" rel="noopener">${a.ios}</a>`);
+        if (a.aos) print(`  <span class="dim">Play     :</span> <a href="${a.aos}" target="_blank" rel="noopener">${a.aos}</a>`);
+        if (a.soon) print(`  <span class="dim">상태     :</span> <span class="yellow">출시 준비 중</span>`);
+      },
+      cat(arg) { this.info(arg); },
+      about() {
+        print('<span class="b cyan">$ whoami</span>');
+        print('<span class="purple b">insu</span> <span class="dim">— 1인 개발자 / indie app maker</span>');
+        blank();
+        print('아이디어가 떠오르면 직접 만들어 세상에 내놓습니다.');
+        print('신앙·건강·교육·취미까지, 일상의 작은 불편에서 출발한 앱들을 만들어요.');
+        print('위 앱들은 모두 직접 <span class="green">기획·디자인·개발·운영</span> 합니다.');
+        blank();
+        print('<span class="dim">앱 보기 → </span><span class="cmd" data-cmd="ls">ls</span>');
+      },
+      whoami() { this.about(); },
+      links() {
+        print('<span class="dim">GitHub  :</span> <a href="https://github.com/isjang98" target="_blank" rel="noopener">github.com/isjang98</a>');
+        print('<span class="dim">Blog    :</span> <a href="https://isjang98.github.io/" target="_blank" rel="noopener">isjang98.github.io</a>');
+      },
+      contact() { this.links(); },
+      banner() { showBanner(); },
+      clear() { screen.innerHTML = ''; },
+      cls() { this.clear(); },
+      sudo() { print('<span class="red">insu is not in the sudoers file. 이 사건은 기록됩니다. 😏</span>'); },
+      echo(arg) { print(esc(arg || '')); },
+      exit() { print('<span class="dim">…나갈 곳이 없어요. 여기 그냥 계세요 🙂  (ls 로 앱을 둘러보세요)</span>'); },
+    };
+    const aliases = { '말씀온':'bibleon','성경':'bibleon','야구일기':'ballog','야구':'ballog','약기록':'meditrack','약':'meditrack',
+      '하루3단어':'daily3words','영어':'daily3words','한국사':'koreanhistory','한능검':'koreanhistory','ox':'koreanhistory',
+      '레슨체커':'lessonchecker','레슨':'lessonchecker','파킹카메라':'parkingcamera','주차':'parkingcamera','기도흔적':'praynote','기도':'praynote' };
+
+    function resolve(arg) {
+      if (!arg) return null;
+      const q = arg.trim().toLowerCase();
+      if (apps[q]) return q;
+      if (aliases[q]) return aliases[q];
+      const hit = order.find(k => k.startsWith(q) || apps[k].en.toLowerCase().startsWith(q));
+      return hit || null;
+    }
+    function notfound(arg, cmd) {
+      print(`<span class="red">'${esc(arg || '')}' 앱을 찾을 수 없어요.</span> <span class="dim">사용 가능: </span>` +
+        order.map(k => `<span class="cmd" data-cmd="${cmd} ${k}">${k}</span>`).join('<span class="dim">, </span>'));
+    }
+
+    // ---------- Banner ----------
+    function showBanner() {
+      const art =
+`  _                       _ _              _ _
+ (_)_ _  ___ _  _    __ __(_) |__  ___   __ ___  __| (_)_ _  __ _
+ | | ' \\(_-< || |   \\ V /| | '_ \\/ -_)_/ _/ _ \\/ _\` | | ' \\/ _\` |
+ |_|_||_/__/\\_,_|   _\\_/ |_|_.__/\\___(_)__\\___/\\__,_|_|_||_\\__, |
+                                                          |___/  `;
+      print('<span class="banner grad">' + esc(art) + '</span>', 'banner');
+      print('<span class="dim">  &gt; 혼자 만드는 앱 스튜디오 · </span><span class="green">v1.0.0</span>');
+    }
+
+    // ---------- Command runner ----------
+    function exec(raw) {
+      const str = raw.trim();
+      // echo to history
+      const h = document.createElement('div');
+      h.className = 'line hist';
+      h.innerHTML = `<span class="ps1"><span class="u">insu</span><span class="at">@vibe</span><span class="sym">:</span><span class="path">~/apps</span><span class="sym">$</span></span> ${esc(raw)}`;
+      screen.appendChild(h);
+      if (!str) { screen.scrollTop = screen.scrollHeight; return; }
+
+      const [c, ...rest] = str.split(/\s+/);
+      const arg = rest.join(' ');
+      const fn = commands[c.toLowerCase()];
+      if (fn) { fn.call(commands, arg); }
+      else {
+        // maybe they typed an app name directly
+        const k = resolve(c);
+        if (k) commands.open(k);
+        else print(`<span class="red">command not found: ${esc(c)}</span> <span class="dim">— <span class="cmd" data-cmd="help">help</span> 를 입력해 보세요.</span>`);
+      }
+      blank();
+      screen.scrollTop = screen.scrollHeight;
+    }
+
+    // ---------- History + input ----------
+    const history = []; let hi = -1;
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const v = input.value;
+        if (v.trim()) { history.push(v); }
+        hi = history.length;
+        input.value = '';
+        exec(v);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (hi > 0) { hi--; input.value = history[hi] || ''; setTimeout(()=>input.setSelectionRange(999,999),0); }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (hi < history.length - 1) { hi++; input.value = history[hi] || ''; }
+        else { hi = history.length; input.value = ''; }
+      } else if (e.key === 'Tab') {
+        e.preventDefault();
+        const v = input.value.trim().toLowerCase();
+        const cmds = Object.keys(commands).concat(order);
+        const m = cmds.find(x => x.startsWith(v) && v);
+        if (m) input.value = order.includes(m) && !commands[v.split(' ')[0]] ? 'open ' + m : m;
+      } else if (e.key === 'l' && e.ctrlKey) {
+        e.preventDefault(); commands.clear();
+      }
+    });
+
+    // click anywhere focuses input; click on data-cmd runs it
+    document.getElementById('terminal').addEventListener('click', (e) => {
+      const t = e.target.closest('[data-cmd]');
+      if (t) { exec(t.dataset.cmd); input.focus(); return; }
+      if (window.getSelection().toString()) return; // don't steal text selection
+      if (e.target.tagName !== 'A') input.focus();
+    });
+
+    // ---------- Boot sequence ----------
+    const boot = [
+      ['<span class="dim">Last login: just now on ttys001</span>', 250],
+      ['<span class="green">insu</span><span class="dim">@vibe-coding</span> <span class="blue">~/apps</span> <span class="dim">$ ./insu --start</span>', 420],
+      ['<span class="dim">booting insu.vibe.coding …</span>', 360],
+      ['<span class="ok">[ ok ]</span> 8개의 앱을 불러왔습니다', 220],
+      ['<span class="ok">[ ok ]</span> App Store 5 · Play Store 8 · 8개 앱 전부 출시 완료 🎉', 220],
+      ['__BANNER__', 200],
+      ['&nbsp;', 60],
+      ["<span class='dim'>무엇을 도와드릴까요? <span class='cyan b'>help</span> 또는 <span class='cyan b'>ls</span> 를 입력해 보세요.</span>", 0],
+    ];
+    let bi = 0;
+    function runBoot() {
+      if (bi >= boot.length) {
+        promptline.style.display = 'flex';
+        input.focus();
+        screen.scrollTop = screen.scrollHeight;
+        return;
+      }
+      const [html, delay] = boot[bi++];
+      if (html === '__BANNER__') showBanner();
+      else print(html, html.includes('blink') ? '' : '');
+      screen.scrollTop = screen.scrollHeight;
+      setTimeout(runBoot, delay);
+    }
+    // allow skipping boot by click/keypress
+    function skip() {
+      if (bi < boot.length) {
+        screen.innerHTML = '';
+        boot.forEach(([h]) => { if (h === '__BANNER__') showBanner(); else print(h); });
+        bi = boot.length;
+        promptline.style.display = 'flex';
+        input.focus();
+        screen.scrollTop = screen.scrollHeight;
+      }
+    }
+    document.addEventListener('keydown', function once(e){ if (bi < boot.length){ skip(); document.removeEventListener('keydown', once);} }, { once:false });
+    runBoot();
+  </script>
+</body>
+</html>
