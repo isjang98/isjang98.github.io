@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>레슨체커 (LessonChecker) - 레슨 관리의 새로운 기준</title>
+    <title id="page-title">레슨체크 (LessonChecker) - 나의 레슨노트, PT·과외·레슨 관리</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="레슨체커로 레슨 횟수와 결제일을 쉽게 관리하세요. 통계 그래프, 남은 횟수 확인, 결제 예정일 계산을 한 번에!">
-    <meta name="keywords" content="레슨관리, 과외관리, 레슨체커, 수업관리, 결제일계산, 레슨통계">
+    <meta name="description" id="meta-description" content="레슨 횟수가 몇 번 남았는지, 지난 수업에서 뭘 배웠는지—레슨체크 하나로 PT, 과외, 음악 레슨을 한곳에서 관리하세요.">
+    <meta name="keywords" content="레슨관리, 과외관리, 레슨체크, 수업관리, PT관리, 레슨노트">
     <meta name="author" content="LessonChecker">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="레슨체커 (LessonChecker) - 레슨 관리의 새로운 기준">
-    <meta property="og:description" content="레슨 횟수와 결제일을 한눈에! 통계 그래프로 나의 레슨 현황을 확인하세요.">
+    <meta property="og:title" content="레슨체크 (LessonChecker) - 나의 레슨노트">
+    <meta property="og:description" content="이젠 레슨체크 하나로! PT, 과외, 음악 레슨의 남은 횟수와 수업 기록을 한눈에.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://isjang98.github.io/LessonChecker/">
     <meta property="og:locale" content="ko_KR">
-    <meta property="og:site_name" content="레슨체커">
-    <meta property="og:image" content="https://isjang98.github.io/LessonChecker/images/lesson_checker_list.png">
+    <meta property="og:site_name" content="레슨체크">
+    <meta property="og:image" content="https://isjang98.github.io/LessonChecker/images/ko/ko-01-slide-1-1320x2868.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="레슨체커 (LessonChecker) - 레슨 관리의 새로운 기준">
-    <meta name="twitter:description" content="레슨 횟수와 결제일을 한눈에! 통계 그래프로 나의 레슨 현황을 확인하세요.">
-    <meta name="twitter:image" content="https://isjang98.github.io/LessonChecker/images/lesson_checker_list.png">
+    <meta name="twitter:title" content="레슨체크 (LessonChecker) - 나의 레슨노트">
+    <meta name="twitter:description" content="이젠 레슨체크 하나로! PT, 과외, 음악 레슨의 남은 횟수와 수업 기록을 한눈에.">
+    <meta name="twitter:image" content="https://isjang98.github.io/LessonChecker/images/ko/ko-01-slide-1-1320x2868.png">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://isjang98.github.io/LessonChecker/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://isjang98.github.io/LessonChecker/sitemap.xml">
+
+    <!-- Google Search Console: 속성 등록 후 content 값을 넣고 주석을 해제하세요.
+    <meta name="google-site-verification" content="여기에_발급받은_코드" />
+    -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -38,23 +43,39 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "레슨체커 (LessonChecker)",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "Android",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "KRW"
-        },
-        "description": "레슨 횟수와 결제일을 쉽게 관리하세요. 통계 그래프, 남은 횟수 확인, 결제 예정일 계산을 한 번에!",
-        "url": "https://isjang98.github.io/LessonChecker/",
-        "screenshot": "https://isjang98.github.io/LessonChecker/images/lesson_checker_list.png",
-        "author": {
-            "@type": "Person",
-            "name": "장인수"
-        },
-        "inLanguage": "ko"
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "name": "레슨체크 (LessonChecker)",
+                "url": "https://isjang98.github.io/LessonChecker/",
+                "inLanguage": ["ko", "en", "ja", "zh-Hans"],
+                "publisher": { "@type": "Person", "name": "장인수" }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "레슨체크 (LessonChecker)",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "Android, iOS",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "KRW"
+                },
+                "downloadUrl": [
+                    "https://play.google.com/store/apps/details?id=com.lessonchecker.app",
+                    "https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116"
+                ],
+                "installUrl": [
+                    "https://play.google.com/store/apps/details?id=com.lessonchecker.app",
+                    "https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116"
+                ],
+                "description": "레슨 횟수·수업 기록·메모·알림을 한곳에서 관리하는 PT·과외·레슨 관리 앱.",
+                "url": "https://isjang98.github.io/LessonChecker/",
+                "screenshot": "https://isjang98.github.io/LessonChecker/images/ko/ko-01-slide-1-1320x2868.png",
+                "author": { "@type": "Person", "name": "장인수" },
+                "inLanguage": ["ko", "en", "ja", "zh-Hans"]
+            }
+        ]
     }
     </script>
     
@@ -160,6 +181,44 @@
         .neo-btn.pink { background: var(--pink); }
         .neo-btn.blue { background: var(--blue); }
         .neo-btn.green { background: var(--green); }
+        
+        .neo-btn.sm {
+            padding: 12px 20px;
+            font-size: 0.95rem;
+        }
+        
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+        
+        .header-lang {
+            max-width: 100%;
+            margin: 0;
+        }
+        
+        .header-downloads,
+        .cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        @media (min-width: 768px) {
+            .header-right {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        
+        .cta-buttons {
+            gap: 16px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
         
         /* Container */
         .container {
@@ -272,68 +331,59 @@
             align-items: center;
         }
         
-        .phone-mockup {
-            width: 280px;
-            height: 560px;
-            background: var(--black);
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow: 12px 12px 0 var(--purple);
-            position: relative;
-        }
-        
-        .phone-screen {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, var(--blue) 0%, var(--green) 100%);
-            border-radius: 32px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .phone-screen .app-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--white);
-            border: 3px solid var(--black);
+        .hero-shot {
+            width: min(100%, 300px);
+            height: auto;
+            border: var(--border-width) solid var(--black);
             border-radius: 20px;
+            box-shadow: 12px 12px 0 var(--purple);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #444;
+            margin: -40px auto 32px;
+            max-width: 640px;
+        }
+        
+        .lang-tabs {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            box-shadow: 4px 4px 0 var(--black);
-        }
-        
-        .phone-screen h3 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-        }
-        
-        .phone-screen .lesson-preview {
+            max-width: 520px;
+            margin: 0 auto 28px;
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
             background: var(--white);
-            border: 3px solid var(--black);
-            padding: 16px;
-            margin-top: 16px;
-            width: 100%;
-            box-shadow: 4px 4px 0 var(--black);
+            flex-wrap: wrap;
         }
         
-        .phone-screen .lesson-preview p {
-            font-size: 0.9rem;
+        .lang-tab {
+            flex: 1 1 25%;
+            min-width: 72px;
+            padding: 12px 10px;
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            font-family: inherit;
+            color: var(--black);
+            background: var(--white);
+            border: none;
+            border-right: var(--border-width) solid var(--black);
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease;
         }
         
-        .phone-screen .lesson-count {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--blue);
+        .lang-tab:last-child {
+            border-right: none;
+        }
+        
+        .lang-tab:hover:not(.active) {
+            background: var(--yellow);
+        }
+        
+        .lang-tab.active {
+            background: var(--black);
+            color: var(--white);
         }
         
         /* Features Section */
@@ -389,6 +439,7 @@
         .feature-card:nth-child(2) .icon { background: var(--blue); }
         .feature-card:nth-child(3) .icon { background: var(--yellow); }
         .feature-card:nth-child(4) .icon { background: var(--purple); color: var(--white); }
+        .feature-card:nth-child(5) .icon { background: var(--orange); }
         
         .feature-card h3 {
             font-size: 1.4rem;
@@ -486,6 +537,14 @@
             overflow: hidden;
         }
         
+        .screenshot-set {
+            display: none;
+        }
+        
+        .screenshot-set.active {
+            display: block;
+        }
+        
         .screenshots-wrapper {
             display: flex;
             gap: 24px;
@@ -502,17 +561,26 @@
         
         .screenshot-item {
             flex: 0 0 auto;
-            width: 220px;
+            width: min(300px, 78vw);
             scroll-snap-align: center;
+            text-align: center;
         }
         
         .screenshot-item img {
             width: 100%;
             height: auto;
+            display: block;
             border: var(--border-width) solid var(--black);
             box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
             border-radius: 16px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .screenshot-caption {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.4;
         }
         
         .screenshot-item img:hover {
@@ -534,7 +602,16 @@
         
         @media (max-width: 600px) {
             .screenshot-item {
-                width: 180px;
+                width: min(260px, 85vw);
+            }
+            
+            .lang-tab {
+                flex: 1 1 50%;
+                border-bottom: var(--border-width) solid var(--black);
+            }
+            
+            .lang-tab:nth-child(2n) {
+                border-right: none;
             }
         }
         
@@ -628,6 +705,10 @@
             z-index: 1;
         }
         
+        .cta .neo-btn.blue {
+            background: var(--blue);
+        }
+        
         /* Footer */
         footer {
             background: var(--black);
@@ -679,9 +760,8 @@
                 justify-content: center;
             }
             
-            .phone-mockup {
-                width: 240px;
-                height: 480px;
+            .hero-shot {
+                width: min(100%, 260px);
             }
         }
         
@@ -718,25 +798,32 @@
             50% { transform: translateY(-10px); }
         }
         
-        .phone-mockup {
-            animation: float 4s ease-in-out infinite;
-        }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">본문으로 바로가기</a>
+    <a href="#main-content" class="skip-to-content" id="skip-link">본문으로 바로가기</a>
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">레슨<span>체커</span></a>
-                <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn pink" target="_blank" rel="noopener noreferrer">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                    </svg>
-                    다운로드
-                </a>
+                <a href="#" class="logo" id="site-logo">레슨<span>체크</span></a>
+                <div class="header-right">
+                    <nav class="lang-tabs header-lang" role="tablist" aria-label="언어 선택">
+                        <button type="button" class="lang-tab active" role="tab" aria-selected="true" data-lang="ko">한국어</button>
+                        <button type="button" class="lang-tab" role="tab" aria-selected="false" data-lang="en">English</button>
+                        <button type="button" class="lang-tab" role="tab" aria-selected="false" data-lang="ja">日本語</button>
+                        <button type="button" class="lang-tab" role="tab" aria-selected="false" data-lang="zh">中文</button>
+                    </nav>
+                    <div class="header-downloads">
+                        <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn pink sm" id="header-play" target="_blank" rel="noopener noreferrer">
+                            Google Play
+                        </a>
+                        <a href="https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116" class="neo-btn blue sm" id="header-appstore" target="_blank" rel="noopener noreferrer">
+                            App Store
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -746,36 +833,40 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <h1>
-                        레슨 관리의<br>
-                        <span class="highlight">새로운 기준</span><br>
-                        레슨체커
+                    <h1 id="hero-title">
+                        내 레슨 횟수…<br>
+                        <span class="highlight">몇 번 남았더라?</span><br>
+                        레슨체크
                     </h1>
-                    <p>
-                        레슨 횟수와 결제일을 한눈에 관리하세요. 
-                        통계 그래프로 나의 성장을 확인하고, 결제일을 놓치지 마세요.
+                    <p id="hero-desc">
+                        이젠 레슨체크 하나로! 헬스 PT, 영어·수학 과외, 피아노까지—모든 레슨 현황을 한눈에 확인하세요.
                     </p>
                     <div class="hero-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn" target="_blank" rel="noopener noreferrer">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn pink" target="_blank" rel="noopener noreferrer" aria-label="Google Play에서 레슨체크 다운로드">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                             </svg>
                             Google Play에서 다운로드
                         </a>
+                        <a href="https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116" class="neo-btn blue" target="_blank" rel="noopener noreferrer" aria-label="App Store에서 레슨체크 다운로드">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            App Store에서 다운로드
+                        </a>
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="app-icon">✓</div>
-                            <h3>레슨체커</h3>
-                            <div class="lesson-preview">
-                                <p>영어 회화 레슨</p>
-                                <div class="lesson-count">8 / 20회</div>
-                                <p style="font-size: 0.8rem; color: #666; margin-top: 8px;">다음 결제일: 2025.02.15</p>
-                            </div>
-                        </div>
-                    </div>
+                    <img
+                        id="hero-screenshot"
+                        class="hero-shot"
+                        src="images/ko/ko-01-slide-1-1320x2868.png"
+                        alt="레슨체크 — 내 레슨 목록 화면"
+                        width="300"
+                        height="650"
+                        loading="eager"
+                        data-shot-index="0"
+                    >
                 </div>
             </div>
         </div>
@@ -784,51 +875,78 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title">왜 레슨체커인가요?</h2>
-            <div class="features-grid">
+            <h2 class="section-title" id="features-title">왜 레슨체크인가요?</h2>
+            <div class="features-grid" id="features-grid">
+                <div class="feature-card neo-card">
+                    <div class="icon">📋</div>
+                    <h3>내 레슨 목록</h3>
+                    <p>수영·요가·피아노처럼 여러 레슨의 남은 횟수, 마지막 레슨일, 확인 필요를 리스트에서 한눈에 봅니다.</p>
+                </div>
+                <div class="feature-card neo-card">
+                    <div class="icon">➕</div>
+                    <h3>간편 등록</h3>
+                    <p>레슨 이름·총 횟수만 입력해 빠르게 추가하고, 결제·강사·시작일은 선택 사항으로 더 적을 수 있어요.</p>
+                </div>
                 <div class="feature-card neo-card">
                     <div class="icon">📊</div>
-                    <h3>통계 그래프</h3>
-                    <p>최근 12개월간의 레슨 완료 현황을 막대 그래프로 한눈에 확인하세요. 언제 열심히 했는지 바로 알 수 있어요!</p>
+                    <h3>레슨 상세</h3>
+                    <p>남은 회차·진행률을 확인하고, 결제 준비 알림과 강사·시작일·결제 정보를 한 화면에서 관리합니다.</p>
                 </div>
                 <div class="feature-card neo-card">
-                    <div class="icon">💰</div>
-                    <h3>결제일 계산</h3>
-                    <p>레슨 시작일을 설정하면 다음 결제 예정일을 자동으로 계산해드립니다. 결제일을 놓치는 일이 없어요.</p>
+                    <div class="icon">✅</div>
+                    <h3>출석 체크 &amp; 메모</h3>
+                    <p>오늘 수업을 탭 한 번으로 체크하고, 레슨 메모를 남긴 뒤 체크 완료할 수 있습니다.</p>
                 </div>
                 <div class="feature-card neo-card">
-                    <div class="icon">🗑️</div>
-                    <h3>실수 복구</h3>
-                    <p>실수로 체크한 레슨도 걱정 마세요! 삭제하면 남은 횟수가 자동으로 복구됩니다.</p>
-                </div>
-                <div class="feature-card neo-card">
-                    <div class="icon">📅</div>
-                    <h3>시작일 설정</h3>
-                    <p>앱 설치 전에 시작한 레슨도 등록 가능해요. 정확한 날짜로 더 정밀한 관리가 가능합니다.</p>
+                    <div class="icon">📈</div>
+                    <h3>월간 통계</h3>
+                    <p>이번 달 얼마나 레슨했는지 통계로 확인하고, 목록 상단에서 바로 들어갈 수 있습니다.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Screenshots Section -->
-    <section class="screenshots">
+    <section class="screenshots" id="screenshots">
         <div class="container">
-            <h2 class="section-title">앱 미리보기</h2>
-            <div class="screenshots-wrapper">
-                <div class="screenshot-item">
-                    <img src="images/lesson_checker_list.png" alt="레슨 목록 화면" loading="lazy">
+            <h2 class="section-title" id="screenshots-title">앱 미리보기</h2>
+            <p class="section-subtitle" id="screenshots-subtitle">images/ko · en · ja · zh-Hans App Store 스크린샷</p>
+            <div id="screenshots-gallery" aria-live="polite">
+                <div class="screenshot-set active" data-lang="ko">
+                    <div class="screenshots-wrapper">
+                        <div class="screenshot-item"><img data-shot-index="0" alt="레슨체크 — 내 레슨 목록, 남은 횟수 한눈에 확인" width="300" height="650" loading="lazy"><p class="screenshot-caption">내 레슨 목록 — 한눈에 확인 · 수영·요가·피아노 등 남은 횟수, 마지막 레슨일, 확인 필요 표시를 리스트에서 확인합니다.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="1" alt="레슨체크 — 새 레슨 추가, 간편 등록" width="300" height="650" loading="lazy"><p class="screenshot-caption">새 레슨 추가 — 간편 등록 · 레슨 이름·총 횟수를 입력하고, 결제 주기·금액·강사·시작일은 선택으로 추가합니다.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="2" alt="레슨체크 — 레슨 상세, 남은 횟수와 결제 알림" width="300" height="650" loading="lazy"><p class="screenshot-caption">레슨 상세 — 남은 횟수·결제까지 · 1/4회처럼 남은 회차·진행률을 보고, 결제 준비 알림과 강사·결제 정보를 확인합니다.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="3" alt="레슨체크 — 출석 체크와 레슨 메모" width="300" height="650" loading="lazy"><p class="screenshot-caption">출석 체크 — 탭 한 번으로 기록 · 수업 후 레슨 메모를 남기고 체크 완료—다크 모드에서도 편하게 기록합니다.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="4" alt="레슨체크 — 월간 통계, 이번 달 레슨량" width="300" height="650" loading="lazy"><p class="screenshot-caption">월간 통계 — 이번 달 수업량 · 이번 달 레슨을 얼마나 했는지 월간 통계로 한눈에 파악합니다.</p></div>
+                    </div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/lesson_checker_detail.png" alt="레슨 상세 화면" loading="lazy">
+                <div class="screenshot-set" data-lang="en" hidden>
+                    <div class="screenshots-wrapper">
+                        <div class="screenshot-item"><img data-shot-index="0" alt="LessonCheck — My Lessons list with remaining sessions" width="300" height="650" decoding="async"><p class="screenshot-caption">My Lessons — all in one place · Swimming, Yoga, Piano—remaining sessions, last lesson date, and Needs Attention in one list.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="1" alt="LessonCheck — Quick Add new lesson" width="300" height="650" decoding="async"><p class="screenshot-caption">Quick Add — seconds to register · Enter lesson name and total count; payment cycle, amount, instructor, and start date are optional.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="2" alt="LessonCheck — Attendance check in with one tap" width="300" height="650" decoding="async"><p class="screenshot-caption">Attendance — check in with one tap · Tap to check in after class—Lesson Memo and Complete Check on the lesson screen.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="3" alt="LessonCheck — Lesson details, sessions and payment" width="300" height="650" decoding="async"><p class="screenshot-caption">Lesson details — sessions &amp; payment · See 1/4 lessons left, progress bar, payment prep alert, instructor, and lesson info.</p></div>
+                        <div class="screenshot-item"><img data-shot-index="4" alt="LessonCheck — Monthly stats" width="300" height="650" decoding="async"><p class="screenshot-caption">Monthly stats — how much you practiced · Monthly statistics—see how much you practiced this month.</p></div>
+                    </div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/lesson_checker_memo.png" alt="메모 작성 화면" loading="lazy">
+                <div class="screenshot-set" data-lang="ja" hidden>
+                    <div class="screenshots-wrapper">
+                        <div class="screenshot-item"><img data-shot-index="0" alt="LessonCheck — マイレッスン一覧" width="300" height="650" decoding="async"><p class="screenshot-caption">マイレッスン — ひと目で確認 · 水泳・ヨガ・ピアノなど、残り回数・最終レッスン日・確認が必要を一覧で表示。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="1" alt="LessonCheck — 新規レッスン登録" width="300" height="650" decoding="async"><p class="screenshot-caption">新規レッスン — かんたん登録 · レッスン名・合計回数を入力。支払い周期・金額・講師・開始日は任意で追加。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="2" alt="LessonCheck — 詳細管理、残り回数と支払日" width="300" height="650" decoding="async"><p class="screenshot-caption">詳細管理 — 残り回数・支払日 · 1/4回の残りと進捗、次のお支払い準備のお知らせ、講師・開始日を確認。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="3" alt="LessonCheck — 出席チェックとレッスンメモ" width="300" height="650" decoding="async"><p class="screenshot-caption">出席チェック — ワンタップ記録 · レッスンメモを残し、チェック完了—ダークモードでも記録しやすい画面。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="4" alt="LessonCheck — 月間統計" width="300" height="650" decoding="async"><p class="screenshot-caption">月間統計 — 今月のレッスン · 今月のレッスンがどれくらいか、月間統計で把握できます。</p></div>
+                    </div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="images/lesson_checker_add.png" alt="레슨 추가 화면" loading="lazy">
-                </div>
-                <div class="screenshot-item">
-                    <img src="images/lesson_checker_darkmode.png" alt="다크모드 화면" loading="lazy">
+                <div class="screenshot-set" data-lang="zh" hidden>
+                    <div class="screenshots-wrapper">
+                        <div class="screenshot-item"><img data-shot-index="0" alt="LessonCheck — 我的课程列表" width="300" height="650" decoding="async"><p class="screenshot-caption">我的课程 — 一目了然 · 游泳、瑜伽、钢琴等课程的剩余次数、最后上课日期与待确认提示。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="1" alt="LessonCheck — 添加课程" width="300" height="650" decoding="async"><p class="screenshot-caption">添加课程 — 快速登记 · 输入课程名称与总次数；缴费周期、金额、讲师、开始日期可选填。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="2" alt="LessonCheck — 详细管理，剩余次数与付款" width="300" height="650" decoding="async"><p class="screenshot-caption">详细管理 — 次数与付款 · 查看 1/4 次剩余与进度，以及「请准备下次付款」提醒与讲师信息。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="3" alt="LessonCheck — 签到打卡与课程备忘" width="300" height="650" decoding="async"><p class="screenshot-caption">签到打卡 — 一键记录 · 课后填写课程备忘，点击完成打卡；支持深色界面。</p></div>
+                        <div class="screenshot-item"><img data-shot-index="4" alt="LessonCheck — 月度统计" width="300" height="650" decoding="async"><p class="screenshot-caption">月度统计 — 本月课程量 · 通过月度统计查看本月上了多少节课。</p></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -837,8 +955,8 @@
     <!-- Use Cases -->
     <section class="use-cases">
         <div class="container">
-            <h2 class="section-title">누가 사용하나요?</h2>
-            <div class="cases-grid">
+            <h2 class="section-title" id="usecases-title">누가 사용하나요?</h2>
+            <div class="cases-grid" id="usecases-grid">
                 <div class="case-card neo-card">
                     <div class="case-icon">🎸</div>
                     <h3>음악 레슨</h3>
@@ -866,13 +984,13 @@
     <!-- Stats Section -->
     <section class="stats">
         <div class="container">
-            <div class="stats-grid">
+            <div class="stats-grid" id="stats-grid">
                 <div class="stat-item">
-                    <span class="number">12개월</span>
-                    <span class="label">통계 조회</span>
+                    <span class="number">4</span>
+                    <span class="label">지원 언어</span>
                 </div>
                 <div class="stat-item">
-                    <span class="number">무제한</span>
+                    <span class="number">∞</span>
                     <span class="label">레슨 등록</span>
                 </div>
                 <div class="stat-item">
@@ -886,27 +1004,27 @@
     <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
-            <h2 class="section-title">이렇게 사용하세요</h2>
-            <div class="steps">
+            <h2 class="section-title" id="steps-title">이렇게 사용하세요</h2>
+            <div class="steps" id="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>레슨 등록</h3>
-                    <p>레슨명, 총 횟수, 시작일을 입력하세요. 앱 설치 전 레슨도 등록 가능합니다.</p>
+                    <p>레슨 이름·총 횟수를 입력해 10초 만에 추가하세요. 결제 정보와 강사 이름은 선택입니다.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>레슨 체크</h3>
-                    <p>레슨을 받을 때마다 간단히 체크! 남은 횟수가 자동으로 계산됩니다.</p>
+                    <h3>목록에서 확인</h3>
+                    <p>남은 횟수, 마지막 레슨일, 확인 필요 표시를 내 레슨 목록에서 한눈에 봅니다.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>통계 확인</h3>
-                    <p>통계 페이지에서 12개월간의 레슨 현황을 그래프로 확인하세요.</p>
+                    <h3>상세·출석</h3>
+                    <p>레슨 상세에서 진행률을 보고, 수업 후 출석 체크와 메모를 남깁니다.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>결제 준비</h3>
-                    <p>다음 결제 예정일을 미리 확인하고 준비하세요. 놓칠 일이 없어요!</p>
+                    <h3>통계·알림</h3>
+                    <p>월간 통계로 수업량을 보고, 결제가 다가오면 알림을 받습니다.</p>
                 </div>
             </div>
         </div>
@@ -915,14 +1033,22 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>레슨 관리를 시작하세요!</h2>
-            <p>지금 다운로드하고 레슨을 체계적으로 관리하세요.</p>
-            <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn" target="_blank" rel="noopener noreferrer">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                </svg>
-                Google Play 다운로드
-            </a>
+            <h2 id="cta-title">레슨체크로 관리를 시작하세요!</h2>
+            <p id="cta-desc">더 이상 “몇 번 남았더라?” 고민하지 마세요. 지금 바로 다운로드하세요.</p>
+            <div class="cta-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.lessonchecker.app" class="neo-btn" id="cta-play" target="_blank" rel="noopener noreferrer">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                    </svg>
+                    Google Play 다운로드
+                </a>
+                <a href="https://apps.apple.com/kr/app/%EB%A0%88%EC%8A%A8%EC%B2%B4%ED%81%AC-%EB%82%98%EC%9D%98-%EB%A0%88%EC%8A%A8%EB%85%B8%ED%8A%B8-pt-%ED%95%84%EB%9D%BC%ED%85%8C%EC%8A%A4-%EA%B3%BC%EC%99%B8-%EB%93%B1/id6774625116" class="neo-btn blue" id="cta-appstore" target="_blank" rel="noopener noreferrer">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    App Store 다운로드
+                </a>
+            </div>
         </div>
     </section>
 
@@ -930,12 +1056,14 @@
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="privacy/">개인정보처리방침</a>
-                <a href="mailto:isjang98@gmail.com">문의하기</a>
+                <a href="privacy/" id="footer-privacy">개인정보처리방침</a>
+                <a href="https://isjang98.github.io/apps/" rel="noopener">다른 앱 보기</a>
+                <a href="mailto:isjang98@gmail.com" id="footer-contact">문의하기</a>
             </div>
-            <p class="copyright">&copy; 2025 레슨체커 (LessonChecker). All rights reserved.</p>
+            <p class="copyright" id="footer-copy">&copy; 2026 레슨체크 (LessonChecker). All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="site-i18n.js"></script>
 </body>
 </html>
