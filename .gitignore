@@ -2,3 +2,10 @@ _site
 .sass-cache
 .jekyll-metadata
 .DS_Store
+
+# 도구 생성 상태 파일 - 커밋 제외
+.omc/
+.sisyphus/
+.bkit-memory.json
+.pdca-status.json
+last-tool-error.json
