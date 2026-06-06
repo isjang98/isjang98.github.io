@@ -9,3 +9,7 @@ _site
 .bkit-memory.json
 .pdca-status.json
 last-tool-error.json
+
+# Local QA evidence for static pages
+infoquizmaster/.omo/
+infoquizmaster/tests/
