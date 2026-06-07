@@ -10,7 +10,22 @@ google_verification: null
 
 # File management
 include: [".htaccess"]
-exclude: ["README.md", "LICENSE"]
+# 앱 하위 디렉토리의 _posts가 메인 블로그 피드로 수집되는 것을 방지
+# (앱 디렉토리 자체를 제외하면 해당 페이지가 빌드에서 빠지므로 _posts 경로만 제외)
+exclude:
+  - README.md
+  - LICENSE
+  - Ballog/_posts
+  - BibleOn/_posts
+  - Daily3Words/_posts
+  - FastTodo/_posts
+  - infoquizmaster/_posts
+  - KoreanHistoryOX/_posts
+  - LessonChecker/_posts
+  - meditrack/_posts
+  - ParkingCamera/_posts
+  - prayNote/_posts
+  - apps/_posts
 
 url: https://isjang98.github.io
 
