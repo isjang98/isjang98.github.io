@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>insu.vibe.coding — 혼자 만드는 앱 스튜디오</title>
-  <meta name="description" content="개발자 insu(isjang98)가 직접 만든 8개의 개인 앱. 말씀온, 약기록, 파킹카메라, 레슨체크, 한국사 OX, 기도흔적, 야구일기, 하루 3단어. 터미널에서 ls, open으로 둘러보세요." />
+  <meta name="description" content="개발자 insu(isjang98)가 직접 만든 9개의 개인 앱. 빠른할일, 말씀온, 약기록, 파킹카메라, 레슨체크, 한국사 OX, 기도흔적, 야구일기, 하루 3단어. 터미널에서 ls, open으로 둘러보세요." />
   <meta name="author" content="isjang98" />
   <meta name="theme-color" content="#1a1b26" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="insu.vibe.coding — 혼자 만드는 앱 스튜디오" />
-  <meta property="og:description" content="insu가 직접 만든 8개의 개인 앱. 터미널에서 ls, open으로 둘러보세요." />
+  <meta property="og:description" content="insu가 직접 만든 9개의 개인 앱. 터미널에서 ls, open으로 둘러보세요." />
   <meta property="og:url" content="https://isjang98.github.io/apps/" />
   <meta property="og:locale" content="ko_KR" />
   <link rel="canonical" href="https://isjang98.github.io/apps/" />
@@ -209,8 +209,11 @@
       praynote:      { ko:"기도흔적",     en:"prayNote",       cat:"신앙",      color:"purple", path:"../prayNote/",
                        desc:"매일의 기도를 기록하고 응답을 추억하는 심플한 기도 노트.",
                        aos:"https://play.google.com/store/apps/details?id=kr.co.prayernote" },
+      fasttodo:      { ko:"빠른할일",     en:"FastTodo",       cat:"생산성",    color:"orange", path:"../FastTodo/",
+                       desc:"잠금화면 알림에서 바로 추가하고 완료하는 가장 빠른 투두. 앱을 열 필요조차 없어요.",
+                       aos:"https://play.google.com/store/apps/details?id=com.insu.fasttodo" },
     };
-    const order = ["bibleon","ballog","meditrack","daily3words","koreanhistory","lessonchecker","parkingcamera","praynote"];
+    const order = ["fasttodo","bibleon","ballog","meditrack","daily3words","koreanhistory","lessonchecker","parkingcamera","praynote"];
 
     // ---------- Helpers ----------
     const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
@@ -268,7 +271,7 @@
         print('<span class="dim">팁: 앱 이름을 <span class="cyan">클릭</span>해도 열려요. <span class="cyan">↑/↓</span> 이전 명령어, <span class="cyan">Tab</span> 자동완성.</span>');
       },
       ls() {
-        print(`<span class="dim">total ${order.length} apps · </span><span class="green">5 App Store</span><span class="dim"> · </span><span class="green">8 Play Store</span>`);
+        print(`<span class="dim">total ${order.length} apps · </span><span class="green">5 App Store</span><span class="dim"> · </span><span class="green">9 Play Store</span>`);
         blank();
         order.forEach(k => print(appBlock(k)));
         print('<span class="dim">→ 자세히: <span class="cmd" data-cmd="info bibleon">info &lt;앱&gt;</span> · 열기: <span class="cmd" data-cmd="open bibleon">open &lt;앱&gt;</span></span>');
@@ -321,7 +324,8 @@
     };
     const aliases = { '말씀온':'bibleon','성경':'bibleon','야구일기':'ballog','야구':'ballog','약기록':'meditrack','약':'meditrack',
       '하루3단어':'daily3words','영어':'daily3words','한국사':'koreanhistory','한능검':'koreanhistory','ox':'koreanhistory',
-      '레슨체크':'lessonchecker','레슨체커':'lessonchecker','레슨':'lessonchecker','파킹카메라':'parkingcamera','주차':'parkingcamera','기도흔적':'praynote','기도':'praynote' };
+      '레슨체크':'lessonchecker','레슨체커':'lessonchecker','레슨':'lessonchecker','파킹카메라':'parkingcamera','주차':'parkingcamera','기도흔적':'praynote','기도':'praynote',
+      '빠른할일':'fasttodo','할일':'fasttodo','투두':'fasttodo','todo':'fasttodo' };
 
     function resolve(arg) {
       if (!arg) return null;
@@ -412,8 +416,9 @@
       ['<span class="dim">Last login: just now on ttys001</span>', 250],
       ['<span class="green">insu</span><span class="dim">@vibe-coding</span> <span class="blue">~/apps</span> <span class="dim">$ ./insu --start</span>', 420],
       ['<span class="dim">booting insu.vibe.coding …</span>', 360],
-      ['<span class="ok">[ ok ]</span> 8개의 앱을 불러왔습니다', 220],
-      ['<span class="ok">[ ok ]</span> App Store 5 · Play Store 8 · 8개 앱 전부 출시 완료 🎉', 220],
+      ['<span class="ok">[ ok ]</span> 9개의 앱을 불러왔습니다', 220],
+      ['<span class="ok">[ ok ]</span> App Store 5 · Play Store 9 · 9개 앱 전부 출시 완료 🎉', 220],
+      ['<span class="ok">[new]</span> <span class="orange b">빠른할일(FastTodo)</span> 오늘 출시! → <span class="cmd" data-cmd="open fasttodo">open fasttodo</span>', 220],
       ['__BANNER__', 200],
       ['&nbsp;', 60],
       ["<span class='dim'>무엇을 도와드릴까요? <span class='cyan b'>help</span> 또는 <span class='cyan b'>ls</span> 를 입력해 보세요.</span>", 0],
