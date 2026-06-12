@@ -12,7 +12,7 @@ layout: null
   <link rel="icon" type="image/png" href="../assets/icons/app-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -23,60 +23,51 @@ layout: null
       padding: 40px 24px 80px;
       -webkit-font-smoothing: antialiased;
     }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+    body:lang(ja) { font-family: 'Noto Sans JP', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .container { max-width: 720px; margin: 0 auto; }
     a { color: #d94f1c; }
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-    .back-link {
-      display: inline-block;
+    h1 { font-size: 1.8rem; margin-bottom: 8px; }
+    .doc-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
       margin-bottom: 32px;
-      color: #7a6a5f;
-      text-decoration: none;
-      font-size: 0.9rem;
     }
+    .back-link { color: #7a6a5f; text-decoration: none; font-size: 0.9rem; }
     .back-link:hover { color: #d94f1c; }
-    h2 {
-      font-size: 1.1rem;
-      margin-top: 36px;
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #f3e4d8;
+    .lang-switch { display: inline-flex; gap: 2px; background: rgba(239,82,34,0.07); border-radius: 999px; padding: 3px; }
+    .lang-switch button {
+      border: none; background: transparent; cursor: pointer;
+      font-family: inherit; font-weight: 700; font-size: 0.8rem; color: #7a6a5f;
+      padding: 5px 11px; border-radius: 999px; transition: background .15s, color .15s;
     }
-    p, li {
-      color: #4a3b31;
-      font-size: 0.92rem;
-      margin-bottom: 8px;
-    }
+    .lang-switch button.active { background: #fff; color: #d94f1c; box-shadow: 0 4px 24px rgba(239,82,34,0.07); }
+    h2 { font-size: 1.1rem; margin-top: 36px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f3e4d8; }
+    p, li { color: #4a3b31; font-size: 0.92rem; margin-bottom: 8px; }
     ul { padding-left: 20px; margin-bottom: 12px; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 12px 0;
-      font-size: 0.85rem;
-    }
-    th, td {
-      border: 1px solid #f3e4d8;
-      padding: 10px 12px;
-      text-align: left;
-    }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85rem; }
+    th, td { border: 1px solid #f3e4d8; padding: 10px 12px; text-align: left; }
     th { background: #fdf3ea; font-weight: 700; }
-    .footer-note {
-      margin-top: 48px;
-      padding-top: 20px;
-      border-top: 1px solid #f3e4d8;
-      font-size: 0.82rem;
-      color: #a89788;
-    }
+    .doc-note { background: #fdf3ea; border-radius: 10px; padding: 12px 14px; font-size: 0.82rem; color: #a8754a; margin-bottom: 8px; }
+    .footer-note { margin-top: 48px; padding-top: 20px; border-top: 1px solid #f3e4d8; font-size: 0.82rem; color: #a89788; }
+    [data-doc-lang]:not([data-doc-lang="ko"]) { display: none; }
   </style>
 </head>
 <body>
   <div class="container">
-    <a class="back-link" href="../">&larr; 빠른할일 홈으로</a>
+    <div class="doc-top">
+      <a class="back-link" href="../" data-back>&larr; 빠른할일 홈으로</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="ko">KO</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="ja">日</button>
+      </div>
+    </div>
+
+    <!-- ===== KO ===== -->
+    <div data-doc-lang="ko">
     <h1>개인정보 처리방침</h1>
     <p>본 개인정보 처리방침은 <strong>빠른할일 (영문명: FastTodo)</strong> 앱이 서비스하는 모든 플랫폼(Android, iOS)에 공통으로 적용됩니다.</p>
 
@@ -105,21 +96,9 @@ layout: null
 
     <h2>4. 개인정보의 제3자 제공</h2>
     <table>
-      <tr>
-        <th>제공받는 자</th>
-        <th>이용 목적</th>
-        <th>보유 기간</th>
-      </tr>
-      <tr>
-        <td>Google (Google Analytics for Firebase)</td>
-        <td>앱 사용 이벤트 분석 및 서비스 품질 개선</td>
-        <td>최대 14개월</td>
-      </tr>
-      <tr>
-        <td>Google (AdMob)</td>
-        <td>앱 내 광고 제공 및 광고 성과 측정</td>
-        <td>구글 정책에 따름</td>
-      </tr>
+      <tr><th>제공받는 자</th><th>이용 목적</th><th>보유 기간</th></tr>
+      <tr><td>Google (Google Analytics for Firebase)</td><td>앱 사용 이벤트 분석 및 서비스 품질 개선</td><td>최대 14개월</td></tr>
+      <tr><td>Google (AdMob)</td><td>앱 내 광고 제공 및 광고 성과 측정</td><td>구글 정책에 따름</td></tr>
     </table>
     <ul>
       <li>Google 개인정보 처리방침: <a href="https://policies.google.com/privacy?hl=ko" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=ko</a></li>
@@ -162,9 +141,203 @@ layout: null
     <h2>10. 개인정보 처리방침의 변경</h2>
     <p>본 개인정보 처리방침은 2026년 6월 6일부터 적용됩니다. 내용이 변경되는 경우 본 페이지를 통해 공지합니다.</p>
 
-    <div class="footer-note">
-      <p>&copy; 2026 빠른할일 · FastTodo</p>
+    <div class="footer-note"><p>&copy; 2026 빠른할일 · FastTodo</p></div>
+    </div>
+
+    <!-- ===== EN ===== -->
+    <div data-doc-lang="en">
+    <div class="doc-note">This English translation is provided for your convenience. In case of any discrepancy, the Korean original prevails.</div>
+    <h1>Privacy Policy</h1>
+    <p>This Privacy Policy applies commonly to all platforms (Android, iOS) on which the <strong>FastTodo (Korean name: 빠른할일)</strong> app is provided.</p>
+
+    <h2>1. Purpose of Processing Personal Information</h2>
+    <p>FastTodo processes personal information for the following purposes and does not use it for any purpose other than these.</p>
+    <ul>
+      <li>Providing core service features such as the to-do list</li>
+      <li>Improving service quality through app usage analytics (Google Analytics for Firebase)</li>
+      <li>Serving in-app ads and measuring ad performance (Google AdMob)</li>
+    </ul>
+
+    <h2>2. Items of Personal Information Collected</h2>
+    <ul>
+      <li><strong>User-entered items</strong>: To-do contents — stored only on the user's device and never transmitted to any external server.</li>
+      <li><strong>Automatically collected (Google Analytics for Firebase)</strong>: App usage events (whether features such as adding/completing to-dos are used), screen view information, device information (model, OS version, language), and app instance identifier.</li>
+      <li><strong>Automatically collected (Google AdMob)</strong>: Advertising identifier (Android: GAID, iOS: IDFA), device information, ad impression/click information.</li>
+    </ul>
+    <p>※ FastTodo does not collect information that can directly identify an individual, such as email, phone number, or real name, and there is no sign-up process.</p>
+    <p>※ On iOS, in accordance with Apple's App Tracking Transparency policy, the advertising identifier (IDFA) is collected only if the user permits tracking. You can use all features of the app the same way even if you decline tracking.</p>
+
+    <h2>3. Processing and Retention Period</h2>
+    <ul>
+      <li><strong>On-device data (to-do list)</strong>: Until the end of service use (app deletion). It is destroyed immediately when you delete the app.</li>
+      <li><strong>Analytics/ad data</strong>: Subject to Google's data retention policies; Firebase Analytics data is retained for up to 14 months.</li>
+    </ul>
+
+    <h2>4. Provision to Third Parties</h2>
+    <table>
+      <tr><th>Recipient</th><th>Purpose</th><th>Retention</th></tr>
+      <tr><td>Google (Google Analytics for Firebase)</td><td>Analyzing app usage events and improving service quality</td><td>Up to 14 months</td></tr>
+      <tr><td>Google (AdMob)</td><td>Serving in-app ads and measuring ad performance</td><td>Per Google's policy</td></tr>
+    </table>
+    <ul>
+      <li>Google Privacy Policy: <a href="https://policies.google.com/privacy?hl=en" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=en</a></li>
+      <li>Google advertising policy (data use on partner sites): <a href="https://policies.google.com/technologies/partner-sites?hl=en" target="_blank" rel="noopener">https://policies.google.com/technologies/partner-sites?hl=en</a></li>
+    </ul>
+
+    <h2>5. Consignment of Personal Information Processing</h2>
+    <p>FastTodo does not consign any personal information processing work to third parties.</p>
+
+    <h2>6. Rights of Data Subjects and How to Exercise Them</h2>
+    <p>As data subjects, users may exercise the following rights.</p>
+    <ul>
+      <li>Request to access personal information</li>
+      <li>Request to suspend processing</li>
+    </ul>
+    <p>You may exercise the above rights by email to the Privacy Officer below.</p>
+    <p>You can also directly limit advertising-identifier-based collection through your device settings.</p>
+    <ul>
+      <li><strong>Android</strong>: Settings &gt; Privacy &gt; Ads &gt; Delete or reset advertising ID</li>
+      <li><strong>iOS</strong>: Settings &gt; Privacy &amp; Security &gt; Tracking &gt; Turn off "Allow Apps to Request to Track"</li>
+    </ul>
+
+    <h2>7. Destruction of Personal Information</h2>
+    <p>In principle, FastTodo destroys personal information without delay once the purpose of processing has been achieved.</p>
+    <ul>
+      <li><strong>On-device data</strong>: Destroyed immediately upon app deletion.</li>
+      <li><strong>Data collected by third parties (Google)</strong>: Automatically destroyed per Google's policy when each service's retention period elapses.</li>
+    </ul>
+
+    <h2>8. Automatic Collection Devices</h2>
+    <p>FastTodo does not use cookies. However, information provided to the third party Google (Analytics, AdMob) is subject to the user's device settings (ad tracking limitation, App Tracking Transparency, etc.).</p>
+
+    <h2>9. Privacy Officer</h2>
+    <p>FastTodo designates a Privacy Officer as below to oversee personal information processing and to handle data subjects' complaints and remedies related to personal information processing.</p>
+    <ul>
+      <li><strong>Name</strong>: Insu Jang</li>
+      <li><strong>Contact</strong>: isjang98@gmail.com</li>
+    </ul>
+
+    <h2>10. Changes to This Privacy Policy</h2>
+    <p>This Privacy Policy is effective from June 6, 2026. If the content changes, it will be announced through this page.</p>
+
+    <div class="footer-note"><p>&copy; 2026 FastTodo</p></div>
+    </div>
+
+    <!-- ===== JA ===== -->
+    <div data-doc-lang="ja">
+    <div class="doc-note">この日本語訳は参考用です。解釈に相違がある場合は、韓国語の原文が優先されます。</div>
+    <h1>プライバシーポリシー</h1>
+    <p>本プライバシーポリシーは、<strong>早メモ（韓国語名: 빠른할일）</strong>アプリが提供するすべてのプラットフォーム（Android, iOS）に共通して適用されます。</p>
+
+    <h2>1. 個人情報の処理目的</h2>
+    <p>早メモは次の目的のために個人情報を処理し、それ以外の用途では利用しません。</p>
+    <ul>
+      <li>ToDoリストなど、サービスの中核機能の提供</li>
+      <li>アプリ利用統計の分析によるサービス品質の改善（Google Analytics for Firebase）</li>
+      <li>アプリ内広告の提供および広告効果の測定（Google AdMob）</li>
+    </ul>
+
+    <h2>2. 収集する個人情報の項目</h2>
+    <ul>
+      <li><strong>ユーザー入力項目</strong>: ToDoの内容 — ユーザーの端末内にのみ保存され、外部サーバーへ送信されません。</li>
+      <li><strong>自動収集項目（Google Analytics for Firebase）</strong>: アプリ利用イベント（ToDoの追加・完了など機能の使用有無）、画面閲覧情報、端末情報（モデル、OSバージョン、言語）、アプリインスタンス識別子</li>
+      <li><strong>自動収集項目（Google AdMob）</strong>: 広告識別子（Android: GAID、iOS: IDFA）、端末情報、広告の表示・クリック情報</li>
+    </ul>
+    <p>※ 早メモは、メールアドレス・電話番号・実名など個人を直接識別できる情報を収集せず、会員登録手続きもありません。</p>
+    <p>※ iOSでは、Appleのアプリ追跡の透明性（App Tracking Transparency）ポリシーに従い、ユーザーが追跡を許可した場合にのみ広告識別子（IDFA）が収集されます。追跡を拒否しても、アプリのすべての機能を同じようにご利用いただけます。</p>
+
+    <h2>3. 個人情報の処理および保有期間</h2>
+    <ul>
+      <li><strong>端末内データ（ToDoリスト）</strong>: サービス利用終了（アプリ削除）まで。アプリを削除すると直ちに破棄されます。</li>
+      <li><strong>分析・広告データ</strong>: Googleのデータ保持ポリシーに従い、Firebase Analyticsのデータは最大14か月間保持されます。</li>
+    </ul>
+
+    <h2>4. 個人情報の第三者提供</h2>
+    <table>
+      <tr><th>提供を受ける者</th><th>利用目的</th><th>保有期間</th></tr>
+      <tr><td>Google (Google Analytics for Firebase)</td><td>アプリ利用イベントの分析およびサービス品質の改善</td><td>最大14か月</td></tr>
+      <tr><td>Google (AdMob)</td><td>アプリ内広告の提供および広告効果の測定</td><td>Googleのポリシーに従う</td></tr>
+    </table>
+    <ul>
+      <li>Googleプライバシーポリシー: <a href="https://policies.google.com/privacy?hl=ja" target="_blank" rel="noopener">https://policies.google.com/privacy?hl=ja</a></li>
+      <li>Google広告ポリシー（パートナーサイトでのデータ使用）: <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">https://policies.google.com/technologies/partner-sites?hl=ja</a></li>
+    </ul>
+
+    <h2>5. 個人情報処理の委託</h2>
+    <p>早メモは、個人情報処理業務の委託を行っていません。</p>
+
+    <h2>6. 情報主体の権利・義務およびその行使方法</h2>
+    <p>利用者は個人情報の主体として、次の権利を行使できます。</p>
+    <ul>
+      <li>個人情報の閲覧請求</li>
+      <li>処理停止の請求</li>
+    </ul>
+    <p>上記の権利行使は、下記の個人情報保護責任者へメールでご請求いただけます。</p>
+    <p>また、端末の設定から広告識別子に基づく収集を直接制限できます。</p>
+    <ul>
+      <li><strong>Android</strong>: 設定 &gt; プライバシー &gt; 広告 &gt; 広告IDの削除または再設定</li>
+      <li><strong>iOS</strong>: 設定 &gt; プライバシーとセキュリティ &gt; トラッキング &gt;「Appからのトラッキング要求を許可」をオフ</li>
+    </ul>
+
+    <h2>7. 個人情報の破棄</h2>
+    <p>早メモは原則として、個人情報の処理目的が達成された場合には、遅滞なく当該個人情報を破棄します。</p>
+    <ul>
+      <li><strong>端末内データ</strong>: アプリ削除時に直ちに破棄されます。</li>
+      <li><strong>第三者（Google）が収集したデータ</strong>: 各サービスの保有期間の経過時に、Googleのポリシーに従って自動的に破棄されます。</li>
+    </ul>
+
+    <h2>8. 個人情報の自動収集装置</h2>
+    <p>早メモはCookieを使用しません。ただし、第三者であるGoogle（Analytics、AdMob）に提供される情報は、ユーザー端末の設定（広告トラッキングの制限、アプリ追跡の透明性など）に従います。</p>
+
+    <h2>9. 個人情報保護責任者</h2>
+    <p>早メモは、個人情報の処理に関する業務を総括して責任を負い、個人情報の処理に関する情報主体の苦情処理および被害救済などのために、下記のとおり個人情報保護責任者を指定しています。</p>
+    <ul>
+      <li><strong>氏名</strong>: チャン・インス（Insu Jang）</li>
+      <li><strong>連絡先</strong>: isjang98@gmail.com</li>
+    </ul>
+
+    <h2>10. プライバシーポリシーの変更</h2>
+    <p>本プライバシーポリシーは2026年6月6日から適用されます。内容が変更される場合は、本ページを通じてお知らせします。</p>
+
+    <div class="footer-note"><p>&copy; 2026 早メモ · FastTodo</p></div>
     </div>
   </div>
+
+  <script>
+    var BACK = { ko: "← 빠른할일 홈으로", en: "← Back to FastTodo home", ja: "← 早メモホームへ" };
+    var TITLE = {
+      ko: "개인정보 처리방침 - 빠른할일 (FastTodo)",
+      en: "Privacy Policy - FastTodo",
+      ja: "プライバシーポリシー - 早メモ (FastTodo)"
+    };
+    function applyDocLang(lang) {
+      if (!BACK[lang]) lang = "en";
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-doc-lang]").forEach(function (el) {
+        el.style.display = el.getAttribute("data-doc-lang") === lang ? "block" : "none";
+      });
+      var back = document.querySelector("[data-back]");
+      if (back) back.textContent = BACK[lang];
+      document.title = TITLE[lang];
+      document.querySelectorAll(".lang-switch button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("ft_lang", lang); } catch (e) {}
+    }
+    (function () {
+      var lang;
+      var q = new URLSearchParams(location.search).get("lang");
+      if (q && BACK[q]) lang = q;
+      if (!lang) { try { lang = localStorage.getItem("ft_lang"); } catch (e) {} }
+      if (!lang) {
+        var b = (navigator.language || "en").slice(0, 2).toLowerCase();
+        lang = ["ko", "en", "ja"].indexOf(b) >= 0 ? b : "en";
+      }
+      applyDocLang(lang);
+      document.querySelectorAll(".lang-switch button").forEach(function (btn) {
+        btn.addEventListener("click", function () { applyDocLang(btn.getAttribute("data-lang")); });
+      });
+    })();
+  </script>
 </body>
 </html>

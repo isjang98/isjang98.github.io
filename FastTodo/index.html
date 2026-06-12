@@ -16,6 +16,8 @@ layout: null
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://isjang98.github.io/FastTodo/" />
   <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="ja_JP" />
   <meta property="og:image" content="https://isjang98.github.io/FastTodo/assets/icons/app-icon.png" />
   <meta property="og:site_name" content="빠른할일" />
   <meta name="twitter:card" content="summary" />
@@ -26,7 +28,7 @@ layout: null
   <link rel="icon" type="image/png" href="assets/icons/app-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,7 +46,7 @@ layout: null
     "url": "https://isjang98.github.io/FastTodo/",
     "downloadUrl": "https://play.google.com/store/apps/details?id=com.insu.fasttodo",
     "installUrl": "https://play.google.com/store/apps/details?id=com.insu.fasttodo",
-    "softwareVersion": "1.0",
+    "softwareVersion": "1.2",
     "screenshot": [
       "https://isjang98.github.io/FastTodo/assets/screenshots/main-list.png",
       "https://isjang98.github.io/FastTodo/assets/screenshots/main-input.png",
@@ -55,6 +57,7 @@ layout: null
       "@type": "Person",
       "name": "장인수"
     },
+    "availableLanguage": ["ko", "en", "ja"],
     "inLanguage": "ko"
   }
   </script>
@@ -87,6 +90,9 @@ layout: null
       -webkit-font-smoothing: antialiased;
     }
 
+    /* 일본어 표시 시 일본어 글리프 우선 */
+    body:lang(ja) { font-family: 'Noto Sans JP', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif; }
+
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
 
@@ -111,6 +117,7 @@ layout: null
       align-items: center;
       justify-content: space-between;
       height: 64px;
+      gap: 16px;
     }
 
     .brand {
@@ -128,6 +135,12 @@ layout: null
       box-shadow: var(--shadow);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
     .nav-links {
       display: flex;
       gap: 26px;
@@ -137,6 +150,34 @@ layout: null
     }
 
     .nav-links a:hover { color: var(--primary); }
+
+    /* Language switch */
+    .lang-switch {
+      display: inline-flex;
+      gap: 2px;
+      background: rgba(239, 82, 34, 0.07);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 5px 11px;
+      border-radius: 999px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-switch button.active {
+      background: var(--card);
+      color: var(--primary-dark);
+      box-shadow: var(--shadow);
+    }
 
     @media (max-width: 640px) {
       .nav-links { display: none; }
@@ -383,8 +424,83 @@ layout: null
       font-size: 0.95rem;
     }
 
+    /* Lock screen highlight */
+    .lockscreen { background: var(--card); border-block: 1px solid var(--border); }
+
+    .lock-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 820px) {
+      .lock-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+    }
+
+    .lock-copy h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+    }
+
+    .lock-copy > p {
+      margin-top: 16px;
+      color: var(--muted);
+    }
+
+    .lock-list {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lock-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 820px) {
+      .lock-list li { justify-content: center; }
+    }
+
+    .lock-list .tick {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .lock-shot {
+      display: flex;
+      justify-content: center;
+    }
+
+    .lock-shot img {
+      width: 260px;
+      max-width: 100%;
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* Screenshots */
-    .shots { background: var(--card); border-block: 1px solid var(--border); }
+    .shots { background: var(--bg); border-block: 1px solid var(--border); }
 
     .shots-grid {
       display: grid;
@@ -460,14 +576,21 @@ layout: null
     <div class="container nav">
       <a class="brand" href="#">
         <img src="assets/icons/app-icon.png" alt="빠른할일 앱 아이콘" />
-        빠른할일
+        <span data-i18n="brand">빠른할일</span>
       </a>
-      <nav class="nav-links">
-        <a href="#icon-story">아이콘 이야기</a>
-        <a href="#features">주요 기능</a>
-        <a href="#screenshots">스크린샷</a>
-        <a href="#download">다운로드</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#icon-story" data-i18n="nav_story">아이콘 이야기</a>
+          <a href="#features" data-i18n="nav_features">주요 기능</a>
+          <a href="#screenshots" data-i18n="nav_shots">스크린샷</a>
+          <a href="#download" data-i18n="nav_download">다운로드</a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="ko">KO</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="ja">日</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -476,12 +599,12 @@ layout: null
     <section class="hero">
       <div class="container">
         <img class="hero-icon" src="assets/icons/app-icon.png" alt="빠른할일 (FastTodo) 앱 아이콘" />
-        <h1>할 일이 떠오른 순간,<br /><span class="grad">이미 절반은 끝났습니다</span></h1>
-        <p class="tagline">잠금화면 알림에서 바로 추가하고, 바로 완료하는 가장 빠른 투두 앱.<br />앱을 열 필요조차 없습니다.</p>
-        <p class="motto">"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게."</p>
+        <h1 data-i18n="hero_h1">할 일이 떠오른 순간,<br /><span class="grad">이미 절반은 끝났습니다</span></h1>
+        <p class="tagline" data-i18n="hero_tagline">잠금화면 알림에서 바로 추가하고, 바로 완료하는 가장 빠른 투두 앱.<br />앱을 열 필요조차 없습니다.</p>
+        <p class="motto" data-i18n="hero_motto">"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게."</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.insu.fasttodo" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49zM345.8 174 89.22 32.64l-.16-.09 171.68 171.68zM89.06 479.45l.16-.09L345.8 338l-84.94-84.94zM449.38 231l-71.65-39.46-87.9 87.9.15.15 87.75 87.75 71.65-39.45c19.49-10.77 19.49-86.12 0-96.89z"/></svg>Google Play에서 받기</a>
-          <a class="btn btn-secondary" href="#icon-story">아이콘에 담긴 이야기</a>
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.insu.fasttodo" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49zM345.8 174 89.22 32.64l-.16-.09 171.68 171.68zM89.06 479.45l.16-.09L345.8 338l-84.94-84.94zM449.38 231l-71.65-39.46-87.9 87.9.15.15 87.75 87.75 71.65-39.45c19.49-10.77 19.49-86.12 0-96.89z"/></svg><span data-i18n="cta_play">Google Play에서 받기</span></a>
+          <a class="btn btn-secondary" href="#icon-story" data-i18n="hero_cta_story">아이콘에 담긴 이야기</a>
         </div>
       </div>
     </section>
@@ -491,8 +614,8 @@ layout: null
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Icon Story</span>
-          <h2>단 한 줄의 선에 담긴<br />'일의 즐거움'</h2>
-          <p>빠른할일의 아이콘은 단순한 로고가 아니라, 우리가 지향하는 '생산성의 본질'을 담고 있습니다. 하나의 선이 시작되어 체크마크로 완성되기까지 — 그 짧은 궤적이 곧 이 앱의 철학입니다.</p>
+          <h2 data-i18n="story_h2">단 한 줄의 선에 담긴<br />'일의 즐거움'</h2>
+          <p data-i18n="story_p">빠른할일의 아이콘은 단순한 로고가 아니라, 우리가 지향하는 '생산성의 본질'을 담고 있습니다. 하나의 선이 시작되어 체크마크로 완성되기까지 — 그 짧은 궤적이 곧 이 앱의 철학입니다.</p>
         </div>
 
         <div class="icon-showcase">
@@ -502,27 +625,27 @@ layout: null
         <div class="story-grid">
           <article class="story-card">
             <span class="num">1</span>
-            <h3>0에서 1로 가는 가장 빠른 궤적</h3>
+            <h3 data-i18n="story1_h3">0에서 1로 가는 가장 빠른 궤적</h3>
             <span class="en">Speed</span>
-            <p>아이콘 왼쪽의 가느다란 선은 지상에서 가장 빠른 동물, <strong>치타의 질주</strong>를 상징합니다. 할 일이 떠오른 순간부터 기록하고 완료하기까지 — 그 어떤 방해나 지체 없이 처리되는 빠른할일의 압도적인 속도를 한 획에 담았습니다.</p>
+            <p data-i18n="story1_p">아이콘 왼쪽의 가느다란 선은 지상에서 가장 빠른 동물, <strong>치타의 질주</strong>를 상징합니다. 할 일이 떠오른 순간부터 기록하고 완료하기까지 — 그 어떤 방해나 지체 없이 처리되는 빠른할일의 압도적인 속도를 한 획에 담았습니다.</p>
           </article>
           <article class="story-card">
             <span class="num">2</span>
-            <h3>복잡함을 걷어낸 '단 하나의 선'</h3>
+            <h3 data-i18n="story2_h3">복잡함을 걷어낸 '단 하나의 선'</h3>
             <span class="en">Simple &amp; Easy</span>
-            <p>할 일이 산더미처럼 쌓였을 때의 무거운 마음을 잘 압니다. 그래서 이 아이콘은 여러 선이 아닌 <strong>단 하나의 유려한 곡선</strong>으로 그렸습니다. 복잡한 생각을 멈추고, 지금 해야 할 일 하나에만 집중하게 하는 단순함의 미학입니다.</p>
+            <p data-i18n="story2_p">할 일이 산더미처럼 쌓였을 때의 무거운 마음을 잘 압니다. 그래서 이 아이콘은 여러 선이 아닌 <strong>단 하나의 유려한 곡선</strong>으로 그렸습니다. 복잡한 생각을 멈추고, 지금 해야 할 일 하나에만 집중하게 하는 단순함의 미학입니다.</p>
           </article>
           <article class="story-card">
             <span class="num">3</span>
-            <h3>마침표가 주는 기분 좋은 묵직함</h3>
+            <h3 data-i18n="story3_h3">마침표가 주는 기분 좋은 묵직함</h3>
             <span class="en">Satisfaction</span>
-            <p>날렵하게 시작된 선은 오른쪽 끝에서 <strong>굵고 단단한 체크마크</strong>로 완성됩니다. 일을 완벽하게 마무리했을 때의 성취감과 신뢰의 표현입니다. 다홍과 노랑이 어우러진 따뜻한 그라데이션이 체크할 때마다 하루에 활력을 더합니다.</p>
+            <p data-i18n="story3_p">날렵하게 시작된 선은 오른쪽 끝에서 <strong>굵고 단단한 체크마크</strong>로 완성됩니다. 일을 완벽하게 마무리했을 때의 성취감과 신뢰의 표현입니다. 다홍과 노랑이 어우러진 따뜻한 그라데이션이 체크할 때마다 하루에 활력을 더합니다.</p>
           </article>
         </div>
 
         <div class="story-quote">
-          <blockquote>"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게."</blockquote>
-          <p>빠른할일은 당신의 소중한 시간이 '할 일을 고민하는 데' 쓰이지 않도록, 세상에서 가장 직관적인 경험을 약속합니다.</p>
+          <blockquote data-i18n="story_quote">"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게."</blockquote>
+          <p data-i18n="story_quote_p">빠른할일은 당신의 소중한 시간이 '할 일을 고민하는 데' 쓰이지 않도록, 세상에서 가장 직관적인 경험을 약속합니다.</p>
         </div>
       </div>
     </section>
@@ -532,25 +655,46 @@ layout: null
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Features</span>
-          <h2>앱을 열지 않아도 되는 투두</h2>
-          <p>잠금화면 알림과 앱 화면이 하나의 목록을 공유합니다. 어디서든 가장 빠른 길로 할 일을 처리하세요.</p>
+          <h2 data-i18n="feat_h2">앱을 열지 않아도 되는 투두</h2>
+          <p data-i18n="feat_p">잠금화면 알림과 앱 화면이 하나의 목록을 공유합니다. 어디서든 가장 빠른 길로 할 일을 처리하세요.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <div class="emoji">🔒</div>
-            <h3>잠금화면에서 바로 추가</h3>
-            <p>휴대폰을 잠금 해제할 필요도 없습니다. 잠금화면 알림에서 바로 할 일을 입력하고 추가하세요.</p>
+            <h3 data-i18n="feat1_h3">잠금화면에서 바로 추가</h3>
+            <p data-i18n="feat1_p">휴대폰을 잠금 해제할 필요도 없습니다. 잠금화면 알림에서 바로 할 일을 입력하고 추가하세요.</p>
           </article>
           <article class="feature-card">
             <div class="emoji">⚡️</div>
-            <h3>알림에서 바로 완료</h3>
-            <p>알림창에서 체크 한 번이면 완료. 앱 화면과 알림이 항상 같은 목록을 실시간으로 공유합니다.</p>
+            <h3 data-i18n="feat2_h3">알림에서 바로 완료</h3>
+            <p data-i18n="feat2_p">알림창에서 체크 한 번이면 완료. 앱 화면과 알림이 항상 같은 목록을 실시간으로 공유합니다.</p>
           </article>
           <article class="feature-card">
             <div class="emoji">📊</div>
-            <h3>오늘에 집중하는 목록</h3>
-            <p>진행 중 · 완료 · 전체를 한눈에. 완료한 일은 한 번에 정리하고, 오늘 해야 할 일에만 집중하세요.</p>
+            <h3 data-i18n="feat3_h3">오늘에 집중하는 목록</h3>
+            <p data-i18n="feat3_p">진행 중 · 완료 · 전체를 한눈에. 완료한 일은 한 번에 정리하고, 오늘 해야 할 일에만 집중하세요.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lock screen highlight -->
+    <section class="lockscreen" id="lockscreen">
+      <div class="container">
+        <div class="lock-grid">
+          <div class="lock-copy">
+            <span class="eyebrow">Lock Screen</span>
+            <h2 data-i18n="lock_h2">광고 없는 잠금화면 할 일</h2>
+            <p data-i18n="lock_p">화면을 켜는 순간, 잠금을 풀기도 전에 오늘 할 일이 먼저 보입니다. 탭 한 번으로 완료하고, 그 자리에서 새 할 일도 추가하세요.</p>
+            <ul class="lock-list">
+              <li><span class="tick">✓</span><span data-i18n="lock_li1">화면을 켜면 바로 표시</span></li>
+              <li><span class="tick">✓</span><span data-i18n="lock_li2">잠금화면에서 탭으로 완료</span></li>
+              <li><span class="tick">✓</span><span data-i18n="lock_li3">광고 없이, 깔끔하게</span></li>
+            </ul>
+          </div>
+          <div class="lock-shot">
+            <img src="assets/screenshots/lockscreen.png" data-shot="lockscreen" alt="빠른할일 잠금화면 - 화면을 켜면 오늘 할 일이 바로 표시" loading="lazy" width="1080" height="2400" />
+          </div>
         </div>
       </div>
     </section>
@@ -560,36 +704,36 @@ layout: null
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">Screenshots</span>
-          <h2>잠금화면부터 앱까지,<br />하나의 목록</h2>
-          <p>알림창과 앱 화면이 항상 같은 목록을 공유합니다. 실제 화면으로 확인해 보세요.</p>
+          <h2 data-i18n="shots_h2">잠금화면부터 앱까지,<br />하나의 목록</h2>
+          <p data-i18n="shots_p">알림창과 앱 화면이 항상 같은 목록을 공유합니다. 실제 화면으로 확인해 보세요.</p>
         </div>
         <div class="shots-grid">
           <figure class="shot-card">
-            <img src="assets/screenshots/main-list.png" alt="빠른할일 메인 화면 - 진행 중, 완료, 전체 현황과 오늘 목록" loading="lazy" width="1080" height="2400" />
+            <img src="assets/screenshots/main-list.png" data-shot="main-list" alt="빠른할일 메인 화면 - 진행 중, 완료, 전체 현황과 오늘 목록" loading="lazy" width="1080" height="2400" />
             <figcaption>
-              <strong>오늘에 집중하는 홈</strong>
-              <span>진행 중 · 완료 · 전체를 한눈에</span>
+              <strong data-i18n="shot1_t">오늘에 집중하는 홈</strong>
+              <span data-i18n="shot1_s">진행 중 · 완료 · 전체를 한눈에</span>
             </figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/screenshots/main-input.png" alt="빠른할일 할 일 입력 화면 - 키보드로 바로 추가" loading="lazy" width="1080" height="2400" />
+            <img src="assets/screenshots/main-input.png" data-shot="main-input" alt="빠른할일 할 일 입력 화면 - 키보드로 바로 추가" loading="lazy" width="1080" height="2400" />
             <figcaption>
-              <strong>망설임 없는 추가</strong>
-              <span>앱을 열면 바로 입력, 바로 추가</span>
+              <strong data-i18n="shot2_t">망설임 없는 추가</strong>
+              <span data-i18n="shot2_s">앱을 열면 바로 입력, 바로 추가</span>
             </figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/screenshots/notif-actions.png" alt="빠른할일 알림창 화면 - 알림에서 할 일 확인과 완료 체크" loading="lazy" width="1080" height="2400" />
+            <img src="assets/screenshots/notif-actions.png" data-shot="notif-actions" alt="빠른할일 알림창 화면 - 알림에서 할 일 확인과 완료 체크" loading="lazy" width="1080" height="2400" />
             <figcaption>
-              <strong>알림에서 바로 완료</strong>
-              <span>잠금 해제 없이 체크 한 번이면 끝</span>
+              <strong data-i18n="shot3_t">알림에서 바로 완료</strong>
+              <span data-i18n="shot3_s">잠금 해제 없이 체크 한 번이면 끝</span>
             </figcaption>
           </figure>
           <figure class="shot-card">
-            <img src="assets/screenshots/notif-input.png" alt="빠른할일 알림 입력 화면 - 알림창에서 직접 할 일 입력" loading="lazy" width="1080" height="2400" />
+            <img src="assets/screenshots/notif-input.png" data-shot="notif-input" alt="빠른할일 알림 입력 화면 - 알림창에서 직접 할 일 입력" loading="lazy" width="1080" height="2400" />
             <figcaption>
-              <strong>알림에서 바로 입력</strong>
-              <span>잠금화면에서도 새 할 일을 즉시 기록</span>
+              <strong data-i18n="shot4_t">알림에서 바로 입력</strong>
+              <span data-i18n="shot4_s">잠금화면에서도 새 할 일을 즉시 기록</span>
             </figcaption>
           </figure>
         </div>
@@ -601,13 +745,13 @@ layout: null
       <div class="container">
         <div class="section-head" style="margin-bottom: 0;">
           <span class="eyebrow">Download</span>
-          <h2>지금, 가장 빠른 할 일 관리를<br />시작하세요</h2>
-          <p>생각이 떠오른 순간부터 완료의 체크까지 — 단 한 줄의 궤적으로.</p>
+          <h2 data-i18n="cta_h2">지금, 가장 빠른 할 일 관리를<br />시작하세요</h2>
+          <p data-i18n="cta_p">생각이 떠오른 순간부터 완료의 체크까지 — 단 한 줄의 궤적으로.</p>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.insu.fasttodo" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49zM345.8 174 89.22 32.64l-.16-.09 171.68 171.68zM89.06 479.45l.16-.09L345.8 338l-84.94-84.94zM449.38 231l-71.65-39.46-87.9 87.9.15.15 87.75 87.75 71.65-39.45c19.49-10.77 19.49-86.12 0-96.89z"/></svg>Google Play에서 받기</a>
-          <a class="btn btn-secondary" href="privacy/">개인정보처리방침</a>
-          <a class="btn btn-secondary" href="terms/">이용약관</a>
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.insu.fasttodo" target="_blank" rel="noopener"><svg viewBox="0 0 512 512" fill="currentColor" aria-hidden="true"><path d="M48 59.49v393a4.33 4.33 0 0 0 7.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0 0 48 59.49zM345.8 174 89.22 32.64l-.16-.09 171.68 171.68zM89.06 479.45l.16-.09L345.8 338l-84.94-84.94zM449.38 231l-71.65-39.46-87.9 87.9.15.15 87.75 87.75 71.65-39.45c19.49-10.77 19.49-86.12 0-96.89z"/></svg><span data-i18n="cta_play">Google Play에서 받기</span></a>
+          <a class="btn btn-secondary" href="privacy/" data-i18n="cta_privacy">개인정보처리방침</a>
+          <a class="btn btn-secondary" href="terms/" data-i18n="cta_terms">이용약관</a>
         </div>
       </div>
     </section>
@@ -615,10 +759,195 @@ layout: null
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 빠른할일 (FastTodo). All rights reserved.</span>
-      <span><a href="privacy/">개인정보처리방침</a> · <a href="terms/">이용약관</a> · 문의 isjang98@gmail.com</span>
+      <span data-i18n="footer_copy">© 2026 빠른할일 (FastTodo). All rights reserved.</span>
+      <span><a href="privacy/" data-i18n="cta_privacy">개인정보처리방침</a> · <a href="terms/" data-i18n="cta_terms">이용약관</a> · <span data-i18n="footer_contact">문의</span> isjang98@gmail.com</span>
     </div>
   </footer>
+
+  <script>
+    // 클라이언트 사이드 i18n — 단일 파일로 ko/en/ja 지원.
+    // data-i18n 키의 값은 innerHTML로 주입되므로 <br>/<strong> 등 마크업 포함 가능.
+    const TR = {
+      ko: {
+        _title: "빠른할일 (FastTodo) - 잠금화면에서 바로 끝내는 할 일",
+        _desc: "빠른할일(FastTodo)은 잠금화면 알림에서 바로 할 일을 추가하고 완료하는 가장 빠른 투두 앱입니다. 생각은 가볍게, 실행은 빠르게, 마무리는 확실하게.",
+        brand: "빠른할일",
+        nav_story: "아이콘 이야기", nav_features: "주요 기능", nav_shots: "스크린샷", nav_download: "다운로드",
+        hero_h1: "할 일이 떠오른 순간,<br /><span class=\"grad\">이미 절반은 끝났습니다</span>",
+        hero_tagline: "잠금화면 알림에서 바로 추가하고, 바로 완료하는 가장 빠른 투두 앱.<br />앱을 열 필요조차 없습니다.",
+        hero_motto: "\"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게.\"",
+        cta_play: "Google Play에서 받기",
+        hero_cta_story: "아이콘에 담긴 이야기",
+        story_h2: "단 한 줄의 선에 담긴<br />'일의 즐거움'",
+        story_p: "빠른할일의 아이콘은 단순한 로고가 아니라, 우리가 지향하는 '생산성의 본질'을 담고 있습니다. 하나의 선이 시작되어 체크마크로 완성되기까지 — 그 짧은 궤적이 곧 이 앱의 철학입니다.",
+        story1_h3: "0에서 1로 가는 가장 빠른 궤적",
+        story1_p: "아이콘 왼쪽의 가느다란 선은 지상에서 가장 빠른 동물, <strong>치타의 질주</strong>를 상징합니다. 할 일이 떠오른 순간부터 기록하고 완료하기까지 — 그 어떤 방해나 지체 없이 처리되는 빠른할일의 압도적인 속도를 한 획에 담았습니다.",
+        story2_h3: "복잡함을 걷어낸 '단 하나의 선'",
+        story2_p: "할 일이 산더미처럼 쌓였을 때의 무거운 마음을 잘 압니다. 그래서 이 아이콘은 여러 선이 아닌 <strong>단 하나의 유려한 곡선</strong>으로 그렸습니다. 복잡한 생각을 멈추고, 지금 해야 할 일 하나에만 집중하게 하는 단순함의 미학입니다.",
+        story3_h3: "마침표가 주는 기분 좋은 묵직함",
+        story3_p: "날렵하게 시작된 선은 오른쪽 끝에서 <strong>굵고 단단한 체크마크</strong>로 완성됩니다. 일을 완벽하게 마무리했을 때의 성취감과 신뢰의 표현입니다. 다홍과 노랑이 어우러진 따뜻한 그라데이션이 체크할 때마다 하루에 활력을 더합니다.",
+        story_quote: "\"생각은 가볍게, 실행은 빠르게, 마무리는 확실하게.\"",
+        story_quote_p: "빠른할일은 당신의 소중한 시간이 '할 일을 고민하는 데' 쓰이지 않도록, 세상에서 가장 직관적인 경험을 약속합니다.",
+        feat_h2: "앱을 열지 않아도 되는 투두",
+        feat_p: "잠금화면 알림과 앱 화면이 하나의 목록을 공유합니다. 어디서든 가장 빠른 길로 할 일을 처리하세요.",
+        feat1_h3: "잠금화면에서 바로 추가",
+        feat1_p: "휴대폰을 잠금 해제할 필요도 없습니다. 잠금화면 알림에서 바로 할 일을 입력하고 추가하세요.",
+        feat2_h3: "알림에서 바로 완료",
+        feat2_p: "알림창에서 체크 한 번이면 완료. 앱 화면과 알림이 항상 같은 목록을 실시간으로 공유합니다.",
+        feat3_h3: "오늘에 집중하는 목록",
+        feat3_p: "진행 중 · 완료 · 전체를 한눈에. 완료한 일은 한 번에 정리하고, 오늘 해야 할 일에만 집중하세요.",
+        lock_h2: "광고 없는 잠금화면 할 일",
+        lock_p: "화면을 켜는 순간, 잠금을 풀기도 전에 오늘 할 일이 먼저 보입니다. 탭 한 번으로 완료하고, 그 자리에서 새 할 일도 추가하세요.",
+        lock_li1: "화면을 켜면 바로 표시",
+        lock_li2: "잠금화면에서 탭으로 완료",
+        lock_li3: "광고 없이, 깔끔하게",
+        shots_h2: "잠금화면부터 앱까지,<br />하나의 목록",
+        shots_p: "알림창과 앱 화면이 항상 같은 목록을 공유합니다. 실제 화면으로 확인해 보세요.",
+        shot1_t: "오늘에 집중하는 홈", shot1_s: "진행 중 · 완료 · 전체를 한눈에",
+        shot2_t: "망설임 없는 추가", shot2_s: "앱을 열면 바로 입력, 바로 추가",
+        shot3_t: "알림에서 바로 완료", shot3_s: "잠금 해제 없이 체크 한 번이면 끝",
+        shot4_t: "알림에서 바로 입력", shot4_s: "잠금화면에서도 새 할 일을 즉시 기록",
+        cta_h2: "지금, 가장 빠른 할 일 관리를<br />시작하세요",
+        cta_p: "생각이 떠오른 순간부터 완료의 체크까지 — 단 한 줄의 궤적으로.",
+        cta_privacy: "개인정보처리방침", cta_terms: "이용약관",
+        footer_copy: "© 2026 빠른할일 (FastTodo). All rights reserved.",
+        footer_contact: "문의"
+      },
+      en: {
+        _title: "FastTodo - Get to-dos done right from your lock screen",
+        _desc: "FastTodo is the fastest to-do app to add and complete tasks right from the lock screen notification. Think light, act fast, finish for sure.",
+        brand: "FastTodo",
+        nav_story: "Icon Story", nav_features: "Features", nav_shots: "Screenshots", nav_download: "Download",
+        hero_h1: "The moment a task strikes,<br /><span class=\"grad\">you're already halfway done</span>",
+        hero_tagline: "The fastest to-do app — add and complete right from the lock screen notification.<br />You don't even need to open the app.",
+        hero_motto: "\"Think light. Act fast. Finish for sure.\"",
+        cta_play: "Get it on Google Play",
+        hero_cta_story: "The story behind the icon",
+        story_h2: "The joy of getting things done,<br />in a single stroke",
+        story_p: "The FastTodo icon isn't just a logo — it captures the essence of productivity we pursue. From a single line that begins and resolves into a checkmark, that short trajectory is the philosophy of this app.",
+        story1_h3: "The fastest path from 0 to 1",
+        story1_p: "The thin line on the left of the icon symbolizes <strong>the sprint of a cheetah</strong>, the fastest land animal. From the instant a task comes to mind to the moment it's done — FastTodo's overwhelming speed, captured in a single stroke, with no interruption or delay.",
+        story2_h3: "A single line, free of clutter",
+        story2_p: "We know the heavy feeling when tasks pile up like a mountain. That's why this icon is drawn with <strong>one fluid curve</strong> instead of many lines. It's the aesthetic of simplicity that quiets complex thoughts and lets you focus on the one thing to do right now.",
+        story3_h3: "The satisfying weight of a final stroke",
+        story3_p: "The line that starts sharp resolves into a <strong>bold, solid checkmark</strong> at the right end. It expresses the sense of achievement and trust when a task is perfectly finished. The warm gradient of red and yellow adds energy to your day with every check.",
+        story_quote: "\"Think light. Act fast. Finish for sure.\"",
+        story_quote_p: "FastTodo promises the most intuitive experience in the world, so your precious time is never spent deciding what to do.",
+        feat_h2: "A to-do app you don't have to open",
+        feat_p: "The lock screen notification and the app share one list. Handle your tasks the fastest way, wherever you are.",
+        feat1_h3: "Add right from the lock screen",
+        feat1_p: "No need to unlock your phone. Type and add a task right from the lock screen notification.",
+        feat2_h3: "Complete from the notification",
+        feat2_p: "One tap in the notification and it's done. The app and the notification always share the same list in real time.",
+        feat3_h3: "A list focused on today",
+        feat3_p: "Open, done, and total at a glance. Clear completed tasks in one go and focus only on what matters today.",
+        lock_h2: "Your to-dos on the lock screen — ad-free",
+        lock_p: "The moment you wake the screen, today's tasks appear before you even unlock. Complete them with a tap, and add new ones right there.",
+        lock_li1: "Shown the instant the screen wakes",
+        lock_li2: "Complete with a tap on the lock screen",
+        lock_li3: "Clean and completely ad-free",
+        shots_h2: "From the lock screen to the app,<br />one single list",
+        shots_p: "The notification and the app always share the same list. See it on real screens.",
+        shot1_t: "A home focused on today", shot1_s: "Open · done · total at a glance",
+        shot2_t: "Add without hesitation", shot2_s: "Open the app, type, add",
+        shot3_t: "Complete from the notification", shot3_s: "One check, no unlocking needed",
+        shot4_t: "Type from the notification", shot4_s: "Capture new tasks even on the lock screen",
+        cta_h2: "Start the fastest way to<br />manage your tasks, today",
+        cta_p: "From the spark of a thought to the final check — in a single stroke.",
+        cta_privacy: "Privacy Policy", cta_terms: "Terms of Service",
+        footer_copy: "© 2026 FastTodo. All rights reserved.",
+        footer_contact: "Contact"
+      },
+      ja: {
+        _title: "早メモ (FastTodo) - ロック画面でそのまま片付けるToDo",
+        _desc: "早メモ（FastTodo）は、ロック画面の通知からそのままタスクを追加・完了できる最速のToDoアプリです。考えは軽く、実行は速く、仕上げは確実に。",
+        brand: "早メモ",
+        nav_story: "アイコンの物語", nav_features: "主な機能", nav_shots: "スクリーンショット", nav_download: "ダウンロード",
+        hero_h1: "やることが浮かんだ瞬間、<br /><span class=\"grad\">もう半分は終わっています</span>",
+        hero_tagline: "ロック画面の通知からそのまま追加・完了できる、最速のToDoアプリ。<br />アプリを開く必要すらありません。",
+        hero_motto: "「考えは軽く、実行は速く、仕上げは確実に。」",
+        cta_play: "Google Playで入手",
+        hero_cta_story: "アイコンに込めた物語",
+        story_h2: "一本の線に込めた<br />「やり遂げる喜び」",
+        story_p: "早メモのアイコンは単なるロゴではなく、私たちが目指す「生産性の本質」を表しています。一本の線が始まり、チェックマークへと完成するまで — その短い軌跡こそが、このアプリの哲学です。",
+        story1_h3: "0から1へ、最速の軌跡",
+        story1_p: "アイコン左側の細い線は、陸上最速の動物<strong>チーターの疾走</strong>を象徴します。やることが思い浮かんだ瞬間から記録・完了まで — 何の妨げも遅れもなく処理する早メモの圧倒的な速さを、一画に込めました。",
+        story2_h3: "複雑さを削ぎ落とした「ただ一本の線」",
+        story2_p: "やることが山のように積もったときの重い気持ちをよく知っています。だからこのアイコンは、複数の線ではなく<strong>ただ一本の流麗な曲線</strong>で描きました。複雑な考えを止め、今やるべき一つに集中させる、シンプルさの美学です。",
+        story3_h3: "締めくくりが生む心地よい重み",
+        story3_p: "軽やかに始まった線は、右端で<strong>太く力強いチェックマーク</strong>へと完成します。仕事を完璧に仕上げたときの達成感と信頼の表現です。朱色と黄色が織りなす温かなグラデーションが、チェックするたびに一日に活力を添えます。",
+        story_quote: "「考えは軽く、実行は速く、仕上げは確実に。」",
+        story_quote_p: "早メモは、あなたの大切な時間が「やることを悩む」ことに使われないよう、世界で最も直感的な体験をお約束します。",
+        feat_h2: "アプリを開かなくていいToDo",
+        feat_p: "ロック画面の通知とアプリ画面が一つのリストを共有します。どこにいても最速でやることを片付けましょう。",
+        feat1_h3: "ロック画面からそのまま追加",
+        feat1_p: "スマホのロックを解除する必要すらありません。ロック画面の通知からそのままタスクを入力・追加できます。",
+        feat2_h3: "通知からそのまま完了",
+        feat2_p: "通知でワンタップすれば完了。アプリ画面と通知は常に同じリストをリアルタイムで共有します。",
+        feat3_h3: "今日に集中するリスト",
+        feat3_p: "進行中・完了・全体をひと目で。完了したタスクは一度に整理し、今日やるべきことだけに集中できます。",
+        lock_h2: "広告なしのロック画面ToDo",
+        lock_p: "画面を点けた瞬間、ロックを解除する前に今日のToDoが先に表示されます。タップ一つで完了し、その場で新しいToDoも追加できます。",
+        lock_li1: "画面を点けるとすぐ表示",
+        lock_li2: "ロック画面でタップして完了",
+        lock_li3: "広告なしで、すっきり",
+        shots_h2: "ロック画面からアプリまで、<br />一つのリスト",
+        shots_p: "通知とアプリ画面は常に同じリストを共有します。実際の画面でご確認ください。",
+        shot1_t: "今日に集中するホーム", shot1_s: "進行中・完了・全体をひと目で",
+        shot2_t: "迷いのない追加", shot2_s: "アプリを開いてすぐ入力、すぐ追加",
+        shot3_t: "通知からそのまま完了", shot3_s: "ロック解除不要、チェック一つで完了",
+        shot4_t: "通知からそのまま入力", shot4_s: "ロック画面でも新しいタスクをすぐ記録",
+        cta_h2: "今すぐ、最速のタスク管理を<br />始めましょう",
+        cta_p: "思いついた瞬間から完了のチェックまで — 一本の軌跡で。",
+        cta_privacy: "プライバシーポリシー", cta_terms: "利用規約",
+        footer_copy: "© 2026 早メモ (FastTodo). All rights reserved.",
+        footer_contact: "お問い合わせ"
+      }
+    };
+
+    const OG_LOCALE = { ko: "ko_KR", en: "en_US", ja: "ja_JP" };
+
+    function applyLang(lang) {
+      if (!TR[lang]) lang = "en";
+      const dict = TR[lang];
+      document.documentElement.lang = lang;
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      // 스크린샷도 언어별로 교체 (ko는 기존 위치, en/ja는 하위 폴더)
+      document.querySelectorAll("[data-shot]").forEach((img) => {
+        const name = img.getAttribute("data-shot");
+        img.src = lang === "ko"
+          ? "assets/screenshots/" + name + ".png"
+          : "assets/screenshots/" + lang + "/" + name + ".png";
+      });
+      document.title = dict._title;
+      const md = document.querySelector('meta[name="description"]');
+      if (md) md.setAttribute("content", dict._desc);
+      const ogl = document.querySelector('meta[property="og:locale"]');
+      if (ogl) ogl.setAttribute("content", OG_LOCALE[lang]);
+      document.querySelectorAll(".lang-switch button").forEach((b) => {
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+      try { localStorage.setItem("ft_lang", lang); } catch (e) {}
+    }
+
+    (function initLang() {
+      let lang;
+      const q = new URLSearchParams(location.search).get("lang");
+      if (q && TR[q]) lang = q;          // ?lang=ko|en|ja 우선 (공유 링크용)
+      if (!lang) { try { lang = localStorage.getItem("ft_lang"); } catch (e) {} }
+      if (!lang) {
+        const b = (navigator.language || "en").slice(0, 2).toLowerCase();
+        lang = ["ko", "en", "ja"].includes(b) ? b : "en";
+      }
+      applyLang(lang);
+      document.querySelectorAll(".lang-switch button").forEach((btn) => {
+        btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+      });
+    })();
+  </script>
 
 </body>
 </html>
