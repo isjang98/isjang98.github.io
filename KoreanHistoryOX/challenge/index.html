@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>한국사 OX 챌린지</title>
+    <meta name="description" content="기출 선지 OX로 5분 한국사 챌린지에 참여하세요." />
+    <meta property="og:title" content="한국사 OX 챌린지" />
+    <meta property="og:description" content="친구의 한국사 OX 기록에 바로 도전해보세요." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://isjang98.github.io/KoreanHistoryOX/challenge" />
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #e9f8ff;
+        color: #0b2430;
+      }
+
+      main {
+        width: min(420px, calc(100vw - 32px));
+        padding: 32px 24px;
+        border-radius: 20px;
+        background: #ffffff;
+        box-shadow: 0 16px 40px rgb(4 39 55 / 14%);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 28px;
+        line-height: 1.25;
+      }
+
+      p {
+        margin: 0 0 24px;
+        color: #4d6470;
+        line-height: 1.55;
+      }
+
+      a {
+        display: block;
+        padding: 15px 18px;
+        border-radius: 12px;
+        background: #007996;
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      a.secondary {
+        margin-top: 10px;
+        background: #eef6f9;
+        color: #007996;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>한국사 OX 챌린지</h1>
+      <p>앱이 설치되어 있으면 챌린지로 바로 이동합니다. 설치되어 있지 않으면 스토어에서 앱을 받을 수 있습니다.</p>
+      <a id="openApp" href="#">앱에서 챌린지 열기</a>
+      <a class="secondary" href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app">앱 설치하기</a>
+    </main>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const query = params.toString();
+      const intentUrl = `intent://challenge${query ? `?${query}` : ""}#Intent;scheme=koreanhistoryox;package=com.koreanhistoryquiz.app;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.koreanhistoryquiz.app;end`;
+      const customSchemeUrl = `koreanhistoryox://challenge${query ? `?${query}` : ""}`;
+      const openApp = document.getElementById("openApp");
+
+      openApp.setAttribute("href", intentUrl);
+      window.setTimeout(() => {
+        window.location.href = intentUrl;
+      }, 250);
+
+      window.setTimeout(() => {
+        window.location.href = customSchemeUrl;
+      }, 1000);
+    </script>
+  </body>
+</html>
