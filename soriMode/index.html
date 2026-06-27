@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>소리모드 - 부모님 폰 소리를 멀리서도 쉽게</title>
+    <meta
+      name="description"
+      content="소리모드는 부모님 폰의 소리, 진동, 무음 전환을 쉽게 돕고 가족 원격 요청과 홈 화면 위젯을 제공하는 Android 앱입니다."
+    />
+    <meta property="og:title" content="소리모드 - 부모님 폰 소리를 멀리서도 쉽게" />
+    <meta
+      property="og:description"
+      content="전화벨을 놓치지 않게, 회의 전엔 진동으로. 가족이 함께 쓰는 쉬운 소리 모드 전환 앱."
+    />
+    <meta property="og:image" content="assets/feature-graphic.webp" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/app-icon.png" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #141821;
+        --text: #252b37;
+        --muted: #657083;
+        --soft: #f6f8fb;
+        --paper: #ffffff;
+        --line: #dfe5ee;
+        --blue: #3182f6;
+        --blue-dark: #1559c7;
+        --orange: #ff8a00;
+        --mint: #06c48a;
+        --rose: #ef5a7a;
+        --navy: #172437;
+        --shadow: 0 24px 70px rgba(23, 36, 55, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background:
+          linear-gradient(114deg, rgba(49, 130, 246, 0.09) 0 24%, transparent 24% 100%),
+          linear-gradient(158deg, transparent 0 48%, rgba(255, 138, 0, 0.11) 48% 63%, transparent 63%),
+          var(--soft);
+        color: var(--text);
+        font-family: "SUIT", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        letter-spacing: 0;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(223, 229, 238, 0.78);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 36px));
+        height: 68px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+        font-weight: 900;
+        color: var(--ink);
+      }
+
+      .brand img {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        box-shadow: 0 10px 26px rgba(49, 130, 246, 0.26);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .download-link,
+      .primary-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+        font-weight: 900;
+        box-shadow: 0 16px 36px rgba(20, 24, 33, 0.18);
+      }
+
+      .download-link:hover,
+      .primary-cta:hover {
+        transform: translateY(-1px);
+      }
+
+      .play-icon {
+        width: 18px;
+        height: 18px;
+        flex: 0 0 auto;
+      }
+
+      main {
+        overflow: hidden;
+      }
+
+      .hero {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 72px 0 42px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        align-items: center;
+        gap: 48px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 18px;
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.76);
+        color: var(--blue-dark);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+      }
+
+      h1 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(46px, 7vw, 92px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin: 24px 0 0;
+        color: #4c586a;
+        font-size: clamp(18px, 2.2vw, 23px);
+        line-height: 1.55;
+        font-weight: 700;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .secondary-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--ink);
+        font-weight: 900;
+      }
+
+      .trust-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        max-width: 620px;
+        margin-top: 34px;
+      }
+
+      .trust-row div {
+        min-height: 84px;
+        padding: 15px;
+        border: 1px solid rgba(223, 229, 238, 0.9);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.75);
+      }
+
+      .trust-row strong {
+        display: block;
+        color: var(--ink);
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .trust-row span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.45;
+        font-weight: 700;
+      }
+
+      .mini-dialog {
+        max-width: 620px;
+        margin-top: 34px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .bubble {
+        width: fit-content;
+        max-width: 92%;
+        padding: 13px 16px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid var(--line);
+        color: var(--ink);
+        font-size: 16px;
+        font-weight: 850;
+        line-height: 1.45;
+        box-shadow: 0 14px 28px rgba(23, 36, 55, 0.07);
+      }
+
+      .bubble.me {
+        justify-self: end;
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+      }
+
+      .bubble.note {
+        background: #fff7e8;
+        border-color: rgba(255, 138, 0, 0.22);
+        color: #8b4a00;
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 610px;
+      }
+
+      .feature-strip {
+        position: absolute;
+        inset: 26px 0 auto auto;
+        width: min(520px, 92%);
+        border: 8px solid var(--paper);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        transform: rotate(2deg);
+      }
+
+      .phone-stack {
+        position: absolute;
+        left: 0;
+        right: 24px;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: end;
+        gap: 14px;
+      }
+
+      .phone-shot {
+        border-radius: 24px;
+        box-shadow: 0 28px 60px rgba(23, 36, 55, 0.22);
+        background: var(--paper);
+      }
+
+      .phone-shot:nth-child(1) {
+        transform: translateY(36px) rotate(-5deg);
+      }
+
+      .phone-shot:nth-child(2) {
+        transform: translateY(-8px);
+      }
+
+      .phone-shot:nth-child(3) {
+        transform: translateY(58px) rotate(5deg);
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 88px 0;
+      }
+
+      .section-head {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.48fr);
+        align-items: end;
+        gap: 28px;
+        margin-bottom: 30px;
+      }
+
+      .section-label {
+        margin: 0 0 12px;
+        color: var(--blue-dark);
+        font-size: 14px;
+        font-weight: 900;
+      }
+
+      h2 {
+        margin: 0;
+        color: var(--ink);
+        font-size: clamp(32px, 4vw, 54px);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.65;
+        font-weight: 700;
+      }
+
+      .moment-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .moment {
+        min-height: 188px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 16px 38px rgba(23, 36, 55, 0.06);
+      }
+
+      .moment b {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 14px;
+      }
+
+      .moment:nth-child(2) b {
+        background: var(--orange);
+      }
+
+      .moment:nth-child(3) b {
+        background: var(--mint);
+      }
+
+      .moment:nth-child(4) b {
+        background: var(--rose);
+      }
+
+      .moment h3 {
+        margin: 24px 0 8px;
+        color: var(--ink);
+        font-size: 23px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .moment p {
+        margin: 0;
+        color: var(--muted);
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .scenario-line {
+        margin-top: 14px;
+        padding: 18px 20px;
+        border: 1px solid rgba(49, 130, 246, 0.18);
+        border-radius: 8px;
+        background: rgba(49, 130, 246, 0.07);
+        color: #25446f;
+        font-size: 18px;
+        font-weight: 800;
+        line-height: 1.65;
+      }
+
+      .story-board {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .story-card {
+        position: relative;
+        overflow: hidden;
+        min-height: 430px;
+        padding: 30px;
+        border-radius: 8px;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: 0 22px 54px rgba(23, 36, 55, 0.09);
+      }
+
+      .story-card::after {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        right: -80px;
+        bottom: -88px;
+        border-radius: 44px;
+        background: rgba(255, 138, 0, 0.13);
+        transform: rotate(18deg);
+      }
+
+      .story-kicker {
+        margin: 0 0 20px;
+        color: var(--blue-dark);
+        font-size: 14px;
+        font-weight: 950;
+      }
+
+      .talk {
+        display: grid;
+        gap: 12px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .talk p {
+        width: fit-content;
+        max-width: 88%;
+        margin: 0;
+        padding: 15px 17px;
+        border-radius: 20px;
+        background: #f1f5fb;
+        color: var(--ink);
+        font-size: 19px;
+        font-weight: 850;
+        line-height: 1.45;
+      }
+
+      .talk p:nth-child(even) {
+        justify-self: end;
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .story-result {
+        position: relative;
+        z-index: 1;
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+      }
+
+      .story-result strong {
+        display: block;
+        color: var(--ink);
+        font-size: 30px;
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .story-result span {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 750;
+        line-height: 1.55;
+      }
+
+      .quick-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .quick-list div {
+        min-height: 100px;
+        padding: 20px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.74);
+        border: 1px solid var(--line);
+      }
+
+      .quick-list b {
+        display: block;
+        color: var(--ink);
+        font-size: 22px;
+        line-height: 1.2;
+      }
+
+      .quick-list span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 750;
+        line-height: 1.5;
+      }
+
+      .showcase-band {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .showcase-band .section-label {
+        color: #7cc7ff;
+      }
+
+      .showcase-band h2,
+      .showcase-band .section-head p {
+        color: #fff;
+      }
+
+      .showcase-band .section-head p {
+        opacity: 0.72;
+      }
+
+      .screenshot-rail {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .screen-card {
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 28px 64px rgba(0, 0, 0, 0.24);
+      }
+
+      .screen-card img {
+        width: 100%;
+        aspect-ratio: 9 / 16;
+        object-fit: cover;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .feature {
+        min-height: 246px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.84);
+      }
+
+      .feature .tag {
+        color: var(--blue-dark);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .feature h3 {
+        margin: 28px 0 10px;
+        color: var(--ink);
+        font-size: 25px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.65;
+      }
+
+      .privacy-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .privacy-main {
+        min-height: 340px;
+        padding: 34px;
+        border-radius: 8px;
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .privacy-main h2 {
+        color: #fff;
+      }
+
+      .privacy-main p {
+        margin: 18px 0 0;
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 18px;
+        line-height: 1.7;
+        font-weight: 700;
+      }
+
+      .privacy-points {
+        display: grid;
+        gap: 10px;
+      }
+
+      .privacy-points div {
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      .privacy-points strong {
+        display: block;
+        color: var(--ink);
+        font-size: 20px;
+      }
+
+      .privacy-points span {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-weight: 700;
+        line-height: 1.55;
+      }
+
+      .final-cta {
+        position: relative;
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto 70px;
+        padding: 42px;
+        border-radius: 8px;
+        background:
+          linear-gradient(110deg, rgba(49, 130, 246, 0.16) 0 38%, transparent 38%),
+          #fff;
+        border: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+        box-shadow: 0 22px 56px rgba(23, 36, 55, 0.08);
+      }
+
+      .final-cta h2 {
+        font-size: clamp(30px, 4vw, 48px);
+      }
+
+      .final-cta p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+        font-weight: 700;
+      }
+
+      .site-footer {
+        width: min(1120px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 28px 0 46px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .site-footer a {
+        color: var(--ink);
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .nav-links a:not(.download-link) {
+          display: none;
+        }
+
+        .hero,
+        .section,
+        .final-cta,
+        .site-footer {
+          width: min(100% - 28px, 1120px);
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 54px;
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .hero-visual {
+          min-height: 520px;
+        }
+
+        .feature-strip {
+          width: 78%;
+          right: 0;
+        }
+
+        .phone-stack {
+          right: 0;
+        }
+
+        .section-head,
+        .privacy-strip,
+        .story-board,
+        .final-cta {
+          grid-template-columns: 1fr;
+        }
+
+        .moment-grid,
+        .feature-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .screenshot-rail {
+          grid-template-columns: repeat(8, minmax(156px, 1fr));
+          overflow-x: auto;
+          padding-bottom: 8px;
+          scroll-snap-type: x mandatory;
+        }
+
+        .screen-card {
+          scroll-snap-align: start;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .download-link {
+          min-height: 42px;
+          padding: 0 13px;
+          font-size: 14px;
+        }
+
+        .hero {
+          padding-top: 42px;
+          padding-bottom: 12px;
+        }
+
+        h1 {
+          font-size: 48px;
+        }
+
+        .hero-copy {
+          font-size: 18px;
+        }
+
+        .hero-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .primary-cta,
+        .secondary-cta {
+          width: 100%;
+        }
+
+        .trust-row,
+        .moment-grid,
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .story-card {
+          min-height: 0;
+          padding: 24px;
+        }
+
+        .talk p {
+          font-size: 17px;
+        }
+
+        .hero-visual {
+          min-height: 210px;
+          overflow: hidden;
+          border-radius: 8px;
+        }
+
+        .feature-strip {
+          width: 70%;
+          border-width: 5px;
+        }
+
+        .phone-stack {
+          grid-template-columns: repeat(3, 38%);
+          gap: 8px;
+        }
+
+        .trust-row {
+          display: none;
+        }
+
+        .phone-shot {
+          border-radius: 18px;
+        }
+
+        .section {
+          padding: 62px 0;
+        }
+
+        .privacy-main,
+        .final-cta {
+          padding: 26px;
+        }
+
+        .site-footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="주요 메뉴">
+        <a class="brand" href="#top" aria-label="소리모드 홈">
+          <img src="assets/app-icon.png" alt="" width="34" height="34" />
+          <span>소리모드</span>
+        </a>
+        <div class="nav-links">
+          <a href="#moments">필요한 순간</a>
+          <a href="#screens">앱 화면</a>
+          <a href="#privacy">안심 포인트</a>
+          <a
+            class="download-link"
+            href="https://play.google.com/store/apps/details?id=com.insu.sorimode"
+            rel="noopener"
+            >
+            <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#34a853" d="M3.3 2.7c-.5.5-.8 1.2-.8 2.2v14.2c0 1 .3 1.7.8 2.2l8.4-9.3z" />
+              <path fill="#fbbc04" d="m15 8.4-3.3 3.6 3.3 3.6 4-2.3c1.3-.7 1.3-1.9 0-2.6z" />
+              <path fill="#4285f4" d="m3.3 2.7 8.4 9.3L15 8.4 5.2 2.8c-.7-.4-1.4-.4-1.9-.1z" />
+              <path fill="#ea4335" d="m3.3 21.3c.5.3 1.2.3 1.9-.1l9.8-5.6-3.3-3.6z" />
+            </svg>
+            Google Play</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">가족을 위한 Android 소리 전환</p>
+          <h1 id="hero-title">부모님 전화,<br />놓치지 않게.</h1>
+          <p class="hero-copy">
+            “전화했는데 왜 안 받아?” 하고 보면 진동입니다. 상단바를 쓸어내리는 대신,
+            부모님은 큰 버튼으로 바꾸고 자녀는 멀리서 상태를 확인합니다.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="primary-cta"
+              href="https://play.google.com/store/apps/details?id=com.insu.sorimode"
+              rel="noopener"
+              >
+              <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#34a853" d="M3.3 2.7c-.5.5-.8 1.2-.8 2.2v14.2c0 1 .3 1.7.8 2.2l8.4-9.3z" />
+                <path fill="#fbbc04" d="m15 8.4-3.3 3.6 3.3 3.6 4-2.3c1.3-.7 1.3-1.9 0-2.6z" />
+                <path fill="#4285f4" d="m3.3 2.7 8.4 9.3L15 8.4 5.2 2.8c-.7-.4-1.4-.4-1.9-.1z" />
+                <path fill="#ea4335" d="m3.3 21.3c.5.3 1.2.3 1.9-.1l9.8-5.6-3.3-3.6z" />
+              </svg>
+              무료로 다운로드</a
+            >
+            <a class="secondary-cta" href="#screens">화면 먼저 보기</a>
+          </div>
+          <div class="mini-dialog" aria-label="소리모드 사용 상황">
+            <p class="bubble">엄마: 폰이 안 울린다는데?</p>
+            <p class="bubble me">나: 진동이에요. 소리로 바꿔드릴게요.</p>
+            <p class="bubble note">다음부터는 홈 화면 위젯 크게 눌러요.</p>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="소리모드 앱 화면 미리보기">
+          <img
+            class="feature-strip"
+            src="assets/feature-graphic.webp"
+            alt="소리모드 가족 원격 기능 소개 이미지"
+            width="1024"
+            height="500"
+          />
+          <div class="phone-stack" aria-hidden="true">
+            <img class="phone-shot" src="assets/04-family-remote.webp" alt="" />
+            <img class="phone-shot" src="assets/01-remote-sound.webp" alt="" />
+            <img class="phone-shot" src="assets/08-home-widget.webp" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="moments" aria-labelledby="moments-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">상황극으로 보면 바로 압니다</p>
+            <h2 id="moments-title">문제는 소리 설정이 아니라, 거기까지 가는 길입니다.</h2>
+          </div>
+          <p>
+            작은 아이콘, 빠른 설정, 방해금지 권한. 익숙한 사람에게는 한 번이지만
+            부모님에게는 매번 설명이 필요한 길일 수 있습니다.
+          </p>
+        </div>
+        <div class="story-board">
+          <article class="story-card">
+            <p class="story-kicker">오늘 저녁 7:42</p>
+            <div class="talk" aria-label="가족 대화 예시">
+              <p>엄마, 전화했는데 왜 안 받으셨어요?</p>
+              <p>어? 안 울렸는데?</p>
+              <p>아마 진동으로 바뀐 것 같아요.</p>
+              <p>그거 어디서 바꾸지?</p>
+              <p>소리모드 열고 파란 버튼만 누르면 돼요.</p>
+            </div>
+            <div class="story-result">
+              <strong>설명은 짧게, 버튼은 크게.</strong>
+              <span>상단바를 내리고 작은 아이콘을 찾는 일을 앱 첫 화면과 위젯으로 옮겼습니다.</span>
+            </div>
+          </article>
+          <div class="quick-list" aria-label="소리모드가 줄이는 일">
+            <div>
+              <b>상단바 수업 끝</b>
+              <span>“위에서 쓸어내려서…”로 시작하는 설명을 줄입니다.</span>
+            </div>
+            <div>
+              <b>전화벨 확인 먼저</b>
+              <span>자녀 폰에서 부모님 폰의 마지막 상태를 보고 요청합니다.</span>
+            </div>
+            <div>
+              <b>홈 화면에 크게</b>
+              <span>위젯을 꺼내 두면 앱을 찾는 과정도 한 번 더 줄어듭니다.</span>
+            </div>
+          </div>
+        </div>
+        <p class="scenario-line">
+          소리모드는 “스마트폰을 잘 쓰게 만드는 앱”이 아니라, 꼭 필요한 순간에 덜 헤매게 만드는 앱입니다.
+        </p>
+      </section>
+
+      <section class="showcase-band" id="screens" aria-labelledby="screens-title">
+        <div class="section">
+          <div class="section-head">
+            <div>
+              <p class="section-label">실제 앱 화면</p>
+              <h2 id="screens-title">헷갈릴 만한 건 크게, 위험한 건 따로.</h2>
+            </div>
+            <p>
+              소리와 진동은 바로 바꾸고, 무음은 실수하지 않게 별도로 둡니다.
+              가족 연결도 6자리 코드로만 시작합니다.
+            </p>
+          </div>
+          <div class="screenshot-rail" aria-label="소리모드 주요 화면 스크린샷">
+            <figure class="screen-card">
+              <img src="assets/01-remote-sound.webp" alt="부모님 폰 현재 상태를 소리로 표시하는 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/02-sound-vibrate.webp" alt="소리와 진동 전환 버튼 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/03-optional-silent.webp" alt="무음 전환은 필요한 권한을 안내하는 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/04-family-remote.webp" alt="가족 원격 제어 허용 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/05-invite-code.webp" alt="초대 코드로 가족을 연결하는 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/06-check-status.webp" alt="자녀 폰에서 부모님 폰 상태 확인 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/07-remote-request.webp" alt="자녀 폰에서 소리 진동 무음 변경 요청을 보내는 화면" />
+            </figure>
+            <figure class="screen-card">
+              <img src="assets/08-home-widget.webp" alt="홈 화면 위젯으로 바로 전환하는 화면" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="features-title">
+        <div class="section-head">
+          <div>
+            <p class="section-label">소리모드가 하는 일</p>
+            <h2 id="features-title">작은 설정을 가족의 쉬운 루틴으로 바꿉니다.</h2>
+          </div>
+          <p>
+            부모님에게는 “큰 버튼 하나”, 자녀에게는 “상태 확인 후 요청”만 남겼습니다.
+            그래서 설명이 짧아지고, 실수할 여지가 줄어듭니다.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="tag">부모님 폰</span>
+            <h3>지금 소리인지 진동인지 바로 보이게</h3>
+            <p>앱을 열면 현재 상태가 가운데 크게 보입니다. 작은 상태 아이콘을 읽지 않아도 됩니다.</p>
+          </article>
+          <article class="feature">
+            <span class="tag">자녀 폰</span>
+            <h3>멀리 있어도 “지금 상태”부터 확인</h3>
+            <p>부모님 폰이 진동인지 확인한 뒤 소리, 진동, 무음 요청을 보낼 수 있습니다.</p>
+          </article>
+          <article class="feature">
+            <span class="tag">홈 화면</span>
+            <h3>위젯은 그냥 크게 눌러도 되게</h3>
+            <p>홈 화면에 꺼내 두면 앱을 찾지 않고도 소리와 진동을 크게 눌러 바꿉니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="privacy" aria-labelledby="privacy-title">
+        <div class="privacy-strip">
+          <div class="privacy-main">
+            <p class="section-label">안심하고 연결</p>
+            <h2 id="privacy-title">가족 원격은 허용한 만큼만.</h2>
+            <p>
+              이름, 전화번호, 위치, 사진, 통화 내용은 수집하지 않습니다. 가족 연결과 원격
+              요청에 필요한 최소 정보만 처리하도록 설계했습니다.
+            </p>
+          </div>
+          <div class="privacy-points">
+            <div>
+              <strong>초대 코드 기반 연결</strong>
+              <span>부모님 폰에서 만든 6자리 코드로 직접 승인한 가족만 연결됩니다.</span>
+            </div>
+            <div>
+              <strong>원격 허용 스위치</strong>
+              <span>부모님 폰에서 가족 원격 제어 허용을 끄면 요청은 적용되지 않습니다.</span>
+            </div>
+            <div>
+              <strong>개인정보처리방침 공개</strong>
+              <span><a href="privacy/">처리 항목과 목적을 문서로 확인할 수 있습니다.</a></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="download-title">
+        <div>
+          <h2 id="download-title">다음엔 “어디 눌러?” 대신 “큰 버튼 눌러요.”</h2>
+          <p>소리모드를 설치하고 가족이 필요할 때 바로 확인하고 도울 수 있게 연결해 보세요.</p>
+        </div>
+        <a
+          class="primary-cta"
+          href="https://play.google.com/store/apps/details?id=com.insu.sorimode"
+          rel="noopener"
+          >
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#34a853" d="M3.3 2.7c-.5.5-.8 1.2-.8 2.2v14.2c0 1 .3 1.7.8 2.2l8.4-9.3z" />
+            <path fill="#fbbc04" d="m15 8.4-3.3 3.6 3.3 3.6 4-2.3c1.3-.7 1.3-1.9 0-2.6z" />
+            <path fill="#4285f4" d="m3.3 2.7 8.4 9.3L15 8.4 5.2 2.8c-.7-.4-1.4-.4-1.9-.1z" />
+            <path fill="#ea4335" d="m3.3 21.3c.5.3 1.2.3 1.9-.1l9.8-5.6-3.3-3.6z" />
+          </svg>
+          Google Play에서 받기</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 SoriMode</span>
+      <a href="privacy/">개인정보처리방침</a>
+    </footer>
+  </body>
+</html>
