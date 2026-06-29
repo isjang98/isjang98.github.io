@@ -701,6 +701,216 @@
             }
         }
         
+        /* Sample Quiz Section */
+        .sample-quiz {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFF5CC 0%, var(--bg) 100%);
+            border-top: var(--border-width) solid var(--black);
+            border-bottom: var(--border-width) solid var(--black);
+        }
+        
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .quiz-card {
+            background: var(--white);
+            border: var(--border-width) solid var(--black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--black);
+            padding: 32px;
+        }
+        
+        .quiz-progress-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        .quiz-progress-track {
+            flex: 1;
+            height: 10px;
+            background: #eee;
+            border: 2px solid var(--black);
+            overflow: hidden;
+        }
+        
+        .quiz-progress-fill {
+            height: 100%;
+            background: var(--yellow);
+            transition: width 0.3s ease;
+        }
+        
+        .quiz-question {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            word-break: keep-all;
+        }
+        
+        .quiz-ox-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .quiz-ox-btn {
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            border: var(--border-width) solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .quiz-ox-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+        
+        .quiz-ox-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--black);
+        }
+        
+        .quiz-ox-btn.o-btn {
+            background: var(--blue);
+        }
+        
+        .quiz-ox-btn.x-btn {
+            background: var(--pink);
+        }
+        
+        .quiz-ox-btn.correct {
+            background: var(--green) !important;
+            color: var(--white);
+        }
+        
+        .quiz-ox-btn.wrong {
+            background: #ff4444 !important;
+            color: var(--white);
+        }
+        
+        .quiz-ox-btn:disabled {
+            cursor: default;
+            opacity: 0.85;
+        }
+        
+        .quiz-ox-btn:disabled:hover {
+            transform: none;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+        
+        .quiz-explanation {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border: 3px solid var(--black);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            display: none;
+        }
+        
+        .quiz-explanation.show-correct {
+            display: block;
+            background: #d4edda;
+        }
+        
+        .quiz-explanation.show-wrong {
+            display: block;
+            background: #f8d7da;
+        }
+        
+        .quiz-explanation .exp-label {
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        
+        .quiz-next-btn {
+            display: none;
+            width: 100%;
+            margin-top: 20px;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--yellow);
+            color: var(--black);
+            border: var(--border-width) solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        
+        .quiz-next-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 var(--black);
+        }
+        
+        .quiz-next-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--black);
+        }
+        
+        .quiz-next-btn.show {
+            display: block;
+        }
+        
+        .quiz-result {
+            display: none;
+            text-align: center;
+        }
+        
+        .quiz-result.show {
+            display: block;
+        }
+        
+        .quiz-result-score {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 4rem;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+        
+        .quiz-result-message {
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+        
+        .quiz-result-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 28px;
+        }
+        
+        .quiz-result-stats .stat {
+            text-align: center;
+        }
+        
+        .quiz-result-stats .stat-num {
+            font-family: 'Black Han Sans', sans-serif;
+            font-size: 2.5rem;
+        }
+        
+        .quiz-result-stats .stat-num.correct-color { color: var(--green); }
+        .quiz-result-stats .stat-num.wrong-color { color: #ff4444; }
+        
+        .quiz-result-stats .stat-label {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+        
+        .quiz-hidden { display: none !important; }
+        
         /* Skip to Content - Accessibility */
         .skip-to-content {
             position: absolute;
@@ -816,6 +1026,56 @@
             </div>
         </div>
     </section>
+
+    <!-- Sample Quiz Section -->
+    <section class="sample-quiz">
+        <div class="container">
+            <h2 class="section-title">🎯 지금 바로 풀어보세요!</h2>
+            <p style="text-align:center; font-size:1.1rem; margin-bottom:40px;">실제 앱에 수록된 문제 5개를 체험해보세요.</p>
+            <div class="quiz-container">
+                <div class="quiz-card" id="sampleQuizCard">
+                    <div class="quiz-progress-bar">
+                        <span id="sqNum">1 / 5</span>
+                        <div class="quiz-progress-track">
+                            <div class="quiz-progress-fill" id="sqFill" style="width:20%"></div>
+                        </div>
+                        <span id="sqScore">정답 0</span>
+                    </div>
+
+                    <div id="sqBody">
+                        <p class="quiz-question" id="sqQuestion"></p>
+                        <div class="quiz-ox-buttons">
+                            <button class="quiz-ox-btn o-btn" id="sqBtnO" onclick="sqAnswer(true)">⭕ O</button>
+                            <button class="quiz-ox-btn x-btn" id="sqBtnX" onclick="sqAnswer(false)">❌ X</button>
+                        </div>
+                        <div class="quiz-explanation" id="sqExp">
+                            <div class="exp-label" id="sqExpLabel"></div>
+                            <div id="sqExpText"></div>
+                        </div>
+                        <button class="quiz-next-btn" id="sqNext" onclick="sqNext()">다음 문제</button>
+                    </div>
+
+                    <div class="quiz-result" id="sqResult">
+                        <div class="quiz-result-score" id="sqResultScore"></div>
+                        <p class="quiz-result-message" id="sqResultMsg"></p>
+                        <div class="quiz-result-stats">
+                            <div class="stat">
+                                <div class="stat-num correct-color" id="sqStatCorrect">0</div>
+                                <div class="stat-label">정답</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-num wrong-color" id="sqStatWrong">0</div>
+                                <div class="stat-label">오답</div>
+                            </div>
+                        </div>
+                        <button class="neo-btn" onclick="sqReset()" style="width:100%; justify-content:center; margin-bottom:12px;">다시 풀기</button>
+                        <a href="https://play.google.com/store/apps/details?id=com.koreanhistoryquiz.app" class="neo-btn pink" style="width:100%; justify-content:center;" target="_blank" rel="noopener noreferrer">앱에서 1000+ 문제 풀기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <section class="screenshots">
         <div class="container">
@@ -938,6 +1198,120 @@
             if (navDownload && isIOS) {
                 navDownload.href = APP_STORE;
             }
+        })();
+    </script>
+
+    <script>
+        // Sample Quiz Logic
+        (function() {
+            var questions = [
+                {
+                    question: "동학 농민 운동은 고부 군수 조병갑의 횡포에 저항하여 시작되었다.",
+                    answer: true,
+                    explanation: "1894년 전봉준 등이 고부 군수 조병갑의 횡포에 항거하여 고부 관아를 습격한 것이 동학 농민 운동의 시작입니다."
+                },
+                {
+                    question: "훈민정음은 세종대왕이 집현전 학자들과 함께 공동으로 창제하였다.",
+                    answer: false,
+                    explanation: "훈민정음은 세종대왕이 친히 창제(어제御製)하였습니다. 집현전 학자들은 해례본 편찬에 참여하였을 뿐, 창제 자체는 세종의 독자적 업적입니다."
+                },
+                {
+                    question: "광개토대왕은 백제를 공격하여 한강 유역을 차지하였다.",
+                    answer: true,
+                    explanation: "광개토대왕은 396년 백제를 공격하여 한강 이북 지역을 차지하고, 백제 아신왕의 항복을 받아냈습니다."
+                },
+                {
+                    question: "조선 시대 과거 시험에서 상민(평민)은 응시가 불가능하였다.",
+                    answer: false,
+                    explanation: "조선의 과거제는 양인(양반+상민) 이상이면 응시할 수 있었습니다. 다만 현실적으로 상민이 합격하기는 매우 어려웠습니다."
+                },
+                {
+                    question: "6·25 전쟁 당시 인천 상륙 작전은 맥아더 장군이 지휘하였다.",
+                    answer: true,
+                    explanation: "1950년 9월 15일, 유엔군 총사령관 맥아더 장군의 지휘 아래 인천 상륙 작전이 감행되어 전세가 역전되었습니다."
+                }
+            ];
+
+            var idx = 0, correct = 0, answered = false;
+
+            function show() {
+                var q = questions[idx];
+                document.getElementById('sqQuestion').textContent = q.question;
+                document.getElementById('sqNum').textContent = (idx + 1) + ' / ' + questions.length;
+                document.getElementById('sqFill').style.width = ((idx + 1) / questions.length * 100) + '%';
+                document.getElementById('sqScore').textContent = '정답 ' + correct;
+                answered = false;
+                document.getElementById('sqBtnO').disabled = false;
+                document.getElementById('sqBtnX').disabled = false;
+                document.getElementById('sqBtnO').className = 'quiz-ox-btn o-btn';
+                document.getElementById('sqBtnX').className = 'quiz-ox-btn x-btn';
+                document.getElementById('sqExp').className = 'quiz-explanation';
+                document.getElementById('sqNext').className = 'quiz-next-btn';
+            }
+
+            window.sqAnswer = function(userAns) {
+                if (answered) return;
+                answered = true;
+                var q = questions[idx];
+                var isCorrect = userAns === q.answer;
+                if (isCorrect) correct++;
+
+                document.getElementById('sqBtnO').disabled = true;
+                document.getElementById('sqBtnX').disabled = true;
+
+                if (q.answer === true) {
+                    document.getElementById('sqBtnO').className = 'quiz-ox-btn o-btn correct';
+                } else {
+                    document.getElementById('sqBtnX').className = 'quiz-ox-btn x-btn correct';
+                }
+                if (!isCorrect) {
+                    if (userAns === true) {
+                        document.getElementById('sqBtnO').className = 'quiz-ox-btn o-btn wrong';
+                    } else {
+                        document.getElementById('sqBtnX').className = 'quiz-ox-btn x-btn wrong';
+                    }
+                }
+
+                document.getElementById('sqExpLabel').textContent = isCorrect ? '✅ 정답!' : '❌ 오답!';
+                document.getElementById('sqExpText').textContent = q.explanation;
+                document.getElementById('sqExp').className = 'quiz-explanation ' + (isCorrect ? 'show-correct' : 'show-wrong');
+                document.getElementById('sqScore').textContent = '정답 ' + correct;
+
+                var nextBtn = document.getElementById('sqNext');
+                nextBtn.textContent = idx < questions.length - 1 ? '다음 문제' : '결과 보기';
+                nextBtn.className = 'quiz-next-btn show';
+            };
+
+            window.sqNext = function() {
+                idx++;
+                if (idx >= questions.length) {
+                    document.getElementById('sqBody').classList.add('quiz-hidden');
+                    document.getElementById('sqResult').className = 'quiz-result show';
+                    var score = Math.round((correct / questions.length) * 100);
+                    document.getElementById('sqResultScore').textContent = score + '점';
+                    document.getElementById('sqStatCorrect').textContent = correct;
+                    document.getElementById('sqStatWrong').textContent = questions.length - correct;
+                    var msg = '';
+                    if (score === 100) msg = '완벽해요! 한국사 고수시네요 🎉';
+                    else if (score >= 80) msg = '훌륭해요! 조금만 더 하면 만점!';
+                    else if (score >= 60) msg = '좋은 출발이에요! 앱에서 더 연습해보세요';
+                    else msg = '앱에서 꾸준히 풀면 금방 실력이 올라요 💪';
+                    document.getElementById('sqResultMsg').textContent = msg;
+                } else {
+                    show();
+                }
+            };
+
+            window.sqReset = function() {
+                idx = 0;
+                correct = 0;
+                answered = false;
+                document.getElementById('sqBody').classList.remove('quiz-hidden');
+                document.getElementById('sqResult').className = 'quiz-result';
+                show();
+            };
+
+            show();
         })();
     </script>
 
