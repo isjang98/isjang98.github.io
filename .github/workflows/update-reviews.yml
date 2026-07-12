@@ -1,0 +1,38 @@
+name: 말씀온 리뷰 자동 갱신
+
+# 매주 월요일 00:00 UTC (= 월요일 09:00 KST) + 수동 실행 가능
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 의존성 설치
+        run: pip install -r BibleOn/tools/requirements.txt
+
+      - name: 리뷰 긁어 index.html 갱신
+        run: python BibleOn/tools/fetch_reviews.py
+
+      - name: 변경 있으면 커밋
+        run: |
+          if [ -n "$(git status --porcelain BibleOn/index.html)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add BibleOn/index.html
+            git commit -m "chore: 말씀온 랜딩 후기·평점 자동 갱신"
+            git push
+          else
+            echo "변경 없음 — 커밋 생략."
+          fi
