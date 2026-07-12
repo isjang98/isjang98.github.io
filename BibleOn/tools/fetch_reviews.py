@@ -96,7 +96,7 @@ def build_cards(pinned, auto):
     return "\n".join(cards)
 
 
-def update_index(cards_html, score, rating_count):
+def update_index(cards_html, score, rating_count, installs=None):
     with open(INDEX, encoding="utf-8") as f:
         doc = f.read()
     original = doc
@@ -119,6 +119,14 @@ def update_index(cards_html, score, rating_count):
             return blk
         doc = re.sub(r'"aggregateRating":\s*\{.*?\}', fix_rating, doc, flags=re.S)
 
+    # 3) 화면에 보이는 신뢰 배지 숫자도 갱신(data-* 앵커)
+    if score is not None:
+        doc = re.sub(r'(data-rating>)[^<]*(<)', rf'\g<1>{score}\g<2>', doc)
+    if rating_count is not None:
+        doc = re.sub(r'(data-reviews>)[^<]*(<)', rf'\g<1>{rating_count}\g<2>', doc)
+    if installs:
+        doc = re.sub(r'(data-installs>)[^<]*(<)', rf'\g<1>{installs}\g<2>', doc)
+
     if doc == original:
         print("변경 없음 — index.html 그대로.")
         return False
@@ -138,18 +146,19 @@ def main():
         # 스크래핑이 막혔거나 표본이 너무 적음 → 폴백(페이지 손대지 않음)
         sys.exit(f"후기 표본 부족({len(clean)} < {need_auto}) — 갱신 건너뜀(폴백).")
 
-    # 실제 평점/리뷰수
-    score = rating_count = None
+    # 실제 평점/리뷰수/설치수
+    score = rating_count = installs = None
     try:
         info = gp_app(APP_ID, lang="ko", country="kr")
         score = f'{round(info["score"], 1)}'
         rating_count = str(info["ratings"])
-        print(f"실제 지표: 평점 {score} / 리뷰 {rating_count}")
+        installs = (info.get("installs") or "").strip() or None
+        print(f"실제 지표: 평점 {score} / 리뷰 {rating_count} / 설치 {installs}")
     except Exception as e:  # 지표만 실패해도 후기 갱신은 진행
         print(f"앱 지표 조회 실패(리뷰 갱신은 진행): {e}")
 
     cards = build_cards(pinned, clean)
-    update_index(cards, score, rating_count)
+    update_index(cards, score, rating_count, installs)
     # 변경 여부와 무관하게 성공 종료 — 커밋 여부는 워크플로가 git diff로 판단
     sys.exit(0)
 
