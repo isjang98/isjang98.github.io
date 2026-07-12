@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://isjang98.github.io/LessonChecker/sitemap.xml
+Sitemap: https://isjang98.github.io/BibleOn/sitemap.xml
