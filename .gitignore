@@ -13,3 +13,7 @@ last-tool-error.json
 # Local QA evidence for static pages
 infoquizmaster/.omo/
 infoquizmaster/tests/
+
+# Python
+__pycache__/
+*.pyc
