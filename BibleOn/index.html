@@ -1029,5 +1029,62 @@
         </div>
     </footer>
 
+    <!-- ANALYTICS:START (GA4 + 스토어 설치 출처 추적) -->
+    <script>
+    (function () {
+      // ── 1) GA4 웹 스트림 측정 ID ─────────────────────────────────
+      //  GA4 → 관리 → 데이터 스트림 → "웹" 스트림 추가 →
+      //  발급된 측정 ID(G-XXXXXXXXXX)를 아래에 붙여넣으면 GA4가 켜집니다.
+      var GA4_ID = 'G-LVP47V9JG4';
+
+      // ── 2) 유입 출처 파악: 들어온 URL의 utm 우선, 없으면 리퍼러 도메인 ──
+      var qs = new URLSearchParams(location.search);
+      var src  = qs.get('utm_source');
+      var med  = qs.get('utm_medium');
+      var camp = qs.get('utm_campaign');
+      var cont = qs.get('utm_content');
+      if (!src) {
+        var host = (document.referrer.split('/')[2] || '').toLowerCase();
+        var map = {
+          'threads.net': 'threads', 'www.threads.net': 'threads',
+          'instagram.com': 'instagram', 'l.instagram.com': 'instagram',
+          'search.naver.com': 'naver', 'm.search.naver.com': 'naver',
+          'www.google.com': 'google', 'google.com': 'google'
+        };
+        src = map[host] || (host || 'direct');
+        med = med || 'referral';
+      }
+
+      // ── 3) GA4 로드 (측정 ID가 실제로 채워졌을 때만) ─────────────
+      if (GA4_ID.indexOf('XXXX') === -1) {
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+        document.head.appendChild(g);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { dataLayer.push(arguments); };
+        gtag('js', new Date());
+        gtag('config', GA4_ID);
+      }
+      function track(name, params) { if (window.gtag) gtag('event', name, params || {}); }
+
+      // ── 4) 플레이 버튼에 설치 리퍼러(utm) 심기 + 클릭 이벤트 ──────
+      var parts = ['utm_source=' + src];
+      if (med)  parts.push('utm_medium=' + med);
+      if (camp) parts.push('utm_campaign=' + camp);
+      if (cont) parts.push('utm_content=' + cont);
+      var ref = encodeURIComponent(parts.join('&'));  // 예) utm_source%3Dthreads%26...
+
+      document.querySelectorAll('a.cta-button--android').forEach(function (a) {
+        var base = a.href.split('&referrer=')[0];
+        a.href = base + '&referrer=' + ref;
+        a.addEventListener('click', function () { track('store_click', { platform: 'android', source: src }); });
+      });
+      document.querySelectorAll('a.cta-button--ios').forEach(function (a) {
+        a.addEventListener('click', function () { track('store_click', { platform: 'ios', source: src }); });
+      });
+    })();
+    </script>
+    <!-- ANALYTICS:END -->
 </body>
 </html>
