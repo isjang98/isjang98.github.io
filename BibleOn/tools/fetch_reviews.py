@@ -101,12 +101,13 @@ def update_index(cards_html, score, rating_count, installs=None):
         doc = f.read()
     original = doc
 
-    # 1) 리뷰 카드 블록 교체
+    # 1) 리뷰 카드 블록 교체 (공백까지 고정 출력 — 멱등성 보장)
     block = re.compile(
-        r"(<!-- REVIEWS:START[^>]*-->)(.*?)(\s*<!-- REVIEWS:END -->)", re.S)
+        r"(<!-- REVIEWS:START[^>]*-->).*?(<!-- REVIEWS:END -->)", re.S)
     if not block.search(doc):
         sys.exit("ERROR: index.html에 REVIEWS:START/END 마커가 없습니다.")
-    doc = block.sub(lambda m: f"{m.group(1)}\n{cards_html}\n{m.group(3)}", doc)
+    doc = block.sub(
+        lambda m: f"{m.group(1)}\n{cards_html}\n                    {m.group(2)}", doc)
 
     # 2) JSON-LD 평점/리뷰수 갱신(aggregateRating 블록 안에서만)
     if score is not None and rating_count is not None:
