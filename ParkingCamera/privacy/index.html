@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SideCam - 주차 카메라 &amp; 메모 개인정보처리방침</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7faff;
+        --surface: #ffffff;
+        --text: #111827;
+        --muted: #4b5563;
+        --line: #e5e7eb;
+        --accent: #2563eb;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR",
+          "Segoe UI", sans-serif;
+        line-height: 1.7;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 48px 20px 72px;
+      }
+
+      article {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 36px;
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 32px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 34px 0 10px;
+        font-size: 20px;
+        line-height: 1.35;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 10px 0;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 22px;
+        color: var(--muted);
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      strong {
+        color: var(--text);
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .notice {
+        margin-top: 22px;
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: #eff6ff;
+        color: #1e3a8a;
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 24px 14px 48px;
+        }
+
+        article {
+          padding: 24px 18px;
+          border-radius: 14px;
+        }
+
+        h1 {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>개인정보처리방침</h1>
+        <p class="meta">SideCam - 주차 카메라 &amp; 메모 · 시행일: 2026년 08월 09일</p>
+
+        <p class="notice">
+          SideCam은 주차 위치, 와이파이 비밀번호, 영수증처럼 잠깐만 필요한 사진과 메모를
+          기기 안에만 보관하는 카메라 앱입니다. 촬영한 사진과 메모는 서버로 전송되지 않고,
+          앱을 쓰기 위해 계정을 만들 필요도 없습니다.
+        </p>
+
+        <h2>1. 기기 안에 저장되는 정보</h2>
+        <p>
+          아래 정보는 모두 <strong>앱 전용 내부 저장 영역</strong>에 저장되며, 개발자를
+          포함한 외부로 전송되지 않습니다. 다른 앱에서도 접근할 수 없습니다.
+        </p>
+        <ul>
+          <li><strong>촬영한 사진</strong>: 앱에서 찍은 사진 파일과 촬영 시각입니다.</li>
+          <li><strong>사진 메모</strong>: 사진마다 직접 입력하거나 글자 인식으로 채워 넣은 메모(사진당 최대 3개)입니다.</li>
+          <li><strong>셔터 설정</strong>: 셔터 이름, 이모지, 보관 기간, 갤러리 저장·무음 촬영 등 옵션과 순서입니다.</li>
+          <li><strong>주차 공간 정보</strong>: 사용자가 직접 만든 주차 공간 이름(예: 지하 3층 B구역)과 주차한 시각입니다.</li>
+          <li><strong>앱 설정</strong>: 테마, 알림 사용 여부, 자동 실행 사용 여부 등 환경 설정입니다.</li>
+        </ul>
+
+        <h2>2. 사진 속 글자 인식(OCR)</h2>
+        <p>
+          주차·와이파이 셔터 등에서 사진 속 글자를 읽어 메모에 미리 적어 두는 기능은
+          Google ML Kit의 <strong>기기 내 처리(on-device)</strong> 방식으로 동작합니다.
+          사진과 인식된 글자는 인식 과정에서도 기기 밖으로 전송되지 않습니다.
+        </p>
+
+        <h2>3. 이용 통계 정보</h2>
+        <p>
+          앱 개선을 위해 Firebase Analytics로 다음과 같은 <strong>사용 기록</strong>을
+          수집합니다. 사진, 메모 내용, 주차 공간 이름은 포함되지 않습니다.
+        </p>
+        <ul>
+          <li>화면 조회, 앱 실행 경로(위젯·빠른 설정 타일·잠금화면 등)</li>
+          <li>사용한 셔터의 이름과 이모지, 무음 촬영·타이머·플래시·줌 등 카메라 기능 사용 여부</li>
+          <li>글자 인식 성공 여부와 인식된 <strong>글자 수</strong>(글자 내용은 수집하지 않습니다)</li>
+          <li>메모 저장·복사·공유 등 동작의 발생 여부</li>
+          <li>온보딩 진행 단계, 앱 버전, 기기 종류·운영체제 버전 등 Firebase가 자동으로 수집하는 기본 정보</li>
+        </ul>
+        <p>
+          셔터 이름은 사용자가 직접 바꿀 수 있으므로, 셔터 이름에 개인정보를 넣지 않는 것을
+          권장합니다.
+        </p>
+
+        <h2>4. 정보 처리 목적</h2>
+        <ul>
+          <li>촬영한 사진과 메모의 저장, 조회, 검색, 자동 삭제</li>
+          <li>셔터별 촬영 후 동작(갤러리 저장, 무음 촬영, 메모 입력, 보관 기간) 제공</li>
+          <li>주차 공간 기록과 주차 시간 알림 제공</li>
+          <li>차량 블루투스 연결 해제 감지 후 알림 및 카메라 자동 실행</li>
+          <li>홈 화면 위젯, 빠른 설정 타일, 잠금화면 바로가기 동작</li>
+          <li>기능 사용률과 이탈 지점 분석을 통한 앱 개선</li>
+        </ul>
+
+        <h2>5. 보관 기간과 삭제</h2>
+        <ul>
+          <li>사진은 <strong>셔터별로 정한 보관 기간</strong>(30분부터 30일까지)이 지나면 자동으로 삭제됩니다.</li>
+          <li>사용자가 앨범에서 사진을 직접 삭제할 수 있으며, 전체 삭제는 생체 인증을 거칩니다.</li>
+          <li>앱을 삭제하면 기기에 저장된 사진, 메모, 셔터 설정, 주차 공간 정보가 함께 삭제됩니다.</li>
+          <li>사용자가 직접 갤러리에 저장하거나 다른 앱으로 공유한 사진은 앱의 관리 범위를 벗어나므로, 해당 앱에서 별도로 삭제해야 합니다.</li>
+        </ul>
+
+        <h2>6. 제3자 제공 및 외부 서비스</h2>
+        <p>
+          앱은 사용자의 정보를 판매하지 않으며, 사진과 메모를 제3자에게 제공하지 않습니다.
+          다만 서비스 운영을 위해 아래 외부 서비스를 사용합니다.
+        </p>
+        <ul>
+          <li><strong>Google Firebase Analytics</strong>: 앱 이용 통계 수집 및 분석</li>
+          <li><strong>Google ML Kit</strong>: 사진 속 글자 인식(기기 내 처리, 전송 없음)</li>
+          <li><strong>Google Play 인앱 리뷰 · 인앱 업데이트</strong>: 앱 평가 요청과 업데이트 안내</li>
+        </ul>
+        <p>
+          위 서비스는 각 제공자의 개인정보처리방침에 따라 데이터를 처리합니다.
+          기기에서 Android 백업(Google 계정 백업)을 켜 둔 경우, 앱 데이터가 사용자 본인의
+          Google 계정 백업에 포함될 수 있습니다. 이 백업은 사용자 계정에 저장되며 개발자는
+          접근할 수 없습니다.
+        </p>
+
+        <h2>7. 권한 사용 안내</h2>
+        <ul>
+          <li><strong>카메라</strong>: 사진 촬영에 사용됩니다. 촬영 화면에서만 동작합니다.</li>
+          <li><strong>알림</strong>: 차량 연결 해제 안내, 주차 시간 알림에 사용됩니다.</li>
+          <li><strong>블루투스(연결)</strong>: 차량 블루투스 연결이 끊긴 시점을 감지하기 위해 사용됩니다. 통화나 오디오 내용에는 접근하지 않습니다.</li>
+          <li><strong>알람 및 리마인더</strong>: 주차 시간 알림을 정해진 시각에 보내기 위해 사용됩니다.</li>
+          <li><strong>부팅 완료 수신</strong>: 기기를 다시 켠 뒤에도 예약된 알림이 유지되도록 하기 위해 사용됩니다.</li>
+          <li><strong>전체 화면 알림</strong>: 차량 연결 해제 시 카메라를 바로 열기 위해 사용됩니다.</li>
+          <li><strong>생체 인증</strong>: 사진 전체 삭제 등 되돌릴 수 없는 동작을 확인하기 위해 사용됩니다. 생체 정보는 Android 시스템이 처리하며 앱은 인증 성공 여부만 전달받습니다.</li>
+          <li><strong>인터넷 · 네트워크 상태</strong>: 이용 통계 전송과 앱 업데이트 확인에 사용됩니다.</li>
+        </ul>
+
+        <h2>8. 수집하지 않는 정보</h2>
+        <p>
+          앱은 <strong>위치 정보(GPS)</strong>, 이름, 전화번호, 이메일 주소, 주소록, 통화
+          내용, 문자 내용, 마이크 녹음, 기기에 이미 저장된 갤러리 사진을 수집하지 않습니다.
+          주차 위치는 위치 정보가 아니라 사용자가 직접 찍은 사진과 입력한 메모로만 기록됩니다.
+        </p>
+
+        <h2>9. 안전성 확보 조치</h2>
+        <ul>
+          <li>사진과 메모는 다른 앱이 접근할 수 없는 앱 전용 내부 저장 영역에 보관합니다.</li>
+          <li>사진을 서버로 전송하지 않으며, 로그인이나 계정 생성을 요구하지 않습니다.</li>
+          <li>잠금화면 바로가기로 실행한 경우 촬영만 가능하고 앨범과 설정은 잠긴 상태로 유지됩니다.</li>
+          <li>전체 사진 삭제는 생체 인증을 거친 뒤에만 실행됩니다.</li>
+          <li>보관 기간이 지난 사진은 자동으로 삭제되어 불필요한 데이터가 남지 않습니다.</li>
+        </ul>
+
+        <h2>10. 사용자의 권리</h2>
+        <ul>
+          <li>사진과 메모를 언제든지 개별 또는 전체 삭제할 수 있습니다.</li>
+          <li>갤러리 저장과 외부 공유는 사용자가 직접 실행할 때만 이루어집니다.</li>
+          <li>셔터별 보관 기간을 직접 정하거나 변경할 수 있습니다.</li>
+          <li>알림, 자동 실행, 카메라 권한은 기기 설정에서 언제든지 해제할 수 있습니다.</li>
+          <li>이용 통계 수집은 기기 설정의 <strong>광고 ID 삭제·재설정</strong> 등 Android 개인정보 설정으로 제한할 수 있습니다.</li>
+          <li>앱 삭제로 기기에 저장된 모든 데이터를 삭제할 수 있습니다.</li>
+        </ul>
+
+        <h2>11. 아동의 개인정보</h2>
+        <p>
+          이 앱은 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 개인정보를 의도적으로
+          수집하지 않습니다.
+        </p>
+
+        <h2>12. 개인정보처리방침 변경</h2>
+        <p>
+          본 개인정보처리방침은 앱 기능, 관련 법령, 운영 정책 변경에 따라 수정될 수
+          있습니다. 변경이 있는 경우 앱 또는 배포 페이지를 통해 안내합니다.
+        </p>
+
+        <h2>13. 문의처</h2>
+        <p>
+          개인정보 관련 문의는 아래 이메일로 연락해 주세요.
+          <br />
+          이메일:
+          <a href="mailto:isjang98@gmail.com">isjang98@gmail.com</a>
+        </p>
+
+        <p class="meta">
+          ※ 기존 &lsquo;주차카메라(ParkingCamera)&rsquo; 앱이 &lsquo;SideCam&rsquo;으로
+          이름이 바뀌었습니다. 본 방침은 SideCam에 적용됩니다.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
