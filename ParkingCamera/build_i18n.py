@@ -73,9 +73,9 @@ def build(src, code, d):
     h = src
 
     # ---- 상대경로를 상위 디렉토리 기준으로 (하위 디렉토리에서 서빙되므로) ----
+    # href="privacy/" 는 그대로 둔다 — /{code}/privacy/ (해당 언어 방침)로 연결된다
     h = h.replace('src="assets/', 'src="../assets/')
     h = h.replace('href="assets/', 'href="../assets/')
-    h = h.replace('href="privacy/', 'href="../privacy/')
 
     # ---- 문서 언어 / 메타 ----
     h = sub_once(h, r'<html lang="ko">', f'<html lang="{code}">', 'html lang')
@@ -187,15 +187,67 @@ def build(src, code, d):
     return h
 
 
+LANG_LABEL = {'ko': '한국어', 'en': 'English', 'de': 'Deutsch', 'fr': 'Français',
+              'ja': '日本語', 'vi': 'Tiếng Việt', 'zh-CN': '简体中文', 'zh-TW': '繁體中文'}
+
+
+def lang_nav(current):
+    """privacy 페이지 상단 언어 링크. current 위치 기준 상대경로로 만든다."""
+    items = []
+    for c in ['ko'] + LANGS:
+        label = LANG_LABEL[c]
+        if c == current:
+            items.append(f'<strong>{label}</strong>')
+        else:
+            # ko 페이지는 /privacy/, 언어 페이지는 /{code}/privacy/ 에 있다
+            if current == 'ko':
+                href = f'../{c}/privacy/'
+            else:
+                href = '../../privacy/' if c == 'ko' else f'../../{c}/privacy/'
+            items.append(f"<a href='{href}'>{label}</a>")
+    return ('<nav class="langs" aria-label="Languages">' + ' · '.join(items) + '</nav>')
+
+
+def build_privacy(src, code, d):
+    url = f'{BASE_URL}{code}/privacy/'
+    h = src
+    h = sub_once(h, r'<html lang="ko">', f'<html lang="{code}">', 'privacy html lang')
+    h = sub_once(h, r'<title>.*?</title>', f'<title>{escape(d["privacy.title"])}</title>', 'privacy title')
+    h = sub_once(h, r'(<meta name="description" content=")[^"]*(")',
+                 lambda m: m.group(1) + escape(d['privacy.desc'], quote=True) + m.group(2), 'privacy desc')
+    h = sub_once(h, r'(rel="canonical" href=")[^"]*(")',
+                 lambda m: m.group(1) + url + m.group(2), 'privacy canonical')
+
+    page_keys = sorted(set(re.findall(r'data-i18n="([^"]+)"', h)))
+    missing = [k for k in page_keys if k not in d]
+    if missing:
+        die(f'privacy-{code}.json 에 없는 키: {missing}')
+    for k in page_keys:
+        h, n = replace_inner(h, k, d[k])
+        if n == 0:
+            die(f'{k}: 교체 0회')
+
+    # 언어 네비를 현재 페이지 기준으로 재작성
+    h = sub_once(h, r'<nav class="langs"[^>]*>.*?</nav>', lang_nav(code), 'privacy lang nav')
+    return h
+
+
 def main():
     src = (ROOT / 'index.html').read_text(encoding='utf-8')
+    priv_src = (ROOT / 'privacy' / 'index.html').read_text(encoding='utf-8')
     for code in LANGS:
         d = json.loads((ROOT / 'assets' / 'i18n' / f'{code}.json').read_text(encoding='utf-8'))
         out = build(src, code, d)
         outdir = ROOT / code
         outdir.mkdir(exist_ok=True)
         (outdir / 'index.html').write_text(out, encoding='utf-8')
-        print(f'  {code}/index.html  ({len(out):,}자)  title="{d["meta.title"][:40]}"')
+
+        pd = json.loads((ROOT / 'assets' / 'i18n' / f'privacy-{code}.json').read_text(encoding='utf-8'))
+        pout = build_privacy(priv_src, code, pd)
+        pdir = outdir / 'privacy'
+        pdir.mkdir(exist_ok=True)
+        (pdir / 'index.html').write_text(pout, encoding='utf-8')
+        print(f'  {code}/index.html ({len(out):,}자) + {code}/privacy/ ({len(pout):,}자)')
     print(f'{len(LANGS)}개 언어 페이지 생성 완료')
 
 

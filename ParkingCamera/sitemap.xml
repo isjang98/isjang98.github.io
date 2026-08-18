@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/en/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -33,7 +33,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/de/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/fr/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/ja/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/vi/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/zh-CN/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -108,7 +108,7 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/zh-TW/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/"/>
@@ -123,8 +123,122 @@
   </url>
   <url>
     <loc>https://isjang98.github.io/ParkingCamera/privacy/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/en/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/de/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/fr/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/ja/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/vi/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/zh-CN/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+  </url>
+  <url>
+    <loc>https://isjang98.github.io/ParkingCamera/zh-TW/privacy/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://isjang98.github.io/ParkingCamera/en/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://isjang98.github.io/ParkingCamera/de/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://isjang98.github.io/ParkingCamera/fr/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://isjang98.github.io/ParkingCamera/ja/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://isjang98.github.io/ParkingCamera/vi/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://isjang98.github.io/ParkingCamera/zh-CN/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://isjang98.github.io/ParkingCamera/zh-TW/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://isjang98.github.io/ParkingCamera/privacy/"/>
   </url>
 </urlset>
