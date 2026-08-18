@@ -1017,6 +1017,15 @@ footer{border-top:1px solid var(--line);padding:44px 0 96px}
     var url = new URL(location.href);
     if (code === 'ko') url.searchParams.delete('lang'); else url.searchParams.set('lang', code);
     history.replaceState(null, '', url);
+
+    // canonical·og:url 을 현재 언어 URL로 동기화 — 정적 canonical 이 남으면
+    // 모든 ?lang= URL이 한국어 기본 URL의 복사본으로 취급되어 hreflang 과 모순된다
+    var BASE_URL = 'https://isjang98.github.io/ParkingCamera/';
+    var langUrl = code === 'ko' ? BASE_URL : BASE_URL + '?lang=' + code;
+    var canon = document.querySelector('link[rel="canonical"]');
+    if (canon) canon.setAttribute('href', langUrl);
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', langUrl);
   }
 
   function setLang(code){
