@@ -894,6 +894,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 96px}
   var SUPPORTED = ['ko','en','de','fr','ja','vi','zh-CN','zh-TW'];
   var dicts = {};          // lang → 사전. ko 는 최초 전환 시 DOM 에서 수집한다
   var origImg = {};        // data-i18n-img 원본 src/width/height (ko 복원용)
+  var origVid = null;      // 문제 섹션 영상 원본 src/poster (ko 복원용)
   var current = 'ko';
 
   function normalize(tag){
@@ -962,6 +963,19 @@ footer{border-top:1px solid var(--line);padding:44px 0 96px}
 
     var vid = document.getElementById('parkingVideo');
     if (vid && d['video.aria']) vid.setAttribute('aria-label', d['video.aria']);
+    // 언어별 영상 교체 (배우·장면까지 언어권별로 다른 현지화 영상, ko 는 원본 복원)
+    if (vid) {
+      if (!origVid) origVid = { src: vid.getAttribute('src'), poster: vid.getAttribute('poster') };
+      var vsrc = code === 'ko' ? origVid.src : 'assets/i18n/sidecam_parking-' + code + '.mp4';
+      if (vid.getAttribute('src') !== vsrc) {
+        var wasPlaying = !vid.paused;
+        vid.setAttribute('poster', code === 'ko' ? origVid.poster : 'assets/i18n/sidecam_parking_poster-' + code + '.webp');
+        vid.setAttribute('src', vsrc);
+        vid.load();
+        // 재생 중에 언어를 바꾸면 새 영상을 이어서 재생한다 (실패는 무시 — 다시 화면에 들어오면 재생됨)
+        if (wasPlaying) { var vp = vid.play(); if (vp && vp.catch) vp.catch(function(){}); }
+      }
+    }
     var vsl = document.querySelector('#parkingVideoSound .vs-lbl');
     if (vsl && vid) vsl.textContent = vid.muted ? d['video.on'] : d['video.off'];
 
