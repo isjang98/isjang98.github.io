@@ -1314,6 +1314,20 @@
             show();
         })();
     </script>
-
+<script>
+const p = new URLSearchParams(location.search);
+const utm = ["utm_source","utm_medium","utm_campaign","utm_content"]
+  .filter(k => p.get(k))
+  .map(k => k + "=" + p.get(k))
+  .join("&");
+if (utm) {
+  document.querySelectorAll('a[href*="play.google.com/store/apps/details"]')
+    .forEach(a => {
+      const u = new URL(a.href);
+      u.searchParams.set("referrer", utm);
+      a.href = u.toString();
+    });
+}
+</script>
 </body>
 </html>

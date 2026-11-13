@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/isjang98/personal/FastTodo/**)",
+      "Read(//Users/isjang98/personal/isjang98.github.io/**)"
+    ]
+  }
+}

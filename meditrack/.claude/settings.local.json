@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/isjang98/personal/isjang98.github.io/meditrack/assets/screenshots/ko /Users/isjang98/personal/isjang98.github.io/meditrack/assets/screenshots/en /Users/isjang98/personal/isjang98.github.io/meditrack/assets/img)",
+      "Bash(cp /Users/isjang98/personal/meditrack/playstore-assets/output/ko/*.png /Users/isjang98/personal/isjang98.github.io/meditrack/assets/screenshots/ko/)",
+      "Bash(cp /Users/isjang98/personal/meditrack/playstore-assets/output/en/*.png /Users/isjang98/personal/isjang98.github.io/meditrack/assets/screenshots/en/)",
+      "Bash(cp /Users/isjang98/personal/meditrack/app-icon/app-icon.png /Users/isjang98/personal/isjang98.github.io/meditrack/assets/img/app-icon.png)",
+      "Bash(open -a \"Google Chrome\" /Users/isjang98/personal/isjang98.github.io/meditrack/index.html)",
+      "Bash(open /Users/isjang98/personal/isjang98.github.io/meditrack/index.html)",
+      "Bash(mkdir -p /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/screenshots /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/img)",
+      "Bash(cp /Users/isjang98/personal/Daily3Words/d3w_verify.png /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/screenshots/01-home.png)",
+      "Bash(cp /Users/isjang98/personal/Daily3Words/d3w_verify2.png /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/screenshots/02-learn.png)",
+      "Bash(cp /Users/isjang98/personal/Daily3Words/d3w_verify3.png /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/screenshots/03-review.png)",
+      "Bash(cp /Users/isjang98/personal/Daily3Words/d3w_month_heatmap.png /Users/isjang98/personal/isjang98.github.io/Daily3Words/assets/screenshots/04-streak.png)",
+      "Bash(open -a \"Google Chrome\" /Users/isjang98/personal/isjang98.github.io/Daily3Words/index.html)",
+      "Bash(open /Users/isjang98/personal/isjang98.github.io/Daily3Words/index.html)",
+      "Bash(xargs -I{} bash -c 'echo \"{}: $\\(sips -g pixelWidth -g pixelHeight \"{}\" 2>/dev/null | grep pixel | awk \"{print \\\\$2}\" | tr \"\\\\n\" \"x\" | sed \"s/x$//\"\\)\"')",
+      "Bash(curl *)",
+      "Bash(python3 *)",
+      "Bash(git -C /Users/isjang98/personal/isjang98.github.io status --short)",
+      "Bash(git -C /Users/isjang98/personal/isjang98.github.io diff --stat)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"http.server 8765\")",
+      "Bash(lsof -ti:8765)"
+    ]
+  }
+}

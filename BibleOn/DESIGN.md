@@ -33,7 +33,7 @@ Motion
 - `.site-nav` fixed glass nav (blur + cream 82%), hairline on scroll; active CTA pill.
 - `.cta-button` solid ink pill (store badges), white icon/text; inside accent panel → white surface variant. Classes `cta-button--android/--ios` are an analytics contract — never rename.
 - `.trust-badge` white pill, hairline, `data-rating/data-reviews/data-installs` spans are a fetch_reviews.py contract.
-- `.feature-item` ivory card, 12-col grid (2×span6 + 3×span4 + 2×span6); icon = inline SVG stroke 1.7 in warm wash chip. No emoji icons.
+- `.feature-item` ivory card, four groups in a 2×2 grid; icon = inline SVG stroke 1.7 in warm wash chip. No emoji icons.
 - `.screenshot-gallery` snap-scroll strip, radius 20, hidden scrollbar, edge-fade mask.
 - `.reviews-grid` CSS-columns masonry (3/2/1). `.review-card` inner class names are a fetch_reviews.py contract — style only.
 - FAQ `details` hairline list, CSS "+" marker rotating 45°.
@@ -42,4 +42,18 @@ Motion
 ## 3. Accessibility & Debt
 - Focus: `:focus-visible` 2px accent ring everywhere (only colored edge allowed).
 - Reveal classes added by JS only → no-JS users see full content.
-- Debt: review stars are ⭐ text from the generator script (accepted); hero uses store-marketing screenshots with baked-in captions (accepted until clean device frames exist).
+- Debt: review stars are ⭐ text from the generator script (accepted). The page intentionally keeps its light editorial theme under both system color schemes; dark mode is an app feature, not a landing-page theme.
+
+## 4. Layout — 2026-10-25 content refresh
+- Layout: hero, cards, mosaic — pair product evidence with its explanation -> split-screen (https://github.com/changeroa/StyleGallery/blob/main/patterns/split-sidebar/split-screen.md); scroll owner: document; anti-patterns: no nested vertical scrolling or CSS reordering of reading order. Two columns above 960px, one column below.
+- Layout: app previews and SNS videos — browse a sequence without lengthening the page -> reel (https://github.com/changeroa/StyleGallery/blob/main/patterns/in-line-grouping/reel.md); scroll owners: `.screenshot-gallery`, `.verse-gallery` horizontally, document vertically; anti-patterns: no page-wide horizontal overflow, no swipe-only access.
+- New product panels use the existing ivory, band and accent-wash tokens, 28px corners, and 24/32/48px gaps. Screenshots retain their native ratio; the mosaic close-up crops only the actual board, with its example progress stated.
+- Hero: 560px visual region on desktop, responsive paired screens on mobile. Main display remains Paperlogy; secondary notes use `--ink-2` for contrast.
+
+## 5. Page brief — latest Android features, iOS update planned
+- Primary action: download the app. Google Play is the primary filled button; App Store is an equally sized secondary button.
+- Information priorities: (1) illustrated daily Scripture, (2) keep and revisit verse cards, (3) build a mosaic through reflection and memorization.
+- Required content: store links and analytics classes; fetched rating/review/install anchors; authentic review block and generator markers; all eight latest store screenshots; reflection, emotion, memorization, calendar, church calendar, statistics, reminders, widgets and dark mode; independent SNS video gallery; privacy link; FAQ and matching structured data.
+- New Android feature sections state that the corresponding iOS update is planned. Do not promise a release date, cloud storage, automatic archiving of every verse, or a consecutive 100-day requirement.
+- Left out on purpose: a release changelog, duplicated promotional captions in the hero, a donation sales section, extra decorative badges and feature-count headlines.
+- Assets: Android 1.8.1 original captures for the hero/product sections; the eight Korean store exports for the preview reel. Ship resized WebP derivatives; retain old PNG assets for existing external links.
