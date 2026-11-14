@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>말씀온 - 귀여운 성경 말씀 카드, 오늘의 말씀</title>
+    <title data-en="BibleOn - Illustrated Bible Verse Cards &amp; Daily Reflection">말씀온 - 귀여운 성경 말씀 카드, 오늘의 말씀</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="귀여운 그림으로 만나는 오늘의 성경 말씀. 말씀 카드 저장·공유, 묵상 노트와 알림으로 하루를 시작하세요. Android에서는 말씀 모자이크와 저장 갤러리도 만나보세요.">
+    <meta name="description" data-en-content="Meet daily Scripture through warm illustrations. Save and share verse cards, keep a reflection journal, and set reminders. Discover Scripture mosaics and a saved-card gallery on Android." content="귀여운 그림으로 만나는 오늘의 성경 말씀. 말씀 카드 저장·공유, 묵상 노트와 알림으로 하루를 시작하세요. Android에서는 말씀 모자이크와 저장 갤러리도 만나보세요.">
     <meta name="keywords" content="말씀온, 오늘의말씀, 말씀카드, 성경말씀이미지, 말씀모자이크, 묵상, QT, 개역개정, 말씀외우기, 성경암송, 감정일기, 말씀알림, 말씀위젯, BibleOn">
     <meta name="author" content="Insu Corp.">
     <meta name="robots" content="index, follow">
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="말씀온 - 귀여운 성경 말씀 카드, 오늘의 말씀">
     <meta property="og:description" content="그림으로 말씀을 만나고, 마음에 남는 카드를 간직하세요. 묵상과 암송으로 완성하는 말씀 모자이크는 Android에서 먼저 만나볼 수 있어요.">
-    <meta property="og:image" content="https://isjang98.github.io/BibleOn/images/share-card.webp">
+    <meta property="og:image" data-en-content="https://isjang98.github.io/BibleOn/images/en/share-card.webp" content="https://isjang98.github.io/BibleOn/images/share-card.webp">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="500">
     <meta property="og:image:alt" content="귀여운 그림으로 만나는 오늘의 말씀, 말씀온">
@@ -31,7 +31,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="말씀온 - 귀여운 성경 말씀 카드, 오늘의 말씀">
     <meta name="twitter:description" content="그림으로 말씀을 만나고, 마음에 남는 카드를 간직하세요. 묵상과 암송으로 완성하는 말씀 모자이크는 Android에서 먼저 만나볼 수 있어요.">
-    <meta name="twitter:image" content="https://isjang98.github.io/BibleOn/images/share-card.webp">
+    <meta name="twitter:image" data-en-content="https://isjang98.github.io/BibleOn/images/en/share-card.webp" content="https://isjang98.github.io/BibleOn/images/share-card.webp">
     <meta name="twitter:image:alt" content="귀여운 그림으로 만나는 오늘의 말씀, 말씀온">
     
     <!-- App & Theme -->
@@ -47,9 +47,9 @@
     <!-- <meta name="google-site-verification" content="YOUR_GOOGLE_CODE"> -->
     
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="https://isjang98.github.io/assets/img/bible_on.png">
-    <link rel="apple-touch-icon" href="https://isjang98.github.io/assets/img/bible_on.png">
-    <link rel="shortcut icon" href="https://isjang98.github.io/assets/img/bible_on.png">
+    <link rel="icon" type="image/png" href="https://isjang98.github.io/assets/img/bible_on.png" data-en-href="images/en/app-icon.png">
+    <link rel="apple-touch-icon" href="https://isjang98.github.io/assets/img/bible_on.png" data-en-href="images/en/app-icon.png">
+    <link rel="shortcut icon" href="https://isjang98.github.io/assets/img/bible_on.png" data-en-href="images/en/app-icon.png">
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -97,7 +97,7 @@
         "screenshot": "https://isjang98.github.io/BibleOn/images/preview-01-hero.webp",
         "image": "https://isjang98.github.io/assets/img/bible_on.png",
         "url": "https://isjang98.github.io/BibleOn/",
-        "inLanguage": "ko"
+        "inLanguage": ["ko", "en"]
     }
     </script>
 
@@ -190,7 +190,7 @@
             padding: 12px 24px;
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 16px;
         }
         .nav-brand {
             display: inline-flex;
@@ -225,7 +225,32 @@
             transition: transform .2s ease, background-color .2s ease;
         }
         .nav-cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
-        @media (max-width: 720px) { .nav-links { display: none; } .nav-cta { margin-left: auto; } }
+        .language-switch {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--ink-2);
+            font-size: .86rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .language-switch:hover { background: var(--gold-wash); color: var(--ink); }
+        .language-switch:active { background: var(--accent-wash); }
+        .nav-brand, .nav-cta, .language-switch { flex-shrink: 0; }
+        @media (max-width: 960px) {
+            .nav-links { display: none; }
+            .language-switch { margin-left: auto; }
+        }
+        @media (max-width: 480px) {
+            .nav-inner { gap: 8px; padding: 12px 16px; }
+            .nav-brand { gap: 8px; font-size: .95rem; }
+            .nav-cta { padding: 10px 12px; font-size: .82rem; }
+            .language-switch { padding: 8px; }
+        }
 
         /* ============ Hero ============ */
         header.hero {
@@ -581,6 +606,16 @@
         .verse-card.sound-on .sound-toggle .icon-off { display: none; }
         .verse-card.sound-on .sound-toggle { background: var(--accent, #D9634E); }
         @media (max-width: 640px) { .verse-card video { height: 400px; } }
+        .english-promo { max-width: 320px; margin: 0 auto; }
+        .english-promo video {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-card);
+            background: var(--ink);
+        }
+        .english-promo .section-note { margin-top: 20px; text-align: center; }
 
         /* ============ Reviews (fetch_reviews.py contract: class names fixed) ============ */
         .reviews-grid { columns: 3; column-gap: 20px; }
@@ -709,38 +744,39 @@
 </head>
 <body>
 
-    <nav class="site-nav" id="siteNav" aria-label="주요 메뉴">
+    <nav class="site-nav" id="siteNav" aria-label="주요 메뉴" data-en-label="Main navigation">
         <div class="nav-inner">
             <a class="nav-brand" href="#top">
-                <img src="https://isjang98.github.io/assets/img/bible_on.png" alt="말씀온 앱 아이콘" width="32" height="32">
-                <span>말씀온</span>
+                <img src="https://isjang98.github.io/assets/img/bible_on.png" data-en-src="images/en/app-icon.webp" alt="말씀온 앱 아이콘" data-en-alt="BibleOn app icon" width="32" height="32">
+                <span data-en="BibleOn">말씀온</span>
             </a>
             <div class="nav-links">
-                <a href="#cards">말씀 카드</a>
-                <a href="#mosaic">모자이크</a>
-                <a href="#screenshots">미리보기</a>
-                <a href="#reviews">후기</a>
+                <a href="#cards" data-en="Verse cards">말씀 카드</a>
+                <a href="#mosaic" data-en="Mosaic">모자이크</a>
+                <a href="#screenshots" data-en="Preview">미리보기</a>
+                <a href="#reviews" data-ko-only>후기</a>
                 <a href="#faq">FAQ</a>
             </div>
-            <a class="nav-cta" href="#download">앱 다운로드</a>
+            <a class="language-switch" href="?lang=en" lang="en" hreflang="en" aria-label="View this page in English">English</a>
+            <a class="nav-cta" href="#download" data-en="Get the app">앱 다운로드</a>
         </div>
     </nav>
 
     <header class="hero" id="top">
         <div class="container hero-grid">
             <div class="hero-copy">
-                <p class="hero-eyebrow">말씀온 · 오늘의 말씀</p>
-                <h1>귀여운 그림으로<br>만나는 말씀,<br><em>매일 쌓이는 묵상</em></h1>
-                <p class="hero-lead">오늘의 말씀을 읽고 마음을 기록해 보세요.<br>좋아하는 말씀 카드는 간직하고,<br>묵상과 암송으로 나만의 모자이크를 완성해요.</p>
+                <p class="hero-eyebrow" data-en="BibleOn · Daily Scripture">말씀온 · 오늘의 말씀</p>
+                <h1 data-en="A verse to cherish.&lt;br&gt;&lt;em&gt;Room to grow.&lt;/em&gt;">귀여운 그림으로<br>만나는 말씀,<br><em>매일 쌓이는 묵상</em></h1>
+                <p class="hero-lead" data-en="Meet daily Scripture through gentle illustrations. Save the verses you love, write what's on your heart, and build your own mosaic through reflection and memorization.">오늘의 말씀을 읽고 마음을 기록해 보세요.<br>좋아하는 말씀 카드는 간직하고,<br>묵상과 암송으로 나만의 모자이크를 완성해요.</p>
                 <div class="trust-badge">
                     <span>⭐ <strong data-rating>4.6</strong></span>
                     <span class="sep">·</span>
-                    <span>리뷰 <strong data-reviews>167</strong>개</span>
+                    <span><span data-en="Reviews">리뷰</span> <strong data-reviews>167</strong><span data-en="">개</span></span>
                     <span class="sep">·</span>
-                    <span><strong data-installs>5,000+</strong> 설치</span>
+                    <span><strong data-installs>5,000+</strong> <span data-en="installs">설치</span></span>
                 </div>
                 <div class="cta-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button cta-button--android" target="_blank" rel="noopener" aria-label="Google Play에서 말씀온 다운로드">
+                    <a href="https://play.google.com/store/apps/details?id=kr.bibleon" data-en-href="https://play.google.com/store/apps/details?id=kr.bibleon&amp;hl=en" class="cta-button cta-button--android" target="_blank" rel="noopener" aria-label="Google Play에서 말씀온 다운로드">
                         <span class="store-icon" aria-hidden="true">
                             <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#2196F3"/>
@@ -766,15 +802,15 @@
                         </span>
                     </a>
                 </div>
-                <p class="hero-note">무료 다운로드 · 광고 및 선택적 후원 포함</p>
+                <p class="hero-note" data-en="Free to download · Ads and optional support">무료 다운로드 · 광고 및 선택적 후원 포함</p>
             </div>
             <div class="hero-visual">
                 <div class="hero-phone">
-                    <img src="images/app-home.webp" alt="말씀 일러스트와 묵상 기록을 함께 보는 최신 Android 홈 화면" width="640" height="1428" fetchpriority="high">
+                    <img src="images/app-home.webp" data-en-src="images/en/app-home.webp" alt="말씀 일러스트와 묵상 기록을 함께 보는 최신 Android 홈 화면" data-en-alt="English Android home screen with illustrated Scripture and reflection entries" width="640" height="1428" fetchpriority="high">
                 </div>
                 <figure class="hero-mosaic">
-                    <img src="images/mosaic-progress.webp" alt="조각을 모아 그림을 완성하는 말씀 모자이크 예시" width="720" height="720">
-                    <figcaption><strong>묵상이 모여, 한 장의 그림</strong>말씀 모자이크</figcaption>
+                    <img src="images/mosaic-progress.webp" data-en-src="images/en/mosaic-progress.webp" data-en-height="900" alt="조각을 모아 그림을 완성하는 말씀 모자이크 예시" data-en-alt="English Verse Mosaic screen, revealed one piece at a time" width="720" height="720">
+                    <figcaption data-en="&lt;strong&gt;Small reflections, one picture&lt;/strong&gt;Scripture mosaic"><strong>묵상이 모여, 한 장의 그림</strong>말씀 모자이크</figcaption>
                 </figure>
             </div>
         </div>
@@ -783,41 +819,41 @@
     <main>
         <section id="intro">
             <div class="container intro-text">
-                <h2>읽고, 간직하고, 조금씩 자라는 시간</h2>
-                <p>말씀 한 구절과 그림 한 장으로 시작해요.<br>마음에 닿은 말씀을 모으다 보면, 나의 묵상도 쌓여갑니다.</p>
+                <h2 data-en="Read, cherish, and grow a little each day">읽고, 간직하고, 조금씩 자라는 시간</h2>
+                <p data-en="Start with one verse and one illustration.&lt;br&gt;As you collect the words that speak to you, your reflections grow too.">말씀 한 구절과 그림 한 장으로 시작해요.<br>마음에 닿은 말씀을 모으다 보면, 나의 묵상도 쌓여갑니다.</p>
             </div>
         </section>
 
         <section id="cards" aria-labelledby="cards-title">
             <div class="container product-grid">
                 <div class="product-copy">
-                    <p class="section-eyebrow">말씀 카드 · 저장 갤러리</p>
-                    <h2 id="cards-title">마음에 남는 말씀,<br>카드로 간직하세요</h2>
-                    <p>귀여운 일러스트에 담긴 오늘의 말씀.<br>다시 읽고 싶은 구절은 저장하고, 소중한 사람에게 위로를 나눠보세요.</p>
+                    <p class="section-eyebrow" data-en="Verse cards · Saved gallery">말씀 카드 · 저장 갤러리</p>
+                    <h2 id="cards-title" data-en="Keep the verses&lt;br&gt;that stay with you">마음에 남는 말씀,<br>카드로 간직하세요</h2>
+                    <p data-en="Daily Scripture, brought to life with warm illustrations. Save a verse to read again, or share a little comfort with someone you love.">귀여운 일러스트에 담긴 오늘의 말씀.<br>다시 읽고 싶은 구절은 저장하고, 소중한 사람에게 위로를 나눠보세요.</p>
                     <ul class="product-points">
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
-                            <div><strong>좋아하는 말씀을 내 기기에</strong><span>말씀 이미지를 저장해 두고 오래 간직해요.</span></div>
+                            <div><strong data-en="Your favorite verses, on your device">좋아하는 말씀을 내 기기에</strong><span data-en="Save verse images to keep close and revisit.">말씀 이미지를 저장해 두고 오래 간직해요.</span></div>
                         </li>
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4m8-4v4M3 10h18m-12 5h6"/></svg>
-                            <div><strong>저장한 카드는 달력에서 다시</strong><span>갤러리에서 모아 보고, 크게 열어 감상해요.</span></div>
+                            <div><strong data-en="Revisit saved cards in your calendar">저장한 카드는 달력에서 다시</strong><span data-en="Browse your gallery and open each card in full view.">갤러리에서 모아 보고, 크게 열어 감상해요.</span></div>
                         </li>
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4m-6.8 7 6.8 4"/></svg>
-                            <div><strong>함께 나누고 싶은 한 구절</strong><span>카카오톡이나 SNS로 말씀과 마음을 전해요.</span></div>
+                            <div><strong data-en="A verse worth sharing">함께 나누고 싶은 한 구절</strong><span data-en="Share Scripture and encouragement through KakaoTalk or social media.">카카오톡이나 SNS로 말씀과 마음을 전해요.</span></div>
                         </li>
                     </ul>
-                    <p class="platform-note">저장 갤러리는 Android에서 먼저 제공되며, iOS도 업데이트 예정입니다.</p>
+                    <p class="platform-note" data-en="The saved gallery is available on Android first. An iOS update is planned.">저장 갤러리는 Android에서 먼저 제공되며, iOS도 업데이트 예정입니다.</p>
                 </div>
                 <div class="product-visual">
                     <figure class="product-screen">
-                        <img src="images/app-card.webp" alt="요한일서 4장 10절 말씀 카드 전체화면" width="640" height="1428" loading="lazy" decoding="async">
-                        <figcaption>오늘 마음에 닿은 말씀</figcaption>
+                        <img src="images/app-card.webp" data-en-src="images/en/app-card.webp" alt="요한일서 4장 10절 말씀 카드 전체화면" data-en-alt="An English full-screen verse card for 1 Corinthians 10:13" width="640" height="1428" loading="lazy" decoding="async">
+                        <figcaption data-en="A verse that speaks to you">오늘 마음에 닿은 말씀</figcaption>
                     </figure>
                     <figure class="product-screen">
-                        <img src="images/app-gallery.webp" alt="저장한 말씀 카드를 다시 여는 Android 달력 갤러리" width="640" height="1428" loading="lazy" decoding="async">
-                        <figcaption>다시 꺼내 보는 나의 카드</figcaption>
+                        <img src="images/app-gallery.webp" data-en-src="images/en/app-gallery.webp" alt="저장한 말씀 카드를 다시 여는 Android 달력 갤러리" data-en-alt="English Android calendar gallery with saved verse cards" width="640" height="1428" loading="lazy" decoding="async">
+                        <figcaption data-en="Your cards, ready to revisit">다시 꺼내 보는 나의 카드</figcaption>
                     </figure>
                 </div>
             </div>
@@ -826,19 +862,19 @@
         <section id="mosaic" aria-labelledby="mosaic-title">
             <div class="container product-grid">
                 <div class="product-copy">
-                    <p class="section-eyebrow">말씀 모자이크</p>
-                    <h2 id="mosaic-title">오늘의 묵상이,<br>한 장의 그림이 됩니다</h2>
-                    <p>묵상을 남기고 말씀을 외우며 조각을 모아보세요. 작은 실천이 쌓일 때마다 그림이 조금씩 드러나요.</p>
+                    <p class="section-eyebrow" data-en="Scripture mosaic">말씀 모자이크</p>
+                    <h2 id="mosaic-title" data-en="Today's reflection.&lt;br&gt;Tomorrow's picture.">오늘의 묵상이,<br>한 장의 그림이 됩니다</h2>
+                    <p data-en="Collect pieces as you write reflections and memorize Scripture. Each small step reveals a little more of the picture.">묵상을 남기고 말씀을 외우며 조각을 모아보세요. 작은 실천이 쌓일 때마다 그림이 조금씩 드러나요.</p>
                     <ol class="mosaic-steps">
-                        <li><div><strong>묵상을 남기고 한 조각</strong><span>말씀을 읽고 오늘의 마음을 글로 기록해요.</span></div></li>
-                        <li><div><strong>말씀을 외우고 또 한 조각</strong><span>암송을 완료하면 하루에 한 조각을 더 모아요.</span></div></li>
-                        <li><div><strong>내 속도로 그림 완성하기</strong><span>누적되는 여정이라 하루 쉬어도 처음으로 돌아가지 않아요.</span></div></li>
+                        <li><div><strong data-en="One piece for a reflection">묵상을 남기고 한 조각</strong><span data-en="Read the verse and write what's on your heart today.">말씀을 읽고 오늘의 마음을 글로 기록해요.</span></div></li>
+                        <li><div><strong data-en="Another piece for memorization">말씀을 외우고 또 한 조각</strong><span data-en="Complete memorization to collect one more piece that day.">암송을 완료하면 하루에 한 조각을 더 모아요.</span></div></li>
+                        <li><div><strong data-en="Finish the picture at your own pace">내 속도로 그림 완성하기</strong><span data-en="Your progress adds up. Taking a day off won't send you back to the start.">누적되는 여정이라 하루 쉬어도 처음으로 돌아가지 않아요.</span></div></li>
                     </ol>
-                    <p class="platform-note">말씀 모자이크는 Android에서 먼저 제공되며, iOS도 업데이트 예정입니다.</p>
+                    <p class="platform-note" data-en="Scripture mosaics are available on Android first. An iOS update is planned.">말씀 모자이크는 Android에서 먼저 제공되며, iOS도 업데이트 예정입니다.</p>
                 </div>
                 <figure class="mosaic-visual">
-                    <img src="images/mosaic-progress.webp" alt="15조각 중 8조각이 열린 말씀 모자이크의 실제 진행 화면" width="720" height="720" loading="lazy" decoding="async">
-                    <figcaption><strong>조각조각 쌓이는 나의 묵상</strong><span>실제 앱 화면 · 8/15 조각 예시</span></figcaption>
+                    <img src="images/mosaic-progress.webp" data-en-src="images/en/mosaic-progress.webp" data-en-height="900" alt="15조각 중 8조각이 열린 말씀 모자이크의 실제 진행 화면" data-en-alt="English Verse Mosaic screen with 8 of 15 pieces revealed" width="720" height="720" loading="lazy" decoding="async">
+                    <figcaption><strong data-en="Your reflections, piece by piece">조각조각 쌓이는 나의 묵상</strong><span data-en="Actual app screen · Example: 8/15 pieces">실제 앱 화면 · 8/15 조각 예시</span></figcaption>
                 </figure>
             </div>
         </section>
@@ -846,29 +882,29 @@
         <section id="features">
             <div class="container">
                 <div class="section-header">
-                    <p class="section-eyebrow">매일의 묵상 습관</p>
-                    <h2>말씀과 함께하는 나만의 하루</h2>
+                    <p class="section-eyebrow" data-en="A daily rhythm of reflection">매일의 묵상 습관</p>
+                    <h2 data-en="Make room for Scripture in your day">말씀과 함께하는 나만의 하루</h2>
                 </div>
                 <ul class="feature-grid">
                     <li class="feature-item">
                         <div class="icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6a2 2 0 0 1 2 2v15a3 3 0 0 0-3-3H4zm16 0h-6a2 2 0 0 0-2 2v15a3 3 0 0 1 3-3h5z"/></svg></div>
-                        <h3>읽고 기억하기</h3>
-                        <p>그림과 함께 오늘의 말씀을 읽고, 3단계 빈칸 채우기로 외워보세요. 외운 말씀은 달력에서 다시 복습할 수 있어요.</p>
+                        <h3 data-en="Read and remember">읽고 기억하기</h3>
+                        <p data-en="Read today's illustrated verse, then memorize it with a three-step fill-in-the-blank exercise. Revisit the verses you've learned in your calendar.">그림과 함께 오늘의 말씀을 읽고, 3단계 빈칸 채우기로 외워보세요. 외운 말씀은 달력에서 다시 복습할 수 있어요.</p>
                     </li>
                     <li class="feature-item">
                         <div class="icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-                        <h3>마음 기록하기</h3>
-                        <p>와닿는 단어를 고르고 감정과 묵상을 남겨요. 감사한 일이나 기도하고 싶은 마음도 나만의 QT 노트에 기록해 보세요.</p>
+                        <h3 data-en="Write what's on your heart">마음 기록하기</h3>
+                        <p data-en="Choose words that resonate, record your feelings, and reflect. Keep your gratitude and prayer requests in your own devotional journal.">와닿는 단어를 고르고 감정과 묵상을 남겨요. 감사한 일이나 기도하고 싶은 마음도 나만의 QT 노트에 기록해 보세요.</p>
                     </li>
                     <li class="feature-item">
                         <div class="icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M16 2v4M8 2v4M3 9.5h18"/><path d="M9 15.5l2 2 4-4"/></svg></div>
-                        <h3>지나온 날 돌아보기</h3>
-                        <p>달력과 통계에서 묵상 기록과 감정 일기, 연속 묵상일을 살펴보세요. Android에서는 우리 교회에 맞는 교회력과 절기도 함께 볼 수 있어요. iOS도 업데이트 예정입니다.</p>
+                        <h3 data-en="Look back on your journey">지나온 날 돌아보기</h3>
+                        <p data-en="See your reflections, mood journal, and reflection streaks in your calendar and statistics. Android also offers church calendars and seasons suited to your church, with an iOS update planned.">달력과 통계에서 묵상 기록과 감정 일기, 연속 묵상일을 살펴보세요. Android에서는 우리 교회에 맞는 교회력과 절기도 함께 볼 수 있어요. iOS도 업데이트 예정입니다.</p>
                     </li>
                     <li class="feature-item">
                         <div class="icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
-                        <h3>내 생활에 맞게 이어가기</h3>
-                        <p>원하는 시간에 말씀 알림을 받고, 홈 화면 위젯으로 하루의 말씀을 만나세요. 잠들기 전에는 다크 모드로 편안하게 읽어요.</p>
+                        <h3 data-en="Find a rhythm that fits">내 생활에 맞게 이어가기</h3>
+                        <p data-en="Set a Scripture reminder for a time that works for you, and see the day's verse on your home screen widget. Read comfortably before bed with dark mode.">원하는 시간에 말씀 알림을 받고, 홈 화면 위젯으로 하루의 말씀을 만나세요. 잠들기 전에는 다크 모드로 편안하게 읽어요.</p>
                     </li>
                 </ul>
             </div>
@@ -877,24 +913,24 @@
         <section id="screenshots">
             <div class="container">
                 <div class="section-header">
-                    <p class="section-eyebrow">미리보기</p>
-                    <h2>지금의 말씀온을 둘러보세요</h2>
-                    <p class="section-note">Android 최신 화면입니다. iOS도 같은 모습으로 업데이트할 예정이에요.</p>
+                    <p class="section-eyebrow" data-en="App preview">미리보기</p>
+                    <h2 data-en="Take a look inside BibleOn">지금의 말씀온을 둘러보세요</h2>
+                    <p class="section-note" data-en="English screenshots from the Android app and Google Play listing. Some saved artwork in these examples is Korean. An iOS update with the same design is planned.">Android 최신 화면입니다. iOS도 같은 모습으로 업데이트할 예정이에요.</p>
                 </div>
                 <div class="screenshot-gallery" id="app-previews">
-                    <img src="images/preview-01-hero.webp" alt="귀여운 그림으로 만나는 오늘의 말씀" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-02-card.webp" alt="마음에 남는 말씀을 카드로 간직하기" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-03-mosaic.webp" alt="묵상과 암송으로 완성하는 말씀 모자이크" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-04-gallery.webp" alt="달력에서 다시 보는 저장한 말씀 카드" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-05-emotion.webp" alt="단어와 감정을 선택해 남기는 묵상 노트" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-06-alarm.webp" alt="원하는 시간으로 설정하는 말씀 알림" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-07-dark.webp" alt="밤에도 편안하게 읽는 다크 모드" width="720" height="1280" loading="lazy" decoding="async">
-                    <img src="images/preview-08-more.webp" alt="말씀 카드 저장, 공유, 모자이크, 댓글과 좋아요, 감정 기록, 위젯" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-01-hero.webp" data-en-src="images/en/01-hero.webp" alt="귀여운 그림으로 만나는 오늘의 말씀" data-en-alt="Daily Scripture with warm illustrations" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-02-card.webp" data-en-src="images/en/02-card.webp" alt="마음에 남는 말씀을 카드로 간직하기" data-en-alt="Keep meaningful verses as cards" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-03-mosaic.webp" data-en-src="images/en/03-mosaic.webp" alt="묵상과 암송으로 완성하는 말씀 모자이크" data-en-alt="Complete a Scripture mosaic through reflection and memorization" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-04-gallery.webp" data-en-src="images/en/04-gallery.webp" alt="달력에서 다시 보는 저장한 말씀 카드" data-en-alt="Revisit saved verse cards in the calendar" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-05-emotion.webp" data-en-src="images/en/05-emotion.webp" alt="단어와 감정을 선택해 남기는 묵상 노트" data-en-alt="A reflection journal with words and emotions" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-06-alarm.webp" data-en-src="images/en/06-alarm.webp" alt="원하는 시간으로 설정하는 말씀 알림" data-en-alt="Scripture reminders at your chosen time" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-07-dark.webp" data-en-src="images/en/07-dark.webp" alt="밤에도 편안하게 읽는 다크 모드" data-en-alt="Dark mode for comfortable reading at night" width="720" height="1280" loading="lazy" decoding="async">
+                    <img src="images/preview-08-more.webp" data-en-src="images/en/08-more.webp" alt="말씀 카드 저장, 공유, 모자이크, 댓글과 좋아요, 감정 기록, 위젯" data-en-alt="Verse cards, sharing, mosaics, comments, likes, mood tracking, and widgets" width="720" height="1280" loading="lazy" decoding="async">
                 </div>
-                <p class="gallery-hint">옆으로 넘기며 살펴보세요</p>
+                <p class="gallery-hint" data-en="Swipe or use the arrows to explore">옆으로 넘기며 살펴보세요</p>
                 <div class="gallery-controls">
-                    <button type="button" data-gallery="app-previews" data-direction="-1" aria-controls="app-previews" aria-label="이전 앱 화면 보기">←</button>
-                    <button type="button" data-gallery="app-previews" data-direction="1" aria-controls="app-previews" aria-label="다음 앱 화면 보기">→</button>
+                    <button type="button" data-gallery="app-previews" data-direction="-1" aria-controls="app-previews" aria-label="이전 앱 화면 보기" data-en-label="Previous app screenshot">←</button>
+                    <button type="button" data-gallery="app-previews" data-direction="1" aria-controls="app-previews" aria-label="다음 앱 화면 보기" data-en-label="Next app screenshot">→</button>
                 </div>
             </div>
         </section>
@@ -902,11 +938,15 @@
         <section id="verses">
             <div class="container">
                 <div class="section-header">
-                    <p class="section-eyebrow">앱 밖에서도 함께 · SNS 말씀 영상</p>
-                    <h2>마음에 스며드는 애니메이션 말씀</h2>
-                    <p class="section-note">인스타그램과 쓰레드에 나누는 애니메이션이에요.<br>앱 안의 말씀 카드·모자이크 기능과는 별도의 SNS 콘텐츠입니다.</p>
+                    <p class="section-eyebrow" data-en="BibleOn in motion">앱 밖에서도 함께 · SNS 말씀 영상</p>
+                    <h2 data-en="A moment of grace, every day">마음에 스며드는 애니메이션 말씀</h2>
+                    <p class="section-note" data-en="An eight-second introduction to daily Scripture and reflection, with English captions.">인스타그램과 쓰레드에 나누는 애니메이션이에요.<br>앱 안의 말씀 카드·모자이크 기능과는 별도의 SNS 콘텐츠입니다.</p>
                 </div>
-                <div class="verse-gallery" id="sns-videos">
+                <div class="english-promo" data-en-only hidden>
+                    <video controls muted playsinline preload="none" poster="videos/promo-en-poster.jpg" src="videos/promo-en.mp4" width="480" height="854" aria-label="BibleOn promotional video with English captions"></video>
+                    <p class="section-note">English promotional video · Earlier app screens</p>
+                </div>
+                <div class="verse-gallery" id="sns-videos" data-ko-only>
                     <figure class="verse-card">
                         <video muted loop playsinline preload="none" poster="videos/verse-01-poster.jpg" src="videos/verse-01.mp4" aria-label="고린도전서 14장 39절 애니메이션 말씀카드"></video>
                         <button class="sound-toggle" type="button" aria-label="소리 켜기" aria-pressed="false"><svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.5 9.5 0 0 1 0 13"/></svg></button>
@@ -940,21 +980,21 @@
                         <button class="sound-toggle" type="button" aria-label="소리 켜기" aria-pressed="false"><svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor" stroke="none"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9.5 9.5 0 0 1 0 13"/></svg></button>
                     </figure>
                 </div>
-                <p class="gallery-hint">화면에 들어오면 자동으로 재생돼요 · 스피커 버튼을 누르면 소리가 나와요</p>
-                <div class="gallery-controls">
+                <p class="gallery-hint" data-ko-only>화면에 들어오면 자동으로 재생돼요 · 스피커 버튼을 누르면 소리가 나와요</p>
+                <div class="gallery-controls" data-ko-only>
                     <button type="button" data-gallery="sns-videos" data-direction="-1" aria-controls="sns-videos" aria-label="이전 SNS 영상 보기">←</button>
                     <button type="button" data-gallery="sns-videos" data-direction="1" aria-controls="sns-videos" aria-label="다음 SNS 영상 보기">→</button>
                 </div>
             </div>
         </section>
 
-        <section id="reviews">
+        <section id="reviews" data-ko-only>
             <div class="container">
                 <div class="section-header">
                     <p class="section-eyebrow">사용자 후기</p>
                     <h2>먼저 만난 분들의 이야기</h2>
                 </div>
-                <div class="reviews-grid">
+                <div class="reviews-grid" lang="ko">
                     <!-- REVIEWS:START (tools/fetch_reviews.py가 자동 생성 — 직접 수정 금지) -->
                     <div class="review-card">
                         <div class="review-header">
@@ -1061,40 +1101,40 @@
             <div class="container">
                 <div class="section-header">
                     <p class="section-eyebrow">FAQ</p>
-                    <h2>자주 묻는 질문</h2>
+                    <h2 data-en="Frequently asked questions">자주 묻는 질문</h2>
                 </div>
                 <div class="faq-list">
                     <details>
-                        <summary>말씀온은 무료인가요?</summary>
-                        <p>무료로 다운로드하여 사용할 수 있으며, 광고와 선택적 후원이 포함되어 있습니다. Android의 말씀 이미지 원본 저장에는 광고 시청이 필요할 수 있어요.</p>
+                        <summary data-en="Is BibleOn free?">말씀온은 무료인가요?</summary>
+                        <p data-en="BibleOn is free to download and use, with ads and optional support. Saving an original-resolution verse image on Android may require watching an ad.">무료로 다운로드하여 사용할 수 있으며, 광고와 선택적 후원이 포함되어 있습니다. Android의 말씀 이미지 원본 저장에는 광고 시청이 필요할 수 있어요.</p>
                     </details>
                     <details>
-                        <summary>어떤 성경을 사용하나요?</summary>
-                        <p>개역개정 성경을 기반으로 매일 말씀을 전해드립니다.</p>
+                        <summary data-en="Which Bible translation does the app use?">어떤 성경을 사용하나요?</summary>
+                        <p data-en="BibleOn offers Korean and English Scripture and illustrations, following your device's language. Korean Scripture uses 개역개정.">한국어는 개역개정 성경을 기반으로 하며, 기기 언어에 따라 한국어 또는 영어 말씀과 그림을 제공합니다.</p>
                     </details>
                     <details>
-                        <summary>아이폰에서도 사용할 수 있나요?</summary>
-                        <p>네, Google Play와 App Store에서 다운로드할 수 있습니다. 이 페이지의 미리보기는 Android 기준이며, 말씀 모자이크·저장 갤러리·교회력은 iOS도 업데이트 예정입니다.</p>
+                        <summary data-en="Is BibleOn available on iPhone?">아이폰에서도 사용할 수 있나요?</summary>
+                        <p data-en="Yes. BibleOn is available on Google Play and the App Store. The previews on this page show Android. Scripture mosaics, the saved gallery, and church calendars are planned for an iOS update.">네, Google Play와 App Store에서 다운로드할 수 있습니다. 이 페이지의 미리보기는 Android 기준이며, 말씀 모자이크·저장 갤러리·교회력은 iOS도 업데이트 예정입니다.</p>
                     </details>
                     <details>
-                        <summary>기도 노트도 앱 안에 있나요?</summary>
-                        <p>말씀온의 묵상 노트에 기도 제목이나 감사한 마음을 적을 수 있어요. Android 설정의 '기도흔적'은 별도의 앱을 여는 연결 메뉴이며, 말씀온 안에 포함된 기능은 아닙니다.</p>
+                        <summary data-en="Can I keep prayer notes in the app?">기도 노트도 앱 안에 있나요?</summary>
+                        <p data-en="You can write prayer requests and gratitude in BibleOn's reflection journal. The prayer app link in Android settings opens a separate app; it is not a built-in BibleOn feature.">말씀온의 묵상 노트에 기도 제목이나 감사한 마음을 적을 수 있어요. Android 설정의 '기도흔적'은 별도의 앱을 여는 연결 메뉴이며, 말씀온 안에 포함된 기능은 아닙니다.</p>
                     </details>
                     <details>
-                        <summary>말씀 외우기는 어떻게 하나요?</summary>
-                        <p>오늘의 말씀에서 빈칸을 채우며 3단계로 암송할 수 있어요. 외운 말씀은 달력에서 다시 복습할 수 있고, Android에서는 암송을 완료한 날 모자이크 조각도 모을 수 있습니다.</p>
+                        <summary data-en="How does verse memorization work?">말씀 외우기는 어떻게 하나요?</summary>
+                        <p data-en="Memorize today's verse in three steps by filling in the blanks. Review learned verses in your calendar. On Android, completing memorization also earns a mosaic piece for that day.">오늘의 말씀에서 빈칸을 채우며 3단계로 암송할 수 있어요. 외운 말씀은 달력에서 다시 복습할 수 있고, Android에서는 암송을 완료한 날 모자이크 조각도 모을 수 있습니다.</p>
                     </details>
                     <details>
-                        <summary>모자이크는 매일 빠짐없이 해야 하나요?</summary>
-                        <p>아니요. 묵상을 글로 저장한 날과 암송을 처음 완료한 날에 각각 한 조각씩 쌓이는 누적 방식이에요. 같은 날 반복 저장이나 복습으로 조각이 중복 지급되지는 않으며, 하루 쉬어도 처음부터 시작하지 않습니다. Android에서 먼저 제공되며 iOS도 업데이트 예정입니다.</p>
+                        <summary data-en="Do I need an unbroken streak to finish a mosaic?">모자이크는 매일 빠짐없이 해야 하나요?</summary>
+                        <p data-en="No. You earn one piece for saving a written reflection and another for first completing memorization that day. Repeated saves or reviews on the same day do not earn extra pieces. Your progress stays even if you skip a day. Available on Android first, with an iOS update planned.">아니요. 묵상을 글로 저장한 날과 암송을 처음 완료한 날에 각각 한 조각씩 쌓이는 누적 방식이에요. 같은 날 반복 저장이나 복습으로 조각이 중복 지급되지는 않으며, 하루 쉬어도 처음부터 시작하지 않습니다. Android에서 먼저 제공되며 iOS도 업데이트 예정입니다.</p>
                     </details>
                     <details>
-                        <summary>저장 갤러리에는 어떤 이미지가 보이나요?</summary>
-                        <p>Android 기기에 저장한 말씀온 이미지를 달력의 갤러리에서 모아 볼 수 있어요. 읽은 모든 말씀을 자동으로 보관하거나 클라우드에 백업하는 기능은 아닙니다. iOS도 업데이트 예정입니다.</p>
+                        <summary data-en="What appears in the saved gallery?">저장 갤러리에는 어떤 이미지가 보이나요?</summary>
+                        <p data-en="The calendar gallery shows BibleOn images saved on your Android device. It does not automatically archive every verse you read or back up images to the cloud. An iOS update is planned.">Android 기기에 저장한 말씀온 이미지를 달력의 갤러리에서 모아 볼 수 있어요. 읽은 모든 말씀을 자동으로 보관하거나 클라우드에 백업하는 기능은 아닙니다. iOS도 업데이트 예정입니다.</p>
                     </details>
                     <details>
-                        <summary>제 기록은 안전하게 보관되나요?</summary>
-                        <p><a href="https://isjang98.github.io/BibleOn/privacy/">개인정보처리방침</a>에 따라 여러분의 묵상과 기도 기록을 소중히 보호합니다.</p>
+                        <summary data-en="How are my entries protected?">제 기록은 안전하게 보관되나요?</summary>
+                        <p data-en="Your reflections and prayer entries are handled with care under our &lt;a href='https://isjang98.github.io/BibleOn/privacy/'&gt;Privacy Policy (Korean)&lt;/a&gt;."><a href="https://isjang98.github.io/BibleOn/privacy/">개인정보처리방침</a>에 따라 여러분의 묵상과 기도 기록을 소중히 보호합니다.</p>
                     </details>
                 </div>
             </div>
@@ -1112,7 +1152,7 @@
                 {
                     "@type": "Question",
                     "name": "어떤 성경을 사용하나요?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "개역개정 성경을 기반으로 매일 말씀을 전해드립니다." }
+                    "acceptedAnswer": { "@type": "Answer", "text": "한국어는 개역개정 성경을 기반으로 하며, 기기 언어에 따라 한국어 또는 영어 말씀과 그림을 제공합니다." }
                 },
                 {
                     "@type": "Question",
@@ -1150,18 +1190,18 @@
 
         <section id="closing">
             <div class="container closing-text">
-                <p class="closing-quote">말씀온, 당신의 영혼을 위한<br>가장 따뜻한 동반자</p>
-                <p>'말씀온'은 단순한 앱이 아니라, 매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요. 바쁜 하루, 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
+                <p class="closing-quote" data-en="BibleOn, a gentle companion&lt;br&gt;for your daily walk">말씀온, 당신의 영혼을 위한<br>가장 따뜻한 동반자</p>
+                <p data-en="Let BibleOn be a warm companion as you walk with God each day. In the middle of a busy day, take a moment to pause and listen for His loving voice.">'말씀온'은 단순한 앱이 아니라, 매일 하나님과 동행하는 당신의 여정을 가장 가까이에서 돕는 따뜻하고 든든한 동반자가 되어줄 거예요. 바쁜 하루, 잠시 멈춰 서서 하나님의 사랑 가득한 음성에 귀 기울여보는 건 어떤가요?</p>
             </div>
         </section>
 
         <section id="download">
             <div class="container">
                 <div class="download-panel">
-                    <h2>지금 바로 말씀온과 함께하세요</h2>
-                    <p>오늘, 말씀 한 장으로 시작해 보세요.<br>무료 다운로드 · 광고 및 선택적 후원 포함</p>
+                    <h2 data-en="Begin your day with BibleOn">지금 바로 말씀온과 함께하세요</h2>
+                    <p data-en="Start with one verse today.&lt;br&gt;Free to download · Ads and optional support">오늘, 말씀 한 장으로 시작해 보세요.<br>무료 다운로드 · 광고 및 선택적 후원 포함</p>
                     <div class="cta-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=kr.bibleon" class="cta-button cta-button--android" target="_blank" rel="noopener" aria-label="Google Play에서 말씀온 다운로드">
+                        <a href="https://play.google.com/store/apps/details?id=kr.bibleon" data-en-href="https://play.google.com/store/apps/details?id=kr.bibleon&amp;hl=en" class="cta-button cta-button--android" target="_blank" rel="noopener" aria-label="Google Play에서 말씀온 다운로드">
                             <span class="store-icon" aria-hidden="true">
                                 <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#2196F3"/>
@@ -1187,7 +1227,7 @@
                             </span>
                         </a>
                     </div>
-                    <p class="privacy-note">여러분의 기도와 묵상 기록은 <a href="https://isjang98.github.io/BibleOn/privacy/">개인정보처리방침</a>에 따라 소중히 보호됩니다.</p>
+                    <p class="privacy-note" data-en="Your prayers and reflections are handled with care under our &lt;a href='https://isjang98.github.io/BibleOn/privacy/'&gt;Privacy Policy (Korean)&lt;/a&gt;.">여러분의 기도와 묵상 기록은 <a href="https://isjang98.github.io/BibleOn/privacy/">개인정보처리방침</a>에 따라 소중히 보호됩니다.</p>
                 </div>
             </div>
         </section>
@@ -1197,13 +1237,14 @@
         <div class="container">
             <p>&copy; 2025 zidapapa(Word). All rights reserved.</p>
             <p>
-                <a href="mailto:isjang98@gmail.com">문의하기</a>
+                <a href="mailto:isjang98@gmail.com" data-en="Contact">문의하기</a>
                 |
-                <a href="https://isjang98.github.io/BibleOn/privacy/">개인정보 처리 방침</a>
+                <a href="https://isjang98.github.io/BibleOn/privacy/" data-en="Privacy Policy (Korean)">개인정보 처리 방침</a>
             </p>
         </div>
     </footer>
 
+    <script src="language.js"></script>
     <script>
     (function () {
       document.querySelectorAll('[data-gallery]').forEach(function (button) {
