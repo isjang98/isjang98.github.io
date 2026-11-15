@@ -5,7 +5,7 @@
 - Google Play 공개 리뷰를 긁어와 톤이 맞는 5★ 후기만 필터링
 - pinned_reviews.json(손으로 고른 고정 후기)을 앞에 두고, 나머지 슬롯을 최신 후기로 채움
 - index.html의 <!-- REVIEWS:START --> ~ <!-- REVIEWS:END --> 사이를 재생성
-- JSON-LD aggregateRating(평점/리뷰수)를 실제값으로 갱신
+- 화면의 평점·리뷰 수·설치 수 배지를 실제값으로 갱신
 - 스크래핑이 실패하거나 후기가 너무 적으면 아무것도 바꾸지 않음(폴백)
 
 수동 실행:  python3 tools/fetch_reviews.py
@@ -96,7 +96,12 @@ def build_cards(pinned, auto):
     return "\n".join(cards)
 
 
-def update_index(cards_html, score, rating_count, installs=None):
+def update_index(
+    cards_html: str,
+    score: str | None,
+    rating_count: str | None,
+    installs: str | None = None,
+) -> bool:
     with open(INDEX, encoding="utf-8") as f:
         doc = f.read()
     original = doc
@@ -109,18 +114,7 @@ def update_index(cards_html, score, rating_count, installs=None):
     doc = block.sub(
         lambda m: f"{m.group(1)}\n{cards_html}\n                    {m.group(2)}", doc)
 
-    # 2) JSON-LD 평점/리뷰수 갱신(aggregateRating 블록 안에서만)
-    if score is not None and rating_count is not None:
-        def fix_rating(m):
-            blk = m.group(0)
-            blk = re.sub(r'("ratingValue":\s*")[^"]*(")',
-                         rf'\g<1>{score}\g<2>', blk)
-            blk = re.sub(r'("ratingCount":\s*")[^"]*(")',
-                         rf'\g<1>{rating_count}\g<2>', blk)
-            return blk
-        doc = re.sub(r'"aggregateRating":\s*\{.*?\}', fix_rating, doc, flags=re.S)
-
-    # 3) 화면에 보이는 신뢰 배지 숫자도 갱신(data-* 앵커)
+    # 2) 외부 스토어의 지표는 화면 배지만 갱신하고 리뷰 JSON-LD로 재게시하지 않음
     if score is not None:
         doc = re.sub(r'(data-rating>)[^<]*(<)', rf'\g<1>{score}\g<2>', doc)
     if rating_count is not None:

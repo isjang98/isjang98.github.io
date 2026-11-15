@@ -1,5 +1,7 @@
 # BibleOn(말씀온) Landing — Design System
 
+배포 후 검색 등록 절차: [SEO_DEPLOYMENT_GUIDE.md](SEO_DEPLOYMENT_GUIDE.md)
+
 ## 0. Research Log
 - Redesign audit (redesign-skill): current theme = neo-brutalism (3px black borders, hard offset shadows, rainbow bento, uppercase CTA) — dated, clashes with the app's warm hand-drawn identity.
 - Embedded reference: warm-editorial parchment system (CLAUDE.md layer B) — warm cream canvas, serif display, single terracotta accent, ring/soft shadows. Chosen: brand-matches the app icon (red-orange) and in-app cream/illustration style.
@@ -58,9 +60,19 @@ Motion
 - New Android feature sections state that the corresponding iOS update is planned. Do not promise a release date, cloud storage, automatic archiving of every verse, or a consecutive 100-day requirement.
 - Left out on purpose: a release changelog, duplicated promotional captions in the hero, a donation sales section, extra decorative badges and feature-count headlines.
 - Assets: Android 1.8.1 original captures for the hero/product sections; the eight Korean store exports for the preview reel. Ship resized WebP derivatives; retain old PNG assets for existing external links.
-- Language support: Korean and English page copy, with a compact language link beside the download action. First visits follow the browser language; explicit `?lang=ko` / `?lang=en` links override the remembered choice. Keep download as the primary action.
+- Language support: Korean at `/BibleOn/`, English at `/BibleOn/en/`, with a compact language link beside the download action. Each URL always serves its own language, including without JavaScript. Legacy `?lang=ko` / `?lang=en` links connect to the corresponding static page. Keep download as the primary action.
 - Translate navigation, product descriptions, FAQ, metadata and image descriptions. English uses the actual English store exports and Android captures; hide Korean reviews and their navigation link. Privacy links identify the Korean policy.
 - Layout: keep the existing navigation row and product layouts; hide section links below 960px to leave room for the language control. Check Korean and English at 320px, 390px and 1440px, under both system color schemes.
 - English assets: `/Users/isjang98/bibleOn/BibleOn/store/listing/en/` (eight store exports and feature graphic), `store/screenshot-studio/public/screenshots/android/phone/en/` in the same app repository (home, card, gallery, mosaic), and `/Users/isjang98/Downloads/icon/bibleon_icon_en.png`. WebP derivatives live in `images/en/`. The mosaic crop retains its actual English UI, including the Korean artwork visible in the source capture.
 - English video: `/Users/isjang98/Downloads/_영상/bibleon_emotional_real_screens_english_clean_8s.mp4`, eight seconds with English captions. Preserve its audio while optimizing it for the web. Show it with native controls and note that its app screens are from an earlier version. Korean retains its eight SNS animations and sound controls.
 - The Android app selects Korean or English Scripture based on the device language (`BibleOnContentActivity.getBibleOn`); do not describe it as Korean-only or invent an English Bible translation name.
+
+## 6. Search metadata and localized build
+- The live site redirects the GitHub Pages hostname to `https://insulab.tech/`. BibleOn canonical URLs, Open Graph URLs, structured data and its sitemap use that final domain.
+- `index.html` remains the single authored source for both languages. `data-en` and `data-en-*` hold English copy and assets; `tools/build_en.py` renders `en/index.html` before publication, following this repository's existing render-and-commit pattern.
+- Both static pages carry reciprocal Korean/English/x-default links. Browser language and stored preferences never change a URL's language or canonical metadata.
+- Rebuild with `python tools/build_en.py` after editing the source. Check synchronization with `python tools/build_en.py --check`; run regression tests with `pytest tools/test_build_en.py`.
+- Local setup: `uv venv .venv --python 3.12`, then `uv pip install --python .venv/bin/python -r tools/requirements-dev.txt`. Run the commands above with `.venv/bin/python` / `.venv/bin/pytest` when the environment is not activated.
+- Keep the `language.js` URL version current when changing routing behavior so cached translation code cannot rewrite the new static pages.
+- Review refresh regenerates the English page before staging both HTML files, keeping visible rating badges synchronized. Google Play ratings remain outside review JSON-LD because they originate on another website. The SEO workflow checks the generated page and regression tests on source changes.
+- Keep existing FAQ markup aligned with the visible answers; do not promise a Google FAQ rich result. Indexing and field Core Web Vitals require external Search Console/CrUX evidence.
